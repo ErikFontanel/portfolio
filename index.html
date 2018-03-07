@@ -3,13 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Erik Gelderblom — Digital design & development</title>
-    <link href="https://fonts.googleapis.com/css?family=Marcellus|Marcellus+SC" rel="stylesheet">
     <style media="screen">
-      @font-face {
-        font-family: 'Office Code Pro Light';
-        src: url('./fonts/OfficeCodeProD-Regular.woff2') format('woff2');
-        font-style: normal;
-      }
       @font-face {
         font-family: 'IBM VGA8';
         src: url('./fonts/PxPlus_IBM_VGA8.woff') format('woff');
@@ -18,10 +12,8 @@
       * { box-sizing: border-box; }
       body {
         background-color: #111111;
-        /*font-family: 'Office Code Pro Light';
-        font-family: 'Marcellus';*/
         font-family: 'IBM VGA8';
-        color: hsl(219, 4%, 87%);
+        color: #DDD;
         font-size: 1.25rem;
         line-height: 1;
         letter-spacing: .05rem;
@@ -36,7 +28,7 @@
       }
       .wrapper {
         max-width: 48ch;
-        animation: typing steps(48) 2.5s forwards;
+        animation: typing steps(72) 2.5s forwards;
       }
 
       p { margin-top: 0; }
@@ -53,32 +45,40 @@
         content: '↓ ';
       }
 
-      a { color: hsl(219, 4%, 87%); text-decoration: none; }
-      a:hover { color: #FF4D04; }
-      a:hover { color: black; background-color: #FF4D04; }
+      a {
+        color: #DDD;
+        text-decoration: none;
+        user-select: none;
+        touch-callout: none;
+        cursor: url('./cursor.svg'), auto !important;
+      }
+
+      a:hover {
+        background-color: #FFFF55;
+        color: #FF4D04;
+        cursor: url('./cursor.svg'), auto !important;
+      }
+      a:hover {
+        color: #FF4d04;
+        background-color: #FFFF55;
+        user-select: none;
+        touch-callout: none;
+      }
 
       section {
-        position: relative;
-        border: 4px double #FF4D04;
-        padding: .5em 1em;
         margin: 1em 0;
       }
 
-      .contact {
-        border-color: #FFF;
+      #selected-work {
+        position: relative;
+        border: 4px double #FF4D04;
+        padding: .5em 1em;
       }
 
       .listheader {
         color: #FF4D04;
-        /*text-align: center;*/
         z-index: 2;
-        /*position: absolute;
-        display: inline-block;
-        padding: 0 .5em;*/
         margin: 0 auto;
-        /*top: -.0625em;*/
-        /*left: 50%;*/
-        /*transform: translate(-50%, -50%);*/
       }
 
       ul,
@@ -110,12 +110,6 @@
         cursor: url('./cursor.svg'), auto;
       }
 
-      a:hover {
-        background-color: #FFFF55;
-        color: #FF4D04;
-        cursor: url('./cursor.svg'), auto;
-      }
-
       .btn {
         color: #0200AA;
         background-color: #AAA;
@@ -144,60 +138,66 @@
           clip-path: inset(0 0 72em 0);
         }
         100% {
-          clip-path: inset(0 0em);
+          clip-path: inset(0);
         }
       }
     </style>
   </head>
   <body>
     <div class="wrapper">
-    <h4>NEW SITE COMING SOON</h4>
-    <h1>Erik Gelderblom – Portfolio</h1>
-    <p>Ever since my first encounter with a computer at 3 years old, an IBM 386, I have been fascinated. With over 10 years of experience in designing for digital media, I'm working as a freelance interactive designer and front-end developer. I specialize in digital design, front-end development and design ops.</p>
+      <h4>NEW SITE COMING SOON</h4>
+      <h1>Erik Gelderblom – Portfolio</h1>
+      <p>Ever since my first encounter with a computer at 3 years old, an IBM 386, I have been fascinated. With over 10 years of experience in designing for digital media, I'm working as a freelance interactive designer and front-end developer. I specialize in digital design, front-end development and design ops.</p>
 
-    <section id="selected-work">
-    <h2 class="listheader">Currently booking new projects</h2>
-    <p>Time available in Q2/3. Open to long term projects too. Especially interested in multi-disciplinary projects in music and fashion.</p>
-      <h3>Get in touch</h3>
-      <ol class="contact">
-        <li><a class="btn" href="mailto:hello@erikgelderblom.com">Email</a></li>
-        <li><a class="btn" href="https://twitter.com/erikgelderblom">Twttr</a></li>
-        <li><a class="btn" href="https://www.linkedin.com/in/erikgelderblom/">LnkdIn</a></li>
-        <li><a class="btn" href="https://github.com/erikfontanel">Github</a></li>
-      </ol>
-    </section>
+      <section id="contact">
+        <h2 class="listheader">Currently booking new projects</h2>
+        <p>Time available in Q2/3. Open to long term projects too. Especially interested in multi-disciplinary projects in music and fashion.</p>
+          <h3>Get in touch</h3>
+          <ol class="contact">
+            <li><a class="btn" href="mailto:hello@erikgelderblom.com">Email</a></li>
+            <li><a class="btn" href="https://twitter.com/erikgelderblom">Twttr</a></li>
+            <li><a class="btn" href="https://www.linkedin.com/in/erikgelderblom/">LnkdIn</a></li>
+            <li><a class="btn" href="https://github.com/erikfontanel">Github</a></li>
+          </ol>
+      </section>
 
-    <h3 class="listheader">Selected works</h3>
-    <ol>
-      <li><a href="https://matter.international/" target="_blank">Matter</a></li>
-      <li><a href="http://aceandtate.com" target="_blank">Ace & Tate</a></li>
-      <li><a href="http://aceandtate.com/lernert-sander" target="_blank">Lernert & Sander + Ace & Tate</a></li>
-      <li><a href="http://letitgrow.org" target="_blank">Let it grow</a></li>
-      <li><a href="http://theboyscouts.com" target="_blank">The Boyscouts</a></li>
-      <li><a href="http://fontanel.nl" target="_blank">Fontanel</a></li>
-      <li><a href="http//tis.tv" target="_blank">TIS.tv</a></li>
-      <li><a href="http://rotterdam.info" target="_blank">Rotterdam.info</a></li>
-      <li><a href="http://www.shareaporsche.nl" target="_blank">Porsche</a></li>
-      <li><a href="http://www.itshbo.nl/" target="_blank">HBO</a></li>
-    </ol>
+      <section id="selected-work">
+        <h3 class="listheader">Selected works</h3>
+        <ol>
+          <li><a href="https://matter.international/" target="_blank">Matter</a></li>
+          <li><a href="http://aceandtate.com" target="_blank">Ace & Tate</a></li>
+          <li><a href="http://aceandtate.com/lernert-sander" target="_blank">Lernert & Sander + Ace & Tate</a></li>
+          <li><a href="http://letitgrow.org" target="_blank">Let it grow</a></li>
+          <li><a href="http://theboyscouts.com" target="_blank">The Boyscouts</a></li>
+          <li><a href="http://fontanel.nl" target="_blank">Fontanel</a></li>
+          <li><a href="http//tis.tv" target="_blank">TIS.tv</a></li>
+          <li><a href="http://rotterdam.info" target="_blank">Rotterdam.info</a></li>
+          <li><a href="http://www.shareaporsche.nl" target="_blank">Porsche</a></li>
+          <li><a href="http://www.itshbo.nl/" target="_blank">HBO</a></li>
+        </ol>
+      </section>
 
-    <h3 class="listheader">Selected Clients</h3>
-    <p>Ace & Tate, HBO, Vitra, Philips, Studio Dumbar, Tam Tam, Fabrique, Vandejong, Fronteer Strategy, Next Economy, Blocklab, Argos, Team Argos-Shimano, Het Spoorwegmuseum, De Consumentenbond, D-reizen, Heineken, The Red Cross, The Graphic Design Festival, Artsen Zonder Grenzen, Blend Magazine, Delta Lloyd Group, Hogeschool Rotterdam, Waternet.</p>
+      <section id="client">
+        <h3 class="listheader">Selected Clients</h3>
+        <p>Ace & Tate, HBO, Vitra, Philips, Studio Dumbar, Tam Tam, Fabrique, Vandejong, Fronteer Strategy, Next Economy, Blocklab, Argos, Team Argos-Shimano, Het Spoorwegmuseum, De Consumentenbond, D-reizen, Heineken, The Red Cross, The Graphic Design Festival, Artsen Zonder Grenzen, Blend Magazine, Delta Lloyd Group, Hogeschool Rotterdam, Waternet.</p>
+      </section>
 
-   <h3 class="listheader">Friends</h3>
-   <ul>
-     <li><a target="_blank" href="http://marcvermeeren.com">Marc Vermeeren</a></li>
-     <li><a target="_blank" href="http://niekdekker.com">Niek Dekker</a></li>
-     <li><a target="_blank" href="http://studiospass.com">StudioSpass</a></li>
-     <li><a target="_blank" href="http://joachimbaan.com">Joachim Baan</a></li>
-     <li><a target="_blank" href="http://pieter-de-jong.nl/">Pieter de Jong</a></li>
-     <li><a target="_blank" href="http://daniel.pizza">Daniël van der Winden</a></li>
-     <li><a target="_blank" href="https://frederiquematti.com/">Frederique Matti</a></li>
-     <li><a target="_blank" href="http://zwartekoffie.com">Timo Kuilder</a></li>
-     <li>The Huge Network</li>
-     <li><a target="_blank" href="http://homerun.hr">Thomas Moes</a></li>
-     <li><a target="_blank" href="http://willemvanroosmalen.com">Willem van Roosmalen</a></li>
-   </ul>
+      <section id="friends">
+       <h3 class="listheader">Friends</h3>
+       <ul>
+         <li><a target="_blank" href="http://marcvermeeren.com">Marc Vermeeren</a></li>
+         <li><a target="_blank" href="http://niekdekker.com">Niek Dekker</a></li>
+         <li><a target="_blank" href="http://studiospass.com">StudioSpass</a></li>
+         <li><a target="_blank" href="http://joachimbaan.com">Joachim Baan</a></li>
+         <li><a target="_blank" href="http://pieter-de-jong.nl/">Pieter de Jong</a></li>
+         <li><a target="_blank" href="http://daniel.pizza">Daniël van der Winden</a></li>
+         <li><a target="_blank" href="https://frederiquematti.com/">Frederique Matti</a></li>
+         <li><a target="_blank" href="http://zwartekoffie.com">Timo Kuilder</a></li>
+         <li>The Huge Network</li>
+         <li><a target="_blank" href="http://homerun.hr">Thomas Moes</a></li>
+         <li><a target="_blank" href="http://willemvanroosmalen.com">Willem van Roosmalen</a></li>
+       </ul>
+     </section>
    </div>
   </body>
 </html>
