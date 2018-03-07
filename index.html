@@ -2,14 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Erik Gelderblom — Digital design & development</title>
+
     <style media="screen">
       @font-face {
         font-family: 'IBM VGA8';
         src: url('./fonts/PxPlus_IBM_VGA8.woff') format('woff');
         font-style: normal;
       }
+
       * { box-sizing: border-box; }
+
+      html {
+        height: 100%;
+      }
+
       body {
         background-color: #111111;
         font-family: 'IBM VGA8';
@@ -17,17 +25,25 @@
         font-size: 1.25rem;
         line-height: 1;
         letter-spacing: .05rem;
-        padding: 2rem;
         margin: 0;
         cursor: url('./cursor.svg'), auto !important;
+        display: flex;
+        flex-flow: row wrap;
+        min-height: 100%;
       }
+
       ::selection {
         background-color: #FF4D04;
         background-color: #FAA;
         color: white;
       }
+
       .wrapper {
-        max-width: 48ch;
+        flex: 1 1 33%;
+        padding: 2rem;
+        min-width: 32ch;
+        max-width: calc(48ch + 2rem);
+        clip-path: inset(0 72em 0 0);
         animation: typing steps(72) 2.5s forwards;
       }
 
@@ -130,6 +146,9 @@
       .contact li::before {
         content: counter(list);
       }
+      canvas {
+        flex: 1 1 50vw;
+      }
       @keyframes blink {
         50% { opacity: 0 }
       }
@@ -138,7 +157,14 @@
           clip-path: inset(0 0 72em 0);
         }
         100% {
-          clip-path: inset(0);
+          clip-path: inset(0 0 0 0);
+        }
+      }
+      @media (max-width: 80ch) {
+        canvas {
+          display: none;
+          order: -1;
+          height: 80vh;
         }
       }
     </style>
@@ -164,7 +190,7 @@
       <section id="selected-work">
         <h3 class="listheader">Selected works</h3>
         <ol>
-          <li><a href="https://matter.international/" target="_blank">Matter</a></li>
+          <!-- <li><a href="https://matter.international/" target="_blank">Matter</a></li> -->
           <li><a href="http://aceandtate.com" target="_blank">Ace & Tate</a></li>
           <li><a href="http://aceandtate.com/lernert-sander" target="_blank">Lernert & Sander + Ace & Tate</a></li>
           <li><a href="http://letitgrow.org" target="_blank">Let it grow</a></li>
@@ -199,5 +225,7 @@
        </ul>
      </section>
    </div>
+   <!-- <canvas></canvas> -->
+   <!-- <script type="text/javascript" defer src="https://unpkg.com/three@0.90.0/build/three.js"></script> -->
   </body>
 </html>
