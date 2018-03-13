@@ -63,7 +63,6 @@ function onWindowResize(event) {
   camera.updateProjectionMatrix();
   camera.lookAt(scene.position);
 
-  console.log(isMobile);
   const rWidth = isMobile
     ? window.innerWidth
     : window.innerWidth - wrapperWidth;
@@ -92,7 +91,7 @@ const getFocusIndex = () => {
 
 const isInContactNav = el => [...contactNav].includes(el);
 
-function setFocus(keyCode) {
+function getFocusTarget(keyCode) {
   const totalItems = contactNav.length - 1;
   const currFocus = isInContactNav(document.activeElement)
     ? getFocusIndex()
@@ -106,12 +105,10 @@ function setFocus(keyCode) {
   }
 
   if (keyCode === 39) {
-    console.log(currFocus);
     shouldRepeat = currFocus >= totalItems;
     nextFocus = shouldRepeat ? 0 : currFocus + 1;
   }
 
-  console.log(currFocus);
   return contactNav[nextFocus];
 }
 
@@ -141,14 +138,13 @@ window.addEventListener('keydown', e => {
 
     // Left arrow
     case 37:
-      target = setFocus(e.keyCode);
+      target = getFocusTarget(e.keyCode);
       target.focus();
       break;
 
     // Right arrow
     case 39:
-      console.log(contactNav[1]);
-      target = setFocus(e.keyCode);
+      target = getFocusTarget(e.keyCode);
       target.focus();
       break;
 
