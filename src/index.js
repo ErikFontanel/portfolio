@@ -56,6 +56,7 @@ const windowHeight = window.innerHeight;
 function onWindowResize(event) {
   const isMobile = window.matchMedia('(max-width: 80ch)').matches;
   const wrapperWidth = wrapper.getBoundingClientRect().width;
+
   camera.aspect = window.aspect = window.innerWidth / window.innerHeight;
   camera.fov =
     360 / Math.PI * Math.atan(tanFOV * (window.innerHeight / windowHeight));
