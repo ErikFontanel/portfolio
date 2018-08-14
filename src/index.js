@@ -14,7 +14,7 @@ scene.background = new THREE.Color(
 );
 
 const camera = new THREE.PerspectiveCamera(
-  30,
+  40,
   getAspect(canvasWidth, canvasHeight),
   1,
   1000
@@ -63,18 +63,15 @@ function onWindowResize(event) {
       ? window.innerWidth - wrapper.clientWidth
       : window.innerWidth;
     const parentHeight = isTwoCol
-      ? window.innerHeight * 0.75
-      : window.innerHeight;
+      ? window.innerHeight
+      : window.innerHeight * 0.75;
 
     camera.aspect = getAspect(wrapperWidth, parentHeight);
-    camera.fov =
-      (360 / Math.PI) * Math.atan(tanFOV * (parentHeight / window.innerHeight));
 
     camera.updateProjectionMatrix();
     camera.lookAt(scene.position);
 
-    renderer.setSize(wrapperWidth, canvas.parentElement.clientHeight);
-
+    renderer.setSize(wrapperWidth, parentHeight);
     renderer.render(scene, camera);
   });
 }
