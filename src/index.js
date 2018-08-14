@@ -1,10 +1,12 @@
 /* globals THREE */
 
 const canvas = document.querySelector('canvas');
-const canvasWidth = canvas.getBoundingClientRect().width;
-const canvasHeight = canvas.getBoundingClientRect().height;
+const canvasWidth = canvas.parentElement.clientWidth;
+const canvasHeight = canvas.parentElement.clientHeight;
 
 const wrapper = document.querySelector('.wrapper');
+
+const getAspect = (x, y) => Math.min(x, y) / Math.max(x, y);
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(
@@ -13,7 +15,7 @@ scene.background = new THREE.Color(
 
 const camera = new THREE.PerspectiveCamera(
   30,
-  canvasWidth / canvasHeight,
+  getAspect(canvasWidth, canvasHeight),
   1,
   1000
 );
@@ -23,6 +25,7 @@ camera.lookAt(scene.position);
 
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(canvasWidth, canvasHeight);
 
 // material
@@ -50,31 +53,33 @@ function animate() {
 
 animate();
 
-const tanFOV = Math.tan(Math.PI / 180 * camera.fov / 2);
 const windowHeight = window.innerHeight;
+const tanFOV = Math.tan(((Math.PI / 180) * camera.fov) / 2);
 
 function onWindowResize(event) {
-  const isMobile = window.matchMedia('(max-width: 80ch)').matches;
-  const wrapperWidth = wrapper.getBoundingClientRect().width;
+  requestAnimationFrame(() => {
+    const isTwoCol = window.matchMedia('(min-width: 96ch)').matches;
+    const wrapperWidth = isTwoCol
+      ? window.innerWidth - wrapper.clientWidth
+      : window.innerWidth;
+    const parentHeight = isTwoCol
+      ? window.innerHeight * 0.75
+      : window.innerHeight;
 
-  camera.aspect = window.aspect = window.innerWidth / window.innerHeight;
-  camera.fov =
-    360 / Math.PI * Math.atan(tanFOV * (window.innerHeight / windowHeight));
+    camera.aspect = getAspect(wrapperWidth, parentHeight);
+    camera.fov =
+      (360 / Math.PI) * Math.atan(tanFOV * (parentHeight / window.innerHeight));
 
-  camera.updateProjectionMatrix();
-  camera.lookAt(scene.position);
+    camera.updateProjectionMatrix();
+    camera.lookAt(scene.position);
 
-  const rWidth = isMobile
-    ? window.innerWidth
-    : window.innerWidth - wrapperWidth;
-  const rHeight = isMobile ? window.innerHeight / 2 : window.innerHeight;
+    renderer.setSize(wrapperWidth, canvas.parentElement.clientHeight);
 
-  renderer.setSize(rWidth, rHeight);
-
-  renderer.render(scene, camera);
+    renderer.render(scene, camera);
+  });
 }
 
-window.addEventListener('resize', onWindowResize);
+window.addEventListener('resize', onWindowResize, false);
 
 /**
  * Minimal Keyboard navigation
