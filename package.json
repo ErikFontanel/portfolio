@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build --no-content-hash --no-source-maps --no-cache index.html"
+    "build": "parcel build --no-content-hash --no-source-maps --no-cache index.html && cp CNAME dist/CNAME"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,6 @@
   },
   "homepage": "https://github.com/ErikFontanel/portfolio-temp#readme",
   "staticPath": [
-    "content",
-    "./CNAME"
+    "content"
   ]
 }
