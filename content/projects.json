@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Ace & Tate",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "url": "https://aceandtate.com",
+    "path": "ace-and-tate",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "Lernert & Sander × Ace & Tate",
+    "images": ["ls1.png", "ls2.png", "ls3.png"],
+    "description": "This is the project description",
+    "url": "https://aceandtate.com/lernert-sander",
+    "path": "lernert-sander-ace-and-tate",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "Let It Grow",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "let-it-grow",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "Porsche",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "porsche",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "HBO",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "hbo",
+    "url": "http://itshbo.nl",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "TIS.tv",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "tis-tv",
+    "url": "http://tis.tv",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "Rotterdam.info",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "rotterdam-info",
+    "url": "http://rotterdam.info",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "The Boyscouts",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "boyscouts",
+    "url": "http://theboyscouts.com",
+    "services": ["UX Design", "Visual design", "Concept"]
+  },
+  {
+    "title": "BKB",
+    "images": ["at1.png", "at2.png", "at3.png"],
+    "description": "This is the project description",
+    "path": "bkb",
+    "url": "http://bkb.nl",
+    "services": ["UX Design", "Visual design", "Concept"]
+  }
+]
