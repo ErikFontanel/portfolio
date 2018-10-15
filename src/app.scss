@@ -219,6 +219,16 @@
   padding-top: 8rem;
 }
 
+.project-gallery {
+  background-color: #f1f1f1;
+  padding: 2rem;
+  img {
+      display: block;
+      width: 100%;
+      height: auto;
+  }
+}
+
 @media (min-width: 96ch) {
   .project {
     grid-template-columns: minmax(24ch, 32ch) 1fr;
@@ -234,11 +244,5 @@
   
   .project-gallery {
     grid-column: auto / -1;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
   }
 }
