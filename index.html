@@ -2,8 +2,9 @@
 <html>
 
 <head prefix="og: http://ogp.me/ns#">
-  <meta charset=" utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="src/app.scss">
   <title>Erik Gelderblom – Freelance UX Designer with Front-End skills</title>
   <!-- Search Engine -->
   <meta name="description" content="Freelance UX Designer with Front-End skills from Rotterdam, The Netherlands with over 10 years of experience.">
@@ -31,212 +32,6 @@
   <meta property="og:profile:last_name" content="Gelderblom">
   <meta property="og:profile:username" content="erikgelderblom">
   <meta property="og:website" content="https://erikgelderblom.com">
-
-  <style media="screen">
-    :root {
-    --red: #FF4D04;
-  }
-  @font-face {
-    font-family: 'IBM VGA8';
-    src: url('./fonts/PxPlus_IBM_VGA8.woff') format('woff');
-    font-style: normal;
-  }
-
-  * { box-sizing: border-box; }
-
-  html {
-    height: 100%;
-  }
-
-  body {
-    background-color: #111111;
-    font-family: 'IBM VGA8';
-    color: #DDD;
-    font-size: 1.25rem;
-    line-height: 1;
-    letter-spacing: .05rem;
-    margin: 0;
-    cursor: url('./cursor.svg'), auto !important;
-    display: grid;
-    grid-template-rows: 75vh 1fr;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    grid-gap: 2rem;
-    padding: 0 2rem 2rem;
-  }
-
-  ::selection {
-    background-color: var(--red);
-    background-color: #FAA;
-    color: white;
-  }
-
-  .wrapper {
-    max-width: 48ch;
-    clip-path: inset(0 72em 0 0);
-    animation: typing steps(72) 2.5s forwards;
-  }
-
-  p { margin-top: 0; }
-
-  h1,h2,h3, h4 {
-    font-size: 1em;
-    margin: 0;
-    font-weight: normal;
-  }
-
-  h1 + p {
-    margin-top: 1em;
-  }
-
-  h2::before,
-  h3::before {
-    content: '↓ ';
-  }
-
-  blockquote {
-    margin: 1em 0;
-    color: var(--red);
-  }
-
-  a {
-    color: #DDD;
-    text-decoration: none;
-    user-select: none;
-    touch-callout: none;
-    cursor: url('./cursor.svg'), auto !important;
-  }
-
-  a:hover {
-    background-color: #FFFF55;
-    color: var(--red);
-    cursor: url('./cursor.svg'), auto !important;
-  }
-
-  a:hover {
-    color: var(--red);
-    background-color: #FFFF55;
-    user-select: none;
-    touch-callout: none;
-  }
-
-  section {
-    margin: 1em 0;
-  }
-
-  #contact {
-    position: relative;
-    border: 4px double var(--red);
-    padding: .5em 1em;
-  }
-
-  .listheader {
-    color: var(--red);
-    z-index: 2;
-    margin: 0 auto;
-  }
-
-  ul,
-  ol {
-    padding: 0;
-    margin: 0;
-  }
-
-  ol {
-    counter-reset: list;
-  }
-
-  li {
-    list-style: none;
-    margin: 0.0625em 0;
-  }
-
-  ol li {
-    color: var(--red);
-  }
-
-  ol li::before {
-    counter-increment: list;
-  }
-
-  ul li a,
-  ol li a {
-    text-transform: uppercase;
-    cursor: url('./cursor.svg'), auto;
-  }
-
-  .btn {
-    color: #0200AA;
-    background-color: #AAA;
-  }
-
-  .collaborate {
-    color: #5555ff;
-    animation: blink steps(1) 1.2s reverse infinite;
-  }
-
-  .contact li {
-    display: inline-block;
-  }
-
-  .contact li a {
-    display: inline-block;
-    width: 6.5ch;
-  }
-
-  .contact li::before {
-    content: counter(list);
-  }
-
-  .object {
-    position: relative;
-    grid-row: 1 / 1;
-    margin: 0 -2rem;  
-  }
-
-  canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0 }
-  }
-
-  @keyframes typing {
-    0% {
-      clip-path: inset(0 0 72em 0);
-    }
-    100% {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-
-  @media (min-width: 96ch) {
-    body {
-      padding: 2rem;
-      grid-template-columns: minmax(32ch, 48ch) 2fr;
-      grid-template-rows: calc(100vh - 4rem) auto;
-    }
-
-    .wrapper {
-      grid-row: 1 / -1;
-    }
-
-    .object {
-      grid-row: 1 / -1;
-    }
-
-    canvas {
-      height: 100%;
-      max-height: 100vh;
-      position: sticky;
-      top: 0;
-      right: 0;
-    }
-  }
-  #friends { display: none; }
-  </style>
 </head>
 
 <body>
@@ -247,13 +42,18 @@
       <p>"Our technology forces us to live mythically."</p>
     </blockquote>
 
-    <p>I'm for hire as a freelance UX Designer with Front-End skills. I have over 10 years of experience creating digital experiences for brands like Ace &amp; Tate, HBO, Philips and Hogeschool Rotterdam.</p>
+    <p>I'm for hire as a freelance UX Designer with Front-End skills. I have over 10 years of experience creating
+      digital experiences for brands like Ace &amp; Tate, HBO, Philips and Hogeschool Rotterdam.</p>
     <p>My ideal project is in a team where I can fulfil an architect like role, being the translator between the
       designers intent, the underlying technical implications for developers and the client/business goals.</p>
-    <p>I'm a front-end developer too. I am specialised in creating a responsive and performant experience using HTML, SCSS and Javascript. I'm knowledgeable about back-end development, using a linux shell, server- and database architecture too.</p>
-    <p>I founded <a href="http://fontanel.nl" target="_blank">Fontanel</a>, supporting Dutch creative careers through exclusive magazine content, a job board, an active community and collaborations with brands ranging between Adobe, Habbekrats and Vitra.</p>
+    <p>I'm a front-end developer too. I am specialised in creating a responsive and performant experience using HTML,
+      SCSS and Javascript. I'm knowledgeable about back-end development, using a linux shell, server- and database
+      architecture too.</p>
+    <p>I founded <a href="http://fontanel.nl" target="_blank">Fontanel</a>, supporting Dutch creative careers through
+      exclusive magazine content, a job board, an active community and collaborations with brands ranging between
+      Adobe, Habbekrats and Vitra.</p>
     <p>Full portfolio coming soon. Until then I'm happy to provide more information on request.</p>
-    
+
     <section id="contact">
       <h2 class="listheader collaborate">Booking new projects for Q4</h2>
       <p>Especially interested in multi-disciplinary projects where technology and design intersect.</p>
@@ -267,41 +67,15 @@
     </section>
 
     <section id="selected-work">
-      <h3 class="listheader">Selected works</h3>
-      <ol>
-        <li><a href="https://erikfontanel.github.io/matter/" target="_blank">Matter Prelaunch</a></li>
-        <li><a href="https://aceandtate.com" target="_blank">Ace &amp; Tate</a></li>
-        <li><a href="https://aceandtate.com/lernert-sander" target="_blank">Lernert &amp; Sander + Ace &amp; Tate</a></li>
-        <li><a href="https://letitgrow.org" target="_blank">Let it grow</a></li>
-        <li><a href="https://theboyscouts.com" target="_blank">The Boyscouts</a></li>
-        <li><a href="http://fontanel.nl" target="_blank">Fontanel</a></li>
-        <li><a href="https://tis.tv" target="_blank">TIS.tv</a></li>
-        <li><a href="https://rotterdam.info" target="_blank">Rotterdam.info</a></li>
-        <li><a href="http://www.shareaporsche.nl" target="_blank">Porsche</a></li>
-        <li><a href="http://www.itshbo.nl/" target="_blank">HBO</a></li>
-      </ol>
-    </section>
-
-    <section id="friends">
-      <h3 class="listheader">Friends</h3>
-      <ul>
-        <li><a target="_blank" href="http://marcvermeeren.com">Marc Vermeeren</a></li>
-        <li><a target="_blank" href="http://niekdekker.com">Niek Dekker</a></li>
-        <li><a target="_blank" href="http://studiospass.com">StudioSpass</a></li>
-        <li><a target="_blank" href="http://joachimbaan.com">Joachim Baan</a></li>
-        <li><a target="_blank" href="http://pieter-de-jong.nl/">Pieter de Jong</a></li>
-        <li><a target="_blank" href="http://daniel.pizza">Daniël van der Winden</a></li>
-        <li><a target="_blank" href="https://frederiquematti.com/">Frederique Matti</a></li>
-        <li><a target="_blank" href="http://zwartekoffie.com">Timo Kuilder</a></li>
-        <li><a target="_blank" href="http://homerun.hr">Thomas Moes</a></li>
-        <li><a target="_blank" href="http://fontanel.nl">Fontanel</a></li>
-        <li>The Huge Network</li>
-      </ul>
+      <h3 class="listheader">Selected work</h3>
     </section>
   </div>
   <div class="object"><canvas></canvas></div>
+  <div class="projects">
+
+  </div>
   <script type="text/javascript" defer src="https://unpkg.com/three/build/three.min.js"></script>
-  <script type="text/javascript" defer src="./src/index.js"></script>
+  <script type="text/javascript" defer src="./src/app.js"></script>
 
   <!-- I'm sorry -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1"></script>
