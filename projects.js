@@ -20,7 +20,7 @@ export default [
   },
   {
     title: 'Lernert & Sander × Ace & Tate',
-    images: ['aceandtate/ls1.png'],
+    images: ['ls/ls1.png'],
     description:
       'Design legends Lernert & Sander collaborated with Ace & Tate for a unique limited edition pair of glasses. The campaign website was awarded with a FWA.',
     url: 'https://aceandtate.com/lernert-sander',
@@ -51,7 +51,7 @@ export default [
   },
   {
     title: 'The Boyscouts',
-    images: ['at1.png', 'at2.png', 'at3.png'],
+    images: ['boyscouts/bs1.png'],
     description:
       'The Boyscouts offers boutique, affordable jewelry. I redesigned and built their e-commerce platform (based on Shopify).',
     path: 'boyscouts',
@@ -122,8 +122,7 @@ export default [
       'fontanel/fontanel1.png',
       'fontanel/fontanel2.png',
       'fontanel/fontanel3.png',
-      'fontanel/fontanel4.png',
-      'fontanel/fontanel5.png'
+      'fontanel/fontanel4.png'
     ],
     date: '2006 - 2014',
     services: ['Founder', 'UX Design', 'Editor', 'Janitor']
