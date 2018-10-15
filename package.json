@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build --no-content-hash --no-source-maps --no-cache index.html && cp CNAME dist/CNAME"
+    "build": "parcel build index.html --no-content-hash --no-source-maps --no-cache --bundle-node-modules && cp CNAME dist/CNAME"
   },
   "repository": {
     "type": "git",
