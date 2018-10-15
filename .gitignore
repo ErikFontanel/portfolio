@@ -1,4 +1,5 @@
 /.gtm/
 .cache
 .vscode
-dist
+!dist
+dist/**/*.*
