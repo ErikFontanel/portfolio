@@ -1,3 +1,4 @@
 /.gtm/
 .cache
 .vscode
+dist
