@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/ErikFontanel/portfolio-temp#readme",
   "staticPath": [
-    "content"
+    "content",
+    "./CNAME"
   ]
 }
