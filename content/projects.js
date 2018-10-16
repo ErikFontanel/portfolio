@@ -10,7 +10,15 @@ export default [
   },
   {
     title: 'Ace & Tate',
-    images: ['aceandtate/at1.png', 'aceandtate/at2.png', 'aceandtate/at3.png'],
+    images: [
+      'aceandtate/at1.png',
+      'aceandtate/at2.png',
+      'aceandtate/at3.png',
+      'aceandtate/at4.png',
+      'aceandtate/at5a.png'
+      'aceandtate/at5b.png'
+      'aceandtate/at5c.png'
+    ],
     description:
       'For fast growing Dutch start-up Ace & Tate I was asked to create a completely new concept and redesign of the Ace & Tate e-commerce platform.',
     url: 'https://aceandtate.com',
@@ -30,7 +38,11 @@ export default [
   },
   {
     title: 'Let It Grow',
-    images: ['letitgrow/lig1.png', 'letitgrow/lig2.png', 'letitgrow/lig3.png'],
+    images: ['letitgrow/lig1.png',
+      'letitgrow/lig2a.png',
+      'letitgrow/lig2b.png',
+      'letitgrow/lig2c.png',
+      'letitgrow/lig3.png'],
     description:
       'For green start-up incubator I designed their online magazine and start-up directory.',
     path: 'let-it-grow',
@@ -41,7 +53,11 @@ export default [
   },
   {
     title: 'Porsche',
-    images: ['porsche/porsche1.png', 'porsche/porsche2.png'],
+    images: [
+      'porsche/porsche1a.png',
+      'porsche/porsche1b.png',
+      'porsche/porsche1c.png',
+      'porsche/porsche2.png'],
     description:
       'Ever dreamed of owning a Porsche? But not enough cash yet?Maybe some friends share the same dream. I created the UX design for mobile app and marketing website.',
     path: 'porsche',
@@ -71,23 +87,12 @@ export default [
     services: ['UX Design', 'Visual design', 'Concept']
   },
   {
-    title: 'BKB',
-    images: ['bkb/bkb1.png'],
-    description: 'New portfolio for campaign bureau BKB.',
-    path: 'bkb',
-    url: 'http://bkb.nl',
-    date: '2016',
-    collaboration: 'Festina',
-    services: ['UX Design', 'Visual design', 'Concept']
-  },
-  {
     title: 'Rotterdam.info',
     images: [
       'rotterdam/rotterdam1.png',
       'rotterdam/rotterdam2.png',
       'rotterdam/rotterdam3.png',
-      'rotterdam/rotterdam4.png',
-      'rotterdam/rotterdam5.png'
+      'rotterdam/rotterdam4.png'
     ],
     description:
       "Rotterdam.info is the place to go if you want to know what's on in Rotterdam. When Rotterdam Partners got a new identity by Studio Dumbar, I redesigned their online presence.",
