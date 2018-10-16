@@ -35,7 +35,8 @@ body {
   display: grid;
   grid-template-rows: 75vh 1fr;
   grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
+  grid-template-columns: 100%;
   grid-gap: 2rem;
   padding: 0 2rem 2rem;
 }
@@ -227,14 +228,14 @@ canvas {
 
 .project {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   border-top: 6px double #333;
   padding-top: 8rem;
 }
 
 .project-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 100%;
   grid-gap: 2rem;
   width: 100%;
   overflow: hidden;
@@ -248,10 +249,11 @@ canvas {
     padding: 1rem;
     border-radius: 0.5rem;
     max-width: 100%;
+    width: auto;
   }
 
   .desktop {
-    grid-column: 1 / -1;
+    grid-column: 1 / span 3;
   }
 
   .mobile {
@@ -284,5 +286,6 @@ canvas {
 
   .project-gallery {
     grid-column: auto / -1;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
