@@ -228,14 +228,16 @@ canvas {
 .project {
   display: grid;
   grid-template-columns: 1fr;
-  border-top: 4px double #333;
+  border-top: 6px double #333;
   padding-top: 8rem;
 }
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;
+  width: 100%;
+  overflow: hidden;
 
   figure {
     display: inline-flex;
@@ -243,7 +245,16 @@ canvas {
     justify-content: center;
     border: 2px solid #333;
     padding: 1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
+    max-width: 100%;
+  }
+
+  .desktop {
+    grid-column: 1 / -1;
+  }
+
+  .mobile {
+    grid-column: auto / span 1;
   }
 
   img {
