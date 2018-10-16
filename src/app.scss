@@ -233,10 +233,9 @@ canvas {
 }
 
 .project-gallery {
-  background-color: #f1f1f1;
-  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  grid-gap: 2rem;
 
   figure {
     display: inline-flex;
@@ -244,8 +243,7 @@ canvas {
     justify-content: center;
     border: 2px solid #333;
     padding: 1rem;
-    border-radius: 0.25rem
-    width: ;
+    border-radius: 0.25rem;
   }
 
   img {
