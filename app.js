@@ -9,7 +9,7 @@ const $ = selector => document.querySelector(selector);
 const getGallery = urls => {
   if (urls.length > 0) {
     const htmlstring = urls.map(url => {
-      return `<img src="/${url}"/>`;
+      return `<figure><img src="/${url}"/></figure>`;
     });
     return htmlstring.join('');
   }
