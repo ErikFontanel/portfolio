@@ -238,6 +238,7 @@ canvas {
   grid-gap: 2rem;
   width: 100%;
   overflow: hidden;
+  position: relative;
 
   figure {
     display: inline-flex;
@@ -270,11 +271,14 @@ canvas {
     grid-gap: 2rem;
     align-content: start;
     margin-bottom: 8rem;
+    position: relative;
   }
 
   .project-info {
     grid-column: 1 / span 1;
     position: sticky;
+    top: 2rem;
+    height: auto;
   }
 
   .project-gallery {
