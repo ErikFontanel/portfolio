@@ -46,7 +46,7 @@ export default [
       'letitgrow/lig3.png'
     ],
     description:
-      'For green start-up incubator I designed their online magazine and start-up directory.',
+      'For green start-up incubator Let It Grow I designed their online magazine and start-up directory.',
     path: 'let-it-grow',
     url: 'https://letitgrow.org/',
     date: '2016',
