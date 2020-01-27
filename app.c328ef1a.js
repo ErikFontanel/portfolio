@@ -271,10 +271,10 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 /* globals THREE */
-var canvas = document.querySelector('canvas');
+var canvas = document.querySelector("canvas");
 var canvasWidth = canvas.parentElement.clientWidth;
 var canvasHeight = canvas.parentElement.clientHeight;
-var wrapper = document.querySelector('.wrapper');
+var wrapper = document.querySelector(".wrapper");
 
 var getAspect = function getAspect(x, y) {
   return Math.min(x, y) / Math.max(x, y);
@@ -289,12 +289,15 @@ var renderer = new THREE.WebGLRenderer({
   canvas: canvas
 });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(canvasWidth, canvasHeight); // material
+camera.aspect = getAspect(canvasWidth, canvasHeight);
+camera.updateProjectionMatrix();
+renderer.setSize(canvasWidth, canvasHeight);
+renderer.render(scene, camera); // orb material
 
 var material = new THREE.MeshBasicMaterial({
   color: 0xff00ff,
   wireframe: true
-}); // geometry
+}); // orb geometry
 
 var geometry = new THREE.BoxGeometry(3, 4, 8, 2, 3, 4); // create orb
 
@@ -310,13 +313,13 @@ function animate() {
 
 animate();
 var windowHeight = window.innerHeight;
-var tanFOV = Math.tan(Math.PI / 180 * camera.fov / 2);
 
 function onWindowResize(event) {
   requestAnimationFrame(function () {
-    var isTwoCol = window.matchMedia('(min-width: 96ch)').matches;
-    var wrapperWidth = isTwoCol ? window.innerWidth - wrapper.clientWidth : window.innerWidth;
-    var parentHeight = isTwoCol ? window.innerHeight : window.innerHeight * 0.75;
+    var isTwoCol = window.matchMedia("(min-width: 96ch)").matches;
+    var wrapperWidth = isTwoCol ? canvas.parentElement.clientWidth : canvas.parentElement.clientWidth;
+    var parentHeight = isTwoCol ? window.innerHeight : canvas.parentElement.clientHeight;
+    console.log(canvas.parentElement.clientWidth);
     camera.aspect = getAspect(wrapperWidth, parentHeight);
     camera.updateProjectionMatrix();
     camera.lookAt(scene.position);
@@ -325,12 +328,12 @@ function onWindowResize(event) {
   });
 }
 
-window.addEventListener('resize', onWindowResize, false);
+window.addEventListener("resize", onWindowResize, false);
 /**
  * Minimal Keyboard navigation
  */
 
-var contactNav = document.querySelectorAll('.contact a');
+var contactNav = document.querySelectorAll(".contact a");
 
 function navigate(el) {
   window.location = el.href;
@@ -365,7 +368,7 @@ function getFocusTarget(keyCode) {
   return contactNav[nextFocus];
 }
 
-window.addEventListener('keydown', function (e) {
+window.addEventListener("keydown", function (e) {
   var target = contactNav;
 
   switch (e.keyCode) {
@@ -427,7 +430,7 @@ var $ = function $(selector) {
 };
 
 var renderNavItem = function renderNavItem(node) {
-  var html = "\n    <li><a href=\"#".concat((0, _slugify.default)(node.title), "\">").concat(node.title, "</a></li>\n  ");
+  var html = "\n    <li><a class=\"btn\" href=\"".concat(node.url, "\" target=\"_blank\">").concat(node.title, "</a></li>\n  ");
   return document.createRange().createContextualFragment(html);
 };
 
@@ -467,7 +470,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55714" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60307" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
