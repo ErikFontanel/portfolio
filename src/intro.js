@@ -1,10 +1,9 @@
 /* globals THREE */
 
-const canvas = document.querySelector('canvas');
+const canvas = document.querySelector("canvas");
 const canvasWidth = canvas.parentElement.clientWidth;
 const canvasHeight = canvas.parentElement.clientHeight;
-
-const wrapper = document.querySelector('.wrapper');
+const wrapper = document.querySelector(".wrapper");
 
 const getAspect = (x, y) => Math.min(x, y) / Math.max(x, y);
 
@@ -26,15 +25,19 @@ camera.lookAt(scene.position);
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(canvasWidth, canvasHeight);
+camera.aspect = getAspect(canvasWidth, canvasHeight);
 
-// material
+camera.updateProjectionMatrix();
+renderer.setSize(canvasWidth, canvasHeight);
+renderer.render(scene, camera);
+
+// orb material
 const material = new THREE.MeshBasicMaterial({
   color: 0xff00ff,
   wireframe: true
 });
 
-// geometry
+// orb geometry
 const geometry = new THREE.BoxGeometry(3, 4, 8, 2, 3, 4);
 
 // create orb
@@ -54,18 +57,17 @@ function animate() {
 animate();
 
 const windowHeight = window.innerHeight;
-const tanFOV = Math.tan(((Math.PI / 180) * camera.fov) / 2);
 
 function onWindowResize(event) {
   requestAnimationFrame(() => {
-    const isTwoCol = window.matchMedia('(min-width: 96ch)').matches;
+    const isTwoCol = window.matchMedia("(min-width: 96ch)").matches;
     const wrapperWidth = isTwoCol
-      ? window.innerWidth - wrapper.clientWidth
-      : window.innerWidth;
+      ? canvas.parentElement.clientWidth
+      : canvas.parentElement.clientWidth;
     const parentHeight = isTwoCol
       ? window.innerHeight
-      : window.innerHeight * 0.75;
-
+      : canvas.parentElement.clientHeight;
+    console.log(canvas.parentElement.clientWidth);
     camera.aspect = getAspect(wrapperWidth, parentHeight);
 
     camera.updateProjectionMatrix();
@@ -76,12 +78,12 @@ function onWindowResize(event) {
   });
 }
 
-window.addEventListener('resize', onWindowResize, false);
+window.addEventListener("resize", onWindowResize, false);
 
 /**
  * Minimal Keyboard navigation
  */
-const contactNav = document.querySelectorAll('.contact a');
+const contactNav = document.querySelectorAll(".contact a");
 
 function navigate(el) {
   window.location = el.href;
@@ -115,7 +117,7 @@ function getFocusTarget(keyCode) {
   return contactNav[nextFocus];
 }
 
-window.addEventListener('keydown', e => {
+window.addEventListener("keydown", e => {
   let target = contactNav;
 
   switch (e.keyCode) {
