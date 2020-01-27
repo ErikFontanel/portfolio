@@ -7,7 +7,7 @@ const $ = selector => document.querySelector(selector);
 
 const renderNavItem = node => {
   const html = `
-    <li><a href="#${slugify(node.title)}">${node.title}</a></li>
+    <li><a class="btn" href="${node.url}" target="_blank">${node.title}</a></li>
   `;
 
   return document.createRange().createContextualFragment(html);
