@@ -1,5 +1,34 @@
 Tree-shaped, not T-shaped
 
+> ## Hi, I’m Rachael
+>
+> I’m a specialist _SaaS_ and _B2B_ copywriter on a mission to turn the buttoned-up and boring world of business sales copy into something that speaks to real people -- not demographics.
+>
+> #### I’m all about copy that delivers personality, persuasion, and profit.
+>
+> If you're a company with a great product, an understanding of the importance of copywriting for business growth, and you're okay with me using a few too many smiley faces in my emails -- we should talk :-)
+> ‍>
+> You’ll be pleased to know that:
+>
+> - **I come equipped with a degree in English**
+>   ‍Knowing all the grammar rules means I can BREAK them! Effective copywriting involves pushing the boundaries of what’s “proper”.
+>
+> - **I’m a qualified paralegal with a background in corporate law**
+>   Have you ever had to account for your workdays in 6-minute blocks? I have. After being in legal, project management is a cinch.
+>
+> - **I’ve worked with a diverse range of companies from digital agencies, to enterprise tech giants, to small startups**
+>   I’ve done a lot of research, for a lot of years, for a lot of stuff. And I’m lots of fun at parties. Remind me to tell you how to optimize the bacteria in your silage stacks to keep your cows healthy.
+
+_source: https://www.mightyfinecopy.com/about_
+
+---
+
+## Expertise
+
+We use experience, content and utility to connect organisations to audiences in a meaningful way.
+
+_source: https://bureau-va.com/expertise_
+
 ---
 
 I make graphic designs and websites. I could make them for you if you like.
