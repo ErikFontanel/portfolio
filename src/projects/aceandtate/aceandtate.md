@@ -1,6 +1,13 @@
-## Ace & Tate—
+---
+title: Future proof e-commerce platform for a direct-to-consumer eyewear company
+client: Ace & Tate
+tags:
+  - project
+---
 
-# Future proof e-commerce platform for a direct-to-consumer eyewear company
+## {{client}}—
+
+# {{title}}
 
 For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition; Affordable and fashionable glasses to go with any outfit and occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
 

@@ -1,4 +1,6 @@
 ---
-layout: layouts/base.njk
+layout: layouts/home.njk
 eleventyExcludeFromCollections: true
 ---
+
+{{ content|safe }}

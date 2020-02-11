@@ -1,4 +1,15 @@
 ---
-layout: base.njk
+layout: ./layouts/base.njk
+tags:
+  - page
 ---
 
+{% block about %}
+
+{% endblock %}
+
+{% block projects %}
+  {% for project in collections.project %}
+      {% include "projectItem.njk" %}
+  {% endfor %}
+{% endblock %}
