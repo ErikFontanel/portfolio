@@ -1,0 +1,17 @@
+{
+  "title": "Erik Gelderblom — Freelance Product Designer",
+  "url": "https://erikgelderblom.com/",
+  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "background_color": "#EDEDEF",
+  "theme_color": "#0000FF",
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://erikgelderblom.com/"
+  },
+  "author": {
+    "name": "Erik Gelderblom",
+    "email": "hello@erikgelderblom.com"
+  }
+}

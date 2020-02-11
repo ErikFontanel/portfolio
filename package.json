@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npm-run-all --parallel dev:*",
     "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
-    "dev:parcel": "parcel watch ./src/assets/images/* ./src/assets/css/app.scss ./src/assets/js/index.js --out-dir ./_site/assets",
+    "dev:parcel": "parcel watch ./src/assets/images/* ./src/assets/css/app.scss ./src/assets/js/index.js --out-dir ./dist/assets",
     "build": "run-s prod:*",
     "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./build",
-    "prod:parcel": "parcel build ./src/assets/images/* ./src/assets/css/app.scss ./src/_assets/js/index.js --out-dir ./_site/assets"
+    "prod:parcel": "parcel build ./src/assets/images/* ./src/assets/css/app.scss ./src/assets/js/index.js --out-dir ./dist/assets"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,12 @@
   "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@11ty/eleventy-plugin-rss": "^1.0.6",
-    "parcel-bundler": "1.12.4",
-    "npm-run-all": "^4.1.5",
+    "@11ty/eleventy-navigation": "^0.1.4",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4"
+    "@babel/preset-env": "^7.8.4",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "1.12.4",
+    "sass": "^1.25.0"
   }
 }

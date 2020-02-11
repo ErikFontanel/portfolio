@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Erik Gelderblom — Freelance Product Designer</title>
+	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+	
+	<link href="https://erikgelderblom.com/feed/feed.xml" rel="self"/>
+	<link href="https://erikgelderblom.com/"/>
+
+
+
+	<id>https://erikgelderblom.com/</id>
+	<author>
+		<name>Erik Gelderblom</name>
+		<email>hello@erikgelderblom.com</email>
+	</author>
+</feed>
