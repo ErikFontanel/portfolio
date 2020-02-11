@@ -1,8 +1,14 @@
 ---
+title: Projects
+layout: layouts/base.njk
 pagination:
-  data: projects
-  size: 1
-  alias: project
-permalink: "projects/{{ project.title | slug }}/"
+  data: collections.project
+  alias: projects
+  size: 999
 ---
-{{ project.title }}
+
+{% block projects %}
+  {% for project in projects %}
+      {% include "projectItem.njk" %}
+  {% endfor %}
+{% endblock %}

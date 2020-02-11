@@ -1,15 +1,13 @@
 ---
-layout: ./layouts/base.njk
-tags:
-  - page
+layout: layouts/base.njk
 ---
 
-{% block about %}
-
+{% block intro %}
+  {{ content|safe }}
 {% endblock %}
 
 {% block projects %}
-  {% for project in collections.project %}
+  {% for project in projects %}
       {% include "projectItem.njk" %}
   {% endfor %}
 {% endblock %}

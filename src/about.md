@@ -1,5 +1,6 @@
 ---
 title: About
+layout: ./layouts/base.njk
 tags:
   - page
 ---
