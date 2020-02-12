@@ -3,4 +3,4 @@ if (module.hot) {
   console.log('Hot reloading…');
 }
 
-import '../css/app.scss';
+import '/../css/app.scss';

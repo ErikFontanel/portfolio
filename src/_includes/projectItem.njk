@@ -1,5 +1,5 @@
 <a class="projectItem" href="{{ project.url | url }}">
-  <img src="{{ project.data.thumbnail|url }}" alt="{{ project.data.title }}"/>
+  <img src="{{ project.url + project.data.thumbnail | url }}" alt="{{ project.data.title }}"/>
   <h2 class="projectItem--title text-xl">{{ project.data.title }}</h2>
   <h3 class="projectItem--client">{{ project.data.client }}</h3>
 </a>

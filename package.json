@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "2.0.0",
   "description": "Personal portfolio of Erik Gelderblom",
-  "main": "index.js",
+  "browser": "index.js",
   "scripts": {
     "clean": "rm -rf .cache dist",
     "start": "npm-run-all clean --parallel dev:*",
@@ -29,8 +29,18 @@
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "autoprefixer": "^9.7.4",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "1.12.4",
+    "postcss-modules": "^1.5.0",
     "sass": "^1.25.0"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "last 2 versions",
+    "> 1%",
+    "not IE <= 11",
+    "not IE_Mob <= 11"
+  ]
 }

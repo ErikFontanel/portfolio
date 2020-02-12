@@ -1,4 +1,5 @@
 ---
+thumbnail: at1.png
 title: Future proof e-commerce platform for a direct-to-consumer eyewear company
 client: Ace & Tate
 tags:

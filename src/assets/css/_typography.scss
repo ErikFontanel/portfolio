@@ -1,0 +1,124 @@
+$font-sizes: (
+  extra-large: rem(57px),
+  large: rem(40px),
+  medium: rem(28px),
+  small: rem(20px)
+);
+
+$line-heights: (
+  extra-large: 1.2,
+  large: 1.3,
+  medium: 1.424242,
+  small: 1.424242
+);
+
+/// Returns the font size for a given text style and variant.
+///
+/// @param {String} $style - The font style.
+/// @param {String} $variant [base] - The variant on the font-size.
+/// @return {Number} The font-size for the text-style.
+@function font-size($variant) {
+  $fetched-font-size: map-get($font-sizes, $variant);
+
+  @if type-of($fetched-font-size) {
+    @return $fetched-font-size;
+  } @else {
+    @error 'Font size `#{$variant}` not found.';
+  }
+}
+/// Returns the line height for a given text style and variant.
+///
+/// @param {String} $style - The font style.
+/// @param {String} $variant [base] - The variant on the font-size.
+/// @return {Number} The font-size for the text-style.
+@function line-height($variant) {
+  $fetched-line-height: map-get($line-heights, $variant);
+
+  @if type-of($fetched-line-height) {
+    @return $fetched-line-height;
+  } @else {
+    @error 'Line height `#{$variant}` not found.';
+  }
+}
+
+@mixin text-style-body {
+  font-family: $font-stack-base;
+  font-size: font-size(medium);
+  line-height: line-height(medium);
+  font-weight: 400;
+  font-style: normal;
+  color: $color-ink;
+}
+
+@mixin text-style-small {
+  font-family: $font-stack-base;
+  font-size: font-size(small);
+  line-height: line-height(small);
+  font-weight: 400;
+  font-style: normal;
+  color: $color-ink;
+}
+
+@mixin text-style-medium {
+  font-family: $font-stack-base;
+  font-size: font-size(medium);
+  line-height: line-height(medium);
+  font-weight: 400;
+  font-style: normal;
+  color: $color-ink;
+}
+
+@mixin text-style-large {
+  font-family: $font-stack-base;
+  font-size: font-size(large);
+  line-height: line-height(large);
+  font-weight: 400;
+  font-style: normal;
+  color: $color-ink;
+}
+
+@mixin text-style-extra-large {
+  font-family: $font-stack-base;
+  font-size: font-size(extra-large);
+  line-height: line-height(extra-large);
+  font-weight: 400;
+  font-style: italic;
+  color: $color-ink;
+}
+
+.text-s {
+  @include text-style-small;
+}
+
+.text-m {
+  @include text-style-medium;
+}
+
+.text-l {
+  @include text-style-large;
+}
+
+.text-xl {
+  @include text-style-extra-large;
+  color: $color-yellow;
+}
+
+a {
+  text-decoration: none;
+}
+
+p > a {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 400;
+}

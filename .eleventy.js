@@ -5,6 +5,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
 
+  eleventyConfig.addPassthroughCopy('**/*.png');
+  eleventyConfig.addPassthroughCopy('**/*.gif');
+  eleventyConfig.addPassthroughCopy('**/*.jpg');
+
   // You can return your Config object (optional).
   return {
     dir: {
