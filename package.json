@@ -4,12 +4,13 @@
   "description": "Personal portfolio of Erik Gelderblom",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel dev:*",
+    "clean": "rm -rf .cache dist",
+    "start": "npm-run-all clean --parallel dev:*",
     "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
-    "dev:parcel": "parcel watch ./src/assets/images/* ./src/assets/css/app.scss ./src/assets/js/index.js --out-dir ./dist/assets",
-    "build": "run-s prod:*",
+    "dev:parcel": "NODE_ENV=development parcel watch ./src/assets/js/index.js --out-dir ./dist/assets --public-url /assets",
+    "build": "run-s clean prod:*",
     "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./build",
-    "prod:parcel": "parcel build ./src/assets/images/* ./src/assets/css/app.scss ./src/assets/js/index.js --out-dir ./dist/assets"
+    "prod:parcel": "parcel build ./src/assets/img/* ./src/assets/css/app.scss ./src/assets/js/index.js ./src/assets/fonts/* --out-dir ./dist/assets --public-url /assets"
   },
   "repository": {
     "type": "git",
