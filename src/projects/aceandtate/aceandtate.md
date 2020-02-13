@@ -1,14 +1,10 @@
 ---
 thumbnail: at1.png
-title: Future proof e-commerce platform for a direct-to-consumer eyewear company
 client: Ace & Tate
+title: Future proof e-commerce platform for a direct-to-consumer eyewear company
 tags:
   - project
 ---
-
-## {{client}}—
-
-# {{title}}
 
 For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition; Affordable and fashionable glasses to go with any outfit and occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
 
@@ -39,7 +35,7 @@ Geile blondine links, slider van mobile UI rechts 50/50
 
 ---
 
-A mobile first driven experience, providing inspiration and context through high quality photo's of the glasses worn by a diverse group of people.
+A mobile first driven experience, that not only inspirates but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
 
 Non-hierarchical way of browsing the collection by not only filtering on properties (gender, color, material) but also tags or taxonomy (style, release, occasion etc). No more 'white wall' filled with every frame in every color, telling the user 'this is all we offer, good luck'.
 

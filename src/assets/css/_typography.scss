@@ -7,9 +7,9 @@ $font-sizes: (
 
 $line-heights: (
   extra-large: 1.2,
-  large: 1.3,
-  medium: 1.424242,
-  small: 1.424242
+  large: 1.5,
+  medium: 1.5,
+  small: 1.5
 );
 
 /// Returns the font size for a given text style and variant.
@@ -92,6 +92,8 @@ $line-heights: (
 
 .text-m {
   @include text-style-medium;
+
+  margin-bottom: 0.5em;
 }
 
 .text-l {
@@ -119,6 +121,27 @@ h5,
 h6,
 p {
   margin: 0;
-  font-size: 1em;
   font-weight: 400;
+}
+
+h1 {
+  @include text-style-extra-large();
+  margin-bottom: 1em * line-height(extra-large);
+}
+
+h2 {
+  @include text-style-large();
+  margin-bottom: 1em * line-height(extra-large);
+}
+
+h3 {
+  @include text-style-large();
+  margin-bottom: 1em * line-height(extra-large);
+}
+
+h4,
+h5,
+h6 {
+  @include text-style-medium();
+  color: $color-primary;
 }

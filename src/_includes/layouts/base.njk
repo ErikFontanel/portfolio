@@ -15,7 +15,7 @@
   <meta name="theme-color" content="{{ metadata.theme_color }}">
 </head>
 
-<body>
+<body class="{{ bodyClass }} {{ page.data.tags[0]}} {{ page.fileSlug }}">
   <main class="wrapper">
     {{ content | safe }}
   </main>

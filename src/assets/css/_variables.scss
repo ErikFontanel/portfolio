@@ -1,4 +1,5 @@
 $color-background: $color-sky;
+$color-primary: $color-blue;
 $color-text: $color-ink;
 $color-link: $color-blue;
 
@@ -6,11 +7,11 @@ $spacing-extra-tight: rem(4px);
 $spacing-tight: rem(8px);
 $spacing-base-tight: rem(12px);
 $spacing-base: rem(16px);
-$spacing-loose: rem(20px);
-$spacing-extra-loose: rem(32px);
+$spacing-loose: rem(32px);
+$spacing-extra-loose: rem(48px);
 
 $gutter-sm: $spacing-base;
-$gutter: $spacing-extra-loose;
+$gutter: $spacing-loose;
 
 $default-browser-font-size: 16px;
 $base-font-size: 10px;

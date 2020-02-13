@@ -2,6 +2,11 @@ html,
 body,
 button {
   @include text-style-body;
+  font-size: font-size(small);
+
+  @media (--small) {
+    font-size: font-size(medium);
+  }
 }
 
 html {
@@ -29,4 +34,29 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.wrapper {
+  display: grid;
+
+  // prettier-ignore
+  grid-template-columns:
+  [full-start first] minmax(0, 1fr)
+  [main-start] minmax(auto, #{rem(886px)}) [main-end
+  last] minmax(0, 1fr)
+  [full-end];
+  gap: 0 $gutter-sm;
+
+  @media (--small) {
+    gap: 0 $gutter;
+    padding: 0 $spacing-base;
+  }
+
+  > * {
+    grid-column: main;
+  }
+
+  > .grid-full {
+    grid-column: 1 / -1;
+  }
 }

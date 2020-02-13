@@ -1,6 +1,6 @@
 ---
 client: Close
-title: SaaS platform for a event marketing start-up
+title: SaaS platform for an event marketing start-up
 tags:
   - project
 ---
