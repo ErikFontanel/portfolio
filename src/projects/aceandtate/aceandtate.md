@@ -12,15 +12,14 @@ Role: Design Lead
 Team: Jordi van der Oord, Joram van den Boezem, Joris Fritzsche, Jons Janssens
 (and some others, without a name starting with a J)
 
----
-
-Geile negerinen
-
----
+{% gallery {
+  images: ['at-main1.jpg'],
+  css: 'full-width'
+} %}
 
 At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https://aceandtate.com). Within just three years after founding the company, they opened two stores in Amsterdam, one in Utrecht and a pop-up in Rotterdam. But as a direct-to-consumer brand, e-commerce plays a vital role in the business model. Their current website couldn't keep up anymore with the chaning company and rapid growth.
 
-Project goals:
+{% list "Objectives" %}
 
 - New design to fit the brand and replace the old generic design
 - Easier to use product configuration
@@ -29,11 +28,7 @@ Project goals:
 - Store finder for all the new stores to be opened
 - Increasing the brand value of Ace & Tate
 
----
-
-Geile blondine links, slider van mobile UI rechts 50/50
-
----
+{% endlist %}
 
 A mobile first driven experience, that not only inspirates but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
 
@@ -41,11 +36,11 @@ Non-hierarchical way of browsing the collection by not only filtering on propert
 
 A smooth and easy configuration a newly designed product configurator.
 
----
-
-New packshots & fashion headshots collage
-
----
+{% gallery {
+  images: ['at-main2.jpg','at-main3.jpg'],
+  caption: 'A new photography concept featuring super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.',
+  css: 'full-width grid:2'
+} %}
 
 New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
 
