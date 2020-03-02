@@ -4,7 +4,7 @@ button {
   @include text-style-body;
   font-size: font-size(small);
 
-  @media (--small) {
+  @media (--large) {
     font-size: font-size(medium);
   }
 }
@@ -37,19 +37,44 @@ img {
 }
 
 .wrapper {
-  display: grid;
+  padding: 12.5vmin 0;
 
+  &.grid > .grid {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.grid {
+  display: grid;
   // prettier-ignore
   grid-template-columns:
-  [full-start first] minmax(0, 1fr)
-  [main-start] minmax(auto, #{rem(886px)}) [main-end
-  last] minmax(0, 1fr)
-  [full-end];
+    [full-start first] $spacing-loose
+    [main-start] minmax(auto, 8fr) [main-end
+    last] $spacing-loose
+    [full-end];
   gap: 0 $gutter-sm;
 
   @media (--small) {
+    // prettier-ignore
+    grid-template-columns:
+    [full-start first] minmax(#{$spacing-extra-loose / 2}, 1fr)
+    [main-start] minmax(auto, 8fr) [main-end
+    last] minmax(#{$spacing-extra-loose / 2}, 1fr)
+    [full-end];
     gap: 0 $gutter;
-    padding: 0 $spacing-base;
+    padding-top: 25vmin;
+    padding-bottom: 25vmin;
+  }
+
+  @media (--medium) {
+    // prettier-ignore
+    grid-template-columns:
+      [full-start first] minmax(#{$spacing-extra-loose / 2}, 2fr)
+      [main-start] minmax(auto, 8fr) [main-end
+      last] minmax(#{$spacing-extra-loose / 2}, 2fr)
+      [full-end];
+    gap: 0 $gutter;
   }
 
   > * {

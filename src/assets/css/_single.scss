@@ -1,8 +1,10 @@
-.projectItem {
-}
-
 .page-header {
   &--subtitle {
     margin-bottom: 0.5em;
+  }
+
+  + p {
+    @include text-style-large;
+    margin-bottom: line-height(large) * font-size(large);
   }
 }

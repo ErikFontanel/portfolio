@@ -7,4 +7,6 @@ pagination:
   alias: projects
 ---
 
-home
+# Freelance product designer and front-end developer with over 10 years of experience working on the internet
+
+{% include "cta.njk" %}

@@ -1,4 +1,3 @@
 {
-  "layout": "layouts/single.njk",
-  "bodyClass": "projects"
+  "layout": "layouts/single.njk"
 }

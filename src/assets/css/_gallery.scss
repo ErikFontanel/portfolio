@@ -1,0 +1,83 @@
+.gallery {
+  position: relative;
+  width: 100%;
+  padding-top: $spacing-loose;
+  padding-bottom: $spacing-loose;
+
+  margin: $spacing-extra-loose * 2 0;
+
+  @media (--tablet) {
+    padding-top: $spacing-loose * 2;
+    margin-top: $spacing-extra-loose * 3;
+    margin-bottom: $spacing-extra-loose * 3;
+  }
+
+  figcaption {
+    @include effect-exclusion;
+    position: sticky;
+    top: $spacing-extra-loose;
+    z-index: 100;
+    grid-row: 1;
+    width: 100%;
+
+    @media (--mobile) {
+      left: $gutter-sm;
+    }
+
+    left: 0;
+    @media (--tablet) {
+      grid-column: caption;
+    }
+  }
+
+  &.caption-left figcaption {
+    grid-column-start: 1;
+  }
+
+  &.caption-right figcaption {
+    grid-column-start: -1;
+  }
+
+  &.full-width {
+    width: 100%;
+    grid-column: full;
+  }
+
+  &.grid\:2 {
+    --gutter: #{$gutter-sm};
+    --padding: #{$gutter-sm};
+
+    display: grid;
+    grid-template-rows: auto;
+    gap: $spacing-loose;
+    grid-template-columns: 80vmin;
+    grid-auto-columns: 80vmin;
+    overflow: auto;
+
+    @media (--tablet) {
+      --gutter: #{$gutter};
+      --padding: #{$gutter + $spacing-base};
+
+      grid-template-columns:
+        [img] var(--padding) [caption] 5fr var(--gutter)
+        calc(2 / 12 * 100% + var(--gutter))
+        [img] var(--gutter) [caption] 5fr var(--padding);
+    }
+
+    > img {
+      z-index: 0;
+      grid-column: auto / span 1;
+      grid-row-start: 2;
+
+      @media (--tablet) {
+        &:first-of-type {
+          grid-column: img 1 / span 3;
+        }
+
+        &:last-of-type {
+          grid-column: img 2 / span 3;
+        }
+      }
+    }
+  }
+}

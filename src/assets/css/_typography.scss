@@ -2,7 +2,8 @@ $font-sizes: (
   extra-large: rem(57px),
   large: rem(40px),
   medium: rem(28px),
-  small: rem(20px)
+  small: rem(20px),
+  extra-small: rem(16px)
 );
 
 $line-heights: (
@@ -61,29 +62,44 @@ $line-heights: (
 
 @mixin text-style-medium {
   font-family: $font-stack-base;
+  font-size: font-size(small);
+  line-height: line-height(small);
+  font-weight: 400;
+  font-style: normal;
+  color: $color-ink;
+
+  @media (--medium) {
+    font-size: font-size(medium);
+    line-height: line-height(medium);
+  }
+}
+
+@mixin text-style-large {
+  font-family: $font-stack-base;
   font-size: font-size(medium);
   line-height: line-height(medium);
   font-weight: 400;
   font-style: normal;
   color: $color-ink;
-}
 
-@mixin text-style-large {
-  font-family: $font-stack-base;
-  font-size: font-size(large);
-  line-height: line-height(large);
-  font-weight: 400;
-  font-style: normal;
-  color: $color-ink;
+  @media (--medium) {
+    font-size: font-size(large);
+    line-height: line-height(large);
+  }
 }
 
 @mixin text-style-extra-large {
   font-family: $font-stack-base;
-  font-size: font-size(extra-large);
+  font-size: font-size(large);
   line-height: line-height(extra-large);
   font-weight: 400;
   font-style: italic;
   color: $color-ink;
+
+  @media (--medium) {
+    font-size: font-size(extra-large);
+    line-height: line-height(extra-large);
+  }
 }
 
 .text-s {
@@ -102,7 +118,6 @@ $line-heights: (
 
 .text-xl {
   @include text-style-extra-large;
-  color: $color-yellow;
 }
 
 a {
@@ -121,7 +136,36 @@ h5,
 h6,
 p {
   margin: 0;
+  font-size: 1em;
   font-weight: 400;
+}
+
+p {
+  @include text-style-medium();
+
+  + p {
+    margin-top: line-height(medium) * 1em;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+
+  article & {
+    padding: 0;
+    padding-left: calc(1 / 12 * 100% + 1em);
+    padding-right: calc(1 / 12 * 100% + 1em);
+
+    li {
+      @include text-style-medium();
+      list-style: none;
+
+      + li {
+        margin-top: line-height(medium) * 0.5em;
+      }
+    }
+  }
 }
 
 h1 {
@@ -131,12 +175,13 @@ h1 {
 
 h2 {
   @include text-style-large();
-  margin-bottom: 1em * line-height(extra-large);
+  margin-bottom: 1em * line-height(large);
 }
 
 h3 {
   @include text-style-large();
-  margin-bottom: 1em * line-height(extra-large);
+  margin-bottom: 1em * line-height(large);
+  color: $color-primary;
 }
 
 h4,
@@ -144,4 +189,8 @@ h5,
 h6 {
   @include text-style-medium();
   color: $color-primary;
+}
+
+figcaption {
+  font-size: font-size(extra-small);
 }

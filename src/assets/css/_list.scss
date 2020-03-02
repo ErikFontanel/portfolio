@@ -1,0 +1,40 @@
+.list {
+  position: relative;
+  padding-top: $spacing-loose;
+  padding-bottom: $spacing-loose;
+  width: 100%;
+
+  margin: $spacing-extra-loose * 2 0;
+
+  @media (--tablet) {
+    padding-top: $spacing-loose * 2;
+    padding-bottom: $spacing-loose * 4;
+  }
+
+  .list--title {
+    @include effect-exclusion;
+    position: sticky;
+    top: $spacing-loose;
+    left: 0;
+    margin: 0;
+
+    > * {
+      margin: 0;
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        width: rem(40px);
+        height: rem(33px);
+        background: transparent no-repeat 0 0;
+        background-size: contain;
+        background-image: url('../img/hand.svg');
+      }
+    }
+  }
+}

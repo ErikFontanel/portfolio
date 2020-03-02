@@ -1,0 +1,37 @@
+.nav-main {
+  position: fixed;
+  bottom: $spacing-tight;
+  left: $spacing-tight;
+
+  @media (--small-down) {
+    transform-origin: 0 100%;
+    transform: rotate(90deg) translateX(-100%);
+  }
+
+  @media (--medium) {
+    bottom: $spacing-extra-loose;
+    left: $spacing-extra-loose;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    padding: 0;
+
+    @media (--small-down) {
+      display: inline-block;
+    }
+
+    & + * {
+      margin-top: 0.8em;
+
+      @media (--small-down) {
+        margin-left: 0.8em;
+      }
+    }
+  }
+}

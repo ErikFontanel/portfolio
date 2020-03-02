@@ -16,7 +16,10 @@
 </head>
 
 <body class="{{ bodyClass }} {{ page.data.tags[0]}} {{ page.fileSlug }}">
-  <main class="wrapper">
+
+  {% include "nav.njk" %}
+
+  <main class="wrapper grid">
     {{ content | safe }}
   </main>
 

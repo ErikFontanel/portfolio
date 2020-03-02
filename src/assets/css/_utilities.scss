@@ -20,3 +20,8 @@ $base-font-size: 10px;
     @error 'Value must be in px, em, or rem.';
   }
 }
+
+@mixin effect-exclusion($color: $color-text) {
+  // color: adjust-color($color, $hue: 180deg);
+  mix-blend-mode: exclusion;
+}
