@@ -7,10 +7,11 @@
     "clean": "rm -rf .cache dist",
     "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
     "dev:parcel": "NODE_ENV=development parcel watch ./src/assets/index.js ./src/assets/css/app.scss --out-dir ./dist/assets/ --public-url /assets/",
-    "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./build",
-    "prod:parcel": "parcel build ./src/assets/img/* ./src/assets/css/app.scss ./src/assets/js/index.js ./src/assets/fonts/* --out-dir ./dist/assets/ --public-url /assets/",
+    "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./dist",
+    "prod:parcel": "NODE_ENV=production parcel build ./src/assets/img/* ./src/assets/css/app.scss ./src/assets/js/index.js ./src/assets/fonts/* --out-dir ./dist/assets/ --public-url /assets/",
     "start": "npm-run-all --serial clean --parallel dev:parcel dev:eleventy",
-    "build": "run-s clean prod:*"
+    "build": "npm-run-all --serial clean prod:parcel prod:eleventy",
+    "now-build": "npm-run-all --serial clean prod:parcel prod:eleventy"
   },
   "repository": {
     "type": "git",
