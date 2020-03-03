@@ -21,7 +21,7 @@
     width: 100%;
 
     @media (--mobile) {
-      left: $gutter-sm;
+      left: var(--gutter);
     }
 
     left: 0;
@@ -44,8 +44,7 @@
   }
 
   &.grid\:2 {
-    --gutter: #{$gutter-sm};
-    --padding: #{$gutter-sm};
+    --padding: var(--gutter);
 
     display: grid;
     grid-template-rows: auto;
@@ -55,8 +54,7 @@
     overflow: auto;
 
     @media (--tablet) {
-      --gutter: #{$gutter};
-      --padding: #{$gutter + $spacing-base};
+      --padding: calc(var(--gutter) + #{$spacing-base});
 
       grid-template-columns:
         [img] var(--padding) [caption] 5fr var(--gutter)

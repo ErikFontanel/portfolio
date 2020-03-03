@@ -1,3 +1,10 @@
+:root {
+  --gutter: #{$gutter-sm};
+
+  @media (--tablet) {
+    --gutter: #{$gutter};
+  }
+}
 html,
 body,
 button {
@@ -53,7 +60,7 @@ img {
     [main-start] minmax(auto, 8fr) [main-end
     last] $spacing-loose
     [full-end];
-  gap: 0 $gutter-sm;
+  gap: 0 var(--gutter);
 
   @media (--small) {
     // prettier-ignore
@@ -62,7 +69,6 @@ img {
     [main-start] minmax(auto, 8fr) [main-end
     last] minmax(#{$spacing-extra-loose / 2}, 1fr)
     [full-end];
-    gap: 0 $gutter;
     padding-top: 25vmin;
     padding-bottom: 25vmin;
   }
@@ -74,7 +80,6 @@ img {
       [main-start] minmax(auto, 8fr) [main-end
       last] minmax(#{$spacing-extra-loose / 2}, 2fr)
       [full-end];
-    gap: 0 $gutter;
   }
 
   > * {
