@@ -1,4 +1,5 @@
 .nav-main {
+  @include effect-exclusion();
   position: fixed;
   bottom: $spacing-tight;
   left: $spacing-tight;

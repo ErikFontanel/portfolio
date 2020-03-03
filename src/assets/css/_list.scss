@@ -12,14 +12,13 @@
   }
 
   .list--title {
-    @include effect-exclusion;
+    @include effect-exclusion($color-blue);
     position: sticky;
     top: $spacing-loose;
     left: 0;
-    margin: 0;
+    margin: 0 0 1em;
 
     > * {
-      margin: 0;
       display: inline-block;
       position: relative;
 
@@ -28,7 +27,7 @@
         display: block;
         position: absolute;
         right: 0;
-        top: 100%;
+        top: 1.2em;
         width: rem(40px);
         height: rem(33px);
         background: transparent no-repeat 0 0;

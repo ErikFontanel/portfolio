@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999em;
-  color: $color-text;
+  color: var(--button-color, #{$color-text});
   border: 0.0625em solid currentColor;
   font-size: font-size(extra-small);
   line-height: 1;

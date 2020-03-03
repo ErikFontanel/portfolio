@@ -22,6 +22,6 @@ $base-font-size: 10px;
 }
 
 @mixin effect-exclusion($color: $color-text) {
-  // color: adjust-color($color, $hue: 180deg);
-  mix-blend-mode: exclusion;
+  color: adjust-color($color, $hue: 180deg);
+  mix-blend-mode: difference;
 }

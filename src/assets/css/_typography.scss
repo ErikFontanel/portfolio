@@ -90,15 +90,17 @@ $line-heights: (
 
 @mixin text-style-extra-large {
   font-family: $font-stack-base;
-  font-size: font-size(large);
-  line-height: line-height(extra-large);
+  font-size: font-size(medium);
+  line-height: line-height(medium);
   font-weight: 400;
   font-style: italic;
   color: $color-ink;
+  margin-bottom: 1em * line-height(medium);
 
   @media (--medium) {
     font-size: font-size(extra-large);
     line-height: line-height(extra-large);
+    margin-bottom: 1em * line-height(extra-large);
   }
 }
 
@@ -170,7 +172,6 @@ ol {
 
 h1 {
   @include text-style-extra-large();
-  margin-bottom: 1em * line-height(extra-large);
 }
 
 h2 {
