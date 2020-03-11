@@ -1,7 +1,8 @@
 .list {
+  @include effect-exclusion();
+  background-color: invert($color-background);
   position: relative;
   width: 100%;
-
   margin: $spacing-block 0;
 
   @media (--tablet) {
@@ -9,35 +10,48 @@
     margin-bottom: $spacing-block * 4;
   }
 
-  .list--title {
-    @include effect-exclusion($color-blue);
-    position: sticky;
-    top: $spacing-loose;
-    left: 0;
-    padding-bottom: 2em;
+  > * {
+    mix-blend-mode: difference;
+  }
 
-    > * {
-      display: inline-block;
+  .list--title {
+    position: sticky;
+    top: $spacing-loose * 2;
+    padding-left: calc(1 / 12 * 100% - var(--gutter));
+    padding-bottom: 2em;
+    margin: 0;
+    z-index: 0;
+
+    h3 {
+      color: invert($color-primary);
       position: relative;
-      margin: 0;
+      width: auto;
+      display: inline-block;
 
       &::after {
         content: '';
         display: block;
         position: absolute;
-        right: 0;
         top: 1.2em;
         width: rem(40px);
         height: rem(33px);
         background: transparent no-repeat 0 0;
         background-size: contain;
         background-image: url('../img/hand.svg');
+        left: 0;
+
+        @media (--tablet) {
+          left: auto;
+          right: 0;
+        }
       }
     }
   }
 
   ol,
   ul {
-    padding-left: calc(2 / 12 * 100% + var(--gutter));
+    @media (--tablet) {
+      padding-left: calc(2 / 12 * 100%);
+    }
   }
 }

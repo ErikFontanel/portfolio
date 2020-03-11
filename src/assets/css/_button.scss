@@ -10,17 +10,22 @@
   padding: 0.34em 1em;
   text-transform: lowercase;
   text-align: center;
+  transition: color 0.2s linear;
+  background-color: transparent;
 
   @media (--medium) {
     font-size: font-size(small);
   }
 
   &:hover {
-    color: $color-blue;
+    color: var(--button-color, #{$color-blue});
   }
 
+  &:active,
   &:focus {
     color: $color-blue;
+    outline: none;
+    box-shadow: 0 0 0.0625em 0.0625em lighten($color-blue, $amount: 20);
   }
 }
 
