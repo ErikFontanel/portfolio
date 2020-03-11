@@ -30,6 +30,21 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 {% endlist %}
 
+<div class="full-width galleries">
+{% gallery {
+  images: ['at-pdp1.png','at-pdp2.png','at-pdp3.png'],
+  caption: 'product category page',
+  css: 'half-width carousel'
+} %}
+
+{% gallery {
+  images: ['at-pcp1.png','at-pcp2.png','at-pcp3.png','at-pcp4.png'],
+  caption: 'product category page',
+  css: 'half-width carousel'
+} %}
+
+</div>
+
 A mobile first driven experience, that not only inspirates but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
 
 Non-hierarchical way of browsing the collection by not only filtering on properties (gender, color, material) but also tags or taxonomy (style, release, occasion etc). No more 'white wall' filled with every frame in every color, telling the user 'this is all we offer, good luck'.
