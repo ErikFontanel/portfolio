@@ -5,23 +5,17 @@ $gallery-index: (caption, images);
   width: 100%;
   padding-top: $spacing-loose;
   padding-bottom: $spacing-loose;
-  margin: $spacing-extra-loose * 2 0;
 
   @media (--tablet) {
     padding-top: $spacing-loose * 2;
-    margin-top: $spacing-extra-loose * 3;
-    margin-bottom: $spacing-extra-loose * 3;
   }
 
   figcaption {
+    @include effect-exclusion($color-text);
     position: sticky;
     top: 0;
     left: var(--gutter);
     z-index: z-index(caption, $gallery-index);
-
-    .gallery:not(.carousel) & {
-      @include effect-exclusion($color-text);
-    }
 
     @media (--tablet) {
       width: 100%;
@@ -125,11 +119,15 @@ $gallery-index: (caption, images);
       grid-template-columns: repeat(2, minmax(#{rem(240px)}, 20%));
     }
   }
+
+  &.grid\:3 {
+    grid-column: full-start / main-end;
+    max-width: 11 / 12 * 100%;
+  }
 }
 
 .galleries {
   display: grid;
-  grid-template-columns: 2fr;
   grid-column: full;
   width: 100%;
   justify-content: space-evenly;
@@ -145,6 +143,10 @@ $gallery-index: (caption, images);
   .gallery {
     display: grid;
     grid-template-columns: 1fr;
+    gap: $spacing-base var(--gutter);
+    margin-top: 0;
+    margin-bottom: 0;
+
     > img {
       grid-row: 1;
       grid-column: 1;
@@ -154,13 +156,24 @@ $gallery-index: (caption, images);
       grid-row: 2;
       grid-column: 1;
     }
-
-    gap: $spacing-base var(--gutter);
   }
 }
 
 .carousel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-base var(--gutter);
   position: relative;
+
+  > img {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  figcaption {
+    grid-row: 2;
+    grid-column: 1;
+  }
 
   .visible {
     animation: fade 0.2s linear forwards;
@@ -168,6 +181,11 @@ $gallery-index: (caption, images);
 
   .hidden {
     animation: fade 0.2s linear backwards reverse;
+  }
+
+  figcaption {
+    mix-blend-mode: normal;
+    color: $color-text;
   }
 }
 

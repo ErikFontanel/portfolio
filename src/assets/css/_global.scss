@@ -62,6 +62,7 @@ img {
     [wide-start main-start] minmax(auto, 8fr) [main-end
     last wide-end] $spacing-base
     [full-end];
+  grid-auto-rows: auto;
   gap: 0 var(--gutter);
 
   @media (--tablet) {

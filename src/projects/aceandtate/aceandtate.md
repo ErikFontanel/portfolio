@@ -30,7 +30,7 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 {% endlist %}
 
-<div class="full-width galleries">
+<div class="full-width galleries block">
 {% gallery {
   images: ['at-pdp1.png','at-pdp2.png','at-pdp3.png'],
   caption: 'Product Detail page',
@@ -57,17 +57,24 @@ A smooth and easy configuration a newly designed product configurator.
   css: 'full-width grid:2'
 } %}
 
+{% gallery {
+  images: ['at-main4.jpg'],
+  css: 'grid:3'
+} %}
+
 New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
+
+<div class="block block-centered gallery">
+{% gallery {
+  images: ['at-co1.png','at-co2.png','at-co3.png','at-co4.png'],
+  caption: 'Product Category page',
+  css: 'carousel'
+} %}
+</div>
 
 A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
 
----
-
-Configure & checkout animaties
-
----
-
-Together with my team I achieved the following:
+{% list "Together with my team I achieved the following:" %}
 
 - grew from a team of 1 designer and 2 developers to 3 designers and 6 developers
 - set-up a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com)
@@ -77,6 +84,8 @@ Together with my team I achieved the following:
 - came up with the concept of the new product photography and head shots
 - designed seasonal campaigns, won a Awwward for the Lernert & Sander campaign (of which I also did a part of the front-end)
 - increased conversion and thus revenue (I'm not allowed to share any numbers)
+
+{% endlist %}
 
 &rarr; https://aceandtate.com/
 
