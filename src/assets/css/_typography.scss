@@ -3,14 +3,15 @@ $font-sizes: (
   large: rem(40px),
   medium: rem(28px),
   small: rem(20px),
-  extra-small: rem(16px)
+  extra-small: rem(14px)
 );
 
 $line-heights: (
   extra-large: 1.2,
   large: 1.5,
   medium: 1.5,
-  small: 1.5
+  small: 1.5,
+  extra-small: 1.2
 );
 
 /// Returns the font size for a given text style and variant.
@@ -42,22 +43,45 @@ $line-heights: (
   }
 }
 
-@mixin text-style-body {
+@mixin text-style-caption {
   font-family: $font-stack-base;
-  font-size: font-size(medium);
-  line-height: line-height(medium);
+  font-size: font-size(extra-small);
+  line-height: line-height(extra-small);
   font-weight: 400;
   font-style: normal;
-  color: $color-ink;
+
+  @media (--tablet) {
+    font-size: font-size(extra-small);
+    line-height: line-height(extra-small);
+  }
 }
 
-@mixin text-style-small {
+@mixin text-style-body {
   font-family: $font-stack-base;
   font-size: font-size(small);
   line-height: line-height(small);
   font-weight: 400;
   font-style: normal;
   color: $color-ink;
+
+  @media (--tablet) {
+    font-size: font-size(medium);
+    line-height: line-height(medium);
+  }
+}
+
+@mixin text-style-small {
+  font-family: $font-stack-base;
+  font-size: font-size(extra-small);
+  line-height: line-height(extra-small);
+  font-weight: 400;
+  font-style: normal;
+  color: $color-ink;
+
+  @media (--tablet) {
+    font-size: font-size(small);
+    line-height: line-height(small);
+  }
 }
 
 @mixin text-style-medium {
@@ -68,7 +92,7 @@ $line-heights: (
   font-style: normal;
   color: $color-ink;
 
-  @media (--medium) {
+  @media (--tablet) {
     font-size: font-size(medium);
     line-height: line-height(medium);
   }
@@ -81,10 +105,12 @@ $line-heights: (
   font-weight: 400;
   font-style: normal;
   color: $color-ink;
+  margin-bottom: 1em * line-height(medium);
 
-  @media (--medium) {
+  @media (--tablet) {
     font-size: font-size(large);
     line-height: line-height(large);
+    margin-bottom: 1em * line-height(large);
   }
 }
 
@@ -97,7 +123,7 @@ $line-heights: (
   color: $color-ink;
   margin-bottom: 1em * line-height(medium);
 
-  @media (--medium) {
+  @media (--tablet) {
     font-size: font-size(extra-large);
     line-height: line-height(extra-large);
     margin-bottom: 1em * line-height(extra-large);
@@ -126,8 +152,9 @@ a {
   text-decoration: none;
 }
 
-p > a {
+a:not([class]) {
   text-decoration: underline;
+  text-decoration-skip-ink: auto;
 }
 
 h1,
@@ -160,7 +187,6 @@ ol {
     padding-right: calc(1 / 12 * 100% + 1em);
 
     li {
-      @include text-style-medium();
       list-style: none;
 
       + li {
@@ -176,13 +202,10 @@ h1 {
 
 h2 {
   @include text-style-large();
-  margin-bottom: 1em * line-height(large);
 }
 
 h3 {
-  @include text-style-large();
-  margin-bottom: 1em * line-height(large);
-  color: $color-primary;
+  @include text-style-medium();
 }
 
 h4,
@@ -193,5 +216,5 @@ h6 {
 }
 
 figcaption {
-  font-size: font-size(extra-small);
+  @include text-style-caption();
 }

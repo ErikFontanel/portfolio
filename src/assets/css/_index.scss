@@ -1,0 +1,22 @@
+.index {
+  .intro {
+    // grid-column: wide / last;
+    grid-column: wide;
+    display: grid;
+    grid-template-columns: 7fr 2fr;
+    gap: var(--gutter);
+    padding: $spacing-loose;
+
+    .button {
+      font-size: font-size(medium);
+    }
+  }
+}
+
+.projects {
+  display: grid;
+
+  .index & {
+    grid-column: wide;
+  }
+}

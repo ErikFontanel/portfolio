@@ -1,0 +1,15 @@
+.projectItem {
+  &--title,
+  &--client {
+    margin: 0;
+  }
+
+  * + &--title,
+  * + &--client {
+    margin-top: 0.5em;
+  }
+
+  & + * {
+    margin-top: $spacing-block * 4;
+  }
+}

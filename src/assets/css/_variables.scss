@@ -21,3 +21,5 @@ $font-stack-base: 'Cooper Hewitt', -apple-system, BlinkMacSystemFont,
   'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
 $font-stack-monospace: 'Office Code Pro', 'SF Mono', Monaco, Consolas,
   'Lucida Console', monospace;
+
+$global-zindex: (navigation, modal, body, background);

@@ -1,17 +1,26 @@
 .nav-main {
   @include effect-exclusion();
+  --button-color: currentColor;
+  appearance: none;
   position: fixed;
-  bottom: $spacing-tight;
-  left: $spacing-tight;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $spacing-tight 0;
+  // bottom: $spacing-tight;
+  right: $spacing-tight;
+  z-index: z-index(navigation);
+  text-align: right;
 
-  @media (--small-down) {
+  @media (--mobile) {
     transform-origin: 0 100%;
     transform: rotate(90deg) translateX(-100%);
   }
 
-  @media (--medium) {
-    bottom: $spacing-extra-loose;
-    left: $spacing-extra-loose;
+  @media (--tablet) {
+    right: $spacing-extra-loose;
+    padding: $spacing-extra-loose 0;
   }
 
   ul {
@@ -19,20 +28,67 @@
     padding: 0;
   }
 
-  li {
-    list-style: none;
-    padding: 0;
-
-    @media (--small-down) {
-      display: inline-block;
-    }
-
-    & + * {
+  .button {
+    & + .button {
       margin-top: 0.8em;
 
-      @media (--small-down) {
+      @media (mobile) {
         margin-left: 0.8em;
       }
     }
+
+    &:hover,
+    &:focus,
+    &:active {
+      --button-color: #{$color-yellow};
+    }
+
+    &:active,
+    &:focus {
+      color: $color-yellow;
+      outline: none;
+      box-shadow: 0 0 0.0625em 0.0625em lighten($color-yellow, $amount: 20);
+    }
+  }
+}
+
+.close {
+  margin-bottom: auto;
+  transition: opacity 0.25s linear;
+
+  @at-root :not(.overlay-visible) & {
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .overlay-visible & {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  &::before,
+  &::after {
+    border: 0.0625em solid currentColor;
+    position: absolute;
+    left: $spacing-loose * -1.25;
+    font-size: rem(16px);
+    width: 1.68em;
+    height: 1.68em;
+    padding: 0.34em;
+    border-radius: 100%;
+    transform: rotate(45deg);
+    display: flex;
+  }
+
+  &::before {
+    content: '';
+  }
+
+  &::after {
+    content: '↜';
+    border: none;
+    align-items: center;
+    justify-content: center;
   }
 }

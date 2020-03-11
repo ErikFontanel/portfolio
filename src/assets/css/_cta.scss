@@ -1,0 +1,21 @@
+.cta {
+  background-color: $color-yellow;
+  font-family: 'helvetica rounded', 'arial rounnded';
+  width: $spacing-extra-loose * 4;
+  height: $spacing-extra-loose * 4;
+  border-radius: 100%;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: font-size(medium);
+  position: relative;
+  top: 50%;
+
+  * {
+    margin: 0;
+    font-size: font-size(medium);
+  }
+}
