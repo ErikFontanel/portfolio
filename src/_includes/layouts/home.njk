@@ -1,13 +1,38 @@
----
-layout: layouts/base.njk
----
+{% extends './base.njk' %}
 
-{% block intro %}
-  {{ content|safe }}
+{% set about = false %}
+
+{% for item in collections.page %}
+  {% if item.data.title === 'About' %}
+    {% set about = item %}
+  {% endif %}
+{% endfor %}
+
+{% block main %}
+  {% block intro %}
+    <div class="intro">
+      <div class="info">
+        {{ content|safe }}
+
+        {% button url=about.url, label='info' if about %}
+      </div>
+      {% include "cta.njk" %}
+    </div>
+  {% endblock %}
+
+  {% block projects %}
+  <div class="projects grid grid-full">
+      {% for project in projects %}
+          {% include "projectItem.njk" %}
+      {% endfor %}
+  </div>
+  {% endblock %}
 {% endblock %}
 
-{% block projects %}
-  {% for project in projects %}
-      {% include "projectItem.njk" %}
-  {% endfor %}
+{% block modal %}
+  <div class="overlay grid">
+    <div class="overlay--body">
+      {{ about.templateContent|safe}}
+    </div>
+  </div>
 {% endblock %}

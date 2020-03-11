@@ -1,5 +1,15 @@
 <a class="projectItem" href="{{ project.url | url }}">
-  <img src="{{ project.url + project.data.thumbnail | url }}" alt="{{ project.data.title }}"/>
+
+  {% if project.data.thumbnail %}
+    <img class="projectItem--img" src="{{ project.url + project.data.thumbnail | url }}" alt="{{ project.data.title }}"/>
+  {% endif %}
+
+{% if project.data.title %}
   <h2 class="projectItem--title text-xl">{{ project.data.title }}</h2>
+{% endif %}
+
+{% if project.data.client %}
   <h3 class="projectItem--client">{{ project.data.client }}</h3>
+{% endif %}
+
 </a>

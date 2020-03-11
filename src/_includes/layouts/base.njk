@@ -17,11 +17,24 @@
 
 <body class="{{ bodyClass }} {{ page.data.tags[0]}} {{ page.fileSlug }}">
 
-  {% include "nav.njk" %}
+  {% block nav %}
+    {% include "nav.njk" %}
+  {% endblock %}
 
   <main class="wrapper grid">
-    {{ content | safe }}
+    {% block main %}
+      {{ content | safe }}
+    {% endblock %}
   </main>
+
+  {% block footer %}
+    <footer class="site-footer">
+      <p>extremely online since 1998</p>
+    </footer>
+  {% endblock %}
+
+  {% block modal %}
+  {% endblock %}
 
   <script src="{{ '/assets/index.js' | url }}"></script>
   {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
