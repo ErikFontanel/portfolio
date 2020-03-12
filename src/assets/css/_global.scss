@@ -1,8 +1,10 @@
 :root {
   --gutter: #{$gutter-sm};
+  --spacing-block: #{$spacing-block};
 
   @media (--tablet) {
     --gutter: #{$gutter};
+    --spacing-block: #{$spacing-block * 2};
   }
 }
 
@@ -95,4 +97,52 @@ img {
     grid-column: 1 / -1;
     grid-auto-flow: column;
   }
+}
+
+.grid\:2 {
+  --padding: var(--gutter);
+
+  display: grid;
+  gap: $spacing-base var(--gutter);
+  grid-template-columns: 80vmin;
+  grid-auto-columns: 80vmin;
+  justify-content: space-between;
+
+  :not(.grid\:centered) {
+    @media (--mobile) {
+      overflow: auto;
+    }
+  }
+
+  @media (--tablet) {
+    // --padding: calc(var(--gutter) + #{$spacing-base});
+
+    // grid-template-columns:
+    //   [img] var(--padding) [caption] 5fr var(--gutter)
+    //   calc(2 / 12 * 100% + var(--gutter))
+    //   [img] var(--gutter) [caption] 5fr var(--padding);
+
+    grid-template-columns: repeat(2, minmax(auto, #{5 / 12 * 100%}));
+    grid-auto-columns: minmax(auto, #{5 / 12 * 100%});
+  }
+
+  &.grid\:centered {
+    @media (--tablet) {
+      grid-template-columns: repeat(2, minmax(#{rem(240px)}, #{rem(320px)}));
+    }
+  }
+
+  > :not(figcaption) {
+    grid-column: auto / span 1;
+  }
+}
+
+.full-width,
+.grid\:full {
+  grid-column: 1 / -1;
+  grid-auto-flow: column;
+}
+
+.grid\:centered {
+  justify-content: space-evenly;
 }

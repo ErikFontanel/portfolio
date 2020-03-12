@@ -10,7 +10,7 @@ For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed
 
 Role: Design Lead
 Team: Jordi van der Oord, Joram van den Boezem, Joris Fritzsche, Jons Janssens
-(and some others, without a name starting with a J)
+(and others people, without a name starting with a J)
 
 {% gallery {
   images: ['at-main1.jpg'],
@@ -30,17 +30,17 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 {% endlist %}
 
-<div class="full-width galleries block">
+<div class="block full-width grid:2 grid:centered">
 {% gallery {
   images: ['at-pdp1.png','at-pdp2.png','at-pdp3.png'],
   caption: 'Product Detail page',
-  css: 'half-width carousel'
+  css: 'carousel'
 } %}
 
 {% gallery {
   images: ['at-pcp1.png','at-pcp2.png','at-pcp3.png','at-pcp4.png'],
   caption: 'Product Category page',
-  css: 'half-width carousel'
+  css: 'carousel'
 } %}
 
 </div>
@@ -57,14 +57,17 @@ A smooth and easy configuration a newly designed product configurator.
   css: 'full-width grid:2'
 } %}
 
+
+New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
+
 {% gallery {
   images: ['at-main4.jpg'],
   css: 'grid:3'
 } %}
 
-New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
+A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
 
-<div class="block block-centered gallery">
+<div class="block grid:centered">
 {% gallery {
   images: ['at-co1.png','at-co2.png','at-co3.png','at-co4.png'],
   caption: 'Product Category page',
@@ -72,9 +75,7 @@ New, super high resolution pack shots to showcase not only the quality of the fr
 } %}
 </div>
 
-A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
-
-{% list "Together with my team I achieved the following:" %}
+{% list "Results" %}
 
 - grew from a team of 1 designer and 2 developers to 3 designers and 6 developers
 - set-up a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com)

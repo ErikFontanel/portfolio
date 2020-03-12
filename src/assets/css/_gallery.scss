@@ -1,28 +1,19 @@
 $gallery-index: (caption, images);
 
 .gallery {
-  position: relative;
-  width: 100%;
-  padding-top: $spacing-loose;
-  padding-bottom: $spacing-loose;
-
-  @media (--tablet) {
-    padding-top: $spacing-loose * 2;
-  }
-
   figcaption {
     @include effect-exclusion($color-text);
     position: sticky;
-    top: 0;
-    left: var(--gutter);
     z-index: z-index(caption, $gallery-index);
+    grid-row: -2;
+    padding: 0 var(--gutter);
 
     @media (--tablet) {
       width: 100%;
-      top: $spacing-extra-loose;
-      z-index: 100;
+      top: var(--gutter);
       left: 0;
-      grid-column: caption 1;
+      z-index: z-index(caption, $gallery-index);
+      max-width: rem(474px);
     }
 
     .counter {
@@ -46,120 +37,52 @@ $gallery-index: (caption, images);
     }
   }
 
-  &.caption-left figcaption {
-    @media (--tablet) {
-      grid-column: caption 1;
-    }
-  }
-
-  &.caption-right figcaption {
-    @media (--tablet) {
-      grid-column: caption 2;
-    }
-  }
-
-  &.full-width {
-    width: 100%;
-    grid-column: full;
-  }
-
-  &.half-width {
-    width: 100%;
-  }
-
   &.grid\:2 {
-    --padding: var(--gutter);
-
     display: grid;
-    gap: $spacing-base var(--gutter);
-    grid-template-columns: 80vmin;
-    grid-auto-columns: 80vmin;
+    margin-top: var(--spacing-block);
+    margin-bottom: var(--spacing-block);
 
     @media (--mobile) {
       overflow: auto;
     }
 
-    @media (--tablet) {
-      --padding: calc(var(--gutter) + #{$spacing-base});
-
-      grid-template-columns:
-        [img] var(--padding) [caption] 5fr var(--gutter)
-        calc(2 / 12 * 100% + var(--gutter))
-        [img] var(--gutter) [caption] 5fr var(--padding);
-    }
-
-    > img {
-      order: -1;
+    > *:not(figcaption) {
       grid-column: auto / span 1;
       z-index: z-index(images, $gallery-index);
-      grid-row: 1;
-
-      @media (--tablet) {
-        grid-row: 2;
-
-        &:first-of-type {
-          grid-column: img 1 / span 3;
-        }
-
-        &:last-of-type {
-          grid-column: img 2 / span 3;
-        }
-      }
-    }
-  }
-
-  &.grid\:2-2 {
-    display: grid;
-    gap: $spacing-base var(--gutter);
-    grid-template-columns: 80vmin;
-    grid-auto-columns: 80vmin;
-
-    @media (--tablet) {
-      justify-content: space-evenly;
-      grid-template-columns: repeat(2, minmax(#{rem(240px)}, 20%));
+      grid-row: -1;
     }
   }
 
   &.grid\:3 {
-    grid-column: full-start / main-end;
-    max-width: 11 / 12 * 100%;
-  }
-}
-
-.galleries {
-  display: grid;
-  grid-column: full;
-  width: 100%;
-  justify-content: space-evenly;
-  gap: $spacing-base var(--gutter);
-  grid-template-columns: 80vmin;
-  grid-auto-columns: 80vmin;
-
-  @media (--tablet) {
-    justify-content: space-evenly;
-    grid-template-columns: repeat(2, minmax(#{rem(240px)}, 20%));
-  }
-
-  .gallery {
     display: grid;
-    grid-template-columns: 1fr;
     gap: $spacing-base var(--gutter);
-    margin-top: 0;
-    margin-bottom: 0;
+    grid-column: full;
+    grid-template-columns: repeat(12, 1fr);
 
-    > img {
-      grid-row: 1;
-      grid-column: 1;
+    > *:not(figcaption) {
+      grid-column-end: span 9;
     }
 
     figcaption {
-      grid-row: 2;
-      grid-column: 1;
+      grid-row: -1 / span 1;
+      grid-column: -5 / span 4;
+    }
+
+    &.caption-left {
+      *:not(figcaption) {
+        grid-column-start: 4;
+      }
+
+      figcaption {
+        grid-column: 1 / span 4;
+      }
     }
   }
 }
 
 .carousel {
+  width: 100%;
+  max-width: rem(320px);
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-base var(--gutter);

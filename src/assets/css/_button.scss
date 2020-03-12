@@ -12,6 +12,7 @@
   text-align: center;
   transition: color 0.2s linear;
   background-color: transparent;
+  width: min-content;
 
   @media (--medium) {
     font-size: font-size(small);
@@ -32,4 +33,12 @@
 .button,
 button {
   @extend %button;
+
+  &_large {
+    font-size: font-size(medium);
+
+    @media (--medium) {
+      font-size: font-size(medium);
+    }
+  }
 }
