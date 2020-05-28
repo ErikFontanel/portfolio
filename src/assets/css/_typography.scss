@@ -3,7 +3,7 @@ $font-sizes: (
   large: rem(40px),
   medium: rem(28px),
   small: rem(20px),
-  extra-small: rem(14px)
+  extra-small: rem(14px),
 );
 
 $line-heights: (
@@ -11,7 +11,7 @@ $line-heights: (
   large: 1.5,
   medium: 1.5,
   small: 1.5,
-  extra-small: 1.2
+  extra-small: 1.2,
 );
 
 /// Returns the font size for a given text style and variant.
@@ -46,9 +46,9 @@ $line-heights: (
 @mixin text-style-caption {
   font-family: $font-stack-base;
   font-size: font-size(extra-small);
-  line-height: line-height(extra-small);
   font-weight: 400;
   font-style: normal;
+  line-height: line-height(extra-small);
 
   @media (--tablet) {
     font-size: font-size(extra-small);
@@ -59,10 +59,9 @@ $line-heights: (
 @mixin text-style-body {
   font-family: $font-stack-base;
   font-size: font-size(small);
-  line-height: line-height(small);
   font-weight: 400;
   font-style: normal;
-  color: $color-ink;
+  line-height: line-height(small);
 
   @media (--tablet) {
     font-size: font-size(medium);
@@ -76,7 +75,6 @@ $line-heights: (
   line-height: line-height(extra-small);
   font-weight: 400;
   font-style: normal;
-  color: $color-ink;
 
   @media (--tablet) {
     font-size: font-size(small);
@@ -87,9 +85,9 @@ $line-heights: (
 @mixin text-style-medium {
   font-family: $font-stack-base;
   font-size: font-size(small);
-  line-height: line-height(small);
   font-weight: 400;
   font-style: normal;
+  line-height: line-height(small);
   color: $color-ink;
 
   @media (--tablet) {
@@ -101,10 +99,9 @@ $line-heights: (
 @mixin text-style-large {
   font-family: $font-stack-base;
   font-size: font-size(medium);
-  line-height: line-height(medium);
   font-weight: 400;
   font-style: normal;
-  color: $color-ink;
+  line-height: line-height(medium);
   margin-bottom: 1em * line-height(medium);
 
   @media (--tablet) {
@@ -117,10 +114,10 @@ $line-heights: (
 @mixin text-style-extra-large {
   font-family: $font-stack-base;
   font-size: font-size(medium);
-  line-height: line-height(medium);
   font-weight: 400;
   font-style: italic;
-  color: $color-ink;
+  letter-spacing: -0.025em;
+  line-height: line-height(medium);
   margin-bottom: 1em * line-height(medium);
 
   @media (--tablet) {
@@ -167,6 +164,10 @@ p {
   margin: 0;
   font-size: 1em;
   font-weight: 400;
+
+  a > & {
+    color: $color-text;
+  }
 }
 
 p {
