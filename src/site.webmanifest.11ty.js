@@ -4,7 +4,8 @@ const metadata = require('./_data/metadata.json');
 module.exports = class {
   data() {
     return {
-      eleventyExcludeFromCollections: true
+      eleventyExcludeFromCollections: true,
+      permalink: 'site.webmanifest',
     };
   }
 
