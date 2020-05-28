@@ -5,12 +5,8 @@
   "browser": "index.js",
   "scripts": {
     "clean": "rm -rf .cache dist",
-    "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
-    "dev:parcel": "NODE_ENV=development parcel watch ./src/assets/index.js --out-dir ./dist/assets/ --public-url /assets/",
-    "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./dist",
-    "prod:parcel": "NODE_ENV=production parcel build ./src/assets/index.js --out-dir ./dist/assets/ --public-url /assets/",
-    "start": "npm-run-all --serial clean --parallel dev:parcel dev:eleventy",
-    "build": "npm-run-all --serial clean prod:parcel prod:eleventy"
+    "start": "snowpack dev",
+    "build": "snowpack build"
   },
   "repository": {
     "type": "git",
