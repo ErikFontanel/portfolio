@@ -7,8 +7,9 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const Gallery = require(`${componentsDir}/Gallery.js`);
 const List = require(`${componentsDir}/List.js`);
 const Button = require(`${componentsDir}/Button.js`);
+const Label = require(`${componentsDir}/Label.js`);
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
 
@@ -20,13 +21,14 @@ module.exports = function(eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true,
-    code: false
+    code: false,
   };
   eleventyConfig.setLibrary('md', markdownIt(mdOptions));
 
   // Gallery
   eleventyConfig.addNunjucksShortcode('gallery', Gallery);
   eleventyConfig.addNunjucksShortcode('button', Button);
+  eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
   eleventyConfig.addWatchTarget('./src/_includes/components/');
@@ -35,10 +37,10 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: 'src',
-      output: 'dist'
+      output: 'dist',
     },
     templateFormats: ['html', 'md', 'njk', '11ty.js'],
     markdownTemplateEngine: 'njk',
-    passthroughFileCopy: true
+    passthroughFileCopy: true,
   };
 };
