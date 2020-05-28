@@ -5,10 +5,6 @@ tags:
   - project
 ---
 
-## {{client}}—
-
-# {{title}}
-
 For event marketing start-up Close I designed the UX for the Close web app, set up a design workflow and -system and worked on the implementation of the front-end.
 
 {% label "credits" %}
