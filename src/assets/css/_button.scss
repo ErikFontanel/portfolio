@@ -7,12 +7,15 @@
   border: 0.0625em solid currentColor;
   font-size: font-size(extra-small);
   line-height: 1;
-  padding: 0.34em 1em;
+  height: 2em;
+  padding: 0.34em 1.17em 0.17em;
   text-transform: lowercase;
   text-align: center;
   transition: color 0.2s linear;
   background-color: transparent;
-  width: min-content;
+  width: max-content;
+  user-select: none;
+  appearance: button;
 
   @media (--medium) {
     font-size: font-size(small);
@@ -40,5 +43,53 @@ button {
     @media (--medium) {
       font-size: font-size(medium);
     }
+  }
+
+  &.span,
+  &:not([href]) {
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.button_close {
+  margin-bottom: auto;
+  transition: opacity 0.25s linear;
+
+  @at-root :not(.overlay-visible) & {
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .overlay-visible & {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  &::before,
+  &::after {
+    border: 0.0625em solid currentColor;
+    position: absolute;
+    left: $spacing-loose * -1.25;
+    font-size: rem(16px);
+    width: 1.68em;
+    height: 1.68em;
+    padding: 0.34em;
+    border-radius: 100%;
+    transform: rotate(45deg);
+    display: flex;
+  }
+
+  &::before {
+    content: '';
+  }
+
+  &::after {
+    content: '↜';
+    border: none;
+    align-items: center;
+    justify-content: center;
   }
 }

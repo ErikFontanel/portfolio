@@ -1,3 +1,5 @@
-module.exports = ({ url = '', label = '' }) => `
-<a href="${url}" class="button">${label}</a>
+module.exports = ({ url = null, label = '', size = null }) => `
+<a ${url ? `href="${url}"` : ''} class="button ${
+  size ? `button_${size}` : size
+}">${label}</a>
 `;
