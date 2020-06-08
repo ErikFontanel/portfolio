@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('Cooper Hewitt Book'),
-    url('/fonts/CooperHewitt-Book.woff2') format('woff2');
+    url('/static/fonts/CooperHewitt-Book.woff2') format('woff2');
 }
 
 @font-face {
@@ -11,5 +11,5 @@
   font-style: italic;
   font-weight: 400;
   src: local('Cooper Hewitt Book Italic'),
-    url('/fonts/CooperHewitt-BookItalic.woff2') format('woff2');
+    url('/static/fonts/CooperHewitt-BookItalic.woff2') format('woff2');
 }

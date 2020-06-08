@@ -12,8 +12,8 @@ export default class Carousel {
   init() {
     this.addCounter();
     this.imgs
-      .filter(img => img !== this.current)
-      .map(img => {
+      .filter((img) => img !== this.current)
+      .map((img) => {
         img.classList.add('hidden');
         img.style.display = 'none';
       });

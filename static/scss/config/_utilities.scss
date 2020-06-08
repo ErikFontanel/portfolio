@@ -21,9 +21,9 @@ $base-font-size: 10px;
   }
 }
 
-/**
- * Calculate z-index based on list from top > bottom
- */
+///
+/// Calculate z-index based on list from top > bottom
+///
 $global-zindex: (modal, navigation, body, background) !default;
 
 @function z-index($element, $list: $global-zindex) {
@@ -39,9 +39,9 @@ $global-zindex: (modal, navigation, body, background) !default;
   @return null;
 }
 
-/**
- * Helper function to reverse a sass list
- */
+//
+// Helper function to reverse a sass list
+//
 @function reverse($list, $recursive: false) {
   $result: ();
 

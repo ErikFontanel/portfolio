@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
-    <link rel="apple-touch-icon" href="{{ '/assets/icons/homescreen192.png' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/static/css/app.css' | url }}">
+    <link rel="apple-touch-icon" href="{{ '/static/img/favicon.svg' | url }}">
+    <link rel="alternate icon" href="{{ '/static/img/favicon.ico' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
     <meta name="theme-color" content="{{ metadata.theme_color }}">
@@ -28,14 +29,13 @@
     </main>
 
     {% block footer %}
-      <footer class="site-footer">
-        <p>extremely online since 1998</p>
-      </footer>
+      {% include "footer.njk" %}
     {% endblock %}
 
     {% block modal %}{% endblock %}
 
-    <script src="{{ '/assets/index.js' | url }}"></script>
+    <script type="module" src="{{ '/static/index.js' | url }}"></script>
+
     {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
   <script type="15fc1a45c18dbc577066fcf7-text/javascript">function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-4641190-1");</script> #}
   </body>
