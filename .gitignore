@@ -3,4 +3,6 @@
 .vscode
 dist
 
+.now_site
+build
 .now

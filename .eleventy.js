@@ -1,4 +1,4 @@
-const componentsDir = `./src/_includes/components`;
+const componentsDir = `./views/_includes/components`;
 
 const markdownIt = require('markdown-it');
 const pluginNav = require('@11ty/eleventy-navigation');
@@ -13,9 +13,21 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
 
-  eleventyConfig.addPassthroughCopy('./src/**/*.png');
-  eleventyConfig.addPassthroughCopy('./src/**/*.gif');
-  eleventyConfig.addPassthroughCopy('./src/**/*.jpg');
+  eleventyConfig.setTemplateFormats([
+    // Templates:
+    'html',
+    'njk',
+    'md',
+    '11ty.js',
+    // Static Assets:
+    'css',
+    'svg',
+    'png',
+    'jpg',
+    'jpeg',
+  ]);
+
+  eleventyConfig.addPassthroughCopy('static');
 
   let mdOptions = {
     html: true,
@@ -31,15 +43,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
-  eleventyConfig.addWatchTarget('./src/_includes/components/');
+  eleventyConfig.addWatchTarget(componentsDir);
 
   // You can return your Config object (optional).
   return {
     dir: {
-      input: 'src',
+      input: 'views',
       output: 'dist',
     },
-    templateFormats: ['html', 'md', 'njk', '11ty.js'],
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true,
   };
