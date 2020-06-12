@@ -2,10 +2,19 @@
   "name": "portfolio",
   "version": "2.0.0",
   "description": "Personal portfolio of Erik Gelderblom",
-  "main": "index.js",
+  "main": "app.js",
+  "config": {
+    "public_url": "/",
+    "asset_url": "/static/"
+  },
   "scripts": {
-    "start": "snowpack dev",
-    "build": "NODE_ENV=production snowpack build"
+    "clean": "rm -rf ./dist",
+    "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
+    "dev:parcel": "NODE_ENV=development parcel watch ./static/app.js --out-dir ./dist/static/ --public-url ${npm_package_config_asset_url}",
+    "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./dist",
+    "prod:parcel": "NODE_ENV=production parcel build ./static/app.js --out-dir ./dist/static/ --public-url ${npm_package_config_asset_url}",
+    "start": "npm-run-all --parallel dev:eleventy dev:parcel",
+    "build": "npm-run-all --serial clean prod:parcel prod:eleventy"
   },
   "repository": {
     "type": "git",
@@ -19,22 +28,23 @@
   "homepage": "/",
   "dependencies": {},
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.5",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
-    "@csstools/postcss-sass": "^4.0.0",
     "@snowpack/plugin-parcel": "^1.0.0",
     "autoprefixer": "^9.8.0",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "1.12.4",
-    "parcel-plugin-keep-asset-folders": "^0.2.0",
-    "postcss-cli": "^7.1.1",
     "postcss-preset-env": "^6.7.0",
-    "postcss-scss": "^2.1.1",
     "sass": "^1.26.8",
-    "snowpack": "^2.3.1"
+    "snowpack": "^2.4.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "browserslist": [
     "defaults",

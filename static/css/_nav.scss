@@ -1,17 +1,14 @@
 .nav-main {
-  @include effect-exclusion();
-  --button-color: currentColor;
-  appearance: none;
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: $spacing-tight 0;
-  left: var(--gutter);
-  bottom: var(--gutter);
   z-index: z-index(navigation);
-  text-align: right;
-  width: auto;
+  bottom: calc(var(--gutter) * 2);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: rgba($color-black, 12%) 0 2px 4px;
+  border-radius: 99999em;
 
   @media (--mobile) {
     transform-origin: 0 100%;
@@ -24,26 +21,30 @@
   }
 
   .button {
-    & + .button {
-      margin-top: 0.8em;
-
-      @media (mobile) {
-        margin-left: 0.8em;
-      }
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    & + .button:not(:first-of-type):not(:last-of-type) {
+      border-left-color: #f3f2f1;
+      border-radius: 0;
     }
 
-    &:hover,
-    &:focus,
-    &:active {
-      --button-color: #{$color-yellow};
+    &:first-of-type {
+      padding-left: 1em;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
-    &:active,
-    &:focus {
-      color: $color-yellow;
-      outline: none;
-      box-shadow: 0 0 0.0625em 0.0625em lighten($color-yellow, $amount: 20);
+    &:last-of-type {
+      padding-right: 1em;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
+  }
+
+  .button_nav {
+    background-color: $color-white;
+    border-color: $color-white;
+    font-size: font-size(small);
   }
 
   .close {
@@ -52,7 +53,10 @@
     left: 0;
   }
 }
-
+.nav-projects {
+  visibility: hidden;
+  display: none;
+}
 .close {
   margin-bottom: auto;
   transition: opacity 0.25s linear;

@@ -1,4 +1,4 @@
-import './css/app.css';
+import './css/app.scss';
 import Carousel from './js/carousel';
 
 document.documentElement.classList.remove('no-js');
@@ -7,6 +7,15 @@ const modalBody = modal?.querySelector('.overlay--body');
 
 let visible = false;
 
+if (module.hot && process.env.NODE_ENV !== 'production') {
+  module.hot.dispose(function () {
+    console.log('Hot reloading…');
+  });
+
+  module.hot.accept(function () {
+    // module or one of its dependencies was just updated
+  });
+}
 const toggleModal = (event) => {
   event.preventDefault();
   document.documentElement.classList.toggle('overlay-visible', !visible);

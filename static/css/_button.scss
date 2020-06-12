@@ -6,9 +6,9 @@
   color: var(--button-color, #{$color-text});
   border: 0.0625em solid currentColor;
   font-size: font-size(extra-small);
-  line-height: 1;
-  height: 2em;
-  padding: 0.34em 1.17em 0.17em;
+  line-height: 0.6;
+  height: 1.8em;
+  padding: 0.25em 1em;
   text-transform: lowercase;
   text-align: center;
   transition: color 0.2s linear;
@@ -50,6 +50,16 @@ button {
     &:hover {
       color: inherit;
     }
+  }
+
+  &--label {
+    position: relative;
+    top: rem(-1px);
+    user-select: none;
+  }
+
+  &-sub--label {
+    font-size: font-size(extra-small);
   }
 }
 

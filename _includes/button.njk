@@ -1,5 +1,5 @@
----
-url: false
-label: false
----
+{% set data = {
+  url: post.url,
+  label: post.title
+} %}
 <a href="{{ data.url }}" class="button">{{ data.label }}</a>

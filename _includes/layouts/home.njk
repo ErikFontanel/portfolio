@@ -14,18 +14,19 @@
       <div class="info">
         {{ content|safe }}
 
-        {% button url=about.url, label='info' if about %}
+        {% button url = about.url,
+        label = 'info' if about %}
       </div>
       {% include "cta.njk" %}
     </div>
   {% endblock %}
 
   {% block projects %}
-  <div class="projects grid grid-full">
+    <div class="projects grid grid-full">
       {% for project in projects %}
-          {% include "projectItem.njk" %}
+        {% include "projectItem.njk" %}
       {% endfor %}
-  </div>
+    </div>
   {% endblock %}
 {% endblock %}
 

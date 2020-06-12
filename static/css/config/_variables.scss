@@ -19,9 +19,25 @@ $gutter: $spacing-loose;
 $default-browser-font-size: 16px;
 $base-font-size: 10px;
 
-$font-stack-base: 'Cooper Hewitt', -apple-system, BlinkMacSystemFont,
+$font-stack-base: 'Montreal Neue', -apple-system, BlinkMacSystemFont,
   'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
 $font-stack-monospace: 'Office Code Pro', 'SF Mono', Monaco, Consolas,
   'Lucida Console', monospace;
 
 $global-zindex: (navigation, modal, body, background);
+
+$font-sizes: (
+  extra-large: rem(57px),
+  large: rem(40px),
+  medium: rem(28px),
+  small: rem(20px),
+  extra-small: rem(14px),
+);
+
+$line-heights: (
+  extra-large: 1.2,
+  large: 1.5,
+  medium: 1.5,
+  small: 1.5,
+  extra-small: 1.2,
+);

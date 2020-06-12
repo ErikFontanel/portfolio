@@ -1,4 +1,4 @@
-const componentsDir = `./views/_includes/components`;
+const componentsDir = `./_includes/components`;
 
 const markdownIt = require('markdown-it');
 const pluginNav = require('@11ty/eleventy-navigation');
@@ -43,12 +43,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
-  eleventyConfig.addWatchTarget(componentsDir);
+  eleventyConfig.addWatchTarget(componentsDir + '/');
 
   // You can return your Config object (optional).
   return {
     dir: {
-      input: 'views',
+      input: 'content',
+      includes: '../_includes',
       output: 'dist',
     },
     markdownTemplateEngine: 'njk',
