@@ -1,5 +1,6 @@
-$default-browser-font-size: 16px;
-$base-font-size: 10px;
+$default-browser-font-size: 16px !default;
+$base-font-size: 10px !default;
+$reference: 1440px !default;
 
 /// Returns the value in rem for a given pixel value.
 /// @param {Number} $value - The pixel value to be converted.
@@ -16,6 +17,71 @@ $base-font-size: 10px;
     @return $value / $base-font-size * 1rem;
   } @else if $unit == 'em' {
     @return $unit / 1em * 1rem;
+  } @else {
+    @error 'Value must be in px, em, or rem.';
+  }
+}
+
+/// Returns the value in px for a given value.
+/// @param {Number} $value - The value to be converted.
+/// @return {Number} The converted value in px.
+@function strip-unit($value) {
+  $unit: unit($value);
+
+  @if $value == 0 {
+    @return 0;
+  } @else if $unit == 'rem' {
+    @return ($value / 1rem);
+  } @else if $unit == 'px' {
+    @return ($value / 1px);
+  } @else if $unit == 'em' {
+    @return ($value / 1em);
+  } @else {
+    @error 'Value must be in px, em, or rem.';
+  }
+}
+
+/// Returns the value in vw for a given pixel value.
+/// @param {Number} $value - The pixel value to be converted.
+/// @return {Number} The converted value in rem.
+
+@function vw($value) {
+  $unit: unit($value);
+
+  @if $value == 0 {
+    @return 0;
+  } @else if $unit == 'rem' {
+    $value: strip-unit($value);
+    $base: strip-unit($base-font-size);
+    $ref: strip-unit($reference);
+
+    @return (($value * $base) / $ref) * 100vw;
+  } @else if $unit == 'px' {
+    @return ($value / 1px) * 1vw;
+  } @else if $unit == 'em' {
+    @return ($unit / 1em) * 1vw;
+  } @else {
+    @error 'Value must be in px, em, or rem.';
+  }
+}
+
+/// Returns the value in em for a given value.
+/// @param {Number} $value - The value to be converted.
+/// @return {Number} The converted value in em.
+
+@function em($value) {
+  $unit: unit($value);
+
+  @if $value == 0 {
+    @return 0;
+  } @else if $unit == 'rem' {
+    @return ($value / 1rem) * 1em;
+  } @else if $unit == 'px' {
+    @return ($value / 1px) * 1em;
+  } @else if $unit == 'em' {
+    @return ($value / 1em) * 1em;
+  } @else if $unit == '' {
+    @return $value * 1em;
   } @else {
     @error 'Value must be in px, em, or rem.';
   }
