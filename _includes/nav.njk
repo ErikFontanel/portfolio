@@ -1,7 +1,7 @@
 {% set subLabel = null %}
 
 <nav class="nav-main">
-  <a href="{{ '/work'|url }}" class="button button_nav">
+  <a href="{{ '/work/' | url }}" class="button button_nav">
     <span class="button--label">Work</span>
     {% if sublabel %}
       <span class="button--sub-label">{{ sublabel }}</span>
@@ -11,13 +11,11 @@
   {% button
   url = '/expertise' | url,
   label = 'Expertise',
-  size = 'large',
   name = 'button_nav' %}
 
   {% button
   url = '/about' | url,
   label = 'About',
-  size = 'large',
   name = 'button_nav' %}
 
   <ul class="nav-projects">
