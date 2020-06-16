@@ -29,70 +29,80 @@
 
 @mixin text-style-caption {
   font-family: $font-stack-base;
-  font-size: font-size(extra-small);
   font-weight: 400;
   font-style: normal;
-  line-height: line-height(extra-small);
-
-  @media (--tablet) {
-    font-size: font-size(extra-small);
-    line-height: line-height(extra-small);
-  }
+  font-size: clamp(
+    #{font-size(extra-small)},
+    #{vw(font-size(extra-small))},
+    #{font-size(small)}
+  );
+  line-height: clamp(
+    #{line-height(extra-small)},
+    #{line-height(extra-small)},
+    #{line-height(small)}
+  );
 }
 
 @mixin text-style-body {
   font-family: $font-stack-base;
-  font-size: font-size(small);
   font-weight: 400;
   font-style: normal;
-  line-height: line-height(small);
-
-  @media (--tablet) {
-    font-size: font-size(medium);
-    line-height: line-height(medium);
-  }
+  font-size: clamp(
+    #{font-size(small)},
+    #{vw(font-size(medium))},
+    #{font-size(large)}
+  );
+  line-height: clamp(
+    #{line-height(extra-small)},
+    #{line-height(small)},
+    #{line-height(medium)}
+  );
 }
 
 @mixin text-style-small {
   font-family: $font-stack-base;
-  font-size: font-size(extra-small);
-  line-height: line-height(extra-small);
   font-weight: 400;
   font-style: normal;
-
-  @media (--tablet) {
-    font-size: font-size(small);
-    line-height: line-height(small);
-  }
+  font-size: clamp(
+    #{font-size(extra-small)},
+    #{vw(font-size(small))},
+    #{font-size(small)}
+  );
+  line-height: clamp(
+    #{line-height(extra-small)},
+    #{line-height(small)},
+    #{line-height(medium)}
+  );
 }
 
 @mixin text-style-medium {
   font-family: $font-stack-base;
-  font-size: font-size(small);
   font-weight: 400;
   font-style: normal;
-  line-height: line-height(small);
   color: $color-ink;
-
-  @media (--tablet) {
-    font-size: font-size(medium);
-    line-height: line-height(medium);
-  }
+  font-size: clamp(
+    #{font-size(small)},
+    #{vw(font-size(medium))},
+    #{font-size(large)}
+  );
+  line-height: clamp(
+    #{line-height(small)},
+    #{line-height(medium)},
+    #{line-height(large)}
+  );
 }
 
 @mixin text-style-large {
   font-family: $font-stack-base;
-  font-size: font-size(medium);
   font-weight: 400;
   font-style: normal;
-  line-height: line-height(medium);
-  margin-bottom: 1em * line-height(medium);
-
-  @media (--tablet) {
-    font-size: font-size(large);
-    line-height: line-height(large);
-    margin-bottom: 1em * line-height(large);
-  }
+  font-size: clamp(
+    #{font-size(medium)},
+    #{vw(font-size(large))},
+    #{font-size(extra-large)}
+  );
+  line-height: line-height(large);
+  margin-bottom: line-height(large) * 1em;
 }
 
 @mixin text-style-extra-large {
@@ -100,13 +110,11 @@
   font-size: font-size(medium);
   font-weight: 400;
   font-style: italic;
-  letter-spacing: -0.025em;
-  line-height: line-height(medium);
-  margin-bottom: 1em * line-height(medium);
-
-  @media (--tablet) {
-    font-size: font-size(extra-large);
-    line-height: line-height(extra-large);
-    margin-bottom: 1em * line-height(extra-large);
-  }
+  font-size: clamp(
+    #{font-size(large)},
+    #{vw(font-size(extra-large))},
+    #{font-size(extra-large)}
+  );
+  line-height: line-height(large);
+  margin-bottom: line-height(large) * 1em;
 }

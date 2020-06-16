@@ -5,7 +5,11 @@
   border-radius: 9999em;
   color: var(--button-color, #{$color-text});
   border: 0.0625em solid currentColor;
-  font-size: font-size(extra-small);
+  font-size: clamp(
+    #{font-size(extra-small)},
+    vw(font-size(small)),
+    #{font-size(medium)}
+  );
   line-height: 0.6;
   height: 1.8em;
   padding: 0.25em 1em;
@@ -17,19 +21,19 @@
   user-select: none;
   appearance: button;
 
-  @media (--medium) {
-    font-size: font-size(small);
-  }
-
   &:hover {
-    color: var(--button-color, #{$color-blue});
+    background-color: darken($color-background, 1);
   }
 
   &:active,
   &:focus {
-    color: $color-blue;
     outline: none;
-    box-shadow: 0 0 0.0625em 0.0625em lighten($color-blue, $amount: 20);
+    box-shadow: 0 0 0.0625em 0.0625em lighten($color-black, 90);
+  }
+
+  &:active {
+    background-color: darken($color-background, 1);
+    box-shadow: inset 0 1px 0.0625em 0.0625em lighten($color-black, 90);
   }
 }
 
@@ -59,7 +63,7 @@ button {
   }
 
   &-sub--label {
-    font-size: font-size(extra-small);
+    font-size: 0.7em;
   }
 }
 
