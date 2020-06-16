@@ -10,10 +10,10 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
-    "dev:parcel": "NODE_ENV=development parcel watch ./static/app.js --out-dir ./dist/static/ --public-url ${npm_package_config_asset_url}",
+    "dev:parcel": "parcel watch ./static/app.js --out-dir ./dist/static/ --public-url ${npm_package_config_asset_url}",
     "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./dist",
     "prod:parcel": "NODE_ENV=production parcel build ./static/app.js --out-dir ./dist/static/ --public-url ${npm_package_config_asset_url}",
-    "start": "npm-run-all --parallel dev:eleventy dev:parcel",
+    "start": "npm-run-all --parallel dev:parcel dev:eleventy",
     "build": "npm-run-all --serial clean prod:parcel prod:eleventy"
   },
   "repository": {
@@ -39,7 +39,7 @@
     "parcel-bundler": "1.12.4",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.26.8",
-    "snowpack": "^2.4.0"
+    "snowpack": "^2.5.2"
   },
   "babel": {
     "presets": [
