@@ -11,12 +11,6 @@
   font-weight: 400;
   src: local("Montreal Neue");
 }
-@custom-media --mobile (width < 48rem);
-@custom-media --mobile-up (width >= 48rem);
-@custom-media --tablet-up (width >= 48rem);
-@custom-media --tablet-down (width <= 48rem);
-@custom-media --desktop-up (width >= 80rem);
-@custom-media --desktop-down (width <= 80rem);
 .text-s {
   font-family: "Montreal Neue", -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif;
   font-weight: 400;
@@ -238,6 +232,9 @@ img {
   display: grid;
   grid-template-columns: [full-start first] 1.6rem [wide-start main-start] minmax(auto, 8fr) [main-end last wide-end] 1.6rem [full-end];
   grid-auto-rows: auto;
+  grid-gap: 0 1.2rem;
+  gap: 0 1.2rem;
+  grid-gap: 0 var(--gutter);
   gap: 0 var(--gutter);
 }
 @media (--tablet) {
@@ -263,12 +260,15 @@ img {
 .grid\:2 {
   --padding: var(--gutter);
   display: grid;
+  grid-gap: 1.6rem 1.2rem;
+  gap: 1.6rem 1.2rem;
+  grid-gap: 1.6rem var(--gutter);
   gap: 1.6rem var(--gutter);
   grid-template-columns: 80vmin;
   grid-auto-columns: 80vmin;
   justify-content: space-between;
 }
-@media (--mobile) {
+@media (max-width: 47.999rem) {
   .grid\:2 :not(.grid\:centered) {
     overflow: auto;
   }
@@ -304,6 +304,7 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 9999em;
+  color: #121212;
   color: var(--button-color, #121212);
   border: 0.0625em solid currentColor;
   font-size: clamp(1.4rem, 1.3888888889vw, 2.8rem);
@@ -399,6 +400,7 @@ button-sub--label {
 .nav-main {
   position: fixed;
   z-index: 40;
+  bottom: calc(1.2rem * 2);
   bottom: calc(var(--gutter) * 2);
   display: flex;
   flex-flow: row nowrap;
@@ -409,10 +411,10 @@ button-sub--label {
   border-radius: 99999em;
   background-color: white;
 }
-@media (--mobile) {
+@media (max-width: 47.999rem) {
   .nav-main {
-    transform-origin: 0 100%;
-    transform: rotate(90deg) translateX(-100%);
+    transform-origin: 100% 100%;
+    transform: rotate(-90deg);
   }
 }
 .nav-main ul {
@@ -442,6 +444,7 @@ button-sub--label {
 }
 .nav-main .close {
   position: absolute;
+  top: calc(1.2rem * -2);
   top: calc(var(--gutter) * -2);
   left: 0;
 }
@@ -595,11 +598,13 @@ button-sub--label {
   position: sticky;
   z-index: 20;
   grid-row: -2;
+  padding: 0 1.2rem;
   padding: 0 var(--gutter);
 }
 @media (--tablet) {
   .gallery figcaption {
     width: 100%;
+    top: 1.2rem;
     top: var(--gutter);
     left: 0;
     z-index: 20;
@@ -631,10 +636,12 @@ button-sub--label {
 }
 .gallery.grid\:2 {
   display: grid;
+  margin-top: 6.4rem;
   margin-top: var(--spacing-block);
+  margin-bottom: 6.4rem;
   margin-bottom: var(--spacing-block);
 }
-@media (--mobile) {
+@media (max-width: 47.999rem) {
   .gallery.grid\:2 {
     overflow: auto;
   }
@@ -646,6 +653,9 @@ button-sub--label {
 }
 .gallery.grid\:3 {
   display: grid;
+  grid-gap: 1.6rem 1.2rem;
+  gap: 1.6rem 1.2rem;
+  grid-gap: 1.6rem var(--gutter);
   gap: 1.6rem var(--gutter);
   grid-column: full;
   grid-template-columns: repeat(12, 1fr);
@@ -669,6 +679,9 @@ button-sub--label {
   max-width: 32rem;
   display: grid;
   grid-template-columns: 1fr;
+  grid-gap: 1.6rem 1.2rem;
+  gap: 1.6rem 1.2rem;
+  grid-gap: 1.6rem var(--gutter);
   gap: 1.6rem var(--gutter);
   position: relative;
 }
@@ -804,6 +817,7 @@ button-sub--label {
 .block {
   position: relative;
   width: 100%;
+  margin: 6.4rem 0;
   margin: var(--spacing-block) 0;
 }
 .block + .block {
@@ -821,6 +835,9 @@ button-sub--label {
   grid-column: wide;
   display: grid;
   grid-template-columns: 7fr 2fr;
+  grid-gap: 1.2rem;
+  gap: 1.2rem;
+  grid-gap: var(--gutter);
   gap: var(--gutter);
   padding: 3.2rem;
 }

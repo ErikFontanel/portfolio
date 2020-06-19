@@ -1,11 +1,15 @@
+const isDev = () => process.env.NODE_ENV !== 'production';
+
 module.exports = {
   plugins: [
     require('postcss-preset-env')({
-      stage: 1,
-      autoprefixer: {
-        grid: true,
-      },
+      autoprefixer: !isDev()
+        ? {
+            grid: true,
+          }
+        : false,
     }),
+    ,
     require('postcss-custom-media'),
   ],
 };
