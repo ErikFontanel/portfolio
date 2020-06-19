@@ -1,7 +1,5 @@
-{% set cssPath = '/static/css/app.css' if process.env.NODE_ENV === 'production' else 
-  '/static/app.css' %}
-{% set jsPath = '/static/js/app.js' if process.env.NODE_ENV === 'production' else 
-  '/static/app.js' %}
+{% set cssPath = '/public/css/app.css' %}
+{% set jsPath = '/public/app.js' %}
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -15,7 +13,7 @@
     <link rel="apple-touch-icon" href="{{ '/static/img/favicon.svg' | url }}">
     <link rel="alternate icon" href="{{ '/static/img/favicon.ico' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="stylesheet" href="{{ cssPath | url }}">
+    {# <link rel="stylesheet" href="{{ cssPath | url }}"> #}
 
     <meta name="theme-color" content="{{ metadata.theme_color }}">
 
@@ -38,7 +36,7 @@
 
     {% block modal %}{% endblock %}
 
-    <script type="text/javascript" src="{{ jsPath | url }}"></script>
+    <script type="module" src="{{ jsPath | url }}"></script>
 
     {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
   <script type="15fc1a45c18dbc577066fcf7-text/javascript">function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-4641190-1");</script> #}

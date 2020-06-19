@@ -1,4 +1,4 @@
-import './css/app.scss';
+import './css/app.css';
 import Carousel from './js/carousel';
 
 document.documentElement.classList.remove('no-js');
@@ -7,15 +7,16 @@ const modalBody = modal?.querySelector('.overlay--body');
 
 let visible = false;
 
-if (module.hot && process.env.NODE_ENV !== 'production') {
-  module.hot.dispose(function () {
-    console.log('Hot reloading…');
-  });
+// if (module.hot && process.env.NODE_ENV !== 'production') {
+//   module.hot.dispose(function () {
+//     console.log('Hot reloading…');
+//   });
 
-  module.hot.accept(function () {
-    // module or one of its dependencies was just updated
-  });
-}
+//   module.hot.accept(function () 9{
+//     // module or one of its dependencies was just updated
+//   });
+// }
+
 const toggleModal = (event) => {
   event.preventDefault();
   document.documentElement.classList.toggle('overlay-visible', !visible);
@@ -44,3 +45,16 @@ document
 // if (carousels.length) {
 //   carousels.map(i => new Carousel());
 // }
+
+console.log('init');
+if (import.meta.hot) {
+  console.log('hot');
+  import.meta.hot.accept(({ module }) => {
+    // Accept the module, apply it to your application.
+    console.log('old!');
+    console.log('new!');
+  });
+  import.meta.hot.dispose(() => {
+    // Cleanup any side-effects. Optional.
+  });
+}
