@@ -2,12 +2,11 @@
   "homepage": "/",
   "scripts": {
     "mount:eleventy": "mount dist --to /",
-    "mount:public": "mount dist/public --to /public",
     "mount:src": "mount src --to /public",
-    "run:sass": "sass src/scss:src/css --no-source-map",
+    "run:sass": "sass src/scss:src/scss --no-source-map",
     "run:sass::watch": "$1 --watch",
-    "run:tpostcss": "postcss src/css/**/*.css -d dist/public/css",
-    "run:tpostcss::watch": "$1 --watch",
+    "run:tpostcss": "postcss src/scss/**/*.css",
+    "run:tpostcss::watch": "postcss src/scss/**/*.css -d src/css --watch",
     "run:11ty": "eleventy",
     "run:11ty::watch": "$1 --watch"
   },
