@@ -6,3 +6,5 @@ dist
 .now_site
 build
 .now
+snowpack.crt
+snowpack.key
