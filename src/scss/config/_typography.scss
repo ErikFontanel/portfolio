@@ -12,6 +12,7 @@
     @error 'Font size `#{$variant}` not found.';
   }
 }
+
 /// Returns the line height for a given text style and variant.
 ///
 /// @param {String} $style - The font style.
@@ -97,7 +98,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: clamp(
-    #{font-size(medium)},
+    #{font-size(small)},
     #{vw(font-size(large))},
     #{font-size(extra-large)}
   );
@@ -111,7 +112,7 @@
   font-weight: 400;
   font-style: italic;
   font-size: clamp(
-    #{font-size(large)},
+    #{font-size(medium)},
     #{vw(font-size(extra-large))},
     #{font-size(extra-large)}
   );

@@ -55,7 +55,7 @@ $reference: 1440px !default;
     $base: strip-unit($base-font-size);
     $ref: strip-unit($reference);
 
-    @return (($value * $base) / $ref) * 100vw;
+    @return (($value * $base) / $ref) * 100vmax;
   } @else if $unit == 'px' {
     @return ($value / 1px) * 1vw;
   } @else if $unit == 'em' {

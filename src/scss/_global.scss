@@ -18,12 +18,16 @@
 html,
 body,
 button {
-  @include text-style-body;
-  font-size: font-size(small);
+  @include text-style-medium;
+  // font-size: vw(font-size(small));
 
-  @media (--large) {
-    font-size: font-size(medium);
-  }
+  // @media (--large) {
+  //   font-size: clamp(
+  //   #{font-size(extra-small)},
+  //   #{vw(font-size(extra-small))},
+  //   #{font-size(small)}
+  // );
+  // }
 }
 
 html {

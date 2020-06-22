@@ -1,19 +1,22 @@
 .nav-main {
   position: fixed;
   z-index: z-index(navigation);
-  bottom: calc(var(--gutter) * 2);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   left: 50%;
+  bottom: 0;
   transform: translate(-50%, 0);
   box-shadow: rgba($color-black, 12%) 0 2px 4px;
   border-radius: 99999em;
   background-color: white;
 
   @media (--mobile) {
-    transform-origin: 100% 100%;
-    transform: rotate(-90deg);
+    left: var(--gutter);
+    transform-origin: 0 0;
+    transform: rotate(90deg);
+    transform: none;
+    bottom: auto;
   }
 
   ul {

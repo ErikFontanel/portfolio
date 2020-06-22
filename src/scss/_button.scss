@@ -6,7 +6,7 @@
   color: var(--button-color, #{$color-text});
   border: 0.0625em solid currentColor;
   font-size: clamp(
-    #{font-size(extra-small)},
+    #{font-size(small)},
     vw(font-size(small)),
     #{font-size(medium)}
   );
