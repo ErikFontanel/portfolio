@@ -10,3 +10,4 @@ snowpack.crt
 snowpack.key
 src/scss/app.css.map
 src/scss/app.css
+src/css
