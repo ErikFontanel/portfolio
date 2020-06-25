@@ -14,6 +14,7 @@
     "port": 8080,
     "open": "none",
     "out": "dist",
-    "secure": true
+    "secure": true,
+    "bundle": false
   }
 }

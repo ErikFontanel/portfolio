@@ -1,0 +1,8 @@
+.project-nav {
+  @include effect-exclusion;
+
+  position: sticky;
+  top: var(--gutter);
+  display: flex;
+  justify-content: flex-end;
+}

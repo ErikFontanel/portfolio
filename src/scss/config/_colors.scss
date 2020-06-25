@@ -1,6 +1,10 @@
+@use 'sass:color';
 $color-black: #000;
 $color-white: #fff;
 $color-ink: #121212;
+$color-ink-lighter: #4d4d4d;
 $color-sky: #ededef;
+$color-sky-darker: #d1d1d6;
+$color-sky-lighter: color.scale($color-white, $lightness: -2.5%);
 $color-yellow: #fff000;
 $color-blue: #313fff;

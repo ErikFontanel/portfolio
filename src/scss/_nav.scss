@@ -16,9 +16,24 @@ $nav-index: main, projects;
   will-change: background-color, backdrop-filter;
   background-color: rgba(var(--color-background-overlay-rgb), 0);
   backdrop-filter: saturate(100%) blur(0);
-  &[data-showing-overlay] {
+
+  display: grid;
+  grid-template-columns: minmax(auto, 1fr) minmax(auto, max-content) minmax(
+      auto,
+      1fr
+    );
+  justify-content: start;
+  justify-items: center;
+  grid-auto-rows: auto;
+  align-content: end;
+
+  &[data-showing-overlay='true'] {
     background-color: rgba(var(--color-background-overlay-rgb), 0.6);
-    backdrop-filter: saturate(40%) blur(#{rem(8px)});
+    backdrop-filter: saturate(140%) blur(#{rem(6px)});
+  }
+
+  > * {
+    grid-column: 2;
   }
 }
 
@@ -54,6 +69,7 @@ nav {
   }
 
   .button {
+    --button-border-color: transparent;
     flex: 0 1 auto;
     padding-left: 0.8em;
     padding-right: 0.8em;
@@ -63,6 +79,7 @@ nav {
         border-radius: 0;
       }
 
+      // separator
       &:before {
         content: '';
         width: 1px;
@@ -95,27 +112,55 @@ nav {
 
 .nav-projects {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   z-index: z-index(projects, $nav-index);
-  margin: auto;
   margin-bottom: 0.5rem;
   pointer-events: auto;
   transition: $transition-fast $transition-timing;
   transition-property: opacity, visibility, transform;
   transform: translate3d(0, 0, 0);
+  width: 100%;
+  order: -1;
 
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition-delay: $transition-fast;
+    // transition-delay: $transition-fast;
     transform: translate3d(0, 10%, 0);
   }
 
-  &__dialog {
+  &__dialog.card {
+    padding: 0;
     box-shadow: shadow(2);
+  }
+
+  ul {
+    padding: calc(var(--gutter) * 0.5) 0;
+  }
+
+  li {
+    border-radius: 3px;
+    padding: 0.5em var(--gutter);
+    transition: $transition-fast $transition-timing;
+    transition-property: background-color, color;
+    color: $color-ink;
+
+    &:hover {
+      background-color: $color-sky-lighter;
+      color: $color-black;
+    }
+
+    &.active {
+      &::before {
+        background: $color-background url('/public/img/hand.svg') no-repeat 0
+          (1em * line-height(medium)) / 6;
+      }
+    }
+
+    a {
+      display: block;
+    }
   }
 }
 .close {

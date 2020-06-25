@@ -4,10 +4,7 @@ bodyClass: single
 ---
 <article class="grid grid-full">
   <nav class="project-nav">
-    {%- button
-      url = '/work/'|url,
-      label = project.data.client,
-      name = 'button_nav' -%}
+    <button aria-label="close" class="button_close inverted">close</button>
   </nav>
 
   {% block header %}

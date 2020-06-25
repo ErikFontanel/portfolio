@@ -2,12 +2,15 @@
 
 $button-border-focus: 0 0 0 2px var(--button-focus-border-color);
 
+$button-border-color: inset 0 0 0 1px var(--button-border-color);
+
 $button-border-hover: inset 0 0 0 1px var(--button-hover-border-color);
 
 $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
-  inset 0 1px 4px 0 var(--button-active-border-color);
+  inset 0 1px 5px 0 var(--button-active-border-color);
 
 %button {
+  --button-border-color: #{$color-ink-lighter};
   --button-focus-border-color: transparent;
   --button-hover-border-color: transparent;
   --button-active-border-color: transparent;
@@ -35,13 +38,15 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
   -webkit-tap-highlight-color: transparent;
   transition: $transition-default $transition-timing;
   transition-property: background, border, color, box-shadow;
-  box-shadow: $button-border-focus, $button-border-hover, $button-border-active;
+  box-shadow: $button-border-focus, $button-border-color, $button-border-hover,
+    $button-border-active;
 
   &:hover {
     --button-background-color: #{color.scale(
         $color-background,
         $lightness: -2.5%
       )};
+
     --button-hover-border-color: #{color.scale(
         $color-background,
         $lightness: -2.5%
@@ -54,11 +59,24 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
   }
 
   &:active {
-    --button-active-border-color: rgba(
-      #{hexToRGB(color.scale($color-background, $lightness: -40%))},
-      0.1
-    );
+    --button-focus-border-color: transparent;
+    --button-active-border-color: rgba(#{hexToRGB($color-ink-lighter)}, 0.2);
     --button-background-color: #{color.scale($color-background, $lightness: -2%)};
+  }
+
+  &[aria-expanded='true'] {
+    --button-active-border-color: rgba(#{hexToRGB($color-ink)}, 0.2);
+    --button-background-color: #{color.scale($color-background, $lightness: -4%)};
+    &:hover {
+      --button-hover-border-color: transparent;
+      --button-background-color: #{color.scale(
+          $color-background,
+          $lightness: -6.5%
+        )};
+    }
+    &:hover:active {
+      --button-hover-border-color: var(--button-active-border-color);
+    }
   }
 
   &:disabled {
@@ -69,6 +87,11 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
 .button,
 button {
   @extend %button;
+
+  &.inverted {
+    --button-color: #{invert($color-text)};
+    --button-background-color: #{invert($color-background-ui)};
+  }
 
   &_large {
     font-size: font-size(medium);
@@ -99,46 +122,5 @@ button {
       font-size: 1.2em;
       margin: 0 0.8ch 0 0;
     }
-  }
-}
-
-.button_close {
-  margin-bottom: auto;
-  transition: opacity 0.25s linear;
-
-  @at-root :not(.overlay-visible) & {
-    opacity: 1;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  .overlay-visible & {
-    pointer-events: auto;
-    visibility: visible;
-  }
-
-  &::before,
-  &::after {
-    border: 0.0625em solid currentColor;
-    position: absolute;
-    left: $spacing-loose * -1.25;
-    font-size: rem(16px);
-    width: 1.68em;
-    height: 1.68em;
-    padding: 0.34em;
-    border-radius: 100%;
-    transform: rotate(45deg);
-    display: flex;
-  }
-
-  &::before {
-    content: '';
-  }
-
-  &::after {
-    content: '↜';
-    border: none;
-    align-items: center;
-    justify-content: center;
   }
 }

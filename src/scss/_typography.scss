@@ -18,11 +18,25 @@
 
 a {
   text-decoration: none;
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
 }
 
-a:not([class]) {
+p > a {
+  color: inherit;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
+  text-underline-position: under;
+  text-decoration-color: $color-sky-darker;
+  transition: text-decoration-color $transition-default $transition-timing;
+
+  &:hover {
+    color: $color-text;
+    text-decoration-color: currentColor;
+  }
 }
 
 h1,
