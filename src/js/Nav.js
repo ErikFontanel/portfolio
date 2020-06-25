@@ -10,7 +10,7 @@ export default class Nav {
     const nav = event.currentTarget;
     const btn = nav.querySelector('[aria-controls]');
     const popover = nav.querySelector(btn.getAttribute('aria-controls'));
-    event.preventDefault();
+    if (!event.target.hasAttribute('href')) event.preventDefault();
 
     btn.setAttribute('aria-expanded', !this.visible);
     nav.setAttribute('data-showing-overlay', !this.visible);
