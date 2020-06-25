@@ -28,6 +28,7 @@ $nav-index: main, projects;
   align-content: end;
 
   &[data-showing-overlay='true'] {
+    pointer-events: auto;
     background-color: rgba(var(--color-background-overlay-rgb), 0.6);
     backdrop-filter: saturate(140%) blur(#{rem(6px)});
   }
