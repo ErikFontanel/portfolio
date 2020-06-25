@@ -1,12 +1,41 @@
-.nav-main {
+$nav-index: main, projects;
+.site-header {
+  pointer-events: none;
   position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: var(--gutter);
+  transition: $transition-default $transition-timing;
+  transition-property: background, backdrop-filter;
   z-index: z-index(navigation);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column-reverse nowrap;
+  will-change: background-color, backdrop-filter;
+  background-color: rgba(var(--color-background-overlay-rgb), 0);
+  backdrop-filter: saturate(100%) blur(0);
+  &[data-showing-overlay] {
+    background-color: rgba(var(--color-background-overlay-rgb), 0.6);
+    backdrop-filter: saturate(40%) blur(#{rem(8px)});
+  }
+}
+
+nav {
+  li {
+    list-style: none;
+  }
+}
+
+.nav-main {
+  z-index: z-index(main, $nav-index);
+  pointer-events: auto;
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 0);
+  align-items: center;
   box-shadow: rgba($color-black, 12%) 0 2px 4px;
   border-radius: 99999em;
   background-color: white;
@@ -25,12 +54,23 @@
   }
 
   .button {
+    flex: 0 1 auto;
     padding-left: 0.8em;
     padding-right: 0.8em;
 
-    & + .button:not(:first-of-type):not(:last-of-type) {
-      border-left-color: #f3f2f1;
-      border-radius: 0;
+    & + .button {
+      &:not(:last-of-type) {
+        border-radius: 0;
+      }
+
+      &:before {
+        content: '';
+        width: 1px;
+        background-color: $color-sky;
+        position: relative;
+        left: -0.8em;
+        height: 1.8em;
+      }
     }
 
     &:first-of-type {
@@ -46,19 +86,37 @@
     }
   }
 
-  .button_nav {
-    border-color: $color-white;
-  }
-
   .close {
     position: absolute;
     top: calc(var(--gutter) * -2);
     left: 0;
   }
 }
+
 .nav-projects {
-  visibility: hidden;
-  display: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-flow: row nowrap;
+  z-index: z-index(projects, $nav-index);
+  margin: auto;
+  margin-bottom: 0.5rem;
+  pointer-events: auto;
+  transition: $transition-fast $transition-timing;
+  transition-property: opacity, visibility, transform;
+  transform: translate3d(0, 0, 0);
+
+  &[aria-hidden='true'] {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: $transition-fast;
+    transform: translate3d(0, 10%, 0);
+  }
+
+  &__dialog {
+    box-shadow: shadow(2);
+  }
 }
 .close {
   margin-bottom: auto;

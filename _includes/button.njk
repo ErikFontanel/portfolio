@@ -1,5 +1,11 @@
 {% set data = {
   url: post.url,
-  label: post.title
+  label: post.title,
+  sub: false
 } %}
-<a href="{{ data.url }}" class="button">{{ data.label }}</a>
+<a href="{{ data.url }}" class="button">
+  <span class="button--label">{{ data.label }}</span>
+  {%- if data.sub -%}
+    <span class="button--sub-label">{{ data.sub }}</span>
+  {%- endif -%}
+</a>

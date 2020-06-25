@@ -1,30 +1,42 @@
-{% set subLabel = null %}
+{%- set client -%}
+  {%- for project in collections.project -%}
+    {%- if page.url === project.url -%}
+      {{ project.data.client | safe }}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endset -%}
+<header class="site-header" >
+  <nav class="nav-main">
+    <a href="{{ '/work/' | url }}" class="button button_nav"
+    aria-expanded="false"
+    aria-controls="#nav-projects" >
+      <span class="button--label">Work</span>
+      {%- if client|length -%}
+        <span class="button--sub-label">{{ client }}</span>
+      {%- endif -%}
+    </a>
 
-<nav class="nav-main">
-  <a href="{{ '/work/' | url }}" class="button button_nav">
-    <span class="button--label">Work</span>
-    {% if sublabel %}
-      <span class="button--sub-label">{{ sublabel }}</span>
-    {% endif %}
-  </a>
+    {%- button
+    url = '/expertise' | url,
+    label = 'Expertise',
+    name = 'button_nav' -%}
 
-  {% button
-  url = '/expertise' | url,
-  label = 'Expertise',
-  name = 'button_nav' %}
+    {%- button
+    url = '/about' | url,
+    label = 'About',
+    name = 'button_nav' -%}
+  </nav>
 
-  {% button
-  url = '/about' | url,
-  label = 'About',
-  name = 'button_nav' %}
-
-  <ul class="nav-projects">
-    {% for project in projects %}
-      {% set active = 'active' if page.url === project.url %}
-
-      <li>
-        <a href="{{ project.url }}" class="{{ active }}">{{ project.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</nav>
+  {%- if collections.project -%}
+    <nav class="nav-projects" id="nav-projects" aria-hidden="true">
+    <ul class="card nav-projects__dialog">
+      {%- for project in collections.project -%}
+        {% set active = 'class="active"' if page.url === project.url %}
+        <li {{ active }}>
+          <a href="{{ project.url|url }}">{{ project.data.client }}</a>
+        </li>
+      {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+</header>

@@ -69,11 +69,7 @@
     #{vw(font-size(small))},
     #{font-size(small)}
   );
-  line-height: clamp(
-    #{line-height(extra-small)},
-    #{line-height(small)},
-    #{line-height(medium)}
-  );
+  line-height: line-height(small);
 }
 
 @mixin text-style-medium {
@@ -86,11 +82,7 @@
     #{vw(font-size(medium))},
     #{font-size(large)}
   );
-  line-height: clamp(
-    #{line-height(small)},
-    #{line-height(medium)},
-    #{line-height(large)}
-  );
+  line-height: line-height(medium);
 }
 
 @mixin text-style-large {

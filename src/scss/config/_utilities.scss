@@ -1,3 +1,7 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:string';
+
 $default-browser-font-size: 16px !default;
 $base-font-size: 10px !default;
 $reference: 1440px !default;
@@ -125,4 +129,22 @@ $global-zindex: (modal, navigation, body, background) !default;
 @mixin effect-exclusion($color: $color-text) {
   color: invert($color);
   mix-blend-mode: difference;
+}
+//
+// Helper function to convert hex to comma separated rgb values to use in css custom properties
+//
+@function hexToRGB($hex) {
+  @return color.red($hex), color.green($hex), color.blue($hex);
+}
+//
+// Helper function to create a box-shadow based on the elevation level
+//
+@function shadow($depth: 1) {
+  $shadow: ();
+
+  @for $i from 1 through $depth {
+    $shadow: list.append($shadow, list.nth($shadows, $i), 'comma');
+  }
+
+  @return $shadow;
 }

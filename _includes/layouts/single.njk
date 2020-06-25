@@ -3,6 +3,13 @@ layout: layouts/base.njk
 bodyClass: single
 ---
 <article class="grid grid-full">
+  <nav class="project-nav">
+    {%- button
+      url = '/work/'|url,
+      label = project.data.client,
+      name = 'button_nav' -%}
+  </nav>
+
   {% block header %}
     <header class="page-header">
       <h2 class="page-header--subtitle text-m">{{ client }}</h2>

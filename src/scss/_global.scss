@@ -1,8 +1,18 @@
 :root {
   --gutter: #{$gutter-sm};
+  --spacing-base: #{$spacing-base};
+  --spacing-loose: #{$spacing-loose};
   --spacing-block: #{$spacing-block};
 
-  @media (--tablet) {
+  --color-background: #{$color-background};
+  --color-background-overlay: #{$color-background-overlay};
+  --color-background-overlay-rgb: #{hexToRGB($color-background-overlay)};
+  --color-background-ui: #{$color-background-ui};
+  --color-primary: #{$color-primary};
+  --color-text: #{$color-text};
+  --color-link: #{$color-link};
+
+  @media (--tablet-up) {
     --gutter: #{$gutter};
     --spacing-block: #{$spacing-block * 2};
   }
