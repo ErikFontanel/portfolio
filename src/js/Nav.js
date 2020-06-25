@@ -3,9 +3,6 @@ export default class Nav {
     this.el = el;
     this.visible = false;
 
-    // [...this.el.querySelectorAll('[aria-controls]')].map((btn) =>
-    //   btn.addEventListener('click', this.toggleNav.bind(this))
-    //   );
     this.el.addEventListener('click', this.toggleNav.bind(this));
   }
 

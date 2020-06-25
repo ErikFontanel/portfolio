@@ -117,7 +117,7 @@ button {
 
   &--sub-label {
     font-size: 0.8em;
-
+    color: $color-ink-lighter;
     &::before {
       content: ':';
       font-size: 1.2em;

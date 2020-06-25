@@ -1,3 +1,4 @@
+@use 'sass:color';
 $nav-index: main, projects;
 .site-header {
   pointer-events: none;
@@ -115,7 +116,7 @@ nav {
   display: flex;
   flex-flow: column nowrap;
   z-index: z-index(projects, $nav-index);
-  margin-bottom: 0.5rem;
+  margin-bottom: font-size(small) * 0.5;
   pointer-events: auto;
   transition: $transition-fast $transition-timing;
   transition-property: opacity, visibility, transform;
@@ -127,7 +128,6 @@ nav {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    // transition-delay: $transition-fast;
     transform: translate3d(0, 10%, 0);
   }
 
@@ -153,10 +153,9 @@ nav {
     }
 
     &.active {
-      &::before {
-        background: $color-background url('/public/img/hand.svg') no-repeat 0
-          (1em * line-height(medium)) / 6;
-      }
+      position: relative;
+      display: flex;
+      background-color: color.scale($color-primary, $lightness: 95%);
     }
 
     a {

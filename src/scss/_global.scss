@@ -29,15 +29,6 @@ html,
 body,
 button {
   @include text-style-medium;
-  // font-size: vw(font-size(small));
-
-  // @media (--large) {
-  //   font-size: clamp(
-  //   #{font-size(extra-small)},
-  //   #{vw(font-size(extra-small))},
-  //   #{font-size(small)}
-  // );
-  // }
 }
 
 html {
