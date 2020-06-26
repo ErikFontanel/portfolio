@@ -12,7 +12,8 @@
   .list--title {
     mix-blend-mode: difference;
     position: sticky;
-    top: $spacing-loose * 2;
+    // top: $spacing-loose * 2;
+    top: calc(25% - 1.2em);
     margin: 0;
     z-index: 0;
 

@@ -35,7 +35,7 @@ p > a {
 
   &:hover {
     color: $color-text;
-    text-decoration-color: currentColor;
+    text-decoration-color: $color-text;
   }
 }
 

@@ -30,7 +30,7 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 {% endlist %}
 
-<div class="block full-width grid:2 grid:centered">
+<div class="block grid:full grid:2">
 {% gallery {
   images: ['at-pdp1.png','at-pdp2.png','at-pdp3.png'],
   caption: 'Product Detail page',
@@ -67,7 +67,7 @@ New, super high resolution pack shots to showcase not only the quality of the fr
 
 A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
 
-<div class="block grid:centered">
+<div class="block grid:main">
 {% gallery {
   images: ['at-co1.png','at-co2.png','at-co3.png','at-co4.png'],
   caption: 'Product Category page',

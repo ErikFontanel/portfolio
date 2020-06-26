@@ -83,21 +83,26 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
   &:disabled {
     background-color: $color-sky;
   }
+
+  &.inverted {
+    --button-color: #{invert($color-text)};
+    --button-background-color: #{invert($color-background-ui)};
+
+    &:focus {
+      --button-focus-border-color: var(--button-color);
+      --button-focus-border-color: #{invert($color-sky-darker)};
+    }
+  }
 }
 
 .button,
 button {
   @extend %button;
 
-  &.inverted {
-    --button-color: #{invert($color-text)};
-    --button-background-color: #{invert($color-background-ui)};
-  }
-
   &_large {
     font-size: font-size(medium);
 
-    @media (--medium) {
+    @media (--tablet-up) {
       font-size: font-size(medium);
     }
   }

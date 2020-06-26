@@ -1,3 +1,7 @@
+.single-body {
+  background-color: rgba(var(--color-background-overlay-rgb), 0.6);
+  backdrop-filter: saturate(140%) blur(#{rem(6px)});
+}
 .single .project-nav {
   grid-column: wide;
 }
@@ -14,8 +18,9 @@
 
 .block {
   position: relative;
-  width: 100%;
-  margin: var(--spacing-block) 0;
+  // width: 100%;
+  margin-top: var(--spacing-block);
+  margin-bottom: var(--spacing-block);
 
   & + .block {
     margin-top: 0;
