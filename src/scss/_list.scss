@@ -4,7 +4,7 @@
   width: 100%;
   margin: $spacing-block 0;
 
-  @media (--tablet) {
+  @media (--tablet-up) {
     margin-top: $spacing-block * 2;
     margin-bottom: $spacing-block * 2;
   }
@@ -31,7 +31,7 @@
         width: rem(40px);
         height: rem(33px);
 
-        @media (--tablet) {
+        @media (--tablet-up) {
           left: auto;
           right: 0;
         }
@@ -42,7 +42,7 @@
   ol,
   ul {
     padding-bottom: 1em * line-height(small);
-    @media (--tablet) {
+    @media (--tablet-up) {
       padding-left: calc(2 / 12 * 100% - #{rem(34px * 1.5)});
     }
   }

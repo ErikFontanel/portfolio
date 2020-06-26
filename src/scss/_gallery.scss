@@ -8,7 +8,7 @@ $gallery-index: (caption, images);
     grid-row: -2;
     padding: 0 var(--gutter);
 
-    @media (--tablet) {
+    @media (--tablet-up) {
       width: 100%;
       top: var(--gutter);
       left: 0;
@@ -26,7 +26,7 @@ $gallery-index: (caption, images);
       justify-content: flex-start;
       letter-spacing: 0.25em;
 
-      @media (--tablet) {
+      @media (--tablet-up) {
         font-size: font-size(small) * 0.9;
       }
 
