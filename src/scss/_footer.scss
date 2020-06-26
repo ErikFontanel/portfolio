@@ -3,15 +3,39 @@
   font-size: font-size(small);
   height: 100vh;
   width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  align-items: end;
   padding: var(--gutter);
-  > *:not(:first-child) + * {
-    // flex: 0 0 100%;
-    margin-inline-start: 1em;
+
+  &__contact {
+    grid-column-start: wide;
+  }
+
+  &__nav {
+    grid-column: 2 / span 1;
+    align-self: start;
+
+    > a {
+      display: block;
+      text-decoration: underline;
+      text-decoration-skip-ink: auto;
+      text-underline-position: under;
+      text-decoration-color: $color-sky-darker;
+      transition: text-decoration-color $transition-default $transition-timing;
+
+      &:hover {
+        color: $color-text;
+        text-decoration-color: $color-text;
+      }
+
+      + a {
+        margin-top: 0.5em;
+      }
+    }
+  }
+
+  > p {
+    font-size: font-size(extra-small);
+    color: $color-sky-darker;
+    justify-self: center;
   }
 }
