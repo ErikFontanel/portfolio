@@ -15,7 +15,7 @@ export default class Carousel {
       .filter((img) => img !== this.current)
       .map((img) => {
         img.classList.add('hidden');
-        img.style.display = 'none';
+        // img.style.display = 'none';
       });
     this.current.classList.add('visible');
 
@@ -39,11 +39,11 @@ export default class Carousel {
         : this.imgs[this.index - 1];
 
     this.current.classList.remove('hidden');
-    this.current.style.display = 'block';
+    // this.current.style.display = 'block';
     this.current.classList.add('visible');
 
     this.prev.classList.remove('visible');
-    this.prev.style.display = 'none';
+    // this.prev.style.display = 'none';
     this.prev.classList.add('hidden');
 
     this.current.addEventListener(

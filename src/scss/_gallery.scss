@@ -99,11 +99,10 @@ $gallery-index: (caption, images);
   }
 
   .visible {
-    animation: fade 0.2s linear forwards;
   }
 
   .hidden {
-    animation: fade 0.2s linear backwards reverse;
+    animation: fade 0.2s linear forwards reverse;
   }
 
   figcaption {
@@ -118,6 +117,5 @@ $gallery-index: (caption, images);
   }
   to {
     opacity: 1;
-    display: block;
   }
 }
