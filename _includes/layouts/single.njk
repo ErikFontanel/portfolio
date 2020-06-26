@@ -2,10 +2,12 @@
 layout: layouts/base.njk
 bodyClass: single
 ---
+<nav class="project-nav">
+  <a href="{{ '/' | url }}" class="button button_close inverted" aria-label="close">
+    <span class="button--label">close</span>
+  </a>
+</nav>
 <article class="grid grid-full">
-  <nav class="project-nav">
-    <button aria-label="close" class="button_close inverted">close</button>
-  </nav>
 
   {% block header %}
     <header class="page-header">

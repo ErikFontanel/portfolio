@@ -1,8 +1,14 @@
 .project-nav {
   @include effect-exclusion;
+  mix-blend-mode: exclusion;
 
   position: sticky;
   top: var(--gutter);
   display: flex;
   justify-content: flex-end;
+  z-index: z-index(body);
+
+  .button {
+    color: inherit;
+  }
 }

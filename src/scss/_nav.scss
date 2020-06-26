@@ -1,32 +1,31 @@
 @use 'sass:color';
 $nav-index: main, projects;
 .site-header {
-  pointer-events: none;
   position: fixed;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: var(--gutter);
-  transition: $transition-default $transition-timing;
-  transition-property: background, backdrop-filter;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  padding: font-size(medium);
+  pointer-events: none;
   z-index: z-index(navigation);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-flow: column-reverse nowrap;
-  will-change: background-color, backdrop-filter;
-  background-color: rgba(var(--color-background-overlay-rgb), 0);
-  backdrop-filter: saturate(100%) blur(0);
 
   display: grid;
-  grid-template-columns: minmax(auto, 1fr) minmax(auto, max-content) minmax(
-      auto,
-      1fr
-    );
+  grid-template-columns:
+    minmax(var(--gutter), 1fr)
+    minmax(auto, max-content)
+    minmax(var(--gutter), 1fr);
   justify-content: start;
   justify-items: center;
   grid-auto-rows: auto;
   align-content: end;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: background-color, backdrop-filter;
+  transition: $transition-default $transition-timing;
+  transition-property: background, backdrop-filter;
 
   &[data-showing-overlay='true'] {
     pointer-events: auto;
@@ -72,6 +71,7 @@ nav {
 
   .button {
     --button-border-color: transparent;
+    position: relative;
     flex: 0 1 auto;
     padding-left: 0.8em;
     padding-right: 0.8em;
@@ -116,7 +116,7 @@ nav {
   display: flex;
   flex-flow: column nowrap;
   z-index: z-index(projects, $nav-index);
-  margin-bottom: font-size(small) * 0.5;
+  margin-bottom: font-size(extra-small);
   pointer-events: auto;
   transition: $transition-fast $transition-timing;
   transition-property: opacity, visibility, transform;
@@ -137,32 +137,51 @@ nav {
   }
 
   ul {
-    padding: calc(var(--gutter) * 0.5) 0;
+    padding: 0;
+    overflow: hidden;
   }
 
   li {
-    border-radius: 3px;
-    padding: 0.5em var(--gutter);
     transition: $transition-fast $transition-timing;
     transition-property: background-color, color;
     color: $color-ink;
+    position: relative;
 
     &:hover {
       background-color: $color-sky-lighter;
       color: $color-black;
     }
 
+    &:first-child {
+      border-top-left-radius: rem(8px);
+      border-top-right-radius: rem(8px);
+    }
+    &:last-child {
+      border-bottom-left-radius: rem(8px);
+      border-bottom-right-radius: rem(8px);
+    }
+
     &.active {
-      position: relative;
       display: flex;
-      background-color: color.scale($color-primary, $lightness: 95%);
+      // background-color: color.scale($color-primary, $lightness: 95%);
+      align-items: center;
+      justify-content: flex-start;
+
+      a {
+        text-decoration: underline;
+        text-decoration-skip-ink: auto;
+        text-underline-position: under;
+        text-decoration-color: $color-sky-darker;
+      }
     }
 
     a {
       display: block;
+      padding: 0.5em var(--gutter);
     }
   }
 }
+
 .close {
   margin-bottom: auto;
   transition: opacity 0.25s linear;

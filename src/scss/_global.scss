@@ -44,6 +44,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: $color-background;
+
+  &[data-showing-overlay='true'] {
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
 }
 
 *,
@@ -60,12 +65,6 @@ img {
 
 .wrapper {
   background-color: $color-background;
-  padding: 12.5vmin 0;
-
-  &.grid > .grid {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
 }
 
 .grid {
@@ -79,18 +78,16 @@ img {
   grid-auto-rows: auto;
   gap: 0 var(--gutter);
 
-  @media (--tablet) {
+  @media (--tablet-up) {
     // prettier-ignore
     grid-template-columns:
       [full-start first] minmax(#{$spacing-extra-loose / 2}, 1fr)
       [main-start wide-start] minmax(auto, 8fr) [main-end
       last wide-end] minmax(#{$spacing-extra-loose / 2}, 1fr)
       [full-end];
-    padding-top: 25vmin;
-    padding-bottom: 25vmin;
   }
 
-  @media (--desktop) {
+  @media (--desktop-up) {
     // prettier-ignore
     grid-template-columns:
       [full-start first] $spacing-base
@@ -107,7 +104,11 @@ img {
 
   > .grid-full {
     grid-column: 1 / -1;
-    grid-auto-flow: column;
+    padding: 12.5vmin 0;
+
+    @media (--tablet-up) {
+      padding: 25vmin 0;
+    }
   }
 }
 
@@ -126,7 +127,7 @@ img {
     }
   }
 
-  @media (--tablet) {
+  @media (--tablet-up) {
     // --padding: calc(var(--gutter) + #{$spacing-base});
 
     // grid-template-columns:
@@ -139,7 +140,7 @@ img {
   }
 
   &.grid\:centered {
-    @media (--tablet) {
+    @media (--tablet-up) {
       grid-template-columns: repeat(2, minmax(#{rem(240px)}, #{rem(320px)}));
     }
   }
@@ -152,7 +153,6 @@ img {
 .full-width,
 .grid\:full {
   grid-column: 1 / -1;
-  grid-auto-flow: column;
 }
 
 .grid\:centered {
