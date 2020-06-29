@@ -30,12 +30,46 @@ p > a {
   text-decoration: underline;
   text-decoration-skip-ink: auto;
   text-underline-position: under;
-  text-decoration-color: $color-sky-darker;
-  transition: text-decoration-color $transition-default $transition-timing;
+  text-decoration-color: $color-sky;
+
+  &[target='_blank'] {
+    position: relative;
+  }
+
+  &[target='_blank']::after {
+    content: '→ → →';
+    color: currentColor;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -0.78em;
+    right: -0.25ch;
+    opacity: 0;
+  }
 
   &:hover {
-    color: $color-text;
-    text-decoration-color: $color-text;
+    color: $color-primary;
+    &:not([target='_blank']) {
+      text-decoration-color: $color-primary;
+    }
+    &[target='_blank']::after {
+      opacity: 1;
+      animation: hoverArrow 1.5s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
+    }
+  }
+
+  @keyframes hoverArrow {
+    0% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    20% {
+      transform: translate(-100%);
+    }
+    100% {
+      transform: translate(0%);
+    }
   }
 }
 
@@ -83,11 +117,11 @@ ol {
 }
 
 h1 {
-  @include text-style-extra-large();
+  @include text-style-large();
 }
 
 h2 {
-  @include text-style-large();
+  @include text-style-medium();
 }
 
 h3 {
