@@ -1,8 +1,11 @@
 const componentsDir = `./_includes/components`;
 
-const markdownIt = require('markdown-it');
 const pluginNav = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
+
+const markdownIt = require('markdown-it');
+const markdownItAttrs = require('markdown-it-attrs');
+const markdownItLinkAttrs = require('markdown-it-link-attributes');
 
 const Gallery = require(`${componentsDir}/Gallery.js`);
 const List = require(`${componentsDir}/List.js`);
@@ -29,13 +32,27 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('static');
 
-  let mdOptions = {
+  const mdOptions = {
     html: true,
     breaks: true,
     linkify: true,
     code: false,
   };
-  eleventyConfig.setLibrary('md', markdownIt(mdOptions));
+
+  const mdLinkAttrOptions = {
+    pattern: /^(http|https):/,
+    attrs: {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+  };
+
+  eleventyConfig.setLibrary(
+    'md',
+    markdownIt(mdOptions)
+      .use(markdownItAttrs)
+      .use(markdownItLinkAttrs, mdLinkAttrOptions)
+  );
 
   // Gallery
   eleventyConfig.addNunjucksShortcode('gallery', Gallery);
