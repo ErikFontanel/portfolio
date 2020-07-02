@@ -12,7 +12,7 @@
 
   + p {
     @include text-style-large;
-    margin-bottom: line-height(large) * font-size(large);
+    // margin-bottom: line-height(large) * font-size(large);
   }
 }
 

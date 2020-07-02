@@ -1,8 +1,8 @@
 @use 'sass:color';
 $nav-index: main, projects;
+
 .site-header {
-  position: sticky;
-  margin-bottom: calc(100vh - (var(--gutter) * 4));
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,11 +21,12 @@ $nav-index: main, projects;
   justify-items: center;
   grid-auto-rows: auto;
   align-content: end;
+
   transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
   will-change: background-color, backdrop-filter;
   transition: $transition-default $transition-timing;
   transition-property: background, backdrop-filter;
+  backface-visibility: hidden;
 
   &[data-showing-overlay='true'] {
     pointer-events: auto;
@@ -52,7 +53,7 @@ nav {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba($color-black, 12%) 0 2px 4px;
+  box-shadow: shadow(1);
   border-radius: 99999em;
   background-color: white;
 
@@ -70,11 +71,11 @@ nav {
   }
 
   .button {
-    --button-border-color: transparent;
     position: relative;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     padding-left: 0.8em;
     padding-right: 0.8em;
+    border-radius: 99999em;
 
     & + .button {
       &:not(:last-of-type) {
@@ -139,45 +140,54 @@ nav {
   ul {
     padding: 0;
     overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
   }
 
   li {
+    width: 100%;
     transition: $transition-fast $transition-timing;
     transition-property: background-color, color;
     color: $color-ink;
     position: relative;
-
-    &:hover {
-      background-color: $color-sky-lighter;
-      color: $color-black;
-    }
+    padding: 0 calc(var(--gutter) * 0.5);
+    display: flex;
+    justify-content: stretch;
 
     &:first-child {
+      margin-top: calc(var(--gutter) * 0.5);
       border-top-left-radius: rem(8px);
       border-top-right-radius: rem(8px);
     }
+
     &:last-child {
+      margin-bottom: calc(var(--gutter) * 0.5);
       border-bottom-left-radius: rem(8px);
       border-bottom-right-radius: rem(8px);
     }
 
     &.active {
-      display: flex;
-      // background-color: color.scale($color-primary, $lightness: 95%);
       align-items: center;
-      justify-content: flex-start;
 
       a {
-        text-decoration: underline;
-        text-decoration-skip-ink: auto;
-        text-underline-position: under;
-        text-decoration-color: $color-sky-darker;
+        --button-focus-border-color: transparent;
+        --button-active-border-color: rgba(
+          #{hexToRGB($color-ink-lighter)},
+          0.2
+        );
+        --button-background-color: #{color.scale(
+            $color-background,
+            $lightness: -2%
+          )};
+        background-color: var(--button-background-color);
+        flex: 1;
+        box-shadow: $button-border-active;
       }
     }
 
-    a {
-      display: block;
-      padding: 0.5em var(--gutter);
+    .button {
+      flex: 1;
+      justify-content: flex-start;
     }
   }
 }

@@ -1,31 +1,32 @@
 .site-footer {
   background: inherit;
-  font-size: font-size(small);
+  font-size: font-size(extra-small);
   height: 100vh;
   width: 100%;
-  align-items: end;
+  align-content: space-evenly;
   padding: var(--gutter);
+  grid-template-rows: auto min-content;
+
+  > * {
+    grid-row: 2;
+  }
 
   &__contact {
     grid-column-start: wide;
+    grid-row: 1;
+    align-self: center;
   }
 
   &__nav {
     grid-column: 2 / span 1;
-    align-self: start;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     > a {
-      display: block;
-      text-decoration: underline;
-      text-decoration-skip-ink: auto;
-      text-underline-position: under;
-      text-decoration-color: $color-sky-darker;
-      transition: text-decoration-color $transition-default $transition-timing;
-
-      &:hover {
-        color: $color-text;
-        text-decoration-color: $color-text;
-      }
+      display: inline-flex;
+      justify-content: flex-start;
 
       + a {
         margin-top: 0.5em;
@@ -37,5 +38,9 @@
     font-size: font-size(extra-small);
     color: $color-sky-darker;
     justify-self: center;
+  }
+
+  .newsletter {
+    grid-column: 4;
   }
 }

@@ -10,66 +10,39 @@
 
 .text-l {
   @include text-style-large();
+
+  &:not(:last-child) {
+    margin-bottom: line-height(large) * 1em;
+  }
 }
 
 .text-xl {
   @include text-style-extra-large();
+
+  &:not(:last-child) {
+    margin-bottom: line-height(extra-large) * 1em;
+  }
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  text-underline-position: under;
 
   &:visited {
     color: inherit;
   }
 }
 
-p > a {
+p > a,
+a.text-link {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-skip-ink: auto;
-  text-underline-position: under;
-  text-decoration-color: $color-sky;
-
-  &[target='_blank'] {
-    position: relative;
-  }
-
-  &[target='_blank']::after {
-    content: '→ → →';
-    color: currentColor;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 0.8em;
-    position: absolute;
-    bottom: -0.78em;
-    right: -0.25ch;
-    opacity: 0;
-  }
+  text-decoration: none;
+  border-bottom: rem(1px) solid $color-sky;
 
   &:hover {
     color: $color-primary;
-    &:not([target='_blank']) {
-      text-decoration-color: $color-primary;
-    }
-    &[target='_blank']::after {
-      opacity: 1;
-      animation: hoverArrow 1.5s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
-    }
-  }
-
-  @keyframes hoverArrow {
-    0% {
-      transform: translateX(-150%);
-      opacity: 0;
-    }
-    20% {
-      transform: translate(-100%);
-    }
-    100% {
-      transform: translate(0%);
-    }
+    border-color: currentColor;
   }
 }
 
@@ -117,7 +90,7 @@ ol {
 }
 
 h1 {
-  @include text-style-large();
+  @include text-style-extra-large();
 }
 
 h2 {

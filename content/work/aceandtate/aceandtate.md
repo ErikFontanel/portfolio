@@ -45,7 +45,7 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 </div>
 
-A mobile first driven experience, that not only inspirates but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
+A mobile first driven experience, that not only inspires but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
 
 Non-hierarchical way of browsing the collection by not only filtering on properties (gender, color, material) but also tags or taxonomy (style, release, occasion etc). No more 'white wall' filled with every frame in every color, telling the user 'this is all we offer, good luck'.
 
@@ -56,7 +56,6 @@ A smooth and easy configuration a newly designed product configurator.
   caption: 'A new photography concept featuring super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.',
   css: 'full-width grid:2'
 } %}
-
 
 New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
 

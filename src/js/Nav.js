@@ -4,6 +4,7 @@ export default class Nav {
     this.visible = false;
 
     this.el.addEventListener('click', this.toggleNav.bind(this));
+    this.el.addEventListener('mousedown', (event) => event.preventDefault());
     window.scrollTo(0, 1);
   }
 
@@ -11,7 +12,7 @@ export default class Nav {
     const nav = event.currentTarget;
     const btn = nav.querySelector('[aria-controls]');
     const popover = nav.querySelector(btn.getAttribute('aria-controls'));
-    // event.preventDefault();
+
     event.stopPropagation();
     if (!event.target.hasAttribute('href') || event.target === btn)
       event.preventDefault();

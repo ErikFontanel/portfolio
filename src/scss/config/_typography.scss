@@ -87,27 +87,21 @@
 
 @mixin text-style-large {
   font-family: $font-stack-base;
-  font-weight: 400;
-  font-style: normal;
+
   font-size: clamp(
     #{font-size(small)},
     #{vw(font-size(large))},
     #{font-size(extra-large)}
   );
-  line-height: line-height(large);
-  margin-bottom: line-height(large) * 1em;
+  line-height: line-height(extra-large);
 }
 
 @mixin text-style-extra-large {
   font-family: $font-stack-base;
-  font-size: font-size(medium);
-  font-weight: 400;
-  font-style: italic;
   font-size: clamp(
     #{font-size(medium)},
     #{vw(font-size(extra-large))},
     #{font-size(extra-large)}
   );
   line-height: line-height(large);
-  margin-bottom: line-height(large) * 1em;
 }

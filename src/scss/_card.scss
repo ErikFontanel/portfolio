@@ -1,5 +1,5 @@
 .card {
   background-color: var(--color-background-ui);
-  border-radius: rem(8px);
+  border-radius: $radius;
   padding: var(--spacing-base) var(--spacing-loose);
 }

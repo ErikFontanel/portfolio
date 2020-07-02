@@ -1,12 +1,14 @@
 {% extends './base.njk' %}
 
+{# Get About page content #}
 {% set about = false %}
 
 {% for item in collections.page %}
-  {% if item.data.title === 'About' %}
+  {% if item.fileSlug === 'about' %}
     {% set about = item %}
   {% endif %}
 {% endfor %}
+
 
 {% block main %}
   {% block intro %}
@@ -14,17 +16,21 @@
       <div class="info">
         {{ content|safe }}
 
-        {% button url = about.url,
-        label = 'info' if about %}
+        {% if about %}
+          {% button
+            url = about.url,
+            label = 'about' if about
+            %}
+        {% endif %}
       </div>
       {% include "cta.njk" %}
     </div>
   {% endblock %}
 
   {% block projects %}
-    <div class="projects grid grid-full">
+    <div class="projects grid ">
       {% for project in projects %}
-        {% include "projectItem.njk" %}
+        {% include "project-item.njk" %}
       {% endfor %}
     </div>
   {% endblock %}

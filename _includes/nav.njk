@@ -33,9 +33,12 @@
     <nav class="nav-projects card nav-projects__dialog" id="nav-projects" aria-hidden="true">
     <ul>
       {%- for project in collections.project -%}
-        {% set active = "class=active" if page.url === project.url %}
-        <li {{ active }}>
-          <a href="{{ project.url|url }}">{{ project.data.client }}</a>
+        {% set active = "active" if page.url === project.url %}
+        <li>
+          {%- button
+      url = project.url|url,
+      label = project.data.client,
+      name = active + ' button_large button_nav' -%}
         </li>
       {%- endfor -%}
       </ul>
