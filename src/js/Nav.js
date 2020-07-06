@@ -10,14 +10,17 @@ export default class Nav {
 
   toggleNav() {
     const nav = event.currentTarget;
-    const btn = nav.querySelector('[aria-controls]');
-    const popover = nav.querySelector(btn.getAttribute('aria-controls'));
+    const btn = event.target.parentElement.hasAttribute('href')
+      ? event.target.parentElement
+      : event.target;
+    const toggle = nav.querySelector('[aria-controls]');
+    const popover = nav.querySelector(toggle.getAttribute('aria-controls'));
 
-    event.stopPropagation();
-    if (!event.target.hasAttribute('href') || event.target === btn)
+    event.stopImmediatePropagation();
+    if (btn.classList.contains('active') || btn === toggle)
       event.preventDefault();
 
-    btn.setAttribute('aria-expanded', !this.visible);
+    toggle.setAttribute('aria-expanded', !this.visible);
     nav.setAttribute('data-showing-overlay', !this.visible);
     popover.setAttribute('aria-hidden', this.visible);
     document.body.setAttribute('data-showing-overlay', !this.visible);
