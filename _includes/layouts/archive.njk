@@ -1,0 +1,14 @@
+---
+layout: 'layouts/projects.njk'
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /work/{{ tag }}/
+---
+asdf
+{% block projects %}
+  {% for project in projects[tag] %}
+      {% include "project-item.njk" %}
+  {% endfor %}
+{% endblock %}

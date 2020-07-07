@@ -4,3 +4,5 @@
 @custom-media --tablet-down (width <= 48rem);
 @custom-media --desktop-up (width >= 80rem);
 @custom-media --desktop-down (width <= 80rem);
+@custom-media --portait (orientation: portrait);
+@custom-media --landscape (orientation: landscape);

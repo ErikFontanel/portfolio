@@ -1,0 +1,88 @@
+.grid {
+  display: grid;
+  // prettier-ignore
+  grid-template-columns:
+    [full-start first] $spacing-base
+    [wide-start main-start] minmax(auto, 8fr) [main-end
+    last wide-end] $spacing-base
+    [full-end];
+  grid-auto-rows: auto;
+  gap: 0 var(--gutter);
+  align-items: start;
+
+  @media (--tablet-up) {
+    // prettier-ignore
+    grid-template-columns:
+      [full-start first] minmax(#{$spacing-extra-loose / 2}, 1fr)
+      [main-start wide-start] minmax(auto, 8fr) [main-end
+      last wide-end] minmax(#{$spacing-extra-loose / 2}, 1fr)
+      [full-end];
+  }
+
+  @media (--desktop-up) {
+    // prettier-ignore
+    grid-template-columns:
+      [full-start first] $spacing-base
+      [wide-start] 2fr
+      [main-start] minmax(auto, 4fr)
+      [half] minmax(auto, 4fr)
+      [main-end
+      last] 2fr
+      [wide-end] $spacing-base
+      [full-end];
+  }
+
+  > * {
+    grid-column: main;
+  }
+
+  > .grid-full {
+    grid-column: 1 / -1;
+    padding: 12.5vmin 0;
+
+    @media (--tablet-up) {
+      padding: 25vmin 0;
+    }
+  }
+}
+
+.grid\:2 {
+  --padding: var(--gutter);
+
+  display: grid;
+  gap: $spacing-base var(--gutter);
+  grid-template-columns: 80vmin;
+  grid-auto-columns: 80vmin;
+  justify-content: space-between;
+
+  :not(.grid\:main) {
+    @media (--mobile) {
+      overflow: auto;
+    }
+  }
+
+  @media (--tablet-up) {
+    grid-template-columns: repeat(2, minmax(auto, #{5 / 12 * 100%}));
+    grid-auto-columns: minmax(auto, #{5 / 12 * 100%});
+    justify-content: center;
+    justify-items: center;
+  }
+
+  > :not(figcaption) {
+    grid-column: auto / span 1;
+  }
+}
+
+.full-width,
+.grid\:full {
+  grid-column: 1 / -1;
+}
+
+.grid\:wide {
+  grid-column: wide;
+}
+
+.grid\:main {
+  grid-column: main;
+  width: auto;
+}

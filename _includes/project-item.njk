@@ -1,16 +1,30 @@
-<a class="project-item" href="{{ project.url | url }}">
+{%- set tags =  project.data.tags | except('project') if project.data.tags -%}
 
+<article class="project-item {{ project.data.list_layout }}" href="{{ project.url | url }}">
   {% if project.data.thumbnail %}
-  {# <div class="project-item--img"></div> #}
-    <img class="project-item--img" src="{{ project.url + project.data.thumbnail | url }}" alt="{{ project.data.title }}"/>
+    <a href="{{ project.url }}" class="project-item--img" >
+      <img src="{{ project.url + project.data.thumbnail | url }}" alt="{{ project.data.title }}"/>
+    </a>
   {% endif %}
 
-  {% if project.data.title %}
-    <h2 class="project-item--title text-m">{{ project.data.title }}</h2>
-  {% endif %}
+  <div href="{{ project.url }}" class="project-item--body">
+    {% if project.data.client %}
+      <h3 class="project-item--client h-s"><a href="{{ project.url }}">{{ project.data.client }}</a></h3>
+    {% endif %}
 
-  {% if project.data.client %}
-    <h3 class="project-item--client">{{ project.data.client }}</h3>
-  {% endif %}
+    {% if project.data.title %}
+      <h2 class="project-item--title h-l"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+    {% endif %}
 
-</a>
+    {% if tags %}
+      <ul class="project-item--tags">
+        {% for tag in tags %}
+          {%- button
+            url = '/work/tagged/' + tag|slug +'/',
+            label = tag,
+            name = 'label' -%}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</article>

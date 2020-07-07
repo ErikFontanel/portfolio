@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .text-s {
   @include text-style-small();
 }
@@ -22,6 +24,32 @@
   &:not(:last-child) {
     margin-bottom: line-height(extra-large) * 1em;
   }
+}
+
+.h-s {
+  @include text-style-small();
+  line-height: line-height(large);
+}
+
+.h-m {
+  @include text-style-medium();
+  line-height: line-height(large);
+}
+
+.h-l {
+  @include text-style-large();
+}
+
+.h-xl {
+  @include text-style-extra-large();
+}
+
+.f-sans {
+  font-family: $font-stack-base;
+}
+
+.f-mono {
+  font-family: $font-stack-monospace;
 }
 
 a {
@@ -110,4 +138,26 @@ h6 {
 
 figcaption {
   @include text-style-caption();
+}
+
+.label {
+  @include text-style-caption();
+  font-size: clamp(
+    #{font-size(tiny)},
+    #{vw(font-size(tiny))},
+    #{font-size(extra-small)}
+  );
+  color: $color-ink-lighter;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: $font-stack-monospace;
+  border-radius: 99999em;
+  border: 1px solid $color-sky;
+  background-color: $color-sky;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: auto;
+  padding: 0.25em 1em;
+  line-height: 1;
 }

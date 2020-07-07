@@ -2,10 +2,13 @@
 
 {# Get About page content #}
 {% set about = false %}
+{% set expertise = false %}
 
 {% for item in collections.page %}
   {% if item.fileSlug === 'about' %}
     {% set about = item %}
+  {% elif item.fileSlug === 'expertise' %}
+    {% set expertise = item %}
   {% endif %}
 {% endfor %}
 
@@ -14,6 +17,10 @@
   {% block intro %}
     <div class="intro">
       <div class="info">
+        {% if title %}
+          <h1 class="h-m">{{ title }}</h1>
+        {% endif %}
+
         {{ content|safe }}
 
         {% if about %}
@@ -23,15 +30,28 @@
             %}
         {% endif %}
       </div>
+
       {% include "cta.njk" %}
     </div>
   {% endblock %}
 
   {% block projects %}
-    <div class="projects grid ">
-      {% for project in projects %}
-        {% include "project-item.njk" %}
-      {% endfor %}
-    </div>
+    {% set projects = projects|batch(2) %}
+    {% for group in projects %}
+      {% set options = {
+        projects: group
+      } %}
+
+      {% include "../projects-list.njk" %}
+
+      {% if loop.first %}
+        {% set options = {
+          page: expertise
+        } %}
+
+        {% include '../page-item.njk' %}
+      {% endif %}
+
+    {% endfor %}
   {% endblock %}
 {% endblock %}

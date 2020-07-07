@@ -36,9 +36,9 @@
         {% set active = "active" if page.url === project.url %}
         <li>
           {%- button
-      url = project.url|url,
-      label = project.data.client,
-      name = active + ' button_large button_nav' -%}
+            url = project.url|url,
+            label = project.data.client,
+            name = active + ' button_large button_nav' -%}
         </li>
       {%- endfor -%}
       </ul>

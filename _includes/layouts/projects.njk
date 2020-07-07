@@ -1,14 +1,14 @@
 ---
 title: Projects
-layout: layouts/base.njk
+layout: base
 pagination:
   data: collections.project
   alias: projects
   size: 999
 ---
+{% block main %}
 
-{% block projects %}
-  {% for project in projects %}
-      {% include "project-item.njk" %}
-  {% endfor %}
+  {% block projects %}
+    {% include "../projects-list.njk" %}
+  {% endblock %}
 {% endblock %}

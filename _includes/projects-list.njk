@@ -1,0 +1,10 @@
+{% set defaults = {
+  projects: false
+} %}
+{% set options = defaults if options === undefined else options %}
+
+<div class="projects grid:wide">
+  {% for project in options.projects %}
+    {% include "project-item.njk" %}
+  {% endfor %}
+</div>

@@ -37,11 +37,7 @@
     #{vw(font-size(extra-small))},
     #{font-size(small)}
   );
-  line-height: clamp(
-    #{line-height(extra-small)},
-    #{line-height(extra-small)},
-    #{line-height(small)}
-  );
+  line-height: line-height(caption);
 }
 
 @mixin text-style-body {
@@ -76,7 +72,6 @@
   font-family: $font-stack-base;
   font-weight: 400;
   font-style: normal;
-  color: $color-ink;
   font-size: clamp(
     #{font-size(small)},
     #{vw(font-size(medium))},
@@ -104,4 +99,29 @@
     #{font-size(extra-large)}
   );
   line-height: line-height(large);
+}
+
+@mixin text-style-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: rem(1px) solid $color-sky;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    color: $color-primary;
+    border-color: currentColor;
+  }
+
+  &:active {
+    color: $color-primary;
+    border-color: currentColor;
+  }
+
+  &:focus {
+    color: $color-primary;
+    border-color: currentColor;
+  }
 }

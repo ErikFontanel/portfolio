@@ -3,34 +3,38 @@
   font-size: font-size(extra-small);
   height: 100vh;
   width: 100%;
-  align-content: space-evenly;
   padding: var(--gutter);
   grid-template-rows: auto min-content;
+  grid-auto-rows: auto;
+  row-gap: var(--gutter);
+
+  @media (--tablet-up) {
+    align-content: space-evenly;
+  }
 
   > * {
     grid-row: 2;
   }
 
   &__contact {
-    grid-column-start: wide;
     grid-row: 1;
-    align-self: center;
+    grid-column-start: wide;
+    align-self: end;
+
+    @media (--tablet-up) {
+      align-self: center;
+    }
   }
 
   &__nav {
     grid-column: 2 / span 1;
     display: flex;
-    flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+    align-self: start;
 
-    > a {
-      display: inline-flex;
-      justify-content: flex-start;
-
-      + a {
-        margin-top: 0.5em;
-      }
+    @media (--tablet-up) {
+      flex-flow: column nowrap;
     }
   }
 
@@ -38,9 +42,15 @@
     font-size: font-size(extra-small);
     color: $color-sky-darker;
     justify-self: center;
+    grid-row: auto;
   }
 
   .newsletter {
-    grid-column: 4;
+    grid-row: auto;
+    align-self: end;
+    justify-self: center;
+    @media (--tablet-up) {
+      grid-column: 4;
+    }
   }
 }

@@ -16,25 +16,25 @@ $spacing-extra-loose: rem(48px);
 $spacing-block: rem(64px);
 
 $gutter-sm: $spacing-base;
-$gutter: $spacing-loose;
+$gutter: $spacing-base * 2;
 
 $default-browser-font-size: 16px;
 $base-font-size: 10px;
 
-$font-stack-base: 'Inter var experimental', 'Neue Montreal', -apple-system,
-  BlinkMacSystemFont, 'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue',
-  sans-serif;
-$font-stack-monospace: 'Office Code Pro', 'SF Mono', Monaco, Consolas,
-  'Lucida Console', monospace;
+$font-stack-base: 'Neue Montreal', -apple-system, BlinkMacSystemFont,
+  'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
+$font-stack-monospace: 'Anonymous Pro', 'Office Code Pro', 'SF Mono', Monaco,
+  Consolas, 'Lucida Console', monospace;
 
 $global-zindex: (modal, navigation, body, background);
 
 $font-sizes: (
   'extra-large': rem(42px),
-  'large': rem(40px),
+  'large': rem(32px),
   'medium': rem(24px),
   'small': rem(18px),
   'extra-small': rem(14px),
+  'tiny': rem(11px),
 );
 
 $line-heights: (

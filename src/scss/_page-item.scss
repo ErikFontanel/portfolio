@@ -1,0 +1,10 @@
+.page-item {
+  padding: calc(var(--spacing-block) * 0.5) 0;
+  grid-column-start: wide;
+
+  &--title {
+    max-width: 32ch;
+    grid-column-start: wide;
+    grid-column-end: main-end;
+  }
+}

@@ -1,0 +1,16 @@
+{% set defaults = {
+  page: undefined
+} %}
+{% set options = defaults if options === undefined else options %}
+{% set page = options.page %}
+
+<section class=" bg-inverted grid grid:full">
+  <div class="page-item grid grid:wide">
+    <h2 class="page-item--title h-xl">{{ page.data.intro }}</h2>
+
+    {%- button
+      url = page.link,
+      label = page.data.title
+    -%}
+  </div>
+</section>
