@@ -54,13 +54,24 @@ module.exports = function (eleventyConfig) {
       .use(markdownItLinkAttrs, mdLinkAttrOptions)
   );
 
-  // Gallery
+  // Layouts
+  eleventyConfig.addLayoutAlias('base', 'layouts/base.njk');
+  eleventyConfig.addLayoutAlias('home', 'layouts/home.njk');
+  eleventyConfig.addLayoutAlias('single', 'layouts/single.njk');
+  eleventyConfig.addLayoutAlias('projects', 'layouts/projects.njk');
+
+  // Custom components
   eleventyConfig.addNunjucksShortcode('gallery', Gallery);
   eleventyConfig.addNunjucksShortcode('button', Button);
   eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
   eleventyConfig.addWatchTarget(componentsDir + '/');
+
+  // Filters
+  eleventyConfig.addFilter('except', (array, item) => {
+    return array.filter((i) => i !== item);
+  });
 
   // You can return your Config object (optional).
   return {
