@@ -1,0 +1,17 @@
+---
+title: work
+layout: base
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /work/tagged/{{ tag|slug }}/
+---
+{% block main %}
+
+  {% block projects %}
+    {% set projects = collections[tag] %}
+
+    {% include "../_includes/projects-list.njk" %}
+  {% endblock %}
+{% endblock %}
