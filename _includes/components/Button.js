@@ -1,8 +1,14 @@
-module.exports = ({ url = null, label = '', size = '', name = '' }) => {
+module.exports = ({
+  url = null,
+  label = '',
+  size = '',
+  name = '',
+  attr = '',
+}) => {
   return `
 <a ${url ? `href="${url}"` : ''} class="button ${
     size ? `button_${size}` : ''
-  } ${name}">
+  } ${name}" ${attr}>
   <span class="button--label">${label}</span>
   </a>
 `;
