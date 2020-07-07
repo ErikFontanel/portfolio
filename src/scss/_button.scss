@@ -38,19 +38,14 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
   -webkit-tap-highlight-color: transparent;
   transition: $transition-default $transition-timing;
   transition-property: background, border, color, box-shadow;
-  box-shadow: $button-border-hover, $button-border-active, $button-border-color,
-    $button-border-focus;
+  box-shadow: $button-border-hover, $button-border-active, $button-border-focus,
+    $button-border-color;
 
   &:hover {
     --button-background-color: #{color.scale(
         $color-background,
         $lightness: -2.5%
       )};
-
-    // --button-hover-border-color: #{color.scale(
-    //     $color-background,
-    //     $lightness: -2.5%
-    //   )};
 
     --button-hover-border-color: #{color.scale(
         $color-sky-darker,
@@ -140,6 +135,16 @@ button {
     border-radius: 9999em;
   }
 
+  &_plain {
+    --button-hover-border-color: transparent;
+    --button-background-color: transparent;
+    padding: 0.25em;
+
+    .button--label {
+      @include text-style-link;
+    }
+  }
+
   &_nav {
     &:hover {
       --button-hover-border-color: transparent;
@@ -154,10 +159,8 @@ button {
   }
 
   &--label {
-    position: relative;
     user-select: none;
     text-transform: lowercase;
-    top: -0.05em;
   }
 
   &--sub-label {
