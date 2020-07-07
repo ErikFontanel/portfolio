@@ -1,9 +1,13 @@
 ---
-thumbnail: letitgrow1.png
+thumbnail: lig1.png
 client: Let It Grow
 title: Showcasing global green initiatives through a design sprint
 tags:
   - project
+  - digital design
+  - design sprint
+  - website
+list_layout: landscape:1-col
 ---
 ## Let It Grow–
 

@@ -3,6 +3,11 @@ client: Close
 title: SaaS platform for an event marketing start-up
 tags:
   - project
+  - ux design
+  - front-end development
+  - design ops
+  - app
+  - website
 ---
 
 For event marketing start-up Close I designed the UX for the Close web app, set up a design workflow and -system and worked on the implementation of the front-end.

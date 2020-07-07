@@ -1,3 +1,15 @@
+---
+thumbnail: hbo-thumb.jpg
+client: HBO
+title: It's not TV, it's HBO
+tags:
+  - project
+  - ux design
+  - website
+  - e-commerce
+list_layout: landscape:2-col
+---
+
 ## HBO
 
 # It's not TV, it's HBO.
