@@ -29,6 +29,7 @@ html,
 body,
 button {
   @include text-style-medium;
+  letter-spacing: -0.04em;
 }
 
 html {
