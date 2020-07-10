@@ -28,6 +28,7 @@
   },
   "homepage": "/",
   "dependencies": {},
+    "lodash-es": "^4.17.15",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.5",
