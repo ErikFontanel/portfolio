@@ -1,3 +1,4 @@
+// import Gl from './Gl';
 import { debounce } from 'lodash-es';
 
 export default class CTA {
@@ -5,6 +6,8 @@ export default class CTA {
     this.el = el;
     window.addEventListener('scroll', debounce(this.onScroll.bind(this)));
 
+    // const gl = new Gl(this.el);
+    // gl.init();
   }
 
   onScroll() {
