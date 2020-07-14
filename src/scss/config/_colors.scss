@@ -2,12 +2,17 @@
 
 $color-black: #000;
 $color-white: #fff;
+
 $color-ink: #121212;
 $color-ink-lighter: #454f5b;
 $color-ink-lightest: color.scale($color-ink, $lightness: 37.5%);
+
 $color-sky: #ededef;
-$color-sky-darker: #d1d1d6;
-$color-sky-lighter: color.scale($color-white, $lightness: -2.5%);
+$color-sky-lightest: color.scale($color-sky, $lightness: 37.5%);
+$color-sky-lighter: color.scale($color-sky, $lightness: 12.5%);
+$color-sky-darker: color.scale($color-sky, $lightness: -12.5%);
+$color-sky-darkest: color.scale($color-sky, $lightness: -37.5%);
+
 $color-yellow: #fff000;
 $color-blue: #313fff;
 $color-blue-lightest: color.scale($color-blue, $lightness: 80%);

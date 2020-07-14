@@ -136,12 +136,76 @@ button {
   }
 
   &_plain {
-    --button-hover-border-color: transparent;
-    --button-background-color: transparent;
     padding: 0.25em;
+
+    &:hover {
+      --button-hover-border-color: transparent;
+      --button-background-color: transparent;
+    }
+
+    &:active {
+      --button-background-color: transparent;
+      --button-active-border-color: transparent;
+
+      .button--label {
+        border-bottom-color: currentColor;
+      }
+    }
 
     .button--label {
       @include text-style-link;
+    }
+  }
+
+  &_text {
+    --button-background-color: transparent !important;
+    --button-border-color: transparent !important;
+    --button-active-border-color: transparent !important;
+    --button-hover-border-color: transparent !important;
+    --button-focus-border-color: transparent;
+
+    color: inherit;
+    font-size: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 1.5em;
+    position: relative;
+
+    .button--label {
+      border-bottom: 1px solid currentColor;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        background: transparent url('/public/img/hand.svg') no-repeat 0 0.5em;
+        background-size: 1em;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 1em;
+        filter: saturate(0%);
+        transition: transform $transition-default $transition-timing,
+          filter $transition-fast $transition-timing;
+      }
+    }
+
+    &:hover {
+      color: $color-primary;
+
+      .button--label {
+        border-bottom-color: currentColor;
+
+        &::before {
+          transform: rotate(15deg);
+          filter: saturate(150%) invert(1);
+        }
+      }
+    }
+
+    &:focus {
+      --button-focus-border-color: currentColor;
     }
   }
 

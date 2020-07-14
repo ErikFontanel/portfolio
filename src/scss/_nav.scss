@@ -30,8 +30,8 @@ $nav-index: main, projects;
 
   &[data-showing-overlay='true'] {
     pointer-events: auto;
-    background-color: rgba(var(--color-background-overlay-rgb), 0.6);
-    backdrop-filter: saturate(140%) blur(#{rem(6px)});
+    background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+    backdrop-filter: saturate(140%) blur(#{rem(3px)});
   }
 
   > * {
@@ -124,6 +124,7 @@ nav {
   transform: translate3d(0, 0, 0);
   width: 100%;
   order: -1;
+  transition-delay: 0.1s;
 
   &[aria-hidden='true'] {
     visibility: hidden;

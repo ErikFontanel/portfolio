@@ -36,7 +36,8 @@
   {% endblock %}
 
   {% block projects %}
-    {% set projects = projects|batch(2) %}
+    {% set projects = projects|batch(3) %}
+
     {% for group in projects %}
       {% set options = {
         projects: group
@@ -44,7 +45,7 @@
 
       {% include "../projects-list.njk" %}
 
-      {% if loop.first %}
+      {% if loop.revindex0 == loop.length - 2 %}
         {% set options = {
           page: expertise
         } %}

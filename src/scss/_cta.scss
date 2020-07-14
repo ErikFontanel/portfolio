@@ -1,7 +1,7 @@
 .cta {
   background-color: $color-yellow;
-  width: calc(var(--spacing-block) * 2);
-  height: calc(var(--spacing-block) * 2);
+  width: var(--spacing-block);
+  height: var(--spacing-block);
   border-radius: 100%;
   text-align: center;
   font-weight: 700;
@@ -11,8 +11,8 @@
   flex-direction: column;
   padding: font-size(medium);
   position: fixed;
-  right: calc(var(--spacing-block) * 2);
-  bottom: var(--spacing-block);
+  right: var(--spacing-block);
+  top: var(--spacing-block);
   z-index: z-index(body);
   transform: rotate(7deg);
   transition: transform $transition-fast $transition-timing;

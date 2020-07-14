@@ -6,16 +6,10 @@
 
 .text-m {
   @include text-style-medium();
-
-  margin-bottom: 0.5em;
 }
 
 .text-l {
   @include text-style-large();
-
-  &:not(:last-child) {
-    margin-bottom: line-height(large) * 1em;
-  }
 }
 
 .text-xl {
@@ -138,6 +132,10 @@ h6 {
 
 figcaption {
   @include text-style-caption();
+}
+
+.text-sub {
+  color: $color-sky-darkest;
 }
 
 .label {

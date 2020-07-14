@@ -1,8 +1,8 @@
 :root {
-  --gutter: #{$gutter-sm};
+  --gutter: #{$gutter};
   --spacing-base: #{$spacing-base};
   --spacing-loose: #{$spacing-loose};
-  --spacing-block: #{$spacing-block};
+  --spacing-block: #{$spacing-block * 2};
 
   --color-background: #{$color-background};
   --color-background-overlay: #{$color-background-overlay};
@@ -12,9 +12,9 @@
   --color-text: #{$color-text};
   --color-link: #{$color-link};
 
-  @media (--tablet-up) {
-    --gutter: #{$gutter};
-    --spacing-block: #{$spacing-block * 2};
+  @media (--tablet-down) {
+    --gutter: #{$gutter / 2};
+    --spacing-block: #{$spacing-block / 2};
   }
 }
 
@@ -71,4 +71,11 @@ img {
 .bg-inverted {
   background-color: invert($color-background);
   color: invert($color-text);
+}
+
+.svg-filters {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
 }

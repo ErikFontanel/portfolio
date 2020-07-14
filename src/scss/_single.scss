@@ -2,20 +2,22 @@
   background-color: rgba(var(--color-background-overlay-rgb), 0.6);
   backdrop-filter: saturate(140%) blur(#{rem(6px)});
 }
+
 .single .project-nav {
   grid-column: wide;
 }
+
 .page-header {
-  h1 {
+  &--title {
     margin-bottom: 1em * line-height(extra-large);
   }
+
   &--subtitle {
     margin-bottom: 0.5em;
   }
 
   + p {
     @include text-style-large;
-    // line-height: line-height(medium);
     line-height: inherit;
   }
 }

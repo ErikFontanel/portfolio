@@ -1,8 +1,7 @@
 @import './colors';
 
 $color-background: $color-white;
-$color-background-overlay: $color-sky-lighter;
-$color-background-overlay: $color-blue-lightest;
+$color-background-overlay: $color-sky;
 $color-background-ui: $color-white;
 $color-primary: $color-blue;
 $color-text: $color-ink;
@@ -16,15 +15,14 @@ $spacing-loose: rem(24px);
 $spacing-extra-loose: rem(48px);
 $spacing-block: rem(64px);
 
-$gutter-sm: $spacing-base;
 $gutter: $spacing-base * 2;
 
 $default-browser-font-size: 16px;
 $base-font-size: 10px;
 
-$font-stack-base: 'Heebo', 'Work Sans', 'Neue Montreal', -apple-system,
-  BlinkMacSystemFont, 'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue',
-  sans-serif;
+$font-stack-base: 'Karla', 'Poppins', 'Heebo', 'Work Sans', 'Neue Montreal',
+  -apple-system, BlinkMacSystemFont, 'San Francisco', Roboto, 'Segoe UI',
+  'Helvetica Neue', sans-serif;
 $font-stack-monospace: 'Anonymous Pro', 'Office Code Pro', 'SF Mono', Monaco,
   Consolas, 'Lucida Console', monospace;
 
