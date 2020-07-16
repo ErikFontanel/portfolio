@@ -228,13 +228,15 @@ button {
   }
 
   &--sub-label {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: $color-ink-lighter;
+    line-height: #{1 + (1 - 0.9)};
 
     &::before {
       content: ':';
-      font-size: 1.2em;
+      font-size: #{1em + (1 - 0.9)};
       margin: 0 0.8ch 0 0;
+      color: var(--button-color, #{$color-text});
     }
   }
 }

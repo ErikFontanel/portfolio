@@ -1,10 +1,14 @@
 .page-item {
-  padding: calc(var(--spacing-block) * 0.5) 0;
+  padding: var(--spacing-block) 0;
   height: 100vh;
   gap: 0 var(--gutter);
 
   > * {
-    grid-column: wide / center;
+    grid-column: wide;
+
+    @media (--tablet-up) {
+      grid-column-end: / center;
+    }
 
     + * {
       margin-top: 1.5em;

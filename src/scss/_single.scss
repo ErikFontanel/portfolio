@@ -3,12 +3,37 @@
   backdrop-filter: saturate(140%) blur(#{rem(6px)});
 }
 
-.single .project-nav {
-  grid-column: wide;
-}
-
 .page-header {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'img img'
+    'text text';
+  grid-template-rows: auto auto;
+  align-items: stretch;
+
+  @media (--tablet-up) {
+    &.portrait\:2-col {
+      grid-template-areas: 'text img';
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .project-item--text {
+    padding-top: var(--spacing-block);
+    padding-bottom: var(--spacing-block);
+    grid-area: text;
+
+    display: flex;
+    flex-flow: column;
+    max-height: 100vh;
+  }
+
+  .project-item--image {
+    grid-area: img;
+  }
+
   &--title {
+    grid-area: text;
     margin-bottom: 1em * line-height(extra-large);
   }
 

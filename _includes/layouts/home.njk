@@ -1,5 +1,7 @@
 {% extends './base.njk' %}
 
+{% import "../page-item.njk" as pageitem %}
+
 {# Get About page content #}
 {% set about = false %}
 {% set expertise = false %}
@@ -36,23 +38,20 @@
   {% endblock %}
 
   {% block projects %}
-    {% set projects = projects|batch(3) %}
 
-    {% for group in projects %}
-      {% set options = {
-        projects: group
-      } %}
 
-      {% include "../projects-list.njk" %}
+    <div class="projects grid grid:full">
+      {% for project in projects %}
 
-      {% if loop.revindex0 == loop.length - 2 %}
-        {% set options = {
-          page: expertise
-        } %}
+        {% include "../project-item.njk" %}
 
-        {% include '../page-item.njk' %}
-      {% endif %}
+        {% if loop.index0 === 3 %}
+          {{ pageitem.pageItem(expertise) }}
+        {% endif %}
 
-    {% endfor %}
+      {% endfor %}
+    </div>
+
   {% endblock %}
+
 {% endblock %}

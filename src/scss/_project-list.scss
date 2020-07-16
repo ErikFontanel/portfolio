@@ -19,11 +19,7 @@
   gap: var(--spacing-block) var(--gutter);
   margin-bottom: var(--spacing-block);
 
-  & + .projects {
-    margin-top: var(--spacing-block);
-  }
-
-  @media (--mobile) {
+  @media (--tablet-down) {
     overflow-x: auto;
     overflow-y: visible;
     scroll-snap-type: x proximity;
@@ -59,11 +55,11 @@
     }
   }
 
-  > * {
-    grid-column: main;
+  & + .projects {
+    margin-top: var(--spacing-block);
   }
 
-  @media (--tablet-up) {
+  @media (--desktop-up) {
     > .portrait\:1-col {
       grid-column-end: span 4;
 

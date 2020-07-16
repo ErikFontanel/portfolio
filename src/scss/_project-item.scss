@@ -29,7 +29,7 @@
     align-items: center;
   }
 
-  &--body {
+  &--text {
     grid-area: text;
 
     @media (--tablet-up) {
@@ -38,7 +38,7 @@
     }
   }
 
-  &--img {
+  &--image {
     grid-area: img;
 
     border-radius: $radius;
@@ -102,7 +102,7 @@
         padding-right: calc(var(--spacing-loose) * 2);
       }
 
-      &:nth-of-type(0n + 1) {
+      &:nth-of-type(even):not(.page-header) {
         grid-template-areas: 'img text';
         grid-template-columns: 1fr 1fr;
 
@@ -138,7 +138,7 @@
 
       grid-template-columns: 5fr 3fr;
 
-      &:nth-of-type(even) {
+      &:nth-of-type(even):not(.page-header) {
         grid-template-columns: 3fr 5fr;
         grid-template-areas: 'text img';
       }

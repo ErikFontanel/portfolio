@@ -2,9 +2,11 @@
   @include effect-exclusion;
   mix-blend-mode: exclusion;
 
-  position: sticky;
+  position: fixed;
   top: var(--gutter);
-  display: flex;
+  right: var(--gutter);
+  margin-left: auto;
+  display: inline-flex;
   justify-content: flex-end;
   z-index: z-index(body);
 

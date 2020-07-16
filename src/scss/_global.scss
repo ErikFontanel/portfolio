@@ -14,7 +14,7 @@
 
   @media (--tablet-down) {
     --gutter: #{$gutter / 2};
-    --spacing-block: #{$spacing-block / 2};
+    --spacing-block: #{$spacing-block};
   }
 }
 

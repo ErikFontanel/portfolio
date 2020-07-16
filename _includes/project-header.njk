@@ -1,0 +1,33 @@
+{%- set tags = tags | except('project') if tags -%}
+{%- set hasLink = false -%}
+{%- set url = page.url -%}
+
+<header class="page-header project-item {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
+  {% if thumbnail %}
+    <div class="project-item--img" >
+      <img src="{{ url + thumbnail | url }}" alt="{{ title }}"/>
+    </div>
+  {% endif %}
+
+  <div class="project-item--text">
+    {% if client %}
+      <h3 class="project-item--client  text-sub h-m">{{ client }}</h3>
+    {% endif %}
+
+    {% if title %}
+      <h2 class="project-item--title h-xl">{{ title }}</h2>
+    {% endif %}
+
+    {% if tags %}
+      <ul class="project-item--tags">
+        {% for tag in tags %}
+          {%- button
+            url = '/work/tagged/' + tag|slug +'/',
+            label = tag,
+            name = 'label' -%}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+</header>

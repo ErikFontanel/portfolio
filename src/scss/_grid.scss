@@ -16,37 +16,6 @@
   align-items: start;
   align-content: start;
 
-  // @media (--tablet-up) {
-  //   // prettier-ignore
-  //   // grid-template-columns:
-  //   //   [full-start first] minmax(#{$spacing-extra-loose / 2}, 1fr)
-  //   //   [main-start wide-start] minmax(auto, 8fr) [main-end
-  //   //   last wide-end] minmax(#{$spacing-extra-loose / 2}, 1fr)
-  //   //   [full-end];
-  //   grid-template-columns:
-  //     [full-start first] var(--gutter)
-  //     [wide-start] 2fr
-  //     [main-start] minmax(auto, 4fr)
-  //     [half] minmax(auto, 4fr)
-  //     [main-end
-  //     last] 2fr
-  //     [wide-end] var(--gutter)
-  //     [full-end];
-  // }
-
-  // @media (--desktop-up) {
-  //   // prettier-ignore
-  //   grid-template-columns:
-  //     [full-start first] var(--gutter)
-  //     [wide-start] 2fr
-  //     [main-start] minmax(auto, 4fr)
-  //     [half] minmax(auto, 4fr)
-  //     [main-end
-  //     last] 2fr
-  //     [wide-end] var(--gutter)
-  //     [full-end];
-  // }
-
   > * {
     grid-column: main;
   }

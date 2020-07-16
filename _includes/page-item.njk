@@ -1,20 +1,16 @@
-{% set defaults = {
-  page: undefined
-} %}
-{% set options = defaults if options === undefined else options %}
-{% set page = options.page %}
+{% macro pageItem(page) %}
+  <section class="bg-inverted grid:full">
+    <div class="page-item grid grid:wide">
+      <h2 class="page-item--title h-xl">{{ page.data.teaser }}</h2>
+      <p class="page-item--subtitle text-m">
+        {{ page.data.intro }}
+      </p>
 
-<section class="bg-inverted grid grid:full">
-  <div class="page-item grid grid:wide">
-    <h2 class="page-item--title h-xl">{{ page.data.teaser }}</h2>
-    <p class="page-item--subtitle text-m">
-      {{ page.data.intro }}
-    </p>
-
-    {%- button
-      url = page.url|url,
-      label = page.data.title,
-      name = 'button_text'
-    -%}
-  </div>
-</section>
+      {%- button
+        url = page.url|url,
+        label = page.data.title,
+        name = 'button_text'
+      -%}
+    </div>
+  </section>
+{% endmacro %}

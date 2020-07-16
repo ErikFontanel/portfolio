@@ -1,20 +1,23 @@
----
-layout: layouts/base.njk
-bodyClass: single
----
-<nav class="project-nav">
-  <a href="{{ '/' | url }}" class="button button_close button_outline inverted" aria-label="close">
-    <span class="button--label">close</span>
-  </a>
-</nav>
-<article class="grid grid-full">
+{% extends "./base.njk" %}
 
-  {% block header %}
-    <header class="page-header">
-      <h2 class="page-header--subtitle text-sub text-l">{{ client }}</h2>
-      <h1 class="page-header--title text-xl">{{ title }}</h1>
-    </header>
+{% set bodyClass = 'single' %}
+
+
+{% block main %}
+
+  {% block projectNav %}
+    <nav class="project-nav">
+      <a href="{{ '/' | url }}" class="button button_close button_outline inverted" aria-label="close">
+        <span class="button--label">close</span>
+      </a>
+    </nav>
   {% endblock %}
 
-  {{ content|safe }}
-</article>
+  {% block projectHeader %}
+    {% include "../project-header.njk" %}
+  {% endblock %}
+
+
+    {{ content|safe }}
+  </article>
+{% endblock %}
