@@ -8,7 +8,10 @@ const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
 const markdownItLinkAttrs = require('markdown-it-link-attributes');
+const markdownItAnchor = require('markdown-it-anchor');
+const markdownItImsize = require('markdown-it-imsize');
 
+const Image = require(`${componentsDir}/Image.js`);
 const Gallery = require(`${componentsDir}/Gallery.js`);
 const List = require(`${componentsDir}/List.js`);
 const Button = require(`${componentsDir}/Button.js`);
@@ -76,6 +79,8 @@ module.exports = function (eleventyConfig) {
     markdownIt(mdOptions)
       .use(markdownItAttrs)
       .use(markdownItLinkAttrs, mdLinkAttrOptions)
+      .use(markdownItImsize, { autofill: true })
+      .use(markdownItAnchor)
   );
 
   // Layouts
@@ -85,6 +90,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('projects', 'layouts/projects.njk');
 
   // Custom components
+  eleventyConfig.addNunjucksShortcode('image', Image);
   eleventyConfig.addNunjucksShortcode('gallery', Gallery);
   eleventyConfig.addNunjucksShortcode('button', Button);
   eleventyConfig.addNunjucksShortcode('label', Label);
