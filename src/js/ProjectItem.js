@@ -7,7 +7,7 @@ export default class ProjectItem {
     this.turbVal = { val: 0.000001 };
     this.el.addEventListener('click', this.transitionOut.bind(this));
 
-    // requestAnimationFrame(() => this.render());
+    requestAnimationFrame(() => this.render());
   }
 
   transitionOut(event) {
@@ -21,8 +21,8 @@ export default class ProjectItem {
     });
   }
 
-  // render() {
-  //   // this.transitionOut();
-  //   // requestAnimationFrame(() => this.render());
-  // }
+  render() {
+    // this.transitionOut();
+    // requestAnimationFrame(() => this.render());
+  }
 }

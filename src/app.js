@@ -25,6 +25,6 @@ const carousels = document.querySelectorAll('.carousel');
 if (navMain) new Nav(navMain);
 if (cta) new CTA(cta);
 
-[...projects].map((el) => new ProjectsList(el));
+// [...projects].map((el) => new ProjectsList(el));
 
 [...carousels].map((el) => new Carousel({ el: el }));
