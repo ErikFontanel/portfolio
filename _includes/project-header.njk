@@ -1,4 +1,4 @@
-{%- set tags = tags | except('project') if tags -%}
+
 {%- set hasLink = false -%}
 {%- set url = page.url -%}
 
@@ -11,23 +11,20 @@
 
   <div class="project-item--text">
     {% if client %}
-      <h3 class="project-item--client  text-sub h-m">{{ client }}</h3>
+      <h3 class="project-item--client  text-sub h-l">{{ client }}</h3>
     {% endif %}
 
     {% if title %}
-      <h2 class="project-item--title h-xl">{{ title }}</h2>
+      <h2 class="project-item--title h-xxl">{{ title }}</h2>
     {% endif %}
 
-    {% if tags %}
-      <ul class="project-item--tags">
-        {% for tag in tags %}
-          {%- button
-            url = '/work/tagged/' + tag|slug +'/',
-            label = tag,
-            name = 'label' -%}
-        {% endfor %}
-      </ul>
-    {% endif %}
   </div>
 
+  {% block projectTags %}
+    {% include "./project-tags.njk" %}
+  {% endblock %}
+
+  {% block projectMeta %}
+    {% include "./project-meta.njk" %}
+  {% endblock %}
 </header>
