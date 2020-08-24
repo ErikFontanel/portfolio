@@ -2,6 +2,7 @@ const componentsDir = `./_includes/components`;
 
 const pluginNav = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
+const pluginCloudinaryImage = require('eleventy-plugin-respimg');
 const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
 
 const markdownIt = require('markdown-it');
@@ -16,22 +17,28 @@ const Label = require(`${componentsDir}/Label.js`);
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginLocalRespimg, {
-    folders: {
-      source: 'content', // Folder images are stored in
-      output: 'dist', // Folder images should be output to
-    },
-    images: {
-      resize: {
-        min: 640, // Minimum width to resize an image to
-        max: 2560, // Maximum width to resize an image to
-        step: 150, // Width difference between each resized image
-      },
-      watch: {
-        src: 'content/**/*', // Glob of images that Eleventy should watch for changes to
-      },
-    },
-  });
+  eleventyConfig.addPlugin(pluginCloudinaryImage);
+
+  eleventyConfig.cloudinaryCloudName = 'dcmhhju2e';
+  eleventyConfig.srcsetWidths = [320, 640, 960, 1280, 1600, 1920, 2240, 2560];
+  eleventyConfig.fallbackWidth = 640;
+
+  // eleventyConfig.addPlugin(pluginLocalRespimg, {
+  //   folders: {
+  //     source: 'content', // Folder images are stored in
+  //     output: 'dist', // Folder images should be output to
+  //   },
+  //   images: {
+  //     resize: {
+  //       min: 640, // Minimum width to resize an image to
+  //       max: 2560, // Maximum width to resize an image to
+  //       step: 150, // Width difference between each resized image
+  //     },
+  //     watch: {
+  //       src: '/content/**/*', // Glob of images that Eleventy should watch for changes to
+  //     },
+  //   },
+  // });
 
   eleventyConfig.setTemplateFormats([
     // Templates:
