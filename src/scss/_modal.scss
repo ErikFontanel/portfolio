@@ -1,6 +1,70 @@
-[data-overlay='true'],
-.overlay {
+[data-overlay='true'] {
   pointer-events: auto;
-  background-color: rgba(var(--color-background-overlay-rgb), 0.4);
-  backdrop-filter: saturate(180%) blur(#{rem(20px)});
+  background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+  backdrop-filter: saturate(140%) blur(#{rem(3px)});
+}
+
+body[data-showing-overlay='true'] {
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+[data-showing-modal='true'] {
+  --color-background: #{$color-background-overlay};
+
+  overflow: hidden;
+  backface-visibility: hidden;
+  > main {
+    animation: hideLayer $transition-default forwards ease-out;
+  }
+}
+
+.modal {
+  padding: var(--gutter) calc(var(--gutter) * 1);
+  backdrop-filter: saturate(80%) blur(#{rem(3px)});
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: z-index(layer);
+  visibility: hidden;
+  pointer-events: none;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  contain: layout;
+  will-change: transform;
+  backface-visibility: hidden;
+  animation: showLayer $transition-default forwards ease-out paused;
+
+  &[data-visible='true'] {
+    pointer-events: auto;
+    visibility: visible;
+    animation-play-state: running;
+  }
+
+  &--body {
+    grid-column: full;
+    overflow-y: auto;
+    border-radius: $radius * 4;
+    background-color: $color-background;
+    box-shadow: shadow(2);
+    margin-bottom: calc(3 * var(--gutter));
+  }
+}
+@keyframes hideLayer {
+  from {
+    transform: none;
+  }
+  to {
+    transform: scale(0.98);
+  }
+}
+@keyframes showLayer {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: none;
+  }
 }

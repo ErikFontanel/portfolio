@@ -34,7 +34,9 @@
       {% include "footer.njk" %}
     {% endblock %}
 
-    {% block modal %}{% endblock %}
+    {% block modal %}
+      <template class="modal grid" data-visible="false"><div class="modal--body"></div></template>
+    {% endblock %}
 
     <script type="module" src="{{ jsPath | url }}"></script>
 
