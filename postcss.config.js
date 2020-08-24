@@ -1,17 +1,22 @@
-const isDev = () => process.env.NODE_ENV !== 'production';
+const isProduction = () => process.env.NODE_ENV === 'production';
 
 module.exports = {
   plugins: [
-    !isDev()
+    require('postcss-media-minmax'),
+    require('postcss-custom-media'),
+    isProduction()
       ? require('postcss-preset-env')({
-          autoprefixer: !isDev()
+          autoprefixer: isProduction()
             ? {
                 grid: true,
               }
             : false,
         })
       : false,
-    require('postcss-media-minmax'),
-    require('postcss-custom-media'),
+    isProduction
+      ? require('cssnano')({
+          preset: 'default',
+        })
+      : false,
   ],
 };
