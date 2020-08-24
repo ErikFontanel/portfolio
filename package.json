@@ -45,6 +45,7 @@
     "cssnano": "^4.1.10",
     "eleventy-plugin-local-respimg": "^0.3.1",
     "eleventy-plugin-respimg": "^0.1.2",
+    "image-size": "^0.8.3",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-link-attributes": "^3.0.0",
     "npm-run-all": "^4.1.5",

@@ -4,11 +4,13 @@
 {%- set list_layout = project.data.list_layout -%}
 {%- set title = project.data.title -%}
 
-
 <article class="project-item {{ project.data.list_layout }}">
   {% if thumbnail %}
     <a href="{{ project.url }}" class="project-item--img" >
-      <img src="{{ project.url + thumbnail | url }}" alt="{{ project.data.title }}"/>
+      {% image {
+          path: project.url + thumbnail | url,
+          alt: project.data.title
+        } %}
     </a>
   {% endif %}
 
