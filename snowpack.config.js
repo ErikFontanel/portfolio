@@ -6,9 +6,6 @@ module.exports = {
     },
   },
   scripts: {
-    'mount:eleventy': 'mount dist --to /',
-    'mount:src': 'mount src --to /public',
-    'bundle:*': 'parcel build src/app.js',
     'run:sass': 'sass src/scss:src/scss --no-source-map',
     'run:sass::watch': '$1 --watch',
     'run:tpostcss': 'postcss src/scss/**/*.css',
@@ -16,6 +13,16 @@ module.exports = {
     'run:11ty': 'eleventy',
     'run:11ty::watch': '$1 --watch',
   },
+  mount: {
+    dist: '/',
+    src: '/public',
+  },
+  // plugins: [
+  //   [
+  //     '@snowpack/plugin-run-script',
+  //     { cmd: 'sass src/scss:public/css --no-source-map', watch: '$1 --watch' },
+  //   ],
+  // ],
   devOptions: {
     port: 8080,
     open: 'none',
