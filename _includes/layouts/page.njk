@@ -1,6 +1,6 @@
 {% extends "./base.njk" %}
 
-{% set bodyClass = 'single' %}
+{% set bodyClass = 'page' %}
 
 
 {% block main %}
@@ -13,12 +13,5 @@
     </nav>
   {% endblock %}
 
-  {% block projectHeader %}
-    {% include "../project-header.njk" %}
-  {% endblock %}
-
-  {% block projectBody %}
-    {{ content|safe }}
-  {% endblock %}
-
+  {{ content | safe }}
 {% endblock %}
