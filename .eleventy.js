@@ -10,6 +10,7 @@ const markdownItAttrs = require('markdown-it-attrs');
 const markdownItLinkAttrs = require('markdown-it-link-attributes');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItImsize = require('markdown-it-imsize');
+const markdownItLazyImg = require('./src/js/markdown-it-lazy');
 
 const Image = require(`${componentsDir}/Image.js`);
 const Gallery = require(`${componentsDir}/Gallery.js`);
@@ -81,6 +82,7 @@ module.exports = function (eleventyConfig) {
       .use(markdownItLinkAttrs, mdLinkAttrOptions)
       .use(markdownItImsize, { autofill: true })
       .use(markdownItAnchor)
+      .use(markdownItLazyImg)
   );
 
   // Layouts
