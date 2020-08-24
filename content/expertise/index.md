@@ -2,7 +2,7 @@
 title: Expertise
 teaser: one who experiments with materials and ideas to fully understand their capacities, and who further iterates on their learning to find better solutions to current problems.
 intro: one who experiments with materials and ideas to fully understand their capacities, and who further iterates on their learning to find better solutions to current problems.
-layout: ./layouts/base.njk
+layout: ./layouts/page.njk
 tags:
   - page
 ---
