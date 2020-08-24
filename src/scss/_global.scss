@@ -1,3 +1,4 @@
+@use 'sass:color';
 :root {
   --gutter: #{$gutter};
   --spacing-base: #{$spacing-base};
@@ -7,6 +8,7 @@
   --color-background: #{$color-background};
   --color-background-overlay: #{$color-background-overlay};
   --color-background-overlay-rgb: #{hexToRGB($color-background-overlay)};
+  --color-background-modal: #{$color-background-overlay};
   --color-background-ui: #{$color-background-ui};
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
@@ -29,6 +31,7 @@ html,
 body,
 button {
   @include text-style-medium;
+  color: $color-text;
   letter-spacing: -0.04em;
 }
 
@@ -44,12 +47,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: $color-background;
-
-  &[data-showing-overlay='true'] {
-    backface-visibility: hidden;
-    overflow: hidden;
-  }
+  background-color: var(--color-background, #{$color-background});
 }
 
 *,
@@ -65,11 +63,14 @@ img {
 }
 
 .wrapper {
-  background-color: $color-background;
+  background-color: var(--color-background);
 }
 
 .bg-inverted {
-  background-color: invert($color-background);
+  background-color: var(
+    --color-background-inverted,
+    #{invert($color-background)}
+  );
   color: invert($color-text);
 }
 

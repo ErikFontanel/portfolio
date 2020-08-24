@@ -1,9 +1,10 @@
 @import './colors';
 
+$color-primary: $color-blue;
 $color-background: $color-white;
 $color-background-overlay: $color-sky;
+$color-background-modal: $color-blue-lightest;
 $color-background-ui: $color-white;
-$color-primary: $color-blue;
 $color-text: $color-ink;
 $color-link: $color-blue;
 
@@ -20,25 +21,27 @@ $gutter: $spacing-base * 2;
 $default-browser-font-size: 16px;
 $base-font-size: 10px;
 
-$font-stack-base: 'Karla', 'Poppins', 'Heebo', 'Work Sans', 'Neue Montreal',
-  -apple-system, BlinkMacSystemFont, 'San Francisco', Roboto, 'Segoe UI',
-  'Helvetica Neue', sans-serif;
-$font-stack-monospace: 'Anonymous Pro', 'Office Code Pro', 'SF Mono', Monaco,
-  Consolas, 'Lucida Console', monospace;
+$font-stack-base: 'Lota Grotesque', 'Inter', 'Karla', 'Poppins', 'Heebo',
+  'Work Sans', 'Neue Montreal', -apple-system, BlinkMacSystemFont,
+  'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
+$font-stack-monospace: 'Iosevka Extended', 'IBM Plex Mono', 'Anonymous Pro',
+  'Office Code Pro', 'SF Mono', Monaco, Consolas, 'Lucida Console', monospace;
 
-$global-zindex: (modal, navigation, body, background);
+$global-zindex: (modal, navigation, layer, body, background);
 
 $font-sizes: (
+  'extra-extra-large': rem(56px),
   'extra-large': rem(42px),
   'large': rem(32px),
-  'medium': rem(24px),
+  'medium': rem(28px),
   'small': rem(18px),
   'extra-small': rem(14px),
   'tiny': rem(11px),
 );
 
 $line-heights: (
-  'extra-large': 1.2,
+  'extra-extra-large': 1,
+  'extra-large': 1.1,
   'large': 1.2,
   'medium': 1.5,
   'small': 1.5,
@@ -51,7 +54,7 @@ $transition-slow: 0.4s;
 $transition-fast: 0.1s;
 
 $shadows: (
-  rgba($color-black, 12%) 0 rem(2px) rem(4px),
+  rgba($color-black, 12%) 0 rem(1px) rem(4px),
   rgba($color-black, 8%) 0 rem(6px) rem(16px),
   rgba($color-black, 8%) 0 rem(18px) rem(48px)
 );

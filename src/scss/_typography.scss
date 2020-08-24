@@ -38,6 +38,10 @@
   @include text-style-extra-large();
 }
 
+.h-xxl {
+  @include text-style-extra-extra-large();
+}
+
 .f-sans {
   font-family: $font-stack-base;
 }

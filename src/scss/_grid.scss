@@ -3,11 +3,11 @@
   // prettier-ignore
   grid-template-columns:
     [full-start] var(--gutter)
-    [wide-start] 1fr
-    [main-start] repeat(5, 1fr)
-    [center] repeat(5, 1fr)
-    [wide-end] 1fr
-    [main-end] var(--gutter)
+    [wide-start] 2fr
+    [main-start] repeat(4, 1fr)
+    [center] repeat(4, 1fr)
+    [main-end] 2fr
+    [wide-end] var(--gutter)
     [full-end];
   grid-auto-columns: auto;
   grid-auto-rows: auto;

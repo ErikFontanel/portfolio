@@ -29,7 +29,7 @@
 }
 
 @mixin text-style-caption {
-  font-family: $font-stack-base;
+  font-family: $font-stack-monospace;
   font-weight: 400;
   font-style: normal;
   font-size: clamp(
@@ -82,7 +82,6 @@
 
 @mixin text-style-large {
   font-family: $font-stack-base;
-
   font-size: clamp(
     #{font-size(small)},
     #{vw(font-size(large))},
@@ -94,11 +93,23 @@
 @mixin text-style-extra-large {
   font-family: $font-stack-base;
   font-size: clamp(
-    #{font-size(medium)},
+    #{font-size(large)},
     #{vw(font-size(extra-large))},
     #{font-size(extra-large)}
   );
-  line-height: line-height(large);
+  line-height: line-height(extra-large);
+  font-weight: 500;
+}
+
+@mixin text-style-extra-extra-large {
+  font-family: $font-stack-base;
+  font-size: clamp(
+    #{font-size(extra-large)},
+    #{vw(font-size(extra-extra-large))},
+    #{font-size(extra-extra-large)}
+  );
+  font-variation-settings: 'wght' 420, 'slnt' -8;
+  line-height: line-height(extra-extra-large);
 }
 
 @mixin text-style-link {

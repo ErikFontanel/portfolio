@@ -55,7 +55,8 @@ nav {
   align-items: center;
   box-shadow: shadow(1);
   border-radius: 99999em;
-  background-color: white;
+  background-color: $color-white;
+  border: 2px solid $color-white;
 
   @media (--mobile) {
     left: var(--gutter);
@@ -77,20 +78,29 @@ nav {
     padding-right: 0.8em;
     border-radius: 99999em;
 
+    .button--label {
+      text-transform: lowercase;
+    }
+
     & + .button {
       &:not(:last-of-type) {
         border-radius: 0;
       }
 
       // separator
-      &:before {
+      &::before {
         content: '';
         width: 1px;
         background-color: $color-sky;
         position: relative;
         left: -0.8em;
         height: 1.8em;
+        transition: background-color $transition-default $transition-timing;
       }
+    }
+
+    &[aria-expanded='true'] + .button::before {
+      background-color: transparent;
     }
 
     &:first-of-type {
@@ -147,13 +157,14 @@ nav {
 
   li {
     width: 100%;
-    transition: $transition-fast $transition-timing;
-    transition-property: background-color, color;
+    transition: $transition-slow $transition-timing;
+    transition-property: background-color, color, opacity, transform;
     color: $color-ink;
     position: relative;
     padding: 0 calc(var(--gutter) * 0.5);
     display: flex;
     justify-content: stretch;
+    transform: translate3d(0, 0, 0);
 
     &:first-child {
       margin-top: calc(var(--gutter) * 0.5);
@@ -190,6 +201,10 @@ nav {
       flex: 1;
       justify-content: flex-start;
     }
+  }
+  &[aria-hidden='true'] li {
+    opacity: 0;
+    transform: translate3d(0, -33%, 0);
   }
 }
 

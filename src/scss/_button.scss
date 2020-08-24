@@ -6,7 +6,7 @@ $button-border-color: inset 0 0 0 1px var(--button-border-color);
 
 $button-border-hover: inset 0 0 0 1px var(--button-hover-border-color);
 
-$button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
+$button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
   inset 0 1px 5px 0 var(--button-active-border-color);
 
 %button {
@@ -14,6 +14,7 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
   --button-focus-border-color: transparent;
   --button-hover-border-color: transparent;
   --button-active-border-color: transparent;
+  --button-sub-color: #{$color-ink-lighter};
 
   display: inline-flex;
   align-items: center;
@@ -86,11 +87,12 @@ $button-border-active: inset 0 1px 1px 0 var(--button-active-border-color),
   &[aria-expanded='true'] {
     --button-active-border-color: rgba(#{hexToRGB($color-ink)}, 0.1);
     --button-background-color: #{color.scale($color-background, $lightness: -4%)};
+
     &:hover {
       --button-hover-border-color: transparent;
       --button-background-color: #{color.scale(
           $color-background,
-          $lightness: -6%
+          $lightness: -8%
         )};
     }
 
@@ -223,13 +225,13 @@ button {
   }
 
   &--label {
+    color: currentColor;
     user-select: none;
-    text-transform: lowercase;
   }
 
   &--sub-label {
     font-size: 0.9em;
-    color: $color-ink-lighter;
+    color: var(--button-sub-color, --button-color);
     line-height: #{1 + (1 - 0.9)};
 
     &::before {
