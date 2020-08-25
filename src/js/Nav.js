@@ -1,10 +1,11 @@
-import { template } from 'lodash-es';
+import Modal from './Modal';
 
 export default class Nav {
   constructor(el) {
     this.el = el;
     this.visible = false;
-    this.modal = document.querySelector('.modal');
+    this.modal = document.querySelector('#modal');
+    this.modalActive = null;
     this.el.addEventListener('click', this.toggleNav.bind(this));
     this.el.addEventListener('touchend', this.toggleNav.bind(this));
 
@@ -30,35 +31,39 @@ export default class Nav {
 
     if (!btn.classList.contains('active') && btn !== toggle) {
       btn.classList.add('active');
-      this.loadUrl(btn.getAttribute('href'));
+      this.loadUrl(btn);
+    } else {
+      toggle.setAttribute('aria-expanded', !this.visible);
+      nav.setAttribute('data-overlay', !this.visible);
+      popover.setAttribute('aria-hidden', this.visible);
+      document.body.setAttribute('data-showing-overlay', !this.visible);
+      btn.classList.remove('active');
     }
-    btn.classList.remove('active');
-    toggle.setAttribute('aria-expanded', !this.visible);
-    nav.setAttribute('data-overlay', !this.visible);
-    popover.setAttribute('aria-hidden', this.visible);
-    document.body.setAttribute('data-showing-overlay', !this.visible);
 
     this.visible = !this.visible;
   }
 
-  loadUrl(url) {
+  loadUrl(btn) {
+    const url = btn.getAttribute('href');
+    const modal = document.importNode(this.modal.content, true);
+
     event.preventDefault();
-    fetch(url)
-      .then((resp) => resp.text())
-      .then((data) => {
-        this.modal.content.querySelector('.modal--body').innerHTML = data;
-        document.body.appendChild(this.modal);
-        return this.modal.content;
-      })
-      // .then((main) => {
-      //   const container = this.modal.content.querySelector('.modal--body');
-      //   container.appendChild(main.querySelector('main.wrapper'));
-      //   return this.modal;
-      // })
-      .then((modal) => {
-        // modal.dataset.visible = true;
-        document.body.setAttribute('data-showing-modal', true);
-      })
-      .catch((err) => console.error(err));
+    btn.dataset.selected = true;
+
+    if (!this.modalActive) {
+      fetch(url)
+        .then((resp) => resp.text())
+        .then(
+          (data) =>
+            (this.modalActive = this.modalActive
+              ? this.modalActive(modal, data)
+              : new Modal(modal, data))
+        )
+        .then((modal) => {
+          modal.show();
+        })
+        .then(btn.classList.remove('active'))
+        .catch((err) => console.error(err));
+    }
   }
 }

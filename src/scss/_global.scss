@@ -14,16 +14,23 @@
   --color-text: #{$color-text};
   --color-link: #{$color-link};
 
+  --animation-duration: #{$transition-default};
+  --animation-duration-slow: calc(var(--animation-duration) * 2);
+  --animation-duration-fast: calc(var(--animation-duration) * 0.5);
+
   @media (--tablet-down) {
     --gutter: #{$gutter / 2};
     --spacing-block: #{$spacing-block};
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media print, (prefers-reduced-motion: reduce) {
+  :root {
+    --animation-duration: 1ms !important;
+  }
   * {
-    animation-duration: 0s !important;
-    transition-duration: 0s !important;
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
   }
 }
 
@@ -79,4 +86,9 @@ img {
   visibility: hidden;
   width: 1px;
   height: 1px;
+}
+
+.animating {
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: forwards;
 }

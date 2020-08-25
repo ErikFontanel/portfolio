@@ -118,6 +118,15 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
       --button-focus-border-color: #{invert($color-sky-darker)};
     }
   }
+
+  &[data-selected='true'] {
+    --button-color: #{invert($color-text)};
+    --button-background-color: #{$color-primary};
+
+    &:hover {
+      --button-background-color: #{color.scale($color-primary, $lightness: -5%)};
+    }
+  }
 }
 
 .button,

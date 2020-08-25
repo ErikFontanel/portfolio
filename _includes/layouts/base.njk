@@ -24,7 +24,7 @@
       {% include "nav.njk" %}
     {% endblock %}
 
-    <main class="wrapper grid">
+    <main class="wrapper grid" data-slug="{{ page.fileSlug }}">
       {% block main %}
         {{ content | safe }}
       {% endblock %}
@@ -35,7 +35,11 @@
     {% endblock %}
 
     {% block modal %}
-      <template class="modal grid" data-visible="false"><div class="modal--body"></div></template>
+      <template id="modal">
+        <div class="modal grid">
+          <div class="modal--body"></div>
+        </div>
+      </template>
     {% endblock %}
 
     <script type="module" src="{{ jsPath | url }}"></script>

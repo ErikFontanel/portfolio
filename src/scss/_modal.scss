@@ -14,9 +14,6 @@ body[data-showing-overlay='true'] {
 
   overflow: hidden;
   backface-visibility: hidden;
-  > main {
-    animation: hideLayer $transition-default forwards ease-out;
-  }
 }
 
 .modal {
@@ -35,24 +32,24 @@ body[data-showing-overlay='true'] {
   contain: layout;
   will-change: transform;
   backface-visibility: hidden;
-  animation: showLayer $transition-default forwards ease-out paused;
 
   &[data-visible='true'] {
     pointer-events: auto;
     visibility: visible;
-    animation-play-state: running;
   }
 
   &--body {
     grid-column: full;
-    overflow-y: auto;
     border-radius: $radius * 4;
     background-color: $color-background;
     box-shadow: shadow(2);
     margin-bottom: calc(3 * var(--gutter));
   }
 }
-@keyframes hideLayer {
+.animation\:scaleInDown {
+  animation-name: scaleInDown;
+}
+@keyframes scaleInDown {
   from {
     transform: none;
   }
@@ -60,11 +57,26 @@ body[data-showing-overlay='true'] {
     transform: scale(0.98);
   }
 }
-@keyframes showLayer {
+
+.animation\:scaleOutUp {
+  animation-name: scaleInDown;
+  animation-direction: reverse;
+}
+
+.animation\:slideInUp {
+  animation-name: slideInUp;
+}
+
+@keyframes slideInUp {
   from {
     transform: translate3d(0, 100%, 0);
   }
   to {
     transform: none;
   }
+}
+
+.animation\:slideOutDown {
+  animation-name: slideInUp;
+  animation-direction: reverse;
 }
