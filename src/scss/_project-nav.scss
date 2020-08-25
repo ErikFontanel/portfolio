@@ -2,12 +2,14 @@
   @include effect-exclusion;
   mix-blend-mode: exclusion;
 
-  position: fixed;
-  top: var(--gutter);
+  position: sticky;
+  top: calc(-1 * var(--gutter));
   right: var(--gutter);
   display: inline-flex;
   justify-content: flex-end;
   z-index: z-index(body);
+  grid-column: full;
+  padding: var(--gutter) var(--gutter) 0;
 
   .button {
     color: inherit;
