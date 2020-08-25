@@ -1,17 +1,8 @@
-{% extends "./base.njk" %}
+{% extends "./page.njk" %}
 
-{% set bodyClass = 'single' %}
-
+{% block bodyClass %}single{% endblock %}
 
 {% block main %}
-
-  {% block projectNav %}
-    <nav class="project-nav">
-      <a href="{{ '/' | url }}" class="button button_close button_outline inverted" aria-label="close">
-        <span class="button--label">close</span>
-      </a>
-    </nav>
-  {% endblock %}
 
   {% block projectHeader %}
     {% include "../project-header.njk" %}
@@ -21,4 +12,5 @@
     {{ content|safe }}
   {% endblock %}
 
+  {{ super() }}
 {% endblock %}

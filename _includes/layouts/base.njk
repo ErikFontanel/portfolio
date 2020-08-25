@@ -18,7 +18,7 @@
     <meta name="theme-color" content="{{ metadata.theme_color }}">
 
   </head>
-  <body class="{{ bodyClass }} {{ page.data.tags[0]}} {{ page.fileSlug }} {{page.data.layout}}">
+  <body class="{% block bodyClass %}{% endblock %}{{ page.data.tags[0]}} {{page.data.layout}}">
 
     {% block nav %}
       {% include "nav.njk" %}

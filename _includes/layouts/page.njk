@@ -1,16 +1,12 @@
 {% extends "./base.njk" %}
 
-{% set bodyClass = 'page' %}
+{% block bodyClass %}page{% endblock %}
 
 
 {% block main %}
 
   {% block projectNav %}
-    <nav class="project-nav">
-      <a href="{{ '/' | url }}" class="button button_close button_outline inverted" aria-label="close">
-        <span class="button--label">close</span>
-      </a>
-    </nav>
+    {% include "../project-nav.njk" %}
   {% endblock %}
 
   {{ content | safe }}
