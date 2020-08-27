@@ -1,15 +1,12 @@
 module.exports = {
   homepage: '/',
   installOptions: {
+    namedExports: ['lodash-es/debounce'],
     rollup: {
       plugins: [require('rollup-plugin-node-polyfills')()],
     },
   },
   scripts: {
-    // 'run:sass': 'sass src/scss:src/scss --no-source-map',
-    // 'run:sass::watch': '$1 --watch',
-    // 'run:tpostcss': 'postcss src/scss/**/*.css',
-    // 'run:tpostcss::watch': 'postcss src/scss/**/*.css -d src/css --watch',
     'run:11ty': 'eleventy --quiet',
     'run:11ty::watch': '$1 --watch',
   },
