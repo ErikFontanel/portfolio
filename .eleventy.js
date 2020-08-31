@@ -10,6 +10,7 @@ const markdownItAttrs = require('markdown-it-attrs');
 const markdownItLinkAttrs = require('markdown-it-link-attributes');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItImsize = require('markdown-it-imsize');
+const markdownItBlockEmbed = require('markdown-it-block-embed');
 const markdownItLazyImg = require('./src/js/markdown-it-lazy');
 
 const Image = require(`${componentsDir}/Image.js`);
@@ -83,6 +84,40 @@ module.exports = function (eleventyConfig) {
       .use(markdownItImsize, { autofill: true })
       .use(markdownItAnchor)
       .use(markdownItLazyImg)
+      .use(markdownItBlockEmbed, {
+        containerClassName: 'block block-embed',
+        filterUrl: (url, serviceName, videoID, options) => {
+          if (!serviceName === 'youtube') {
+            return url;
+          }
+          const ytOptions = {
+            autoplay: 0,
+            modestbranding: 1,
+            controls: 0,
+            disablekb: 1,
+            enablejsapi: 0,
+            nocookie: 1,
+            iv_load_policy: 3,
+            fs: 0,
+            origin:
+              process.env.NODE_ENV === 'production'
+                ? 'https://erikgelderblom.com'
+                : 'https://portfolio.test',
+            playsinline: 1,
+          };
+
+          const queryparams = Object.keys(ytOptions)
+            .map(
+              (key) =>
+                `${encodeURIComponent(key)}=${encodeURIComponent(
+                  ytOptions[key]
+                )}`
+            )
+            .join('&');
+
+          return url + '?' + queryparams;
+        },
+      })
   );
 
   // Layouts

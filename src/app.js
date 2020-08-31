@@ -1,5 +1,7 @@
 import './css/app.css';
 
+import fitvids from 'fitvids';
+
 import Nav from './js/Nav';
 import Carousel from './js/carousel';
 import CTA from './js/CTA';
@@ -22,6 +24,8 @@ const navMain = document.querySelector('.site-header');
 const cta = document.querySelector('.cta');
 const carousels = document.querySelectorAll('.carousel');
 // const projects = document.querySelectorAll('.projects');
+
+fitvids();
 
 if (navMain) new Nav(navMain);
 if (cta) new CTA(cta);

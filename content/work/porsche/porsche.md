@@ -22,4 +22,4 @@ To make sure the shared ownership is easy and convienent, the plan comes with an
 
 ---
 
-https://www.youtube.com/watch?v=z2bgVpe5oI8
+@[youtube](https://www.youtube.com/watch?v=z2bgVpe5oI8)
