@@ -44,12 +44,8 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
     $button-border-color;
 
   &:hover {
-    --button-background-color: #{color.scale($color-background, $lightness: -5%)};
-
-    --button-hover-border-color: #{color.scale(
-        $color-sky-darker,
-        $lightness: -10%
-      )};
+    --button-background-color: #{$color-sky};
+    --button-hover-border-color: #{$color-sky};
   }
 
   &:focus {
