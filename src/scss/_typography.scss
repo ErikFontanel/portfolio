@@ -1,5 +1,9 @@
 @use 'sass:color';
 
+.text-xs {
+  @include text-style-caption();
+}
+
 .text-s {
   @include text-style-small();
 }
@@ -81,7 +85,6 @@ h6,
 p {
   margin: 0;
   font-size: 1em;
-  font-weight: 400;
 
   a > & {
     color: $color-text;
@@ -94,6 +97,19 @@ p {
   + p {
     margin-top: line-height(medium) * 1em;
   }
+}
+
+em {
+  font-variation-settings: 'wght' 320, 'slnt' -5;
+}
+
+strong {
+  font-variation-settings: 'wght' 451, 'slnt' 0;
+}
+
+strong em,
+em strong {
+  font-variation-settings: 'wght' 451, 'slnt' -5;
 }
 
 ul,
@@ -116,11 +132,11 @@ ol {
 }
 
 h1 {
-  @include text-style-extra-large();
+  @include text-style-large();
 }
 
 h2 {
-  @include text-style-medium();
+  @include text-style-large();
 }
 
 h3 {

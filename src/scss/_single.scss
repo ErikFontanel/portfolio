@@ -1,8 +1,3 @@
-.single-body {
-  background-color: rgba(var(--color-background-overlay-rgb), 0.6);
-  backdrop-filter: saturate(140%) blur(#{rem(6px)});
-}
-
 .page-header {
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -12,7 +7,7 @@
   align-items: stretch;
   margin-bottom: var(--spacing-block);
 
-  @media (--tablet-up) {
+  @media (--mobile-up) {
     grid-template-rows: minmax(auto, 80vh) auto;
 
     &.portrait\:2-col {
@@ -24,10 +19,6 @@
   .project-item--text {
     grid-area: text;
     align-self: start;
-
-    // position: sticky;
-    // top: 0;
-    // left: 0;
 
     display: flex;
     flex-flow: column;
@@ -63,8 +54,6 @@
 }
 
 .project-meta {
-  font-family: $font-stack-monospace;
-  // grid-column: wide / span 4;
   grid-column: meta;
 
   dl {

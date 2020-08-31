@@ -3,14 +3,18 @@
 {% block bodyClass %}single{% endblock %}
 
 {% block main %}
+  {% block projectNav %}
+    {% include "../project-nav.njk" %}
+  {% endblock %}
 
   {% block projectHeader %}
     {% include "../project-header.njk" %}
   {% endblock %}
 
   {% block projectBody %}
-    {{ content|safe }}
+    <article class="single-body grid:full grid">
+      {{ content|safe }}
+    </article>
   {% endblock %}
 
-  {{ super() }}
 {% endblock %}

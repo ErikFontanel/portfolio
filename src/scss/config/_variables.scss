@@ -21,13 +21,12 @@ $gutter: $spacing-base * 2;
 $default-browser-font-size: 16px;
 $base-font-size: 10px;
 
-$font-stack-base: 'Lota Grotesque', 'Inter', 'Karla', 'Poppins', 'Heebo',
-  'Work Sans', 'Neue Montreal', -apple-system, BlinkMacSystemFont,
-  'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
-$font-stack-monospace: 'Iosevka Extended', 'IBM Plex Mono', 'Anonymous Pro',
-  'Office Code Pro', 'SF Mono', Monaco, Consolas, 'Lucida Console', monospace;
+$font-stack-base: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco',
+  Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
+$font-stack-monospace: 'Iosevka Extended', 'SF Mono', Monaco, Consolas,
+  'Lucida Console', monospace;
 
-$global-zindex: (modal, navigation, layer, body, background);
+$global-zindex: (navigation, modal, layer, body, background);
 
 $font-sizes: (
   'extra-extra-large': rem(56px),
@@ -54,9 +53,9 @@ $transition-slow: 0.4s;
 $transition-fast: 0.1s;
 
 $shadows: (
-  rgba($color-black, 12%) 0 rem(1px) rem(4px),
-  rgba($color-black, 8%) 0 rem(6px) rem(16px),
-  rgba($color-black, 8%) 0 rem(18px) rem(48px)
+  rgba($color-black, 12%) 0 rem(1px) rem(2px) rem(0px),
+  rgba($color-black, 8%) 0 rem(3px) rem(6px) rem(-3px),
+  rgba($color-black, 8%) 0 rem(3px) rem(12px) rem(-6px)
 );
 
 $radius: rem(10px);

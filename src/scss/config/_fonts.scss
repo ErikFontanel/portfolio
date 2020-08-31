@@ -34,16 +34,14 @@
   font-display: swap;
   font-style: oblique 0deg 10deg;
   src: url('/public/fonts/Inter.var.woff2') format('woff2');
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
+  font-variant-ligatures: contextual common-ligatures;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1, 'ss02' 1;
 }
 
 @font-face {
   font-family: 'Iosevka';
   font-weight: 400;
   src: local('Iosevka');
-}
-
-@font-face {
-  font-family: 'Lota Grotesque';
-  font-weight: 400;
-  src: local('Lota Grotesque');
 }

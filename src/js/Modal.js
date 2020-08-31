@@ -1,62 +1,64 @@
-import Nav from './Nav';
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
 export default class Modal {
-  constructor(modal, data) {
-    this.el = modal.querySelector('.modal');
-    this.data = data;
+  constructor(data) {
+    this.template = document.importNode(document.querySelector('#modal'), true);
     this.slug = undefined;
-    this.initialized = false;
+    this.el = undefined;
 
-    if (!this.initialized) this.init();
+    this.init(data);
   }
 
-  init() {
-    this.navMain = document.querySelector('.site-header');
-    if (this.navMain) new Nav(this.navMain);
+  init(data) {
     const frag = document.createElement('template');
+    frag.innerHTML = data;
+
+    this.slug = frag.content.querySelector('main').dataset.slug;
     const content = frag.content.querySelectorAll('*:scope > *:not(main)');
-    console.log(frag.content);
-    frag.innerHTML = this.data;
-    this.el.dataset.slug = frag.content.querySelector('main').dataset.slug;
 
     [...content].map((el) => el.remove());
 
-    this.el.querySelector('.modal--body').innerHTML = frag.innerHTML;
-
-    this.el
-      .querySelector('.button[data-close-modal]')
-      .addEventListener('click', this.close.bind(this));
-
-    this.initialized = true;
+    this.template.content.querySelector('.modal--body').innerHTML =
+      frag.innerHTML;
   }
 
   show() {
-    body.appendChild(this.el);
-    body.dataset.showingModal = true;
+    this.el = this.template.content.firstElementChild;
 
     wrapper.classList.add('animating', 'animation:scaleInDown');
 
     this.el.classList.add('animating', 'animation:slideInUp');
     this.el.dataset.visible = true;
+    body.dataset.showingModal = true;
 
+    this.el
+      .querySelector('.button[data-close-modal]')
+      .addEventListener('click', this.close.bind(this), {
+        passive: false,
+        once: true,
+      });
+    console.log(this.el);
     this.el.addEventListener(
       'animationend',
       () => {
         this.el.classList.remove('animating', 'animation:slideInUp');
         wrapper.classList.remove('animating', 'animation:scaleInDown');
+        let event = new Event('modal:show');
+        this.el.dispatchEvent(event);
       },
       {
         passive: true,
         once: true,
       }
     );
+
+    body.append(this.el);
+    body.dataset.showingModal = true;
   }
 
   close() {
     event.preventDefault();
-
     this.el.classList.add('animating', 'animation:slideOutDown');
     wrapper.classList.add('animating', 'animation:scaleOutUp');
 
@@ -69,16 +71,21 @@ export default class Modal {
 
         wrapper.classList.remove('animating', 'animation:scaleOutUp');
         body.dataset.showingModal = false;
-        this.navMain.querySelector(
-          '[data-selected=true]'
-        ).dataset.selected = false;
+
+        let event = new Event('modal:hide');
+        this.el.dispatchEvent(event);
         this.destroy();
       },
       { passive: true, once: true }
     );
   }
 
+  handleClick(event) {
+    event.preventDefault();
+  }
+
   destroy() {
+    this.el.remove();
     delete this;
   }
 }

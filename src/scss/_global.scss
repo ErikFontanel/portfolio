@@ -55,6 +55,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-background, #{$color-background});
+  transition: background-color $transition-default;
 }
 
 *,
@@ -71,6 +72,26 @@ img {
 
 .wrapper {
   background-color: var(--color-background);
+
+  .single > &,
+  .page > & {
+    border-radius: 4rem;
+    margin-top: var(--gutter);
+    overflow: auto;
+
+    &::before {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      content: '';
+      pointer-events: none;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+    }
+  }
 }
 
 .bg-inverted {

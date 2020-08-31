@@ -17,7 +17,7 @@ module.exports = {
   plugins: [
     [
       '@snowpack/plugin-run-script',
-      { cmd: 'sass src/scss:src/css', watch: '$1 --watch' },
+      { cmd: 'sass src/scss:src/scss', watch: '$1 --watch' },
     ],
     [
       '@snowpack/plugin-run-script',

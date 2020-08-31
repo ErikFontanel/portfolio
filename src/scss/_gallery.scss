@@ -2,36 +2,34 @@ $gallery-index: (caption, images);
 
 .gallery {
   figcaption {
-    @include effect-exclusion($color-text);
+    @include effect-exclusion($color-ink);
+
     position: sticky;
     z-index: z-index(caption, $gallery-index);
     grid-row: 1;
+    top: var(--gutter);
+    left: 0;
     padding: 0 var(--gutter);
 
     @media (--tablet-up) {
       width: 100%;
       top: calc(var(--spacing-block) - 1.2em);
-      left: 0;
       z-index: z-index(caption, $gallery-index);
       max-width: rem(474px);
     }
 
     .counter {
-      @include text-style-caption();
-      color: lighten($color-ink, 33%);
-      font-size: font-size(small) * 0.9;
-      font-family: monospace;
+      // @include text-style-caption();
+      font-family: $font-stack-monospace;
+      font-size: 0.88em;
+      letter-spacing: 0.25em;
+
       display: flex;
       align-items: baseline;
       justify-content: flex-start;
-      letter-spacing: 0.25em;
-
-      @media (--tablet-up) {
-        font-size: font-size(small) * 0.9;
-      }
 
       .sep {
-        font-size: 0.85em;
+        font-size: 0.75em;
         font-weight: 700;
       }
     }
@@ -49,12 +47,27 @@ $gallery-index: (caption, images);
 
     @media (--mobile) {
       overflow: auto;
+      grid-auto-flow: column;
+      grid-auto-columns: 80vmin;
+      grid-template-columns: 80vmin;
+      grid-template-rows: 1fr;
+    }
+
+    > *:nth-child(1),
+    > *:nth-child(2) {
+      grid-column: 1;
+    }
+    &::after {
+      grid-row: 2;
     }
 
     > *:not(figcaption) {
       grid-column: auto / span 1;
       z-index: z-index(images, $gallery-index);
-      grid-row: 2;
+      grid-row: 1;
+      @media (--tablet-up) {
+        grid-row: 2;
+      }
     }
   }
 
@@ -62,7 +75,21 @@ $gallery-index: (caption, images);
     display: grid;
     gap: $spacing-base var(--gutter);
     grid-column: full;
-    grid-template-columns: repeat(12, 1fr);
+
+    @media (--mobile) {
+      grid-template-columns: repeat(9, 25vmin) 12.5vmin;
+      overflow: auto;
+      scroll-behavior: smooth;
+      grid-auto-flow: column;
+      &::after {
+        content: '';
+        grid-row: 1;
+      }
+    }
+
+    @media (--tablet-up) {
+      grid-template-columns: repeat(12, 1fr);
+    }
 
     > *:not(figcaption) {
       grid-column-end: span 9;
@@ -96,10 +123,6 @@ $gallery-index: (caption, images);
   justify-items: center;
   align-content: start;
   justify-self: center;
-  // @media (--tablet-up) {
-  //   width: 100%;
-  //   max-width: rem(320px);
-  // }
 
   > img {
     grid-row: 1;
@@ -112,7 +135,7 @@ $gallery-index: (caption, images);
     grid-row: 2;
     grid-column: 1;
     mix-blend-mode: normal;
-    color: $color-text;
+    color: $color-ink-lighter;
     margin-bottom: 0;
   }
 

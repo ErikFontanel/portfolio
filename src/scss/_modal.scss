@@ -1,24 +1,14 @@
-[data-overlay='true'] {
-  pointer-events: auto;
-  background-color: rgba(var(--color-background-overlay-rgb), 0.5);
-  backdrop-filter: saturate(140%) blur(#{rem(3px)});
-}
-
 body[data-showing-overlay='true'] {
   backface-visibility: hidden;
   overflow: hidden;
 }
 
 [data-showing-modal='true'] {
-  --color-background: #{$color-background-overlay};
-
   overflow: hidden;
   backface-visibility: hidden;
 }
 
 .modal {
-  padding: var(--gutter) calc(var(--gutter) * 1);
-  backdrop-filter: saturate(80%) blur(#{rem(3px)});
   position: fixed;
   top: 0;
   left: 0;
@@ -32,6 +22,7 @@ body[data-showing-overlay='true'] {
   contain: layout;
   will-change: transform;
   backface-visibility: hidden;
+  padding: var(--gutter) 0 0;
 
   &[data-visible='true'] {
     pointer-events: auto;
@@ -39,6 +30,8 @@ body[data-showing-overlay='true'] {
   }
 
   &--body {
+    overflow: auto;
+    background-color: $color-background;
     grid-column: full;
     border-radius: $radius * 4;
     background-color: $color-background;
@@ -46,9 +39,18 @@ body[data-showing-overlay='true'] {
     margin-bottom: calc(3 * var(--gutter));
   }
 }
+[data-showing-modal='true'] {
+  background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+  > .wrapper {
+    transform: scale(0.98);
+    filter: saturate(60%) blur(#{rem(3px)});
+    --color-background: rgba(var(--color-background-overlay-rgb), 0.5);
+  }
+}
 .animation\:scaleInDown {
   animation-name: scaleInDown;
 }
+
 @keyframes scaleInDown {
   from {
     transform: none;

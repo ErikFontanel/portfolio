@@ -3,11 +3,18 @@ import Modal from './Modal';
 export default class Nav {
   constructor(el) {
     this.el = el;
+    this.navMain = this.el.querySelector('.nav-main');
+    this.navProjects = this.el.querySelector('.nav-projects');
+
     this.visible = false;
-    this.modal = document.querySelector('#modal');
-    this.modalActive = null;
-    this.el.addEventListener('click', this.toggleNav.bind(this));
-    this.el.addEventListener('touchend', this.toggleNav.bind(this));
+    this.modal = null;
+    this.btnToggle = this.navMain.querySelector('[aria-controls]');
+    this.popover = this.el.querySelector(
+      this.btnToggle.getAttribute('aria-controls')
+    );
+
+    this.el.addEventListener('click', this.handleClick.bind(this));
+    this.el.addEventListener('touchend', this.handleClick.bind(this));
 
     // Disabled focus ring triggering in Chrome
     this.el.addEventListener(
@@ -19,51 +26,92 @@ export default class Nav {
     this.el.addEventListener('mousedown', (event) => event.preventDefault());
   }
 
-  toggleNav() {
-    const nav = event.currentTarget;
-    const btn = event.target.parentElement.hasAttribute('href')
-      ? event.target.parentElement
-      : event.target;
-    const toggle = nav.querySelector('[aria-controls]');
-    const popover = nav.querySelector(toggle.getAttribute('aria-controls'));
+  toggle() {
+    if (this.visible) this.hide();
+    if (!this.visible) this.show();
+  }
 
+  show() {
+    this.navMain
+      .querySelector('[aria-controls]')
+      .setAttribute('aria-expanded', true);
+    this.navMain.setAttribute('data-overlay', true);
+    document.body.setAttribute('data-showing-overlay', true);
+    this.popover.setAttribute('aria-hidden', false);
+    this.visible = true;
+  }
+
+  hide() {
+    this.navMain
+      .querySelector('[aria-controls]')
+      .setAttribute('aria-expanded', false);
+    this.navMain.setAttribute('data-overlay', false);
+    document.body.setAttribute('data-showing-overlay', false);
+    this.popover.setAttribute('aria-hidden', true);
+    this.visible = false;
+  }
+
+  handleClick(event) {
     event.preventDefault();
 
-    if (!btn.classList.contains('active') && btn !== toggle) {
-      btn.classList.add('active');
-      this.loadUrl(btn);
-    } else {
-      toggle.setAttribute('aria-expanded', !this.visible);
-      nav.setAttribute('data-overlay', !this.visible);
-      popover.setAttribute('aria-hidden', this.visible);
-      document.body.setAttribute('data-showing-overlay', !this.visible);
-      btn.classList.remove('active');
-    }
+    const btn = event.target.classList.contains('button')
+      ? event.target
+      : event.target.parentElement.classList.contains('button')
+      ? event.target.parentElement
+      : false;
 
-    this.visible = !this.visible;
+    // close when clicked outside of nav
+    if (btn === this.btnToggle) {
+      this.toggle();
+    } else if (
+      btn &&
+      !btn.classList.contains('active') &&
+      !btn.dataset.selected
+    ) {
+      this.loadUrl(btn);
+    } else if (this.visible && event.target !== btn) {
+      this.hide();
+    }
   }
 
   loadUrl(btn) {
     const url = btn.getAttribute('href');
-    const modal = document.importNode(this.modal.content, true);
 
     event.preventDefault();
-    btn.dataset.selected = true;
 
-    if (!this.modalActive) {
-      fetch(url)
-        .then((resp) => resp.text())
-        .then(
-          (data) =>
-            (this.modalActive = this.modalActive
-              ? this.modalActive(modal, data)
-              : new Modal(modal, data))
-        )
-        .then((modal) => {
-          modal.show();
-        })
-        .then(btn.classList.remove('active'))
-        .catch((err) => console.error(err));
-    }
+    if (this.modal) this.modal.destroy();
+
+    fetch(url)
+      .then((resp) => resp.text())
+      .then((data) => {
+        this.modal = new Modal(data);
+
+        return this.modal;
+      })
+      .then((modal) => {
+        this.hide();
+        modal.show();
+
+        modal.el.addEventListener('modal:show', (event) => {
+          this.updateActiveLink(url);
+        });
+
+        modal.el.addEventListener('modal:hide', (event) => {
+          this.updateActiveLink();
+        });
+      })
+      .catch((err) => console.error(err));
+  }
+
+  updateActiveLink(url) {
+    const buttons = [...this.el.querySelectorAll('.button')];
+
+    buttons.forEach((btn) => {
+      delete btn.dataset.selected;
+      btn.classList.remove('active');
+    });
+
+    const activeButton = this.el.querySelector(`a[href$="${url}"]`);
+    if (url && activeButton) activeButton.dataset.selected = true;
   }
 }

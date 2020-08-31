@@ -29,7 +29,8 @@
 }
 
 @mixin text-style-caption {
-  font-family: $font-stack-monospace;
+  color: $color-ink-lighter;
+  font-family: $font-stack-base;
   font-weight: 400;
   font-style: normal;
   font-size: clamp(
@@ -38,6 +39,8 @@
     #{font-size(small)}
   );
   line-height: line-height(caption);
+  font-variation-settings: 'wght' 320, 'slnt' 0;
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-body {
@@ -54,6 +57,8 @@
     #{line-height(small)},
     #{line-height(medium)}
   );
+
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-small {
@@ -66,6 +71,8 @@
     #{font-size(small)}
   );
   line-height: line-height(small);
+  font-variation-settings: 'wght' 320, 'slnt' 0;
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-medium {
@@ -78,6 +85,8 @@
     #{font-size(large)}
   );
   line-height: line-height(medium);
+  font-variation-settings: 'wght' 320, 'slnt' 0;
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-large {
@@ -88,6 +97,8 @@
     #{font-size(extra-large)}
   );
   line-height: line-height(extra-large);
+  font-variation-settings: 'wght' 320, 'slnt' 0;
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-extra-large {
@@ -98,7 +109,8 @@
     #{font-size(extra-large)}
   );
   line-height: line-height(extra-large);
-  font-weight: 500;
+  font-variation-settings: 'wght' 320, 'slnt' 0;
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-extra-extra-large {
@@ -108,8 +120,9 @@
     #{vw(font-size(extra-extra-large))},
     #{font-size(extra-extra-large)}
   );
-  font-variation-settings: 'wght' 420, 'slnt' -8;
   line-height: line-height(extra-extra-large);
+  font-variation-settings: 'wght' 420, 'slnt' -8;
+  letter-spacing: -0.04em;
 }
 
 @mixin text-style-link {

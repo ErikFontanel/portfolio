@@ -15,14 +15,10 @@
     {% endif %}
 
     {% if title %}
-      <h2 class="project-item--title h-xxl">{{ title }}</h2>
+      <h2 class="project-item--title h-xl">{{ title }}</h2>
     {% endif %}
 
   </div>
-
-  {% block projectTags %}
-    {% include "./project-tags.njk" %}
-  {% endblock %}
 
   {% block projectMeta %}
     {% include "./project-meta.njk" %}

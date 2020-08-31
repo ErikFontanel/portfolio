@@ -18,41 +18,11 @@
     z-index: 0;
 
     h3 {
-      @include text-style-extra-extra-large;
+      @include text-style-large;
       color: invert($color-primary);
       position: relative;
       width: auto;
       display: inline-block;
-
-      &::before {
-        background: invert($color-background) url('/public/img/hand.svg')
-          no-repeat 0 0;
-        background-size: 1em;
-        padding-left: rem(34px * 1.5);
-        background-blend-mode: difference;
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        width: 1em;
-        height: 1em;
-      }
-
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 1.2em;
-        left: 0;
-        width: rem(40px);
-        height: rem(33px);
-
-        @media (--tablet-up) {
-          left: auto;
-          right: 0;
-        }
-      }
     }
   }
 

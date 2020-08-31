@@ -18,6 +18,7 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
 
   display: inline-flex;
   align-items: center;
+  // align-items: baseline;
   justify-content: center;
   color: var(--button-color, #{$color-text});
   border: none;
@@ -27,8 +28,8 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
     vw(font-size(small)),
     #{font-size(medium)}
   );
-  line-height: 1.2;
-  height: 1.8em;
+  line-height: 1;
+  height: 2.2em;
   padding: 0.25em 1em;
   text-align: center;
   transition: color 0.2s linear;
@@ -43,10 +44,7 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
     $button-border-color;
 
   &:hover {
-    --button-background-color: #{color.scale(
-        $color-background,
-        $lightness: -2.5%
-      )};
+    --button-background-color: #{color.scale($color-background, $lightness: -5%)};
 
     --button-hover-border-color: #{color.scale(
         $color-sky-darker,
@@ -242,12 +240,8 @@ button {
     font-size: 0.9em;
     color: var(--button-sub-color, --button-color);
     line-height: #{1 + (1 - 0.9)};
-
-    &::before {
-      content: ':';
-      font-size: #{1em + (1 - 0.9)};
-      margin: 0 0.8ch 0 0;
-      color: var(--button-color, #{$color-text});
-    }
+    position: relative;
+    padding-left: 0.25em;
+    top: -0.045em;
   }
 }

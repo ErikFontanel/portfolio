@@ -2,4 +2,7 @@
   background-color: var(--color-background-ui);
   border-radius: $radius;
   padding: var(--spacing-base) var(--spacing-loose);
+  box-shadow: shadow(3);
+  box-shadow: rgba($color-black, 12%) 0 rem(3px) rem(16px) rem(-6px),
+    rgba($color-black, 8%) 0 rem(3px) rem(4px) rem(-2px);
 }

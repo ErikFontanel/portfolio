@@ -12,7 +12,7 @@
     aria-controls="#nav-projects"
     aria-label="work"
     role="switch">
-      <span class="button--label">Work</span>
+      <span class="button--label">Work{% if client|length %}:{% endif %}</span>
       {%- if client|length -%}
         <span class="button--sub-label">{{ client }}</span>
       {%- endif -%}

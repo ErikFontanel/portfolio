@@ -17,7 +17,11 @@
   align-content: start;
 
   > * {
-    grid-column: main;
+    grid-column: wide;
+
+    @media (--tablet-up) {
+      grid-column: main;
+    }
   }
 
   > .grid-full {
@@ -35,13 +39,22 @@
 
   display: grid;
   gap: $spacing-base var(--gutter);
-  grid-template-columns: 80vmin;
-  grid-auto-columns: 80vmin;
-  justify-content: space-between;
+  grid-template-columns: var(--gutter);
+  grid-auto-columns: calc(75vmin - var(--gutter));
+  scroll-behavior: smooth;
+  // justify-content: space-between;
 
-  :not(.grid\:main) {
+  &:not(.grid\:main) {
     @media (--mobile) {
+      grid-auto-flow: column;
       overflow: auto;
+      grid-template-columns: 12.5vmin 80vmin;
+
+      &::after,
+      &::before {
+        content: '';
+        width: var(--gutter);
+      }
     }
   }
 
