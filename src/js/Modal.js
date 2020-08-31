@@ -21,6 +21,8 @@ export default class Modal {
 
     this.template.content.querySelector('.modal--body').innerHTML =
       frag.innerHTML;
+
+    this.pageDetails = this.template.content.querySelector('main').dataset;
   }
 
   show() {
@@ -38,13 +40,17 @@ export default class Modal {
         passive: false,
         once: true,
       });
-    console.log(this.el);
+
     this.el.addEventListener(
       'animationend',
       () => {
         this.el.classList.remove('animating', 'animation:slideInUp');
         wrapper.classList.remove('animating', 'animation:scaleInDown');
-        let event = new Event('modal:show');
+
+        let event = new CustomEvent('modal:show', {
+          detail: { ...this.pageDetails },
+        });
+
         this.el.dispatchEvent(event);
       },
       {

@@ -13,18 +13,16 @@
     aria-label="work"
     role="switch">
       <span class="button--label">Work{% if client|length %}:{% endif %}</span>
-      {%- if client|length -%}
-        <span class="button--sub-label">{{ client }}</span>
-      {%- endif -%}
+      <span class="button--sub-label">{{ client }}</span>
     </a>
 
     {%- button
-    url = '/expertise' | url,
+    url = '/expertise/' | url,
     label = 'Expertise',
     name = 'button_nav' -%}
 
     {%- button
-    url = '/about' | url,
+    url = '/about/' | url,
     label = 'About',
     name = 'button_nav' -%}
   </nav>

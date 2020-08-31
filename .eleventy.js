@@ -105,6 +105,11 @@ module.exports = function (eleventyConfig) {
     return array.filter((i) => i !== item);
   });
 
+  eleventyConfig.addFilter('taxonomy', (filePathStem) => {
+    const path = filePathStem.startsWith('/') ? filePathStem.slice(1) : path;
+    return path.split('/')[0];
+  });
+
   // You can return your Config object (optional).
   return {
     dir: {

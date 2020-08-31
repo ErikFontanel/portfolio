@@ -13,8 +13,8 @@ export default class Nav {
       this.btnToggle.getAttribute('aria-controls')
     );
 
-    this.el.addEventListener('click', this.handleClick.bind(this));
-    this.el.addEventListener('touchend', this.handleClick.bind(this));
+    this.el.addEventListener('click', this.onclick.bind(this));
+    this.el.addEventListener('touchend', this.onclick.bind(this));
 
     // Disabled focus ring triggering in Chrome
     this.el.addEventListener(
@@ -51,7 +51,7 @@ export default class Nav {
     this.visible = false;
   }
 
-  handleClick(event) {
+  onclick(event) {
     event.preventDefault();
 
     const btn = event.target.classList.contains('button')
@@ -92,26 +92,48 @@ export default class Nav {
         this.hide();
         modal.show();
 
-        modal.el.addEventListener('modal:show', (event) => {
-          this.updateActiveLink(url);
-        });
+        // modal.el.addEventListener('modal:show', (event) => {
+        //   this.updateActiveLink(url);
+        // });
 
-        modal.el.addEventListener('modal:hide', (event) => {
-          this.updateActiveLink();
-        });
+        modal.el.addEventListener('modal:show', this);
+        modal.el.addEventListener('modal:hide', this);
       })
       .catch((err) => console.error(err));
   }
 
-  updateActiveLink(url) {
+  handleEvent(event) {
+    this['on' + event.type](event);
+  }
+
+  ['onmodal:show'](event) {
+    this.updateActiveLink(event.detail);
+  }
+
+  ['onmodal:hide']() {
+    this.updateActiveLink(event.detail);
+  }
+
+  updateActiveLink(detail) {
+    const { slug, type, title } = detail;
     const buttons = [...this.el.querySelectorAll('.button')];
+    const toggleLabel = this.btnToggle.querySelector('.button--label');
 
     buttons.forEach((btn) => {
       delete btn.dataset.selected;
       btn.classList.remove('active');
     });
 
-    const activeButton = this.el.querySelector(`a[href$="${url}"]`);
-    if (url && activeButton) activeButton.dataset.selected = true;
+    const activeButton = this.el.querySelector(`a[href$="${slug}/"]`);
+    if (slug && activeButton) activeButton.dataset.selected = true;
+
+    if (type === 'work') {
+      toggleLabel.textContent = toggleLabel.textContent.concat(':');
+      toggleLabel.nextElementSibling.textContent = title;
+      this.btnToggle.dataset.selected = true;
+    } else {
+      toggleLabel.textContent = toggleLabel.textContent.replace(':', '');
+      toggleLabel.nextElementSibling.textContent = '';
+    }
   }
 }
