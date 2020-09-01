@@ -252,3 +252,15 @@ button {
     }
   }
 }
+
+.button.label {
+  --button-color: #{$color-ink-lighter};
+  height: 2em;
+  background-color: var(--color-label-background);
+  font-size: clamp(
+    #{font-size(tiny)},
+    #{vw(font-size(tiny))},
+    #{font-size(extra-small)}
+  );
+  border-radius: 99999em;
+}

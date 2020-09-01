@@ -160,14 +160,8 @@ figcaption {
 
 .label {
   @include text-style-caption();
-  font-size: clamp(
-    #{font-size(tiny)},
-    #{vw(font-size(tiny))},
-    #{font-size(extra-small)}
-  );
-  color: $color-ink-lighter;
+
   font-weight: 500;
-  text-transform: uppercase;
   font-family: $font-stack-monospace;
   border-radius: 99999em;
   border: 1px solid $color-sky;
