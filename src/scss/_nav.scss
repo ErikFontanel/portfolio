@@ -105,7 +105,7 @@ nav {
   z-index: z-index(projects, $nav-index);
   margin-bottom: font-size(extra-small);
   pointer-events: auto;
-  transition: $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.33);
+  transition: $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.5);
   transition-property: opacity, visibility, transform;
   transform: scale(1) translate3d(0, 0, 0);
   width: 100%;
