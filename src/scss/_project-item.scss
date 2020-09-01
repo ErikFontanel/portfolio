@@ -13,10 +13,9 @@
   border-radius: $radius;
   align-items: end;
   position: relative;
-  // width: 100%;
   border-radius: $radius;
   scroll-snap-align: center;
-  gap: var(--gutter);
+  gap: 0 var(--gutter);
 
   @media (--landscape) {
     --ratio: calc(100% / (3 / 4));
