@@ -5,7 +5,14 @@
     'text'
     'meta';
   align-items: stretch;
+  margin-top: var(--gutter);
   margin-bottom: var(--spacing-block);
+
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
 
   @media (--mobile-up) {
     grid-template-rows: minmax(auto, 80vh) auto;
@@ -18,13 +25,13 @@
 
   .project-item--text {
     grid-area: text;
-    align-self: start;
+    align-self: end;
 
     display: flex;
     flex-flow: column;
     max-height: 100vh;
 
-    padding: var(--spacing-block) calc(var(--gutter) * 2);
+    padding: 0 calc(var(--gutter) * 2) calc(var(--spacing-block) * 0.5);
   }
 
   .project-item--title {
