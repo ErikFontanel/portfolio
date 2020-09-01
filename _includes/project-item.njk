@@ -16,24 +16,15 @@
 
   <div href="{{ project.url }}" class="project-item--text">
     {% if project.data.client %}
-      <h3 class="project-item--client text-sub h-m">
+      <h3 class="project-item--client text-sub h-s">
         <a href="{{ project.url }}">{{ project.data.client }}</a>
       </h3>
     {% endif %}
 
     {% if project.data.title %}
-      <h2 class="project-item--title h-l"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+      <h2 class="project-item--title h-m"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
     {% endif %}
 
-    {% if tags %}
-      <ul class="project-item--tags">
-        {% for tag in tags %}
-          {%- button
-            url = '/work/tagged/' + tag|slug +'/',
-            label = tag,
-            name = 'label' -%}
-        {% endfor %}
-      </ul>
-    {% endif %}
+    {% include "./project-tags.njk" %}
   </div>
 </article>
