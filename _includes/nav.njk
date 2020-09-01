@@ -36,7 +36,9 @@
           {%- button
             url = project.url|url,
             label = project.data.client,
-            name = active + ' button_large button_nav' -%}
+            size = 'large',
+            name = active + ' button_nav',
+            attr = 'aria-current="page" data-selected="true"' if active -%}
         </li>
       {%- endfor -%}
       </ul>
