@@ -28,7 +28,7 @@ export default class Nav {
 
   toggle() {
     if (this.visible) this.hide();
-    if (!this.visible) this.show();
+    else if (!this.visible) this.show();
   }
 
   show() {
