@@ -110,25 +110,42 @@ export default class Nav {
     this.updateActiveLink(event.detail);
   }
 
-  ['onmodal:hide']() {
-    this.updateActiveLink(event.detail);
+  ['onmodal:hide'](event) {
+    this.unsetActiveLink(event.detail);
   }
 
-  updateActiveLink(detail) {
-    const { slug, type, title } = detail;
+  unsetActiveLink(detail) {
     const buttons = [...this.el.querySelectorAll('.button')];
-    const toggleLabel = this.btnToggle.querySelector('.button--label');
 
     buttons.forEach((btn) => {
       delete btn.dataset.selected;
       btn.classList.remove('active');
+      btn.removeAttribute('aria-current');
+      btn.removeAttribute('data-selected');
     });
 
-    const activeButton = this.el.querySelector(`a[href$="${slug}/"]`);
-    if (slug && activeButton) activeButton.dataset.selected = true;
+    history.pushState({}, '', '/');
+  }
 
+  updateActiveLink(detail) {
+    const { slug, type, title } = detail;
+    const toggleLabel = this.btnToggle.querySelector('.button--label');
+    const activeButton = this.el.querySelector(`a[href$="${slug}/"]`);
+
+    this.unsetActiveLink();
+
+    if (slug) {
+      history.pushState({}, title, type === 'work' ? `${type}/${slug}` : slug);
+    }
+
+    if (slug && activeButton) {
+      activeButton.dataset.selected = true;
+      activeButton.setAttribute('aria-current', 'page');
+    }
+
+    // add sublabel to work
     if (type === 'work') {
-      toggleLabel.textContent = toggleLabel.textContent.concat(':');
+      toggleLabel.textContent = 'work:';
       toggleLabel.nextElementSibling.textContent = title;
       this.btnToggle.dataset.selected = true;
     } else {

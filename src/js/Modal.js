@@ -78,7 +78,9 @@ export default class Modal {
         wrapper.classList.remove('animating', 'animation:scaleOutUp');
         body.dataset.showingModal = false;
 
-        let event = new Event('modal:hide');
+        let event = new CustomEvent('modal:hide', {
+          detail: { ...this.pageDetails },
+        });
         this.el.dispatchEvent(event);
         this.destroy();
       },
