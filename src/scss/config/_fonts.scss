@@ -41,7 +41,8 @@
 }
 
 @font-face {
-  font-family: 'Iosevka';
+  font-family: 'Iosevka Extended';
+  font-feature-settings: 'ss01' on, 'calt' on;
   font-weight: 400;
-  src: local('Iosevka');
+  src: url('/public/fonts/iosevka-ss01-extended.woff2') format('woff2');
 }
