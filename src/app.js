@@ -1,5 +1,3 @@
-import './css/app.css';
-
 import fitvids from 'fitvids';
 
 import Nav from './js/Nav';
