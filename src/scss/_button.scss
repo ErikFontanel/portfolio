@@ -148,6 +148,7 @@ button {
   }
 
   &_plain {
+    --button-background-color: transparent;
     padding: 0.25em;
 
     &:hover {
