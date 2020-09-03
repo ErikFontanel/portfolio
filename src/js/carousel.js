@@ -48,7 +48,7 @@ export default class Carousel {
 
     this.current.addEventListener(
       'animationend',
-      () => this.current.classLlist.remove('hidden'),
+      () => this.current.classList.remove('hidden'),
       { once: true }
     );
 
