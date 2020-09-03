@@ -20,11 +20,11 @@
   }
 
   &__contact {
-    grid-row: 2;
+    grid-row: 1;
     align-self: end;
 
     @media (--tablet-up) {
-      align-self: center;
+      align-self: start;
     }
   }
 
@@ -32,12 +32,20 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    align-self: start;
+    align-self: end;
     grid-row: 3;
 
     @media (--tablet-up) {
-      grid-column: 2 / span 1;
-      flex-flow: column nowrap;
+      grid-column: 2 / -1;
+      flex-flow: row wrap;
+
+      > .button_plain:first-of-type {
+        margin-left: -0.25em;
+      }
+    }
+
+    h4 {
+      flex-basis: 100%;
     }
   }
 
@@ -45,7 +53,7 @@
     font-size: font-size(extra-small);
     color: $color-sky-darker;
     justify-self: center;
-    grid-row: 1;
+    grid-row: 4;
     text-align: center;
     align-self: start;
   }
