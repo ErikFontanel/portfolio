@@ -29,8 +29,8 @@ export default class Modal {
     this.el = this.template.content.firstElementChild;
 
     wrapper.classList.add('animating', 'animation:scaleInDown');
-
     this.el.classList.add('animating', 'animation:slideInUp');
+
     this.el.dataset.visible = true;
     body.dataset.showingModal = true;
 
@@ -45,7 +45,6 @@ export default class Modal {
       'animationend',
       () => {
         this.el.classList.remove('animating', 'animation:slideInUp');
-        wrapper.classList.remove('animating', 'animation:scaleInDown');
 
         let event = new CustomEvent('modal:show', {
           detail: { ...this.pageDetails },
@@ -57,6 +56,14 @@ export default class Modal {
         passive: true,
         once: true,
       }
+    );
+
+    wrapper.addEventListener(
+      'animationend',
+      () => {
+        wrapper.classList.remove('animating', 'animation:scaleInDown');
+      },
+      { passive: true, once: true }
     );
 
     body.append(this.el);
@@ -75,7 +82,6 @@ export default class Modal {
         this.el.dataset.visible = false;
         this.el.remove();
 
-        wrapper.classList.remove('animating', 'animation:scaleOutUp');
         body.dataset.showingModal = false;
 
         let event = new CustomEvent('modal:hide', {
@@ -83,6 +89,14 @@ export default class Modal {
         });
         this.el.dispatchEvent(event);
         this.destroy();
+      },
+      { passive: true, once: true }
+    );
+
+    wrapper.addEventListener(
+      'animationend',
+      () => {
+        wrapper.classList.remove('animating', 'animation:scaleOutUp');
       },
       { passive: true, once: true }
     );

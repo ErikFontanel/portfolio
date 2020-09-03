@@ -33,40 +33,57 @@ body[data-showing-overlay='true'] {
     overflow: auto;
     background-color: $color-background;
     grid-column: full;
-    border-radius: $radius * 4;
+    border-radius: var(--border-radius-large);
     background-color: $color-background;
     box-shadow: shadow(2);
     margin-bottom: calc(3 * var(--gutter));
   }
+
+  &--body > .wrapper {
+    margin-top: 0 !important;
+  }
 }
 [data-showing-modal='true'] {
   background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+
   > .wrapper {
-    transform: scale(0.98);
-    filter: saturate(60%) blur(#{rem(3px)});
-    --color-background: rgba(var(--color-background-overlay-rgb), 0.5);
+    transform: scale(0.9);
+    filter: saturate(140%) blur(#{rem(3px)});
   }
-}
-.animation\:scaleInDown {
-  animation-name: scaleInDown;
 }
 
-@keyframes scaleInDown {
-  from {
-    transform: none;
-  }
-  to {
-    transform: scale(0.98);
-  }
+.animation\:scaleInDown {
+  animation-name: scaleInDown;
+  animation-duration: var(--animation-duration-slow) !important;
+  animation-timing-function: ease-in-out;
 }
 
 .animation\:scaleOutUp {
   animation-name: scaleInDown;
   animation-direction: reverse;
+  animation-duration: calc(var(--animation-duration-slow)) !important;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes scaleInDown {
+  from {
+    transform: none;
+    filter: none;
+  }
+  to {
+    transform: scale(0.9);
+    filter: saturate(60%) blur(#{rem(3px)});
+  }
 }
 
 .animation\:slideInUp {
+  animation-duration: calc(var(--animation-duration-slow) * 2) !important;
   animation-name: slideInUp;
+}
+
+.animation\:slideOutDown {
+  animation-name: slideInUp;
+  animation-direction: reverse;
 }
 
 @keyframes slideInUp {
@@ -76,9 +93,4 @@ body[data-showing-overlay='true'] {
   to {
     transform: none;
   }
-}
-
-.animation\:slideOutDown {
-  animation-name: slideInUp;
-  animation-direction: reverse;
 }
