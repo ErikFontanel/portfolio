@@ -79,7 +79,7 @@ export default class Nav {
 
     event.preventDefault();
 
-    if (this.modal) this.modal.destroy();
+    // if (this.modal) this.modal.destroy();
 
     fetch(url)
       .then((resp) => resp.text())
@@ -116,6 +116,8 @@ export default class Nav {
 
   unsetActiveLink(detail) {
     const buttons = [...this.el.querySelectorAll('.button')];
+    const btnToggle = this.btnToggle;
+    const toggleLabel = btnToggle.querySelector('.button--label');
 
     buttons.forEach((btn) => {
       delete btn.dataset.selected;
@@ -124,6 +126,8 @@ export default class Nav {
       btn.removeAttribute('data-selected');
     });
 
+    toggleLabel.textContent = btnToggle.getAttribute('aria-label');
+    toggleLabel.nextElementSibling.textContent = '';
     history.pushState({}, '', '/');
   }
 
