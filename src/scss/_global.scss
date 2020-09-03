@@ -1,4 +1,5 @@
 @use 'sass:color';
+
 :root {
   --gutter: #{$gutter};
   --spacing-base: #{$spacing-base};
@@ -10,13 +11,19 @@
   --color-background-overlay-rgb: #{hexToRGB($color-background-overlay)};
   --color-background-modal: #{$color-background-overlay};
   --color-background-ui: #{$color-background-ui};
+
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
   --color-link: #{$color-link};
 
+  --color-label-background: #{$color-sky};
+
   --animation-duration: #{$transition-default};
   --animation-duration-slow: calc(var(--animation-duration) * 2);
   --animation-duration-fast: calc(var(--animation-duration) * 0.5);
+
+  --border-radius: #{$radius};
+  --border-radius-large: #{$radius-large};
 
   @media (--tablet-down) {
     --gutter: #{$gutter / 2};
@@ -57,11 +64,39 @@ body {
   background-color: var(--color-background, #{$color-background});
   transition: background-color $transition-default;
 
+  &[data-loading] {
+    // opacity: 0;
+  }
+
   &.single,
   &.page {
     --color-background-wrapper: var(--color-background);
+
+    .wrapper {
+      margin-top: var(--gutter);
+      border-top-left-radius: var(--gutter);
+      border-top-right-radius: var(--gutter);
+
+      // &::before {
+      //   content: '';
+      //   background-color: #353541;
+      //   display: block;
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: calc(var(--gutter) * 2);
+      //   z-index: -1;
+      // }
+      // filter: drop-shadow(
+      //   0 calc(var(--gutter) * -1) 0 rgba($color-black, 0.12)
+      // );
+      box-shadow: 0 -32px 0 rgba($color-black, 0.12);
+      box-shadow: rgba($color-black, 12%) 0 rem(-18px) rem(18px) rem(-18px);
+    }
   }
 }
+
 .wrapper {
   background-color: var(--color-background-wrapper);
 }
@@ -96,4 +131,18 @@ img {
 .animating {
   animation-duration: var(--animation-duration);
   animation-fill-mode: forwards;
+  animation-timing-function: $transition-timing;
+}
+
+.animation\:fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
