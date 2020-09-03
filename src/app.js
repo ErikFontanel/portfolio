@@ -29,7 +29,35 @@ fitvids();
 
 if (navMain) new Nav(navMain);
 if (cta) new CTA(cta);
-
+if (carousels) [...carousels].map((el) => new Carousel({ el: el }));
 // [...projects].map((el) => new ProjectsList(el));
 
-[...carousels].map((el) => new Carousel({ el: el }));
+// window.addEventListener(
+//   'DOMContentLoaded',
+//   (event) => {
+//     document.body.classList.add('animating', 'animation:fadeInUp');
+//     document.body.style = '';
+//     document.documentElement.addEventListener(
+//       'animationend',
+//       (event) => {
+//         document.documentElement.classList.remove(
+//           'animating',
+//           'animation:fadeInUp'
+//         );
+//       },
+//       {
+//         passive: true,
+//         once: true,
+//       }
+//     );
+//   },
+//   { passive: true, once: true }
+// );
+
+// window.addEventListener(
+//   'unload',
+//   (event) => {
+//     document.body.classList.add('animating', 'animation:fadeOutDown');
+//   },
+//   { passive: true, once: true }
+// );
