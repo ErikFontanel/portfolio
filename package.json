@@ -14,7 +14,8 @@
     "prod:eleventy": "ELEVENTY_ENV=production eleventy --output=./dist",
     "prod:parcel": "NODE_ENV=production parcel build ./static/app.js --out-dir ./dist/static/ --public-url ${npm_package_config_asset_url}",
     "parcel": "npm-run-all --parallel dev:parcel dev:eleventy",
-    "build": "npm-run-all --serial clean prod:parcel prod:eleventy",
+    "prod:critical": "./node_modules/.bin/critical dist/index.html -c src/css/app.css --base / > src/css/critical.css",
+    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run prod:critical && snowpack build",
     "start": "snowpack dev"
   },
   "repository": {
@@ -44,6 +45,7 @@
     "@snowpack/plugin-parcel": "^1.3.0",
     "@swup/overlay-theme": "^1.1.1",
     "autoprefixer": "^9.8.6",
+    "critical": "^2.0.3",
     "cssnano": "^4.1.10",
     "eleventy-plugin-local-respimg": "^0.3.1",
     "eleventy-plugin-respimg": "^0.1.2",

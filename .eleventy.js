@@ -59,7 +59,7 @@ module.exports = function (eleventyConfig) {
     'jpeg',
   ]);
 
-  eleventyConfig.addPassthroughCopy('static');
+  eleventyConfig.addPassthroughCopy('public');
 
   const mdOptions = {
     html: true,

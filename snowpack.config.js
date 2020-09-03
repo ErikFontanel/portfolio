@@ -10,6 +10,9 @@ module.exports = {
     'run:11ty': 'eleventy --quiet',
     'run:11ty::watch': '$1 --watch',
   },
+  buildOptions: {
+    clean: true,
+  },
   mount: {
     dist: '/',
     src: '/public',
@@ -28,7 +31,7 @@ module.exports = {
       {
         cmd: 'postcss',
         input: ['src/scss/*.css'],
-        output: ['src/css/'],
+        output: ['dist/public/css/'],
         watch: '$1 --watch',
       },
     ],
@@ -38,6 +41,6 @@ module.exports = {
     open: 'none',
     out: 'dist',
     secure: true,
-    bundle: true,
+    bundle: false,
   },
 };

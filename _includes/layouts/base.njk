@@ -1,5 +1,5 @@
-{% set cssPath = '/public/css/app.css'|url %}
-{% set jsPath = '/public/app.js'|url %}
+{%- set cssPath = '/public/css/app.css' | url -%}
+{%- set jsPath = '/public/app.js' | url -%}
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -10,20 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
-    <link rel="apple-touch-icon" href="{{ '/static/img/favicon.svg' | url }}">
-    <link rel="alternate icon" href="{{ '/static/img/favicon.ico' | url }}">
+    <link rel="apple-touch-icon" href="{{ '/public/img/favicon.svg' | url }}">
+    <link rel="alternate icon" href="{{ '/public/img/favicon.ico' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="preload" as="font" href="/public/fonts/Inter.var.woff2" crossorigin="anonymous">
 
-    {% if process.env.NODE_ENV === 'production' %}
-      <link rel="preload" as="style" href="{{ cssPath }}">
-      <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
+    {% if env.environment === 'production' %}
+      {% set criticalcss %}
+        {% include "../../src/css/critical.css" ignore missing %}
+      {% endset %}
+
+      {% if criticalcss|length %}
+        <style>
+          {{criticalcss|safe}}
+        </style>
+      {% endif %}
     {% endif %}
 
+    <link rel="preload" as="style" href="{{ cssPath }}">
+    <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
     <meta name="theme-color" content="{{ metadata.theme_color }}">
-
   </head>
-  <body class="{% block bodyClass %}{% endblock %}{{ page.data.tags[0]}} {{page.data.layout}}">
+  <body class="{%- block bodyClass -%}{%- endblock -%}{{- page.data.tags[0] -}} {{- page.data.layout -}}">
 
     {% block nav %}
       {% include "nav.njk" %}
