@@ -22,7 +22,7 @@ body[data-showing-overlay='true'] {
   contain: layout;
   will-change: transform;
   backface-visibility: hidden;
-  padding: var(--gutter) 0 0;
+  padding: var(--gutter) 0 100vh;
 
   &[data-visible='true'] {
     pointer-events: auto;
@@ -39,6 +39,7 @@ body[data-showing-overlay='true'] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding-bottom: var(--spacing-block);
+    margin-bottom: var(--gutter);
   }
 
   &--body > .wrapper {
