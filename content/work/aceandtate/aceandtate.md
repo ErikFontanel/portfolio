@@ -48,7 +48,6 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
   caption: 'Product Category page',
   css: 'carousel'
 } %}
-
 </div>
 
 A mobile first driven experience, that not only inspires but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
