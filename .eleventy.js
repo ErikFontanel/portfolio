@@ -2,8 +2,8 @@ const componentsDir = `./_includes/components`;
 
 const pluginNav = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
-const pluginCloudinaryImage = require('eleventy-plugin-respimg');
-const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
+// const pluginCloudinaryImage = require('eleventy-plugin-respimg');
+// const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
 
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
@@ -22,7 +22,7 @@ const Label = require(`${componentsDir}/Label.js`);
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginCloudinaryImage);
+  // eleventyConfig.addPlugin(pluginCloudinaryImage);
 
   eleventyConfig.cloudinaryCloudName = 'dcmhhju2e';
   eleventyConfig.srcsetWidths = [320, 640, 960, 1280, 1600, 1920, 2240, 2560];
