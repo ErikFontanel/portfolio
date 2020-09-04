@@ -37,7 +37,7 @@
     {% block nav %}
       {% include "nav.njk" %}
     {% endblock %}
-    <main class="wrapper grid" data-slug="{{ page.fileSlug }}" data-title="{{ client if client else title }}" data-type="{{ page.filePathStem|taxonomy }}">
+    <main class="wrapper grid" data-slug="{{ page.fileSlug }}" data-url="{{ page.url }}" data-title="{{ client if client else title }}" data-type="{{ page.filePathStem|taxonomy }}">
 
       {% block main %}
         {{ content | safe }}

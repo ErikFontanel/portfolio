@@ -36,7 +36,9 @@ body[data-showing-overlay='true'] {
     border-radius: var(--border-radius-large);
     background-color: $color-background;
     box-shadow: shadow(2);
-    margin-bottom: calc(3 * var(--gutter));
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-bottom: var(--spacing-block);
   }
 
   &--body > .wrapper {

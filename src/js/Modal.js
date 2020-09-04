@@ -5,6 +5,7 @@ export default class Modal {
   constructor(data) {
     this.template = document.importNode(document.querySelector('#modal'), true);
     this.slug = undefined;
+    this.url = undefined;
     this.el = undefined;
 
     this.init(data);
@@ -14,10 +15,23 @@ export default class Modal {
     const frag = document.createElement('template');
     frag.innerHTML = data;
 
-    this.slug = frag.content.querySelector('main').dataset.slug;
-    const content = frag.content.querySelectorAll('*:scope > *:not(main)');
+    const unneededElements = frag.content.querySelectorAll(
+      '*:scope > *:not(main)'
+    );
+    const assets = frag.content.querySelectorAll('[src], [srcset]');
 
-    [...content].map((el) => el.remove());
+    this.slug = frag.content.querySelector('main').dataset.slug;
+    this.url = frag.content.querySelector('main').dataset.url;
+
+    [...unneededElements].map((el) => el.remove());
+    [...assets].map((el) => {
+      if (el.src) {
+        el.src = `${this.url}/${el.getAttribute('src')}`;
+      }
+      if (el.srcset) {
+        el.srcset = el.srcset.replace(/([\S]+\.\w{3,})/gi, this.url + '$1');
+      }
+    });
 
     this.template.content.querySelector('.modal--body').innerHTML =
       frag.innerHTML;
