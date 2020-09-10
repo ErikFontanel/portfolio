@@ -137,14 +137,11 @@ module.exports = function (eleventyConfig) {
         return new nodes.CallExtensionAsync(this, 'run', args);
       };
 
-      this.run = (context, ...args) => {
-        const callback = args.pop();
+      this.run = (context, args, callback) => {
         let ret = new nunjucksEngine.runtime.SafeString(
           Image({
-            url: args[0],
-            alt: args[1],
-            css: args[2],
-            context: context.ctx.page.url,
+            ...args,
+            ...{ context: context.ctx.page.url },
           })
         );
         callback(null, ret);

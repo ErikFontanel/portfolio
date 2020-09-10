@@ -6,15 +6,18 @@ const attrs = (attrs) =>
     return previous + ` ${current}="${Object.values(attrs)[idx]}"`;
   }, []);
 
-module.exports = ({ url, alt, css, context }) => {
-  const { width, height } = sizeOf(
-    `${path.resolve(__dirname, `../../content/${context}`)}/${url}`
-  );
+module.exports = ({ url, alt, css, lazy, context }) => {
+  const file = path.resolve(__dirname, `../../content/${context}/${url}`);
 
-  return `<img src=${url} loading="lazy" ${attrs({
+  const { width, height } = file ? sizeOf(file) : false;
+
+  const attributes = attrs({
     ...(alt && { alt: alt }),
     ...(css && { class: css }),
+    ...{ loading: lazy ?? 'lazy' },
     ...(width && { width: width }),
     ...(height && { height: height }),
-  })} />`;
+  });
+
+  return `<img src="${url}" ${attributes} />`;
 };
