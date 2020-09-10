@@ -127,7 +127,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('projects', 'layouts/projects.njk');
 
   // Custom components
-  eleventyConfig.addNunjucksShortcode('image', Image);
+  eleventyConfig.addNunjucksShortcode('image', (path, alt, css) =>
+    Image({
+      path: eleventyConfig.getFilter('url')(path),
+      alt: alt,
+      css: css,
+    })
+  );
   eleventyConfig.addNunjucksShortcode('gallery', Gallery);
   eleventyConfig.addNunjucksShortcode('button', Button);
   eleventyConfig.addNunjucksShortcode('label', Label);
