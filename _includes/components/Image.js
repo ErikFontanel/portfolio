@@ -1,13 +1,20 @@
-// const sizeOf = require('image-size');
-module.exports = ({ path, alt, css }) => {
-  const attrs = (attrs) =>
-    Object.keys(attrs).reduce((previous, current, idx) => {
-      return previous + ` ${current}="${Object.values(attrs)[idx]}"`;
-    }, []);
+const sizeOf = require('image-size');
+const path = require('path');
 
-  return `<img src=${path} loading="lazy" ${attrs({
+const attrs = (attrs) =>
+  Object.keys(attrs).reduce((previous, current, idx) => {
+    return previous + ` ${current}="${Object.values(attrs)[idx]}"`;
+  }, []);
+
+module.exports = ({ url, alt, css, context }) => {
+  const { width, height } = sizeOf(
+    `${path.resolve(__dirname, `../../content/${context}`)}/${url}`
+  );
+
+  return `<img src=${url} loading="lazy" ${attrs({
     ...(alt && { alt: alt }),
     ...(css && { class: css }),
+    ...(width && { width: width }),
+    ...(height && { height: height }),
   })} />`;
-  // const { width, height } = sizeOf('./content' + path);
 };

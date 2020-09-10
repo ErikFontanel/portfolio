@@ -127,13 +127,31 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('projects', 'layouts/projects.njk');
 
   // Custom components
-  eleventyConfig.addNunjucksShortcode('image', (path, alt, css) =>
-    Image({
-      path: eleventyConfig.getFilter('url')(path),
-      alt: alt,
-      css: css,
-    })
-  );
+  eleventyConfig.addNunjucksTag('image', function (nunjucksEngine) {
+    return new (function () {
+      this.tags = ['image'];
+      this.parse = (parser, nodes, lexer) => {
+        const tok = parser.nextToken();
+        const args = parser.parseSignature(null, true);
+        parser.advanceAfterBlockEnd(tok.value);
+        return new nodes.CallExtensionAsync(this, 'run', args);
+      };
+
+      this.run = (context, ...args) => {
+        const callback = args.pop();
+        let ret = new nunjucksEngine.runtime.SafeString(
+          Image({
+            url: args[0],
+            alt: args[1],
+            css: args[2],
+            context: context.ctx.page.url,
+          })
+        );
+        callback(null, ret);
+      };
+    })();
+  });
+
   eleventyConfig.addNunjucksShortcode('gallery', Gallery);
   eleventyConfig.addNunjucksShortcode('button', Button);
   eleventyConfig.addNunjucksShortcode('label', Label);
