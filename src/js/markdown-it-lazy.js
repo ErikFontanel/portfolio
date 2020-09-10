@@ -11,7 +11,7 @@ module.exports = function (md) {
     const loading = token.attrIndex('loading');
 
     if (loading < 0) {
-      tokens[idx].attrPush(['loading', 'lazy']); // add new attribute
+      token.attrPush(['loading', 'lazy']); // add new attribute
     }
 
     // pass token to default renderer.
