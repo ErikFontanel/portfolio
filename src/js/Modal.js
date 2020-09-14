@@ -19,7 +19,7 @@ export default class Modal {
     const unneededElements = frag.content.querySelectorAll(
       '*:scope > *:not(main)'
     );
-    const assets = frag.content.querySelectorAll('[src], [srcset]');
+    const assets = frag.content.querySelectorAll('img[src], img[srcset]');
 
     this.slug = frag.content.querySelector('main').dataset.slug;
     this.url = frag.content.querySelector('main').dataset.url;
