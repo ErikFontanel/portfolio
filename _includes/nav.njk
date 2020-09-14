@@ -5,6 +5,7 @@
     {%- endif -%}
   {%- endfor -%}
 {%- endset -%}
+{%- set active = "active" if page.url === project.url -%}
 <header class="site-header" >
   <nav class="nav-main">
     <a href="{{ '/work/' | url }}" class="button button_nav"
@@ -17,14 +18,16 @@
     </a>
 
     {%- button
-    url = '/expertise/' | url,
-    label = 'Expertise',
-    name = 'button_nav' -%}
+      url = '/expertise/' | url,
+      label = 'Expertise',
+      name = 'button_nav',
+      attr = ('data-selected="true"' if page.url === '/expertise/' | url) -%}
 
     {%- button
-    url = '/about/' | url,
-    label = 'About',
-    name = 'button_nav' -%}
+      url = '/about/' | url,
+      label = 'About',
+      name ='button_nav',
+      attr = ('data-selected="true"' if page.url === '/about/' | url) -%}
   </nav>
 
   {%- if collections.project -%}
