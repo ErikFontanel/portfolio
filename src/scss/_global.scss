@@ -77,21 +77,6 @@ body {
       border-top-left-radius: var(--gutter);
       border-top-right-radius: var(--gutter);
 
-      // &::before {
-      //   content: '';
-      //   background-color: #353541;
-      //   display: block;
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   width: 100%;
-      //   height: calc(var(--gutter) * 2);
-      //   z-index: -1;
-      // }
-      // filter: drop-shadow(
-      //   0 calc(var(--gutter) * -1) 0 rgba($color-black, 0.12)
-      // );
-      box-shadow: 0 -32px 0 rgba($color-black, 0.12);
       box-shadow: rgba($color-black, 12%) 0 rem(-18px) rem(18px) rem(-18px);
     }
   }

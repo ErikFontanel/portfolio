@@ -3,8 +3,8 @@
   mix-blend-mode: exclusion;
 
   position: fixed;
-  top: calc(var(--gutter) * 1.5);
-  right: calc(var(--gutter) * 0.5);
+  top: calc(var(--gutter) * 2);
+  right: calc(var(--gutter) * 1);
   display: inline-flex;
   justify-content: flex-end;
   z-index: z-index(body);

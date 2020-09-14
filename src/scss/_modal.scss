@@ -1,6 +1,6 @@
 body[data-showing-overlay='true'] {
-  backface-visibility: hidden;
   overflow: hidden;
+  backface-visibility: hidden;
 }
 
 [data-showing-modal='true'] {
@@ -22,15 +22,18 @@ body[data-showing-overlay='true'] {
   contain: layout;
   will-change: transform;
   backface-visibility: hidden;
-  padding: var(--gutter) 0 100vh;
+  padding: var(--gutter) 0;
 
   &[data-visible='true'] {
     pointer-events: auto;
     visibility: visible;
   }
 
+  &[data-disabled='true'] {
+    pointer-events: none;
+  }
+
   &--body {
-    overflow: auto;
     background-color: $color-background;
     grid-column: full;
     border-radius: var(--border-radius-large);
@@ -46,6 +49,7 @@ body[data-showing-overlay='true'] {
     margin-top: 0 !important;
   }
 }
+
 [data-showing-modal='true'] {
   background-color: rgba(var(--color-background-overlay-rgb), 0.5);
 

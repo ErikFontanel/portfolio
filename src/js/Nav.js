@@ -77,32 +77,28 @@ export default class Nav {
   loadUrl(btn) {
     const url = btn.getAttribute('href');
 
-    event.preventDefault();
-
-    // if (this.modal) this.modal.destroy();
-
     fetch(url)
       .then((resp) => resp.text())
       .then((data) => {
-        this.modal = new Modal(data);
+        if (this.modal) {
+          this.modal.scaleDown();
+        }
 
+        this.modal = new Modal(data);
         return this.modal;
       })
       .then((modal) => {
         this.hide();
         modal.show();
-
-        // modal.el.addEventListener('modal:show', (event) => {
-        //   this.updateActiveLink(url);
-        // });
-
         modal.el.addEventListener('modal:show', this);
         modal.el.addEventListener('modal:hide', this);
+        modal.el.addEventListener('modal:disabled', this);
       })
       .catch((err) => console.error(err));
   }
 
   handleEvent(event) {
+    console.log(event.type);
     this['on' + event.type](event);
   }
 
@@ -112,6 +108,10 @@ export default class Nav {
 
   ['onmodal:hide'](event) {
     this.unsetActiveLink(event.detail);
+  }
+
+  ['onmodal:disabled'](event) {
+    event.detail.destroy();
   }
 
   unsetActiveLink(detail) {
@@ -139,7 +139,11 @@ export default class Nav {
     this.unsetActiveLink();
 
     if (slug) {
-      history.pushState({}, title, type === 'work' ? `${type}/${slug}` : slug);
+      history.pushState(
+        {},
+        title,
+        type === 'work' ? `${type}/${slug}/` : `${slug}/`
+      );
     }
 
     if (slug && activeButton) {

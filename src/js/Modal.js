@@ -2,11 +2,12 @@ const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
 export default class Modal {
-  constructor(data) {
+  constructor(data, options = { animateParent: true }) {
     this.template = document.importNode(document.querySelector('#modal'), true);
     this.slug = undefined;
     this.url = undefined;
     this.el = undefined;
+    this.animateParent = options.animateParent;
 
     this.init(data);
   }
@@ -42,7 +43,8 @@ export default class Modal {
   show() {
     this.el = this.template.content.firstElementChild;
 
-    wrapper.classList.add('animating', 'animation:scaleInDown');
+    if (this.animateParent)
+      wrapper.classList.add('animating', 'animation:scaleInDown');
     this.el.classList.add('animating', 'animation:slideInUp');
 
     this.el.dataset.visible = true;
@@ -72,22 +74,25 @@ export default class Modal {
       }
     );
 
-    wrapper.addEventListener(
-      'animationend',
-      () => {
-        wrapper.classList.remove('animating', 'animation:scaleInDown');
-      },
-      { passive: true, once: true }
-    );
-
+    if (this.animateParent) {
+      wrapper.addEventListener(
+        'animationend',
+        () => {
+          wrapper.classList.remove('animating', 'animation:scaleInDown');
+        },
+        { passive: true, once: true }
+      );
+    }
     body.append(this.el);
     body.dataset.showingModal = true;
   }
 
-  close() {
+  close(event) {
     event.preventDefault();
     this.el.classList.add('animating', 'animation:slideOutDown');
-    wrapper.classList.add('animating', 'animation:scaleOutUp');
+
+    if (this.animateParent)
+      wrapper.classList.add('animating', 'animation:scaleOutUp');
 
     this.el.addEventListener(
       'animationend',
@@ -113,6 +118,25 @@ export default class Modal {
         wrapper.classList.remove('animating', 'animation:scaleOutUp');
       },
       { passive: true, once: true }
+    );
+  }
+
+  scaleDown() {
+    this.el.classList.add('animating', 'animation:scaleInDown');
+    this.el.style.transformOrigin = 'bottom';
+    this.el.addEventListener(
+      'animationend',
+      () => {
+        let event = new CustomEvent('modal:disabled', {
+          detail: this,
+        });
+
+        this.el.dispatchEvent(event);
+      },
+      {
+        passive: true,
+        once: true,
+      }
     );
   }
 
