@@ -1,10 +1,10 @@
 .project-item {
-  --ratio: calc(100% / (9 / 16));
+  --ratio: calc(100% / (3 / 4));
 
   display: grid;
   grid-template-areas:
-    'img img'
-    'text text';
+    'img'
+    'text';
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   grid-auto-columns: 1fr;
@@ -16,30 +16,6 @@
   border-radius: $radius;
   scroll-snap-align: center;
   gap: 0 var(--gutter);
-
-  @media (--landscape) {
-    --ratio: calc(100% / (3 / 4));
-  }
-
-  @media (--tablet-up) {
-    --ratio: calc(100% / (2 / 3));
-
-    grid-template-areas: 'text img';
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-
-    &.portrait\:1-col,
-    &.portrait\:2-col {
-      grid-template-areas: '. text img';
-      grid-template-columns: 3fr 4fr 5fr;
-    }
-
-    &.landscape\:1-col,
-    &.landscape\:2-col {
-      --ratio: calc(100% / (3 / 2));
-    }
-  }
 
   &--text {
     grid-area: text;
@@ -78,11 +54,6 @@
     }
   }
 
-  &--title,
-  &--client {
-    margin: 0 0 1em;
-  }
-
   &--tags {
     padding: 0;
     margin: 0;
@@ -101,45 +72,3 @@
     }
   }
 }
-
-// @media (--tablet-up) {
-//   .project-item {
-//     &.portrait\:2-col {
-//       grid-template-areas: 'text img';
-//       grid-template-columns: 1fr 1fr;
-
-//       &:nth-of-type(even):not(.page-header) {
-//         grid-template-areas: 'img text';
-//         grid-template-columns: 1fr 1fr;
-//       }
-//     }
-
-//     &.portrait\:1-col {
-//       --ratio: calc(100% / (9 / 16));
-
-//       grid-template-areas: 'text' 'img';
-//       grid-template-columns: 1fr;
-//     }
-
-//     &.landscape\:1-col {
-//       --ratio: calc(100% / (16 / 9));
-
-//       grid-template-areas:
-//         'text'
-//         'img';
-//       grid-template-columns: 1fr;
-//       justify-items: start;
-//     }
-
-//     &.landscape\:2-col {
-//       --ratio: calc(100% / (16 / 9));
-
-//       grid-template-columns: 3fr 1fr;
-
-//       &:nth-of-type(even):not(.page-header) {
-//         grid-template-columns: 1fr 3fr;
-//         grid-template-areas: 'text img';
-//       }
-//     }
-//   }
-// }

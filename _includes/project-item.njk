@@ -13,13 +13,13 @@
 
   <div href="{{ project.url }}" class="project-item--text">
     {% if project.data.client %}
-      <h3 class="project-item--client text-sub h-s">
+      <h3 class="project-item--client text-sub text-xs">
         <a href="{{ project.url }}">{{ project.data.client }}</a>
       </h3>
     {% endif %}
 
     {% if project.data.title %}
-      <h2 class="project-item--title h-m"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+      <h2 class="project-item--title h-s"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
     {% endif %}
 
     {% include "./project-tags.njk" %}

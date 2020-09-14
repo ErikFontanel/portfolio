@@ -18,81 +18,17 @@
   grid-auto-columns: 1fr;
   gap: var(--spacing-block) var(--gutter);
   margin-bottom: var(--spacing-block);
+  align-items: start;
+  justify-items: start;
+  margin: 0 calc(var(--gutter) * -1);
+  grid-column: 3 / -3;
 
-  // @media (--tablet-down) {
-  //   overflow-x: auto;
-  //   overflow-y: visible;
-  //   scroll-snap-type: x proximity;
-  //   width: 100vw;
-  //   grid-template-columns: auto;
-  //   grid-auto-columns: clamp(300px, 33vw, 480px);
-  //   grid-template-rows: auto;
-  //   gap: calc(var(--gutter) * 0.5);
-  //   justify-items: start;
-  //   align-content: center;
-
-  //   &::before {
-  //     content: '';
-  //     width: calc(#{$spacing-base} + var(--gutter));
-  //     height: 100%;
-  //     grid-row: 1;
-  //   }
-
-  //   &::after {
-  //     content: '';
-  //     width: calc(#{$spacing-base} + var(--gutter));
-  //     height: 100%;
-  //     grid-row: 1;
-  //   }
-
-  //   .index & {
-  //     grid-column: full;
-  //   }
-
-  //   > * {
-  //     grid-row: 1;
-  //     grid-column: auto;
-  //   }
-  // }
+  @media (--mobile-up) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--gutter) * 0.5) 8.33333%;
+  }
 
   & + .projects {
     margin-top: var(--spacing-block);
   }
-  .project-item {
-    grid-column: wide;
-  }
-  // @media (--desktop-up) {
-  //   > .portrait\:1-col {
-  //     grid-column-end: span 4;
-
-  //     & + .portrait\:1-col {
-  //       grid-column-start: 8;
-  //     }
-  //   }
-
-  //   > .portrait\:2-col {
-  //     grid-column-start: full;
-  //     grid-column-end: span 10;
-
-  //     &:nth-of-type(even) {
-  //       grid-column-start: -11;
-  //     }
-  //   }
-
-  //   > .landscape\:1-col {
-  //     grid-column: 3 / span 7;
-
-  //     &:nth-of-type(even) {
-  //       grid-column-start: 5;
-  //     }
-  //   }
-
-  //   > .landscape\:2-col {
-  //     grid-column: full / main;
-
-  //     &:nth-of-type(even) {
-  //       grid-column: main / full;
-  //     }
-  //   }
-  // }
 }

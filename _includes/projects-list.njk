@@ -3,7 +3,7 @@
 } %}
 {% set options = defaults if options === undefined else options %}
 
-<div class="projects grid grid:full">
+<div class="projects ">
   {% for project in options.projects %}
     {% include "project-item.njk" %}
   {% endfor %}
