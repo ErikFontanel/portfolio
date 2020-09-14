@@ -12,6 +12,8 @@ const markdownItAnchor = require('markdown-it-anchor');
 const markdownItImsize = require('markdown-it-imsize');
 const markdownItBlockEmbed = require('markdown-it-block-embed');
 const markdownItLazyImg = require('./src/js/markdown-it-lazy');
+const { html5Media } = require('markdown-it-html5-media');
+const LocalService = require('./src/js/markdown-it-local-embed');
 
 const Image = require(`${componentsDir}/Image.js`);
 const Gallery = require(`${componentsDir}/Gallery.js`);
@@ -61,6 +63,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('public');
 
+  eleventyConfig.addPassthroughCopy('**/*.mp4');
+
   const mdOptions = {
     html: true,
     breaks: true,
@@ -84,6 +88,7 @@ module.exports = function (eleventyConfig) {
       .use(markdownItImsize, { autofill: true })
       .use(markdownItAnchor)
       .use(markdownItLazyImg)
+      .use(html5Media)
       .use(markdownItBlockEmbed, {
         containerClassName: 'block block-embed',
         filterUrl: (url, serviceName, videoID, options) => {
@@ -116,6 +121,9 @@ module.exports = function (eleventyConfig) {
             .join('&');
 
           return url + '?' + queryparams;
+        },
+        services: {
+          local: LocalService,
         },
       })
   );
