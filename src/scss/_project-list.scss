@@ -17,15 +17,17 @@
   display: grid;
   grid-auto-columns: 1fr;
   gap: var(--spacing-block) var(--gutter);
-  margin-bottom: var(--spacing-block);
+
   align-items: start;
-  justify-items: start;
-  margin: 0 calc(var(--gutter) * -1);
-  grid-column: 3 / -3;
+  justify-items: stretch;
+  grid-column: full;
+  padding: 0 var(--gutter);
 
   @media (--mobile-up) {
     grid-template-columns: repeat(2, 1fr);
-    gap: calc(var(--gutter) * 0.5) 8.33333%;
+    gap: calc(var(--gutter) * 0.5) (1/12) * 100%;
+    grid-column: main;
+    padding: 0;
   }
 
   & + .projects {
