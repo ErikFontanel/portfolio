@@ -1,0 +1,43 @@
+.jobs-cta {
+  position: relative;
+  &::after {
+    content: '*';
+    display: inline;
+    color: $color-primary;
+  }
+}
+.job-cta {
+  position: absolute;
+  z-index: z-index(body);
+  display: block;
+  width: 140px;
+  font-size: 0.75em;
+  top: -2.1em;
+  left: calc(100% - 70px - 0.5ch);
+  transform-origin: center;
+  transition: $transition-slow $transition-timing;
+  transition-property: opacity, transform;
+
+  :not(:hover) & {
+    opacity: 0;
+    transform: scale(0.01);
+  }
+
+  #asterisks {
+    fill: transparent;
+  }
+
+  #jobText {
+    fill: $color-primary;
+    animation: rotateText infinite 3s linear;
+    transform-origin: center;
+  }
+}
+@keyframes rotateText {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(-180deg);
+  }
+}
