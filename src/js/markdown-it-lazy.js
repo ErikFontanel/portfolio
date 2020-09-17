@@ -10,23 +10,26 @@ module.exports = function (md) {
 
   md.renderer.rules.image = function (tokens, idx, options, env, self) {
     const token = tokens[idx];
-    const file = path.resolve(
-      __dirname,
-      `../../content/${env.page.url}/${token.content}`
-    );
-    const { width, height } = file ? sizeOf(file) : false;
-    const loading = token.attrIndex('loading');
 
-    if (loading < 0) {
-      token.attrPush(['loading', 'lazy']); // add new attribute
-    }
+    if (token.content !== '') {
+      const file = path.resolve(
+        __dirname,
+        `./../../content/${env.page.url}/${token.content}`
+      );
+      const { width, height } = file ? sizeOf(file) : false;
+      const loading = token.attrIndex('loading');
 
-    if (width) {
-      token.attrPush(['width', width]);
-    }
+      if (loading < 0) {
+        token.attrPush(['loading', 'lazy']); // add new attribute
+      }
 
-    if (height) {
-      token.attrPush(['height', height]);
+      if (width) {
+        token.attrPush(['width', width]);
+      }
+
+      if (height) {
+        token.attrPush(['height', height]);
+      }
     }
 
     // pass token to default renderer.
