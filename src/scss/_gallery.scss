@@ -110,6 +110,23 @@ $gallery-index: (caption, images);
       }
     }
   }
+
+  &.grid\:ls {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: var(--spacing-block) var(--gutter);
+    grid-template-columns: 7fr 4fr;
+    justify-items: center;
+    align-items: center;
+
+    > *:nth-child(3) {
+      grid-column-end: span 2;
+    }
+
+    // > *:nth-child(4) {
+    //   grid-column-end: span 2;
+    // }
+  }
 }
 
 .carousel {
