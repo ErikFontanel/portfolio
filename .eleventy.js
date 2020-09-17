@@ -63,7 +63,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('public');
 
-  eleventyConfig.addPassthroughCopy('**/*.mp4');
+  eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
 
   const mdOptions = {
     html: true,
