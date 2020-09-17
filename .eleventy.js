@@ -12,6 +12,7 @@ const markdownItAnchor = require('markdown-it-anchor');
 const markdownItImsize = require('markdown-it-imsize');
 const markdownItBlockEmbed = require('markdown-it-block-embed');
 const markdownItLazyImg = require('./src/js/markdown-it-lazy');
+const markdownItImplicitFigures = require('markdown-it-implicit-figures');
 const LocalService = require('./src/js/markdown-it-local-embed');
 
 const Image = require(`${componentsDir}/Image.js`);
@@ -87,6 +88,7 @@ module.exports = function (eleventyConfig) {
       .use(markdownItImsize, { autofill: true })
       .use(markdownItAnchor)
       .use(markdownItLazyImg)
+      .use(markdownItImplicitFigures)
       .use(markdownItBlockEmbed, {
         containerClassName: 'block block-embed',
         filterUrl: (url, serviceName, videoID, options) => {
