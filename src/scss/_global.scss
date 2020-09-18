@@ -11,9 +11,11 @@
   --color-background-overlay-rgb: #{hexToRGB($color-background-overlay)};
   --color-background-modal: #{$color-background-overlay};
   --color-background-ui: #{$color-background-ui};
+  --color-background-inverted: #{invert($color-background)};
 
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
+  --color-text-inverted: #{invert($color-text)};
   --color-link: #{$color-link};
 
   --color-label-background: #{$color-sky};
@@ -99,11 +101,14 @@ img {
 }
 
 .bg-inverted {
+  --background-color: var(--color-background-inverted);
+  --text-color: var(--color-text-inverted);
+
   background-color: var(
     --color-background-inverted,
     #{invert($color-background)}
   );
-  color: invert($color-text);
+  color: var(--color-text-inverted, #{invert($color-text)});
 }
 
 .svg-filters {
