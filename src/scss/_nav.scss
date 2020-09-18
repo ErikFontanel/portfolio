@@ -111,12 +111,14 @@ nav {
   width: 100%;
   order: -1;
   transition-delay: 0.1s;
+  transform-origin: calc(var(--gutter) * 2) 100%;
 
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transform: scale(0.9625) translate3d(0, 10%, 0);
+    // transform: scale(0.625, 0.9625) rotate(5deg) translate3d(0, 10%, 0);
+    transform: scale(0.8) translate3d(0, 10%, 0);
   }
 
   &__dialog.card {
@@ -132,15 +134,15 @@ nav {
 
   li {
     width: 100%;
+    transform: translate3d(0, 0, 0);
     transition: background-color $transition-fast, color $transition-fast,
       opacity $transition-default linear 0.1s,
-      transform $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.33) 0.1s;
+      transform $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.33) 0.2s;
     color: $color-ink;
     position: relative;
     padding: 0 calc(var(--gutter) * 0.5);
     display: flex;
     justify-content: stretch;
-    transform: translate3d(0, 0, 0);
 
     &:first-child {
       margin-top: calc(var(--gutter) * 0.5);
@@ -178,9 +180,10 @@ nav {
       justify-content: flex-start;
     }
   }
+
   &[aria-hidden='true'] li {
     opacity: 0;
-    transform: translate3d(0, -33%, 0);
+    transform: translate3d(0, -10%, 0);
   }
 }
 
