@@ -14,6 +14,12 @@
   {% endif %}
 {% endfor %}
 
+{%- set cta -%}
+  <abbr title="open to job offers" class="jobs-cta">
+    Freelance {%- include "cta-jobs.njk" -%}
+  </abbr>
+{%- endset -%}
+
 
 {% block main %}
   {% block intro %}
@@ -22,11 +28,7 @@
         {% if title %}
           <h1 class="h-m">{{ title }}</h1>
         {% endif %}
-{% set cta %}
-<abbr title="open to job offers" class="jobs-cta">Freelance
-{% include "cta-jobs.njk" %}
-</abbr>
-{% endset %}
+
         {{ content|replace('Freelance', cta, 1)|safe }}
 
         {% if about %}

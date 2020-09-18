@@ -1,9 +1,18 @@
+@use 'sass:color';
+
 .jobs-cta {
   position: relative;
+  text-decoration: none;
+  cursor: help;
+
   &::after {
     content: '*';
     display: inline;
-    color: $color-primary;
+    color: #ff0000;
+    font-size: 0.75em;
+    position: relative;
+    margin-left: -0.5ex;
+    top: -0.66ex;
   }
 }
 .job-cta {
@@ -12,9 +21,9 @@
   display: block;
   width: 140px;
   font-size: 0.75em;
-  top: -2.1em;
-  left: calc(100% - 70px - 0.5ch);
-  transform-origin: center;
+  top: calc(-100% - 1.25ch);
+  left: calc(100% - 70px - 0.33ch);
+  transform-origin: 50% 47.5%;
   transition: $transition-slow $transition-timing;
   transition-property: opacity, transform;
 
@@ -28,9 +37,10 @@
   }
 
   #jobText {
-    fill: $color-primary;
+    fill: #ff0000;
     animation: rotateText infinite 3s linear;
     transform-origin: center;
+    letter-spacing: 0.025em;
   }
 }
 @keyframes rotateText {
