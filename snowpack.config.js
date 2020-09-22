@@ -26,15 +26,6 @@ module.exports = {
       '@snowpack/plugin-run-script',
       { cmd: 'postcss src/scss/**/*.css -d src/css', watch: '$1 --watch' },
     ],
-    [
-      '@snowpack/plugin-build-script',
-      {
-        cmd: 'postcss',
-        input: ['src/scss/*.css'],
-        output: ['dist/public/css/'],
-        watch: '$1 --watch',
-      },
-    ],
   ],
   devOptions: {
     port: 8080,

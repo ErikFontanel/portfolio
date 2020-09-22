@@ -12,7 +12,10 @@
     "dev:eleventy": "ELEVENTY_ENV=development eleventy --serve --quiet",
     "build:critical": "./node_modules/.bin/critical dist/index.html -c src/css/app.css --base / > src/css/critical.css",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
-    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run build:eleventy && mkdir src/css && postcss src/scss/**/*.css -d src/css && npm run build:critical && snowpack build",
+    "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
+    "build:snowpack": "snowpack build",
+    "build:clean": "rm -rf ./dist/public/scss",
+    "build": "NODE_ENV=production ELEVENTY_ENV=production run-s build:eleventy build:snowpack build:critical build:clean",
     "start": "snowpack dev"
   },
   "repository": {
