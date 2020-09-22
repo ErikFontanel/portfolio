@@ -1,5 +1,5 @@
 ---
-thumbnail: at-main2.jpg
+thumbnail: at-thumb.jpg
 client: Ace & Tate
 title: Future proof e-commerce platform for a growing direct-to-consumer eyewear brand
 logo: logo-aceandtate.svg
@@ -19,7 +19,7 @@ team: "Jordi van der Oord, Joram van den Boezem, Joris Fritzsche, Jons Janssens
 For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition; Affordable and fashionable glasses to go with any outfit and occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
 
 {% gallery {
-  images: ['at-main1.jpg'],
+  images: ['at-main1.png'],
   css: 'full-width'
 } %}
 
@@ -36,17 +36,17 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 {% endlist %}
 
-<div class="block grid:full grid:2">
+<div class="block grid:full grid:2 bg-sky pv">
 {% gallery {
   images: ['at-pdp1.png','at-pdp2.png','at-pdp3.png'],
   caption: 'Product Detail page',
-  css: 'carousel'
+  css: 'carousel device'
 } %}
 
 {% gallery {
   images: ['at-pcp1.png','at-pcp2.png','at-pcp3.png','at-pcp4.png'],
   caption: 'Product Category page',
-  css: 'carousel'
+  css: 'carousel device'
 } %}
 </div>
 
@@ -75,7 +75,7 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
 {% gallery {
   images: ['at-co1.png','at-co2.png','at-co3.png','at-co4.png'],
   caption: 'Product Category page',
-  css: 'carousel'
+  css: 'carousel device'
 } %}
 </div>
 
@@ -91,6 +91,13 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
 - increased conversion and thus revenue (I'm not allowed to share any numbers)
 
 {% endlist %}
+
+{% gallery {
+  images: ['at-checkout.png','at-dashboard.png'],
+  css: 'devices full-width'
+} %}
+
+
 
 &rarr; https://aceandtate.com/
 
