@@ -18,7 +18,7 @@ module.exports = ({ url, alt, css, width, height, lazy, context }) => {
     ...(width && { width: width }),
     ...(height && { height: height }),
   });
-
+if(width){
   const scales = [2, 0.5];
 
   const srcset = scales.map((size) => {
@@ -31,8 +31,8 @@ module.exports = ({ url, alt, css, width, height, lazy, context }) => {
   });
 
   const sizes = '(min-width: 64rem) 50vw, 100vw';
-
-  return `<img src="${url}" sizes="${sizes}" srcset="${srcset.join(
+}
+  return `<img src="${url}" sizes="${sizes ? '100vw'}" srcset="${srcset ? srcset.join(
     ', '
-  )}" ${attributes} />`;
+  ) : url}" ${attributes} />`;
 };
