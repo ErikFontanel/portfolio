@@ -15,7 +15,7 @@ module.exports = {
   },
   mount: {
     dist: '/',
-    src: '/public',
+    src: '/static',
   },
   plugins: [
     [

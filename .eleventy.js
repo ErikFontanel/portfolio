@@ -61,7 +61,7 @@ module.exports = function (eleventyConfig) {
     'jpeg',
   ]);
 
-  eleventyConfig.addPassthroughCopy('public');
+  eleventyConfig.addPassthroughCopy('static');
 
   eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
 

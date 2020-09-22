@@ -35,7 +35,7 @@
   }
 
   ul li {
-    background: $color-background url('/public/img/hand.svg') no-repeat 0
+    background: $color-background url('/static/img/hand.svg') no-repeat 0
       (1em * line-height(medium)) / 6;
     background-size: 1em;
     padding-left: rem(34px * 1.5);

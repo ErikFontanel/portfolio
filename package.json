@@ -14,7 +14,7 @@
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
     "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
     "build:snowpack": "snowpack build",
-    "build:clean": "rm -rf ./dist/public/scss",
+    "build:clean": "rm -rf ./dist/static/scss",
     "build": "NODE_ENV=production ELEVENTY_ENV=production run-s build:eleventy build:snowpack build:clean",
     "start": "snowpack dev"
   },
