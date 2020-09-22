@@ -1,5 +1,5 @@
-const sizeOf = require('image-size');
-const path = require('path');
+// const sizeOf = require('image-size');
+// const path = require('path');
 
 function imageSize(inputPath, image) {
   const { dir } = path.parse(inputPath);
@@ -28,12 +28,7 @@ module.exports = (context, args, nunjucksEngine) => {
   } ${
     images.length >= 1 &&
     images.reduce(
-      (prev, image) =>
-        prev +
-        `<img src="${image}" ${imageSize(
-          context.ctx.page.inputPath,
-          image
-        )} loading="lazy">`,
+      (prev, image) => prev + `<img src="${image}" loading="lazy">`,
       ''
     )
   }
