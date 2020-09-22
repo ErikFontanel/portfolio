@@ -16,7 +16,7 @@ const markdownItImplicitFigures = require('markdown-it-implicit-figures');
 const LocalService = require('./src/js/markdown-it-local-embed');
 
 const Image = require(`${componentsDir}/Image.js`);
-const Gallery = require(`${componentsDir}/Gallery.js`);
+const Gallery = require('./src/js/Gallery.js');
 const List = require(`${componentsDir}/List.js`);
 const Button = require(`${componentsDir}/Button.js`);
 const Label = require(`${componentsDir}/Label.js`);
@@ -157,12 +157,31 @@ module.exports = function (eleventyConfig) {
     })();
   });
 
-  eleventyConfig.addNunjucksShortcode('gallery', Gallery);
   eleventyConfig.addNunjucksShortcode('button', Button);
   eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
   eleventyConfig.addWatchTarget(componentsDir + '/');
+
+  eleventyConfig.addNunjucksTag(
+    'Gallery',
+    (nunjucksEngine) =>
+      new (function () {
+        this.tags = ['gallery'];
+
+        this.parse = (parser, nodes, lexer) => {
+          const tok = parser.nextToken();
+          const args = parser.parseSignature(null, true);
+          parser.advanceAfterBlockEnd(tok.value);
+
+          return new nodes.CallExtensionAsync(this, 'run', args);
+        };
+
+        this.run = function (context, args, callback) {
+          callback(null, Gallery(context, args, nunjucksEngine));
+        };
+      })()
+  );
 
   // Filters
   eleventyConfig.addFilter('except', (array, item) => {
