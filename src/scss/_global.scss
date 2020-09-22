@@ -111,6 +111,15 @@ img {
   color: var(--color-text-inverted, #{invert($color-text)});
 }
 
+.bg-sky {
+  background-color: #f6f7f8;
+}
+
+.pv {
+  padding-top: var(--spacing-block);
+  padding-bottom: var(--spacing-block);
+}
+
 .svg-filters {
   position: absolute;
   visibility: hidden;
