@@ -7,16 +7,16 @@ const attrs = (attrs) =>
   }, []);
 
 module.exports = ({ url, alt, css, lazy, context }) => {
-  const file = path.resolve(__dirname, `../../content/${context}/${url}`);
+  // const file = path.resolve(__dirname, `../../content/${context}/${url}`);
 
-  const { width, height } = file ? sizeOf(file) : false;
+  // const { width, height } = file ? sizeOf(file) : false;
 
   const attributes = attrs({
     ...(alt && { alt: alt }),
     ...(css && { class: css }),
-    ...{ loading: lazy ?? 'lazy' },
-    ...(width && { width: width }),
-    ...(height && { height: height }),
+    // ...{ loading: lazy ?? 'lazy' },
+    // ...(width && { width: width }),
+    // ...(height && { height: height }),
   });
 
   return `<img src="${url}" ${attributes} />`;
