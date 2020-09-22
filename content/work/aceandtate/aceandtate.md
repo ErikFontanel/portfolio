@@ -97,8 +97,6 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
   css: 'devices full-width'
 } %}
 
-
-
 &rarr; https://aceandtate.com/
 
 Photography credits:
