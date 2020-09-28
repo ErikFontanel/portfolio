@@ -7,7 +7,9 @@
 <article class="project-item {{ project.data.list_layout }}">
   {% if thumbnail %}
     <a href="{{ project.url }}" class="project-item--img" >
-      {% image { url:project.url + thumbnail, alt: project.data.title, width:545, height:790 } %}
+      {# {% image { url:project.url + thumbnail, alt: project.data.title, width:545, height:790 } %} #}
+      {% image 'thumb', project.url + thumbnail, alt=project.data.title, loading='lazy' %}
+
     </a>
   {% endif %}
 

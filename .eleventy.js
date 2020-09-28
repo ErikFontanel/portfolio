@@ -2,7 +2,7 @@ const componentsDir = `./_includes/components`;
 
 const pluginNav = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
-// const pluginCloudinaryImage = require('eleventy-plugin-respimg');
+const pluginNetlifyRespImage = require('./src/js/eleventy-netlify-respimg');
 
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
@@ -14,20 +14,38 @@ const markdownItImplicitFigures = require('markdown-it-implicit-figures');
 const markdownItBlockEmbedLocalService = require('./src/js/markdown-it-local-embed');
 const markdownItLazyImg = require('./src/js/markdown-it-lazy');
 
-const Image = require(`${componentsDir}/Image.js`);
 const Gallery = require('./src/js/Gallery.js');
 const List = require(`${componentsDir}/List.js`);
 const Button = require(`${componentsDir}/Button.js`);
 const Label = require(`${componentsDir}/Label.js`);
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.dir = {
+    input: 'content',
+    includes: '../_includes',
+    output: 'dist',
+  };
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
-  // eleventyConfig.addPlugin(pluginCloudinaryImage);
-
-  eleventyConfig.cloudinaryCloudName = 'dcmhhju2e';
-  eleventyConfig.srcsetWidths = [320, 640, 960, 1280, 1600, 1920, 2240, 2560];
-  eleventyConfig.fallbackWidth = 640;
+  eleventyConfig.addPlugin(pluginNetlifyRespImage, {
+    presets: {
+      thumb: {
+        min_width: 320,
+        max_width: 1600,
+        fallback_max_width: 1280,
+        steps: 5,
+        sizes: '(min-width: 64rem) 32rem, 100vw',
+        attributes: { class: 'img-thumb' },
+      },
+      full: {
+        min_width: 320,
+        max_width: 1600,
+        fallback_max_width: 1280,
+        sizes: '(min-width: 64rem) 64rem, 100vw',
+        attributes: { class: 'img-full' },
+      },
+    },
+  });
 
   eleventyConfig.setTemplateFormats([
     // Templates:
@@ -117,33 +135,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('projects', 'layouts/projects.njk');
 
   // Custom components
-  eleventyConfig.addNunjucksTag('image', function (nunjucksEngine) {
-    return new (function () {
-      this.tags = ['image'];
-      this.parse = (parser, nodes, lexer) => {
-        const tok = parser.nextToken();
-        const args = parser.parseSignature(null, true);
-        parser.advanceAfterBlockEnd(tok.value);
-        return new nodes.CallExtensionAsync(this, 'run', args);
-      };
-
-      this.run = (context, args, callback) => {
-        let ret = new nunjucksEngine.runtime.SafeString(
-          Image({
-            ...args,
-            ...{ context: context.ctx.page.url },
-          })
-        );
-        callback(null, ret);
-      };
-    })();
-  });
-
   eleventyConfig.addNunjucksShortcode('button', Button);
   eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
   eleventyConfig.addWatchTarget(componentsDir + '/');
+  eleventyConfig.addWatchTarget('./src/js/eleventy-netlify-respimg.js');
 
   eleventyConfig.addNunjucksTag(
     'Gallery',
