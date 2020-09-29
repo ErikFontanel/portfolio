@@ -1,6 +1,6 @@
 const sizeOf = require('image-size');
 const url = require('url');
-const http = require('http');
+const http = require('https');
 const path = require('path');
 const fs = require('fs');
 let config;
