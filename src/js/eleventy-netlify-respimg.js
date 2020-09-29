@@ -13,7 +13,7 @@ const getAttrs = (attrs) =>
     }, []);
 
 const getDimensions = (img) => {
-  const options = url.parse(imgUrl);
+  const options = url.parse(img);
 
   http.get(options, function (response) {
     const chunks = [];
