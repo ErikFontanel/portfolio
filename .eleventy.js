@@ -28,23 +28,28 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, {
-    presets: {
-      thumb: {
-        min_width: 320,
-        max_width: 1600,
-        fallback_max_width: 1280,
-        steps: 5,
-        sizes: '(min-width: 64rem) 32rem, 100vw',
-        attributes: { class: 'img-thumb' },
+    presets: [
+      {
+        thumb: {
+          min_width: 320,
+          max_width: 1660,
+          fallback_max_width: 640,
+          steps: 5,
+          sizes: '(min-width: 64rem) 32rem, 100vw',
+          attributes: { class: 'img-thumb' },
+          fit: 'smartcrop',
+        },
       },
-      full: {
-        min_width: 320,
-        max_width: 1600,
-        fallback_max_width: 1280,
-        sizes: '(min-width: 64rem) 64rem, 100vw',
-        attributes: { class: 'img-full' },
+      {
+        full: {
+          min_width: 320,
+          max_width: 3320,
+          fallback_max_width: 1280,
+          sizes: '(min-width: 64rem) 64rem, 100vw',
+          attributes: { class: 'img-full' },
+        },
       },
-    },
+    ],
   });
 
   eleventyConfig.setTemplateFormats([
