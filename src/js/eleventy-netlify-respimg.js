@@ -1,4 +1,6 @@
 const sizeOf = require('image-size');
+const url = require('url');
+const http = require('http');
 const path = require('path');
 const fs = require('fs');
 let config;
@@ -11,8 +13,21 @@ const getAttrs = (attrs) =>
     }, []);
 
 const getDimensions = (img) => {
-  const { width, height } = sizeOf(img);
-  if (width && height) return `width=${width} height=${height}`;
+  const options = url.parse(imgUrl);
+
+  http.get(options, function (response) {
+    const chunks = [];
+    response
+      .on('data', function (chunk) {
+        chunks.push(chunk);
+      })
+      .on('end', function () {
+        const buffer = Buffer.concat(chunks);
+
+        const { width, height } = sizeOf(buffer);
+        if (width && height) return `width=${width} height=${height}`;
+      });
+  });
 };
 
 const getSrcSet = (url, preset) => {
