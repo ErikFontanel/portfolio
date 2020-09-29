@@ -47,7 +47,7 @@ function image(context, file, preset, preload) {
   const fileExists = fs.existsSync(`./${img}`);
 
   if (!fileExists) {
-    return;
+    return '';
   }
 
   const dimensions = getDimensions(img);
