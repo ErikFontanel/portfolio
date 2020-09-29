@@ -16,21 +16,16 @@ function imageSize(inputPath, image) {
   return sizes;
 }
 
-module.exports = (context, args, nunjucksEngine) => {
-  const { images, caption, css } = {
+module.exports = (context, args, body, nunjucksEngine) => {
+  const { caption, css } = {
     caption: '',
     css: 'full-width',
     ...args,
   };
 
-  return new nunjucksEngine.runtime.SafeString(`<div class="block gallery ${css}">${
-    caption && `<figcaption>${caption}</figcaption>`
-  } ${
-    images.length >= 1 &&
-    images.reduce(
-      (prev, image) => prev + `<img src="${image}" loading="lazy">`,
-      ''
-    )
-  }
-            </div>`);
+  return new nunjucksEngine.runtime.SafeString(
+    `<div class="block gallery ${css}">${
+      caption && `<figcaption>${caption}</figcaption>`
+    } ${body()}</div>`
+  );
 };

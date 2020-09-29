@@ -158,12 +158,15 @@ module.exports = function (eleventyConfig) {
           const tok = parser.nextToken();
           const args = parser.parseSignature(null, true);
           parser.advanceAfterBlockEnd(tok.value);
+          const body = parser.parseUntilBlocks('endgallery');
 
-          return new nodes.CallExtensionAsync(this, 'run', args);
+          parser.advanceAfterBlockEnd();
+
+          return new nodes.CallExtensionAsync(this, 'run', args, [body]);
         };
 
-        this.run = function (context, args, callback) {
-          callback(null, Gallery(context, args, nunjucksEngine));
+        this.run = function (context, args, body, callback) {
+          callback(null, Gallery(context, args, body, nunjucksEngine));
         };
       })()
   );
