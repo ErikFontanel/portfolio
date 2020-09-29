@@ -30,6 +30,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNetlifyRespImage, {
     presets: [
       {
+        default: {
+          min_width: 320,
+          max_width: 3320,
+          fallback_max_width: 1280,
+          steps: 5,
+          sizes: '(min-width: 64rem) 64rem, 100vw',
+          attributes: { class: 'img-full' },
+        },
+      },
+      {
         thumb: {
           min_width: 320,
           max_width: 1660,
@@ -38,15 +48,6 @@ module.exports = function (eleventyConfig) {
           sizes: '(min-width: 64rem) 32rem, 100vw',
           attributes: { class: 'img-thumb' },
           fit: 'smartcrop',
-        },
-      },
-      {
-        full: {
-          min_width: 320,
-          max_width: 3320,
-          fallback_max_width: 1280,
-          sizes: '(min-width: 64rem) 64rem, 100vw',
-          attributes: { class: 'img-full' },
         },
       },
     ],

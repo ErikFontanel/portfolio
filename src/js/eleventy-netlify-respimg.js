@@ -1,5 +1,6 @@
 const sizeOf = require('image-size');
 const path = require('path');
+const fs = require('fs');
 let config;
 
 const getAttrs = (attrs) =>
@@ -40,6 +41,21 @@ const getSrcSet = (url, preset) => {
   return `src="${baseUrl}&w=${fallback_max_width}" srcset="${srcset}" sizes="${sizes}"`;
 };
 
+function image(context, file, preset, preload) {
+  const { dir } = path.parse(context.ctx.page.inputPath);
+  const img = path.resolve(`${dir}/${file}`);
+  const fileExists = fs.existsSync(`./${img}`);
+
+  if (!fileExists) {
+    return;
+  }
+
+  const dimensions = getDimensions(img);
+  const srcset = getSrcSet(img, preset);
+  // attributes = getAttrs(attributes);
+  return `<img ${srcset} ${dimensions} preload="${preload}">`;
+}
+
 module.exports = {
   configFunction: (eleventyConfig, options = {}) => {
     config = {
@@ -61,59 +77,41 @@ module.exports = {
       ...options,
     };
 
-    eleventyConfig.addShortcode(
-      'image',
-      (preset = 'default', file, attributes) => {
-        const img = path.resolve(`./${eleventyConfig.dir.input}/${file}`);
+    eleventyConfig.addNunjucksTag('image', (nunjucksEngine) => {
+      return new (function () {
+        this.tags = ['image'];
+        this.parse = function (parser, nodes, lexer) {
+          const tok = parser.nextToken();
 
-        const dimensions = img ? getDimensions(img) : '';
-        const srcset = getSrcSet(file, preset);
-        attributes = getAttrs(attributes);
+          const args = parser.parseSignature(null, true);
+          parser.advanceAfterBlockEnd(tok.value);
 
-        return `<img ${srcset} ${dimensions} ${attributes}>`;
-      }
-    );
+          return new nodes.CallExtensionAsync(this, 'run', args);
+        };
+
+        this.run = function (
+          context,
+          file,
+          preset = 'default',
+          preload = 'preload',
+          callback
+        ) {
+          if (typeof preset === 'function') {
+            callback = preset;
+            preset = 'default';
+          }
+
+          if (typeof preload === 'function') {
+            callback = preload;
+            preload = 'lazy';
+          }
+
+          let ret = new nunjucksEngine.runtime.SafeString(
+            image(context, file, preset, preload)
+          );
+          callback(null, ret);
+        };
+      })();
+    });
   },
 };
-
-// module.exports = ({
-//   url,
-//   alt,
-//   css,
-//   imgwidth,
-//   imgheight,
-//   sizes,
-//   lazy,
-//   context,
-// }) => {
-//   const file = path.resolve(__dirname, `../../content/${context}/${url}`);
-
-//   const { width, height } = file ? sizeOf(file) : false;
-
-//   const attributes = getAattrs({
-//     ...(alt && { alt: alt }),
-//     ...(css && { class: css }),
-//     ...{ loading: lazy ?? 'lazy' },
-//     ...(width && { width: width }),
-//     ...(height && { height: height }),
-//   });
-
-//   const scales = [2, 0.5];
-
-//   const srcset = scales.map((size) => {
-//     if (width) {
-//       const w = Math.floor(parseInt(width, 10) / size);
-//       const h = Math.floor(parseInt(height, 10) / size);
-
-//       if (!w === Infinity || h === Infinity) {
-//         return `${url}?nf_resize=smartcrop&w=${w}&h=${h} ${w}w`;
-//       }
-//     }
-
-//     sizes = sizes ? sizes : '(min-width: 64rem) 50vw, 100vw';
-//   });
-
-//   return `<img src="${url}" sizes="${sizes ? sizes : '100vw'}" srcset="${
-//     srcset ? srcset.join(', ') : url
-//   }" ${attributes} />`;
-// };
