@@ -42,14 +42,14 @@ const getSrcSet = (url, preset) => {
 };
 
 function image(context, file, preset, preload) {
-  const { dir } = path.parse(context.ctx.page.inputPath);
-  const img = path.resolve(`${dir}/${file}`);
-  const fileExists = fs.existsSync(`./${img}`);
+  // const { dir } = path.parse(context.ctx.page.inputPath);
+  // const img = path.resolve(`${dir}/${file}`);
+  // const fileExists = fs.existsSync(`./${img}`);
 
-  if (!fileExists) {
-    return '';
-  }
-
+  // if (!fileExists) {
+  //   return '';
+  // }
+  const img = `${process.env.URL}/${context.ctx.page.url}/${file}`;
   const dimensions = getDimensions(img);
   const srcset = getSrcSet(img, preset);
   // attributes = getAttrs(attributes);
