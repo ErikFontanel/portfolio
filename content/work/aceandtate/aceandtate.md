@@ -19,7 +19,7 @@ team: "Jordi van der Oord, Joram van den Boezem, Joris Fritzsche, Jons Janssens
 For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition; Affordable and fashionable glasses to go with any outfit and occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
 
 {% gallery {css: 'full-width'} %}
-  {% image 'at-main1.png' %}
+{% image 'at-main1.png' %}
 {% endgallery %}
 
 At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https://aceandtate.com). Within just three years after founding the company, they opened two stores in Amsterdam, one in Utrecht and a pop-up in Rotterdam. But as a direct-to-consumer brand, e-commerce plays a vital role in the business model. Their current website couldn't keep up anymore with the chaning company and rapid growth.
@@ -49,11 +49,12 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
   caption: 'Product Category page',
   css: 'carousel device'
 } %}
- {% image 'at-pcp1.png' %}
- {% image 'at-pcp2.png' %}
- {% image 'at-pcp3.png' %}
- {% image 'at-pcp4.png' %}
+{% image 'at-pcp1.png' %}
+{% image 'at-pcp2.png' %}
+{% image 'at-pcp3.png' %}
+{% image 'at-pcp4.png' %}
 {% endgallery %}
+
 </div>
 
 A mobile first driven experience, that not only inspires but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
@@ -66,8 +67,8 @@ A smooth and easy configuration a newly designed product configurator.
   caption: 'A new photography concept featuring super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.',
   css: 'full-width grid:2'
 } %}
-  {% image 'at-main2.jpg' %}
-  {% image 'at-main3.jpg' %}
+{% image 'at-main2.jpg' %}
+{% image 'at-main3.jpg' %}
 {% endgallery %}
 
 New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
@@ -75,7 +76,7 @@ New, super high resolution pack shots to showcase not only the quality of the fr
 {% gallery {
   css: 'grid:3'
 } %}
-  {% image 'at-main4.jpg' %}
+{% image 'at-main4.jpg' %}
 {% endgallery %}
 
 A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
@@ -108,8 +109,8 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
 {% gallery {
   css: 'devices full-width'
 } %}
-  {% image 'at-checkout.png' %}
-  {% image 'at-dashboard.png' %}
+{% image 'at-checkout.png' %}
+{% image 'at-dashboard.png' %}
 {% endgallery %}
 
 &rarr; https://aceandtate.com/
