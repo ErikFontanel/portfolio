@@ -1,6 +1,6 @@
 const sizeOf = require('image-size');
 const url = require('url');
-const http = require('https');
+const http = require('http');
 const path = require('path');
 const fs = require('fs');
 
@@ -24,9 +24,10 @@ const getDimensions = (img) => {
       })
       .on('end', function () {
         const buffer = Buffer.concat(chunks);
-
-        const { width, height } = sizeOf(buffer);
-        if (width && height) return { width: width, height: height };
+        if (buffer) {
+          const { width, height } = sizeOf(buffer);
+          if (width && height) return { width: width, height: height };
+        }
       });
   });
 };
