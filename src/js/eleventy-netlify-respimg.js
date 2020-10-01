@@ -15,8 +15,7 @@ const getDimensions = (img) => {
   }
 
   const imgurl = url.parse(`${process.env.URL}${img}`);
-
-  http.get(imgurl, function (response) {
+  const req = http.get(imgurl, function (response) {
     const chunks = [];
     response
       .on('data', function (chunk) {
@@ -27,9 +26,12 @@ const getDimensions = (img) => {
         if (buffer) {
           const { width, height } = sizeOf(buffer);
           if (width && height) return { width: width, height: height };
+          return { width: '100%', height: 'auto' };
         }
       });
   });
+
+  req.on('error', (e) => console.error(e));
 };
 
 const getSrcset = (url, preset = 'default', args) => {
@@ -83,8 +85,9 @@ function image(context, file, preset, preload, alt = '') {
 
   const { src, srcset, sizes } = getSrcset(imgUrl, preset);
   alt = `alt="${alt}"`;
+  const { width, height } = dimensions || '';
 
-  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${dimensions.width}" height="${dimensions.height}" preload="${preload}" ${alt}>`;
+  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" preload="${preload}" ${alt}>`;
 }
 
 module.exports = {
