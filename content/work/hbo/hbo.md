@@ -47,4 +47,4 @@ Together we achieved the following:
 - simplified site structure. No dead ends, all navigation paths lead through one funnel to the subscription form
 - increase in subscriptions and revenue
 
-&rarr; ~~https://itshbo.nl~~ (not available anymore)
+&rarr; ~~https://itshbo.nl~~ (No longer online)
