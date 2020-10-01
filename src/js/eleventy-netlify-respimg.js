@@ -26,9 +26,11 @@ const getDimensions = (img) => {
         if (buffer) {
           const { width, height } = sizeOf(buffer);
           if (width && height) return { width: width, height: height };
-          return { width: '100%', height: 'auto' };
         }
-      });
+
+        return { width: '100%', height: 'auto' };
+      })
+      .on('error', (error) => console.error(error));
   });
 
   req.on('error', (e) => console.error(e));
@@ -85,7 +87,7 @@ function image(context, file, preset, preload, alt = '') {
 
   const { src, srcset, sizes } = getSrcset(imgUrl, preset);
   alt = `alt="${alt}"`;
-  const { width, height } = dimensions || '';
+  const { width, height } = dimensions;
 
   return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" preload="${preload}" ${alt}>`;
 }
