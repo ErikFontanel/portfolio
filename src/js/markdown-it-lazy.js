@@ -1,7 +1,6 @@
-const sizeOf = require('image-size');
-const path = require('path');
+const respimg = require('./eleventy-netlify-respimg');
 
-module.exports = function (md) {
+module.exports = function (md, config) {
   const defaultRender =
     md.renderer.rules.image ||
     function (tokens, idx, options, env, self) {
@@ -12,23 +11,25 @@ module.exports = function (md) {
     const token = tokens[idx];
 
     if (token.content !== '') {
-      const file = path.resolve(
-        __dirname,
-        `./../../content/${env.page.url}/${token.content}`
-      );
-      const { width, height } = file ? sizeOf(file) : false;
       const loading = token.attrIndex('loading');
+      const img = env.page.url + token.content;
+      const { src, srcset, sizes } = respimg.getSrcset(img, 'default', config);
+
+      const dimensions = respimg.getDimensions(img);
+
+      if (srcset) {
+        token.attrPush(['src', src]);
+        token.attrPush(['srcset', srcset]);
+        token.attrPush(['sizes', sizes]);
+      }
+
+      if (dimensions) {
+        token.attrPush(['width', dimensions.width]);
+        token.attrPush(['height', dimensions.height]);
+      }
 
       if (loading < 0) {
-        token.attrPush(['loading', 'lazy']); // add new attribute
-      }
-
-      if (width) {
-        token.attrPush(['width', width]);
-      }
-
-      if (height) {
-        token.attrPush(['height', height]);
+        token.attrPush(['loading', 'lazy']);
       }
     }
 

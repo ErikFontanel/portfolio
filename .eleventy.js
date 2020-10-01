@@ -8,7 +8,6 @@ const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
 const markdownItLinkAttrs = require('markdown-it-link-attributes');
 const markdownItAnchor = require('markdown-it-anchor');
-const markdownItImsize = require('markdown-it-imsize');
 const markdownItBlockEmbed = require('markdown-it-block-embed');
 const markdownItImplicitFigures = require('markdown-it-implicit-figures');
 const markdownItBlockEmbedLocalService = require('./src/js/markdown-it-local-embed');
@@ -19,6 +18,32 @@ const List = require(`${componentsDir}/List.js`);
 const Button = require(`${componentsDir}/Button.js`);
 const Label = require(`${componentsDir}/Label.js`);
 
+const responsiveImagesConfig = {
+  presets: [
+    {
+      default: {
+        min_width: 320,
+        max_width: 3320,
+        fallback_max_width: 1280,
+        steps: 5,
+        sizes: '(min-width: 64rem) 64rem, 100vw',
+        attributes: { class: 'img-full' },
+      },
+    },
+    {
+      thumb: {
+        min_width: 320,
+        max_width: 1660,
+        fallback_max_width: 640,
+        steps: 5,
+        sizes: '(min-width: 64rem) 32rem, 100vw',
+        attributes: { class: 'img-thumb' },
+        fit: 'smartcrop',
+      },
+    },
+  ],
+};
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.dir = {
     input: 'content',
@@ -27,31 +52,7 @@ module.exports = function (eleventyConfig) {
   };
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginNetlifyRespImage, {
-    presets: [
-      {
-        default: {
-          min_width: 320,
-          max_width: 3320,
-          fallback_max_width: 1280,
-          steps: 5,
-          sizes: '(min-width: 64rem) 64rem, 100vw',
-          attributes: { class: 'img-full' },
-        },
-      },
-      {
-        thumb: {
-          min_width: 320,
-          max_width: 1660,
-          fallback_max_width: 640,
-          steps: 5,
-          sizes: '(min-width: 64rem) 32rem, 100vw',
-          attributes: { class: 'img-thumb' },
-          fit: 'smartcrop',
-        },
-      },
-    ],
-  });
+  eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
 
   eleventyConfig.setTemplateFormats([
     // Templates:
@@ -91,9 +92,8 @@ module.exports = function (eleventyConfig) {
     markdownIt(mdOptions)
       .use(markdownItAttrs)
       .use(markdownItLinkAttrs, mdLinkAttrOptions)
-      .use(markdownItImsize, { autofill: true })
       .use(markdownItAnchor)
-      // .use(markdownItLazyImg)
+      .use(markdownItLazyImg, responsiveImagesConfig)
       .use(markdownItImplicitFigures)
       .use(markdownItBlockEmbed, {
         containerClassName: 'block block-embed',

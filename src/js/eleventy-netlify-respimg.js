@@ -3,19 +3,20 @@ const url = require('url');
 const http = require('https');
 const path = require('path');
 const fs = require('fs');
+
 let config;
 
-const getAttrs = (attrs) =>
-  Object.keys(attrs)
-    .filter((key) => !key.startsWith('__'))
-    .reduce((previous, current, idx) => {
-      return previous + ` ${current}="${Object.values(attrs)[idx]}"`;
-    }, []);
-
 const getDimensions = (img) => {
-  const options = url.parse(img);
+  if (!process.env.NETLIFY) {
+    if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
 
-  http.get(options, function (response) {
+    const { width, height } = sizeOf(img);
+    return { width: width, height: height };
+  }
+
+  const imgurl = url.parse(`${process.env.URL}${img}`);
+
+  http.get(imgurl, function (response) {
     const chunks = [];
     response
       .on('data', function (chunk) {
@@ -25,12 +26,13 @@ const getDimensions = (img) => {
         const buffer = Buffer.concat(chunks);
 
         const { width, height } = sizeOf(buffer);
-        if (width && height) return `width=${width} height=${height}`;
+        if (width && height) return { width: width, height: height };
       });
   });
 };
 
-const getSrcSet = (url, preset) => {
+const getSrcset = (url, preset = 'default', args) => {
+  if (args) config = args;
   const options = config.presets.find((p) => Object.keys(p)[0] === preset);
 
   let {
@@ -40,35 +42,48 @@ const getSrcSet = (url, preset) => {
     steps,
     sizes,
     resize,
-  } = options[preset];
-  let srcset = '';
+  } = options ? options[preset] : options['default'];
 
   resize = resize || 'fit';
   sizes = sizes || '100vw';
+
   const step_width = (max_width - min_width) / (steps - 1);
   const baseUrl = `${url}?nf_resize=${resize}`;
+  let srcset = '';
 
   for (let i = 1; i < steps; i++) {
     let width = min_width + (i - 1) * step_width;
     srcset += `${baseUrl}&w=${width} ${width}w,`;
   }
 
-  return `src="${baseUrl}&w=${fallback_max_width}" srcset="${srcset}" sizes="${sizes}"`;
+  const src = `${baseUrl}&w=${fallback_max_width}`;
+
+  return {
+    src: src,
+    srcset: srcset,
+    sizes: sizes,
+  };
 };
 
-function image(context, file, preset, preload) {
-  // const { dir } = path.parse(context.ctx.page.inputPath);
-  // const img = path.resolve(`${dir}/${file}`);
-  // const fileExists = fs.existsSync(`./${img}`);
+function image(context, file, preset, preload, alt = '') {
+  let dimensions;
 
-  // if (!fileExists) {
-  //   return '';
-  // }
-  const img = `${process.env.URL}/${context.ctx.page.url}/${file}`;
-  const dimensions = getDimensions(img);
-  const srcset = getSrcSet(img, preset);
-  // attributes = getAttrs(attributes);
-  return `<img ${srcset} ${dimensions} preload="${preload}">`;
+  const imgUrl = file.startsWith('/') ? file : `${context.ctx.page.url}${file}`;
+
+  // Can't resolve files on disk when using Netlify LFS
+  if (!process.env.NETLIFY) {
+    const { dir } = path.parse(context.ctx.page.inputPath);
+    const imgFile = path.resolve(`${dir}/${file}`);
+    dimensions = getDimensions(imgFile, preset);
+  } else {
+    // if file starts with / it's a valid path from site root, otherwise add the page path so it can be downloaded from Netlify LFS.
+    dimensions = getDimensions(imgUrl, preset);
+  }
+
+  const { src, srcset, sizes } = getSrcset(imgUrl, preset);
+  alt = `alt="${alt}"`;
+
+  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${dimensions.width}" height="${dimensions.height}" preload="${preload}" ${alt}>`;
 }
 
 module.exports = {
@@ -130,3 +145,6 @@ module.exports = {
     });
   },
 };
+
+module.exports.getDimensions = getDimensions;
+module.exports.getSrcset = getSrcset;
