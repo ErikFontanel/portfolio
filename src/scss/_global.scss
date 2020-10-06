@@ -15,7 +15,9 @@
 
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
-  --color-text-inverted: #{invert($color-text)};
+  --color-text-sub: #{$color-text-sub};
+  --color-text-inverted: #{$color-text-inverted};
+  --color-text-sub-inverted: #{rgba($color-text-inverted, 0.7)};
   --color-link: #{$color-link};
 
   --color-label-background: #{$color-sky};
@@ -43,11 +45,18 @@
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 button {
   @include text-style-medium;
-  color: $color-text;
+
+  color: var(--color-text);
   letter-spacing: -0.04em;
 }
 
@@ -70,6 +79,12 @@ body {
     // opacity: 0;
   }
 
+  &.archive,
+  &.home {
+    background-color: var(--color-background-inverted);
+    color: var(--color-text-inverted);
+  }
+
   &.single,
   &.page {
     --color-background-wrapper: var(--color-background);
@@ -88,12 +103,6 @@ body {
   background-color: var(--color-background-wrapper);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 img {
   display: block;
   width: 100%;
@@ -101,14 +110,11 @@ img {
 }
 
 .bg-inverted {
-  --background-color: var(--color-background-inverted);
-  --text-color: var(--color-text-inverted);
+  --color-background: var(--color-background-inverted);
+  --color-text-sub: var(--color-text-sub-inverted);
 
-  background-color: var(
-    --color-background-inverted,
-    #{invert($color-background)}
-  );
-  color: var(--color-text-inverted, #{invert($color-text)});
+  color: var(--color-text-inverted);
+  background-color: var(--color-background-inverted);
 }
 
 .bg-sky {

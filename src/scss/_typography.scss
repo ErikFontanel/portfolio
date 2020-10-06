@@ -26,6 +26,7 @@
 
 .h-s {
   @include text-style-small();
+
   line-height: line-height(large);
 }
 
@@ -60,7 +61,7 @@ a {
   text-underline-position: under;
 
   &:visited {
-    color: inherit;
+    color: currentColor;
   }
 }
 
@@ -155,7 +156,7 @@ figcaption {
 }
 
 .text-sub {
-  color: $color-ink-lighter;
+  color: var(--color-text-sub, #{$color-ink-lighter});
 }
 
 .label {
