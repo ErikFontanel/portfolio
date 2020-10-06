@@ -18,36 +18,44 @@
   home
 {%- endblock -%}
 
+{%- block mainClass -%}
+  bg-inverted
+{%- endblock -%}
+
 {%- set cta -%}
   <abbr aria-label="open to job offers" class="jobs-cta">
     Freelance {%- include "cta-jobs.njk" -%}
   </abbr>
 {%- endset -%}
 
-
 {% block main %}
-  {% block intro %}
-    <div class="intro">
-      <div class="info">
-        {% if title %}
-          <h1 class="h-m">{{ title }}</h1>
-        {% endif %}
+  {% block pageHeader %}
+    {% block intro %}
+      <div class="intro">
+        <div class="info">
+          {% block info %}
+            {% if title %}
+              <h1 class="h-m">{{ title }}</h1>
+            {% endif %}
 
-        {{ content|replace('Freelance', cta, 1)|safe }}
+            {{ content|replace('Freelance', cta, 1)|safe }}
 
-        {% if about %}
-          {% button
-            url = about.url,
-            label = 'about' if about
-            %}
-        {% endif %}
+            {% if about %}
+              {% button
+                url = about.url,
+                label = 'about' if about
+                %}
+            {% endif %}
+          {% endblock %}
+        </div>
+
+        {% block cta %}
+          {% include "cta.njk" %}
+        {% endblock %}
       </div>
-
-      {% include "cta.njk" %}
-    </div>
+    {% endblock %}
   {% endblock %}
 
-  {% block projects %}
 
   {% block projects %}
     {% if projects %}
