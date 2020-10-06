@@ -14,6 +14,10 @@
   {% endif %}
 {% endfor %}
 
+{%- block bodyClass -%}
+  home
+{%- endblock -%}
+
 {%- set cta -%}
   <abbr aria-label="open to job offers" class="jobs-cta">
     Freelance {%- include "cta-jobs.njk" -%}
