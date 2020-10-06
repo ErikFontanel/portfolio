@@ -1,6 +1,7 @@
 import './css/app.css';
 
 import fitvids from 'fitvids';
+import 'focus-visible';
 
 import Nav from './js/Nav';
 import Carousel from './js/carousel';
