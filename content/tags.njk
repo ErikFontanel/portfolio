@@ -1,17 +1,25 @@
 ---
-title: work
-layout: base
+layout: layouts/archive.njk
 pagination:
   data: collections
   size: 1
   alias: tag
 permalink: /work/tagged/{{ tag|slug }}/
 ---
-{% block main %}
 
-  {% block projects %}
-    {% set projects = collections[tag] %}
+{%- block bodyClass -%}
+  tag
+{%- endblock -%}
 
-    {% include "../_includes/projects-list.njk" %}
-  {% endblock %}
+{% block pageHeader %}
+  {% set title = tag|title + " projects" %}
+  <h1 class="h-m">{{ tag|title + " projects" }}</h1>
+
+  {% block cta %}{% endblock %}
 {% endblock %}
+
+{% block projects %}
+  {% set projects = collections[tag] %}
+  {% include "../_includes/projects-list.njk" %}
+{% endblock %}
+
