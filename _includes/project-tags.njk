@@ -1,12 +1,12 @@
 {%- set tags = tags | except('project') if tags -%}
 
 {% if tags|length %}
-  <ul class="project-item--tags">
+  <ul class="project-item--tags text-xxs">
     {% for tag in tags %}
       {%- button
         url = '/work/tagged/' + tag|slug +'/',
         label = tag,
-        name = 'label' -%}
+        name = 'button_plain' -%}
     {% endfor %}
   </ul>
 {% endif %}
