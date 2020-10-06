@@ -1,14 +1,19 @@
----
-layout: 'layouts/projects.njk'
-pagination:
-  data: collections
-  size: 1
-  alias: tag
-permalink: /work/{{ tag }}/
----
-asdf
-{% block projects %}
-  {% for project in projects[tag] %}
-      {% include "project-item.njk" %}
-  {% endfor %}
+{% extends "layouts/base.njk" %}
+
+{%- block bodyClass -%}
+  archive
+{%- endblock -%}
+
+{% block main %}
+  {% block pageHeader %}
+    <div class="page-header">
+      <h1 class="h-s text-mono">Projects tagged with {{ tag }}</h1>
+    </div>
+  {% endblock %}
+
+  {% block projects %}
+    {% set projects = collections[tag] %}
+    {% include "../projects-list.njk" %}
+  {% endblock %}
+
 {% endblock %}
