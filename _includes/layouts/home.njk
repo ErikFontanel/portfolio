@@ -49,20 +49,22 @@
 
   {% block projects %}
 
-    <div class="projects card:full">
-      {% for project in projects %}
+  {% block projects %}
+    {% if projects %}
+      <div class="projects">
+        {% for project in projects %}
 
-        {% include "../project-item.njk" %}
+          {% include "../project-item.njk" %}
 
-        {% if loop.index0 === 2 %}
-        </div>
-          {{ pageitem.pageItem(expertise) }}
-          <div class="projects card:full">
-        {% endif %}
+          {% if loop.index0 === 2 %}
+            </div>
+            {{ pageitem.pageItem(expertise) }}
+            <div class="projects">
+          {% endif %}
 
-      {% endfor %}
-    </div>
-
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endblock %}
 
 {% endblock %}
