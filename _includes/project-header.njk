@@ -5,7 +5,8 @@
 <header class="project-header project-item {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
   {% if thumbnail %}
     <div class="project-item--img" >
-      {% image thumbnail, 'thumb', 'auto' %}
+      {% image thumbnail, '', 'thumb', 'auto', 'alt='+project.data.title %}
+    </a>
     </div>
   {% endif %}
 

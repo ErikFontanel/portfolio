@@ -38,7 +38,15 @@ const getDimensions = (img) => {
 
 const getSrcset = (url, preset = 'default', args) => {
   if (args) config = args;
-  const options = config.presets.find((p) => Object.keys(p)[0] === preset);
+  preset = preset || 'default';
+
+  let options =
+    config.presets.find((p) => Object.keys(p)[0] === preset) ||
+    config.presets.find((p) => {
+      if (Object.keys(p)[0] === 'default') {
+        return p.default;
+      }
+    });
 
   let {
     min_width,
@@ -47,7 +55,7 @@ const getSrcset = (url, preset = 'default', args) => {
     steps,
     sizes,
     resize,
-  } = options ? options[preset] : options['default'];
+  } = options[preset];
 
   resize = resize || 'fit';
   sizes = sizes || '100vw';
@@ -70,7 +78,7 @@ const getSrcset = (url, preset = 'default', args) => {
   };
 };
 
-function image(context, file, preset, preload, alt = '') {
+function image(context, file, cssClasses, preset, loading, alt) {
   let dimensions;
 
   const imgUrl = file.startsWith('/') ? file : `${context.ctx.page.url}${file}`;
@@ -89,7 +97,7 @@ function image(context, file, preset, preload, alt = '') {
   alt = `alt="${alt}"`;
   const { width, height } = dimensions;
 
-  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" preload="${preload}" ${alt}>`;
+  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt}>`;
 }
 
 module.exports = {
@@ -128,8 +136,10 @@ module.exports = {
         this.run = function (
           context,
           file,
+          cssClasses = '',
           preset = 'default',
-          preload = 'preload',
+          loading = 'lazy',
+          alt = '',
           callback
         ) {
           if (typeof preset === 'function') {
@@ -137,14 +147,25 @@ module.exports = {
             preset = 'default';
           }
 
-          if (typeof preload === 'function') {
-            callback = preload;
-            preload = 'lazy';
+          if (typeof cssClasses === 'function') {
+            callback = cssClasses;
+            cssClasses = '';
+          }
+
+          if (typeof loading === 'function') {
+            callback = loading;
+            loading = 'lazy';
+          }
+
+          if (typeof alt === 'function') {
+            callback = alt;
+            alt = '';
           }
 
           let ret = new nunjucksEngine.runtime.SafeString(
-            image(context, file, preset, preload)
+            image(context, file, cssClasses, preset, loading, alt)
           );
+
           callback(null, ret);
         };
       })();
