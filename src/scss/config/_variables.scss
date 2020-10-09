@@ -1,13 +1,18 @@
+@use 'sass:color';
 @import './colors';
 
 $color-primary: $color-blue;
 $color-background: $color-white;
+$color-background-inverted: color.invert($color-white);
 $color-background-overlay: $color-sky;
 $color-background-modal: $color-blue-lightest;
 $color-background-ui: $color-white;
+
 $color-text: $color-ink;
 $color-text-inverted: $color-white;
 $color-text-sub: $color-ink-lighter;
+$color-text-sub-inverted: $color-ink-lightest;
+$color-text-sub-inverted: #909398;
 $color-link: $color-blue;
 
 $spacing-extra-tight: rem(4px);
@@ -41,8 +46,8 @@ $font-sizes: (
 );
 
 $line-heights: (
-  'extra-extra-large': 1,
-  'extra-large': 1.1,
+  'extra-extra-large': 1.1,
+  'extra-large': 1.2,
   'large': 1.2,
   'medium': 1.5,
   'small': 1.5,

@@ -160,6 +160,7 @@ button {
   &_plain {
     --button-background-color: transparent;
     --button-color: #{rgba($color-white, 0.3)};
+
     font-family: $font-stack-monospace;
     padding: 0 0.25em;
     border-radius: $radius-small;

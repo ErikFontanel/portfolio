@@ -4,8 +4,11 @@ $color-black: #000;
 $color-white: #fff;
 
 $color-ink: #121212;
-$color-ink-lighter: #454f5b;
-$color-ink-lightest: color.scale($color-ink, $lightness: 37.5%);
+$color-ink-light: #454f5b;
+$color-ink-lighter: #637381;
+$color-ink-lightest: #919eab;
+$color-ink-darker: color.scale($color-ink, $lightness: -29%);
+$color-ink-darkest: color.scale($color-ink, $lightness: -58%);
 
 $color-sky: #ededef;
 $color-sky-lightest: color.scale($color-sky, $lightness: 37.5%);
