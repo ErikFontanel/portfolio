@@ -1,3 +1,15 @@
+.single-body {
+  .content-image {
+    width: 100%;
+    max-width: 100%;
+    margin: var(--spacing-block) 0;
+    justify-self: center;
+
+    & + * {
+      margin-top: 0;
+    }
+  }
+}
 .project-meta {
   grid-column: meta;
 
@@ -35,18 +47,6 @@
   &.grid\:centered {
     display: grid;
   }
-
-  // &-centered {
-  //   display: grid;
-  //   align-items: center;
-  //   justify-content: center;
-  //   grid-template-columns: 80vmin;
-  //   grid-auto-columns: 80vmin;
-
-  //   @media (--tablet-up) {
-  //     grid-template-columns: minmax(#{rem(240px)}, 20%);
-  //   }
-  // }
 }
 
 .block-embed {
