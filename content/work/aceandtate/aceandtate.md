@@ -47,7 +47,7 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 {% gallery {
   caption: 'Product Category page',
-  css: 'carousel device'
+  css: 'carousel devices'
 } %}
 {% image 'at-pcp1.png' %}
 {% image 'at-pcp2.png' %}

@@ -43,11 +43,6 @@ $gallery-index: (caption, images);
     display: grid;
     grid-auto-flow: column;
     gap: var(--gutter) calc(var(--spacing-block) / 2);
-
-    img {
-      border-radius: $radius;
-      box-shadow: shadow(3);
-    }
   }
 
   &.grid\:2 {
@@ -143,6 +138,12 @@ $gallery-index: (caption, images);
     //   grid-column-end: span 2;
     // }
   }
+}
+
+.gallery .devices img,
+.device {
+  border-radius: $radius;
+  filter: drop-shadow(0px 0px 12px rgba(0 0 0 / 50%));
 }
 
 .carousel {
