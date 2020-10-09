@@ -20,7 +20,11 @@
   &--text {
     grid-area: text;
     align-self: start;
-    padding: 0.25em 0;
+    padding: 0.5em 0 0;
+
+    > *:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
   }
 
   &--img {
@@ -55,7 +59,7 @@
 
   &--tags {
     padding: 0;
-    margin: 0;
+    // margin: 0;
     z-index: 1;
   }
 
