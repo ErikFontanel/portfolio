@@ -31,7 +31,7 @@
 {% block main %}
   {% block pageHeader %}
     {% block intro %}
-      <div class="intro">
+      <div class="intro grid grid:full">
         <div class="info">
           {% block info %}
             {% if title %}
@@ -48,6 +48,8 @@
             {% endif %}
           {% endblock %}
         </div>
+
+        <div class="object grid:full"><canvas></canvas></div>
 
         {% block cta %}
           {% include "cta.njk" %}
