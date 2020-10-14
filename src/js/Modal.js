@@ -1,6 +1,8 @@
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
+const isRelative = (url) => !url.startsWith('/') && !url.startsWith('http');
+
 export default class Modal {
   constructor(data, options = { animateParent: true }) {
     this.template = document.importNode(document.querySelector('#modal'), true);
@@ -19,7 +21,10 @@ export default class Modal {
     const unneededElements = frag.content.querySelectorAll(
       '*:scope > *:not(main)'
     );
-    const assets = frag.content.querySelectorAll('img[src], img[srcset]');
+    const assets = frag.content.querySelectorAll(
+      'img[src], img[srcset]',
+      'video'
+    );
 
     this.slug = frag.content.querySelector('main').dataset.slug;
     this.url = frag.content.querySelector('main').dataset.url;
@@ -27,10 +32,19 @@ export default class Modal {
     [...unneededElements].map((el) => el.remove());
     [...assets].map((el) => {
       if (el.src) {
-        el.src = `${this.url}/${el.getAttribute('src')}`;
+        el.src = isRelative(el.src)
+          ? `${this.url}/${el.getAttribute('src')}`
+          : el.src;
       }
       if (el.srcset) {
-        el.srcset = el.srcset.replace(/([\S]+\.\w{3,})/gi, this.url + '$1');
+        el.srcset = isRelative(el.srcset)
+          ? el.srcset.replace(/([\S]+\.\w{3,})/gi, this.url + '$1')
+          : el.srcset;
+      }
+      if (el.poster) {
+        el.poster = isRelative(el.poster)
+          ? `${this.url}/${el.getAttribute('poster')}`
+          : el.poster;
       }
     });
 
