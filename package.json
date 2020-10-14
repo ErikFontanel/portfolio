@@ -16,7 +16,7 @@
     "build:snowpack": "snowpack build",
     "build:clean": "rm -rf ./dist/static/scss",
     "build": "NODE_ENV=production ELEVENTY_ENV=production run-s build:eleventy build:snowpack build:clean",
-    "start": "snowpack dev"
+    "start": "snowpack dev --watch"
   },
   "repository": {
     "type": "git",
@@ -27,25 +27,28 @@
   "bugs": {
     "url": "https://github.com/ErikFontanel/portfolio-temp/issues"
   },
-  "homepage": "/",
+  "homepage": "https://erikgelderblom.com/",
   "dependencies": {
     "load-bmfont": "^1.4.1",
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.15",
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@snowpack/plugin-babel": "^2.1.0",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@snowpack/plugin-babel": "^2.1.3",
     "@snowpack/plugin-parcel": "^1.3.0",
+    "@snowpack/plugin-postcss": "^1.0.5",
+    "@snowpack/plugin-sass": "^1.0.1",
     "@swup/overlay-theme": "^1.1.1",
     "autoprefixer": "^9.8.6",
-    "critical": "^2.0.3",
+    "babel-plugin-lodash": "^3.3.4",
+    "critical": "^2.0.5",
     "cssnano": "^4.1.10",
     "fitvids": "^2.1.1",
-    "focus-visible": "^5.1.0",
+    "focus-visible": "^5.2.0",
     "image-size": "^0.8.3",
     "markdown-it-anchor": "^5.3.0",
     "markdown-it-attrs": "^3.0.3",
@@ -54,17 +57,21 @@
     "markdown-it-link-attributes": "^3.0.0",
     "npm-run-all": "^4.1.5",
     "parcel": "^1.12.4",
-    "postcss-cli": "^7.1.1",
+    "postcss": "^8.1.1",
+    "postcss-cli": "^7.1.2",
     "postcss-custom-media": "^7.0.8",
     "postcss-media-minmax": "^4.0.0",
     "postcss-preset-env": "^6.7.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
-    "sass": "^1.26.10",
-    "snowpack": "^2.7.7"
+    "sass": "^1.27.0",
+    "snowpack": "^2.14.0"
   },
   "babel": {
     "presets": [
       "@babel/preset-env"
+    ],
+    "plugins": [
+      "lodash"
     ]
   },
   "browserslist": [

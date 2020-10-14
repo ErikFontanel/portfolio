@@ -18,20 +18,14 @@ module.exports = {
     src: '/static',
   },
   plugins: [
-    [
-      '@snowpack/plugin-run-script',
-      { cmd: 'sass src/scss:src/scss', watch: '$1 --watch' },
-    ],
-    [
-      '@snowpack/plugin-run-script',
-      { cmd: 'postcss src/scss/**/*.css -d src/css', watch: '$1 --watch' },
-    ],
+    ['@snowpack/plugin-sass', { native: true }],
+    ['@snowpack/plugin-postcss', { input: ['.css'] }],
   ],
   devOptions: {
     port: 8080,
     open: 'none',
     out: 'dist',
     secure: true,
-    bundle: false,
+    bundle: true,
   },
 };
