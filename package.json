@@ -31,6 +31,7 @@
   "dependencies": {
     "load-bmfont": "^1.4.1",
     "lodash-es": "^4.17.15",
+    "three": "^0.121.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
