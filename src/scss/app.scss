@@ -1,4 +1,23 @@
-@import 'config', 'typography', 'global', 'grid', 'button', 'nav', 'footer',
-  'form', 'modal', 'gallery', 'list', 'card', 'cta', 'project-item', 'page-item',
-  'page-header', 'single', 'project-header', 'project-list', 'project-nav',
-  'project-tags', 'job-cta', 'intro';
+@use 'config';
+@use 'typography';
+@import 'global';
+@import 'grid';
+@import 'button';
+@import 'nav';
+@import 'footer';
+@import 'form';
+@import 'modal';
+@import 'gallery';
+@import 'list';
+@import 'card';
+@import 'cta';
+@import 'project-item';
+@import 'page-item';
+@import 'page-header';
+@import 'single';
+@import 'project-header';
+@import 'project-list';
+@import 'project-nav';
+@import 'project-tags';
+@import 'job-cta';
+@import 'intro';

@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 .cta {
   background-color: $color-yellow;
   width: var(--spacing-block);

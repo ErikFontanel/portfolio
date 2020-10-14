@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 .project-nav {
   @include effect-exclusion;
   mix-blend-mode: exclusion;

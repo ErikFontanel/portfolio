@@ -1,5 +1,6 @@
 @use 'sass:color';
-
+@use 'config' as *;
+@use 'config/utilities' as *;
 .text-xs {
   @include text-style-caption();
 }

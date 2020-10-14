@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 .card {
   background-color: var(--color-background, var(--color-background-ui));
   border-radius: $radius;

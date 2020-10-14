@@ -2,9 +2,13 @@
 @use 'sass:list';
 @use 'sass:string';
 
-$default-browser-font-size: 16px !default;
 $base-font-size: 10px !default;
 $reference: 1440px !default;
+$shadows: (
+  rgba($color-black, 12%) 0 rem(1px) rem(2px) rem(0px),
+  rgba($color-black, 8%) 0 rem(3px) rem(6px) rem(-3px),
+  rgba($color-black, 8%) 0 rem(3px) rem(12px) rem(-6px)
+) !default;
 
 /// Returns the value in rem for a given pixel value.
 /// @param {Number} $value - The pixel value to be converted.
@@ -126,7 +130,7 @@ $global-zindex: (modal, navigation, body, background) !default;
   @return $result;
 }
 
-@mixin effect-exclusion($color: $color-text) {
+@mixin effect-exclusion($color: #121212) {
   color: invert($color);
   mix-blend-mode: difference;
 }

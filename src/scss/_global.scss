@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'config' as *;
 
 :root {
   --gutter: #{$gutter};
@@ -62,7 +63,7 @@ button {
 
 html {
   position: relative;
-  font-size: ($base-font-size / $default-browser-font-size) * 100%;
+  font-size: $scaled-browser-font-size;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;

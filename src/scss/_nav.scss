@@ -1,4 +1,6 @@
 @use 'sass:color';
+@use 'config' as *;
+
 $nav-index: main, projects;
 
 .site-header {

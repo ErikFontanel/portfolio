@@ -1,3 +1,4 @@
+@use 'config' as *;
 .site-footer {
   font-size: font-size(extra-small);
   height: 100vh;
@@ -54,7 +55,7 @@
 
   > p {
     font-size: font-size(extra-small);
-    color: $color-sky-darker;
+    color: var(--color-text-sub-inverted);
     justify-self: center;
     grid-row: 4;
     text-align: center;

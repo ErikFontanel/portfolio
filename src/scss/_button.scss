@@ -1,5 +1,5 @@
 @use 'sass:color';
-
+@use 'config' as *;
 $button-border-focus: 0 0 0 1px var(--button-focus-border-color);
 
 $button-border-color: inset 0 0 0 1px var(--button-border-color);

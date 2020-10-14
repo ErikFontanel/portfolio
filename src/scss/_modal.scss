@@ -34,10 +34,10 @@ body[data-showing-overlay='true'] {
   }
 
   &--body {
-    background-color: $color-background;
+    color: var(--color-text);
+    background-color: var(--color-background-ui);
     grid-column: full;
     border-radius: var(--border-radius-large);
-    background-color: $color-background;
     box-shadow: shadow(2);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

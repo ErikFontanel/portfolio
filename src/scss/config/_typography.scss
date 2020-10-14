@@ -1,3 +1,5 @@
+@use 'variables' as *;
+@use 'utilities' as *;
 /// Returns the font size for a given text style and variant.
 ///
 /// @param {String} $style - The font style.

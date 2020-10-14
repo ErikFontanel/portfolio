@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 .project-item {
   --ratio: calc(100% / (1 / 1));
 

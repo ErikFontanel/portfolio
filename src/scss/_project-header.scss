@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 .project-header {
   grid-template-columns: 1fr;
   grid-template-areas:

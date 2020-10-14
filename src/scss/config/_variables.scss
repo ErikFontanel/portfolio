@@ -1,5 +1,14 @@
 @use 'sass:color';
-@import './colors';
+@use './colors' as *;
+@use 'utilities' as * with (
+  $base-font-size: 10px,
+  $global-zindex: (navigation, modal, layer, body, background),
+  $shadows: (
+    rgba($color-black, 12%) 0 rem(1px) rem(2px) rem(0px),
+    rgba($color-black, 8%) 0 rem(3px) rem(6px) rem(-3px),
+    rgba($color-black, 8%) 0 rem(3px) rem(12px) rem(-6px)
+    )
+);
 
 $color-primary: $color-blue;
 $color-background: $color-white;
@@ -22,18 +31,14 @@ $spacing-base: rem(16px);
 $spacing-loose: rem(24px);
 $spacing-extra-loose: rem(48px);
 $spacing-block: rem(64px);
-
 $gutter: $spacing-base * 2;
 
-$default-browser-font-size: 16px;
-$base-font-size: 10px;
-
+$default-browser-font-size: 16px !default;
+$scaled-browser-font-size: ($base-font-size / $default-browser-font-size) * 100%;
 $font-stack-base: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco',
   Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
 $font-stack-monospace: 'Iosevka Extended', 'SF Mono', Monaco, Consolas,
   'Lucida Console', monospace;
-
-$global-zindex: (navigation, modal, layer, body, background);
 
 $font-sizes: (
   'extra-extra-large': rem(56px),
@@ -58,12 +63,6 @@ $transition-timing: cubic-bezier(0.64, 0, 0.35, 1);
 $transition-default: 0.2s;
 $transition-slow: 0.4s;
 $transition-fast: 0.1s;
-
-$shadows: (
-  rgba($color-black, 12%) 0 rem(1px) rem(2px) rem(0px),
-  rgba($color-black, 8%) 0 rem(3px) rem(6px) rem(-3px),
-  rgba($color-black, 8%) 0 rem(3px) rem(12px) rem(-6px)
-);
 
 $radius: vw(12px);
 $radius-small: vw(4px);
