@@ -1,0 +1,24 @@
+
+<header class="project-header project-item {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
+  {% if thumbnail %}
+    <div class="project-item--img" >
+      {% image thumbnail, '', 'thumb', 'auto', 'alt='+project.data.title %}
+    </a>
+    </div>
+  {% endif %}
+
+  <div class="project-item--text">
+    {% if client %}
+      <h3 class="project-item--client  text-sub h-l">{{ client }}</h3>
+    {% endif %}
+
+    {% if title %}
+      <h2 class="project-item--title h-xxl">{{ title }}</h2>
+    {% endif %}
+
+  </div>
+
+  {% block projectMeta %}
+    {% include "./project-meta.njk" %}
+  {% endblock %}
+</header>
