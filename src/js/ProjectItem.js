@@ -15,7 +15,6 @@ export default class ProjectItem {
     gsap.to(this.turbVal, {
       val: 0.3,
       onUpdate: (val) => {
-        console.log(val);
         this.effect.setAttribute('baseFrequency', this.turbVal.val);
       },
     });

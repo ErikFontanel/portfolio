@@ -98,7 +98,6 @@ export default class Nav {
   }
 
   handleEvent(event) {
-    console.log(event.type);
     this['on' + event.type](event);
   }
 
