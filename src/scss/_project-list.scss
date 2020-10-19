@@ -38,4 +38,13 @@
   & + .projects {
     margin-top: var(--spacing-block);
   }
+
+  &:first-of-type {
+    padding-top: var(--gutter);
+  }
+}
+
+.home .projects {
+  background-color: var(--color-background);
+  z-index: 2;
 }
