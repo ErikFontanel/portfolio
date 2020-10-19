@@ -147,6 +147,7 @@ module.exports = function (eleventyConfig) {
   // Layouts
   eleventyConfig.addLayoutAlias('base', 'layouts/base.njk');
   eleventyConfig.addLayoutAlias('home', 'layouts/home.njk');
+  eleventyConfig.addLayoutAlias('page', 'layouts/page.njk');
   eleventyConfig.addLayoutAlias('single', 'layouts/single.njk');
   eleventyConfig.addLayoutAlias('projects', 'layouts/projects.njk');
 
