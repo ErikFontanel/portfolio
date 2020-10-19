@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 body[data-showing-overlay='true'] {
   overflow: hidden;
   backface-visibility: hidden;
@@ -14,7 +16,7 @@ body[data-showing-overlay='true'] {
   left: 0;
   height: 100vh;
   width: 100%;
-  z-index: z-index(layer);
+  z-index: z-index(modal);
   visibility: hidden;
   pointer-events: none;
   overflow-y: auto;
