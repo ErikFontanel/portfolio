@@ -6,25 +6,36 @@ module.exports = {
       plugins: [require('rollup-plugin-node-polyfills')()],
     },
   },
-  scripts: {
-    'run:11ty': 'eleventy --quiet',
-    'run:11ty::watch': '$1 --watch',
-  },
   buildOptions: {
     clean: true,
+    out: 'dist',
+    sourceMaps: true,
   },
   mount: {
     dist: '/',
     src: '/static',
   },
   plugins: [
-    ['@snowpack/plugin-sass', { native: true }],
+    [
+      '@snowpack/plugin-sass',
+      {
+        native: true,
+        compilerOptions: {
+          sourceMap: true,
+          embedSourceMap: true,
+          update: true,
+        },
+      },
+    ],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
+    [
+      '@snowpack/plugin-run-script',
+      { cmd: 'eleventy', watch: '$1 --watch --quiet' },
+    ],
   ],
   devOptions: {
     port: 8080,
     open: 'none',
-    out: 'dist',
     secure: true,
     bundle: true,
   },
