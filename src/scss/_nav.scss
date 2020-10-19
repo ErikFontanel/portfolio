@@ -1,6 +1,6 @@
 @use 'sass:color';
 @use 'config' as *;
-
+@use './button';
 $nav-index: main, projects;
 
 .site-header {
@@ -173,7 +173,7 @@ nav {
           )};
         background-color: var(--button-background-color);
         flex: 1;
-        box-shadow: $button-border-active;
+        box-shadow: button.$button-border-active;
       }
     }
 
