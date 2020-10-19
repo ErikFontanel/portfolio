@@ -1,15 +1,11 @@
 import * as THREE from 'three/build/three.module.js';
-
+import { debounce } from 'lodash-es';
 const canvas = document.querySelector('canvas');
 const canvasWidth = canvas.parentElement.clientWidth;
 const canvasHeight = canvas.parentElement.clientHeight;
 
-const getAspect = (w, h) => Math.min(w, h) / Math.max(w, h);
-
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(
-  window.getComputedStyle(document.body).backgroundColor
-);
+scene.background = new THREE.Color('#000');
 
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 renderer.setSize(canvasWidth, canvasHeight);
@@ -22,35 +18,34 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-camera.position.set(0, 0, 15);
+camera.position.set(0, 0, 5);
 camera.lookAt(scene.position);
 
-camera.aspect = getAspect(canvasWidth, canvasHeight);
+camera.aspect = canvasWidth / canvasHeight;
 camera.updateProjectionMatrix();
 
 renderer.render(scene, camera);
 
 // orb material
 const material = new THREE.MeshBasicMaterial({
-  color: 0xff00ff,
-  wireframe: true,
-});
-// orb material
-const material2 = new THREE.MeshBasicMaterial({
-  color: 0xff0000,
+  color: 0xffffff,
   wireframe: true,
 });
 
 // orb geometry
-const geometry = new THREE.BoxGeometry(3, 4, 8, 2, 3, 4);
-const geometry2 = new THREE.IcosahedronGeometry(2, 1);
+// const geometry = new THREE.BoxGeometry(3, 4, 8, 2, 3, 4);
+const geometry = new THREE.IcosahedronGeometry(2, 1);
 
 // create orb
 const orb = new THREE.Mesh(geometry, material);
-const orb2 = new THREE.Mesh(geometry2, material2);
-orb2.position.y = 6;
-orb2.position.x = 2;
-orb2.position.y = -6;
+const orb2 = new THREE.Mesh(geometry, material);
+
+orb.position.x = 5;
+orb.position.y = 3;
+
+orb2.position.x = -3;
+orb2.position.y = -1;
+orb2.position.z = -12;
 
 scene.add(orb);
 scene.add(orb2);
@@ -60,10 +55,12 @@ function animate() {
 
   orb.rotation.x += 0.01;
   orb.rotation.y += 0.01;
-
   orb2.rotation.x += 0.01;
   orb2.rotation.y += 0.01;
-  orb2.rotation.z += 0.01;
+
+  orb2.position.x += 0.01;
+  orb2.position.y += 0.01;
+  orb2.position.z += 0.01;
 
   renderer.render(scene, camera);
 }
@@ -72,22 +69,24 @@ animate();
 
 function onWindowResize() {
   requestAnimationFrame(() => {
-    const isTwoCol = window.matchMedia('(min-width: 96ch)').matches;
-    const wrapperWidth = isTwoCol
-      ? canvas.parentElement.clientWidth
-      : canvas.parentElement.clientWidth;
-    const parentHeight = isTwoCol
-      ? window.innerHeight
-      : canvas.parentElement.clientHeight;
-    console.log(canvas.parentElement.clientWidth);
-    camera.aspect = getAspect(wrapperWidth, parentHeight);
-
-    camera.updateProjectionMatrix();
+    let width = canvas.parentElement.clientWidth;
+    let height = canvas.parentElement.clientHeight;
+    camera.aspect = width / height;
     camera.lookAt(scene.position);
 
-    renderer.setSize(wrapperWidth, parentHeight);
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(width, height);
     renderer.render(scene, camera);
   });
 }
 
-window.addEventListener('resize', onWindowResize, false);
+window.addEventListener('resize', debounce(onWindowResize), false);
+
+// Fade on scroll
+const intro = document.querySelector('.intro');
+function onScroll() {
+  intro.classList.toggle('is-hidden', window.scrollY);
+}
+
+window.addEventListener('scroll', debounce(onScroll), { passive: true });

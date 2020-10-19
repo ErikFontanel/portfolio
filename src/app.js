@@ -1,11 +1,9 @@
-import './css/app.css';
+import './scss/app.scss';
 
 import fitvids from 'fitvids';
 import 'focus-visible';
 
 import Nav from './js/Nav';
-import Carousel from './js/carousel';
-import CTA from './js/CTA';
 // import ProjectsList from './js/ProjectsList';
 
 document.documentElement.classList.remove('no-js');
@@ -22,7 +20,6 @@ if (import.meta.hot) {
 }
 
 const navMain = document.querySelector('.site-header');
-const cta = document.querySelector('.cta');
 const carousels = document.querySelectorAll('.carousel');
 const isHome = () => document.querySelector('.home');
 // const projects = document.querySelectorAll('.projects');
@@ -30,8 +27,11 @@ const isHome = () => document.querySelector('.home');
 fitvids();
 
 if (navMain) new Nav(navMain);
-if (cta) new CTA(cta);
-if (carousels) [...carousels].map((el) => new Carousel({ el: el }));
+
+if (carousels) {
+  const Carousel = import('./js/carousel');
+  [...carousels].map((el) => new Carousel({ el: el }));
+}
 
 if (isHome()) {
   import('./js/intro.js');
