@@ -12,6 +12,7 @@
   {% block pageHeader %}
     {% include "../page-header.njk" %}
   {% endblock %}
-
-  {{ content | safe }}
+  <article class="content grid grid:full">
+    {{ content | safe }}
+  </article>
 {% endblock %}
