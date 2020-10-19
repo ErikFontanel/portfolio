@@ -144,6 +144,11 @@ img {
   animation-name: fadeInUp;
 }
 
+.animation\:fadeOut {
+  animation-name: fadeInUp;
+  animation-direction: reverse;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

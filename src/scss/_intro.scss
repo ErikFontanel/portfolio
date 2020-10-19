@@ -1,13 +1,27 @@
 .intro {
   min-height: 100vh;
   grid-template-rows: 100vh;
+  position: sticky;
+  background-color: var(--color-background-inverted);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+  transition: opacity calc(var(--animation-duration-slow) * 3) linear;
 
   &.grid {
     padding: 0;
   }
 
+  &.is-hidden {
+    opacity: 0;
+  }
+
   .info {
     grid-row: 1;
+    z-index: 1;
+    align-self: center;
+    grid-column: wide / center;
   }
 
   .object {
