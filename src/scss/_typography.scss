@@ -1,6 +1,7 @@
 @use 'sass:color';
 @use 'config' as *;
 @use 'config/utilities' as *;
+
 .text-xs {
   @include text-style-caption();
 }
@@ -118,7 +119,7 @@ ul,
 ol {
   margin: 0;
 
-  article & {
+  article:not(.content) & {
     padding: 0;
     padding-left: calc(1 / 12 * 100% + 1em);
     padding-right: calc(1 / 12 * 100% + 1em);

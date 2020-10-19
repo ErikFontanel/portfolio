@@ -1,0 +1,27 @@
+@use 'config' as *;
+
+.content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 1.2em;
+  }
+
+  ul {
+    margin: 0 0 1em;
+
+    li {
+      list-style: none;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: '-';
+        left: -1.5ch;
+        color: $color-primary;
+      }
+    }
+  }
+}
