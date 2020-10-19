@@ -9,5 +9,9 @@
     {% include "../project-nav.njk" %}
   {% endblock %}
 
+  {% block pageHeader %}
+    {% include "../page-header.njk" %}
+  {% endblock %}
+
   {{ content | safe }}
 {% endblock %}
