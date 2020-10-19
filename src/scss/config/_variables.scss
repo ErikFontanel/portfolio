@@ -2,12 +2,7 @@
 @use './colors' as *;
 @use 'utilities' as * with (
   $base-font-size: 10px,
-  $global-zindex: (navigation, modal, layer, body, background),
-  $shadows: (
-    rgba($color-black, 12%) 0 rem(1px) rem(2px) rem(0px),
-    rgba($color-black, 8%) 0 rem(3px) rem(6px) rem(-3px),
-    rgba($color-black, 8%) 0 rem(3px) rem(12px) rem(-6px)
-    )
+  $global-zindex: (navigation, modal, layer, body, background)
 );
 
 $color-primary: $color-blue;
