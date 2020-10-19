@@ -35,11 +35,8 @@
         <div class="info">
           {% block info %}
             {% if title %}
-              <h1 class="h-m">{{ title }}</h1>
+              <h1 class="h-m">{{ title|replace('Freelance', cta, 1)|safe }}</h1>
             {% endif %}
-
-            {{ content|replace('Freelance', cta, 1)|safe }}
-
             {% if about %}
               {% button
                 url = about.url,
@@ -57,7 +54,6 @@
       </div>
     {% endblock %}
   {% endblock %}
-
 
   {% block projects %}
     {% if projects %}
