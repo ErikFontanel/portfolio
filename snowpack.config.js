@@ -15,23 +15,19 @@ module.exports = {
     dist: '/',
     src: '/static',
   },
+  scripts: {
+    'run:11ty': 'eleventy --quiet',
+    'run:11ty::watch': '$1 --watch',
+  },
   plugins: [
     [
       '@snowpack/plugin-sass',
       {
         native: true,
-        compilerOptions: {
-          sourceMap: true,
-          embedSourceMap: true,
-          update: true,
-        },
+        compilerOptions: { update: true },
       },
     ],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
-    [
-      '@snowpack/plugin-run-script',
-      { cmd: 'eleventy', watch: '$1 --watch --quiet' },
-    ],
   ],
   devOptions: {
     port: 8080,
