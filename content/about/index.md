@@ -7,6 +7,27 @@ tags:
 
 Tree-shaped, not T-shaped
 
+Ever since I used a computer at the age of four, I have been captivated by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website (about Pokémon).
+
+For over 10 years I've been working professionally for clients on digital projects ranging from e-commerce platforms to web applications for start-ups.
+
+I founded Fontanel.nl, an online magazine that has grown to be the Dutch creative culture.
+
+Tinkering is in my blood. In my free time I like to work on my own projects. I have a 3D printer and used that to learn CAD (Fusion 360) and some basic electronics. Recently I built a steering wheel replica of a BMW M3 DTM race car and a steering wheel replica of the Porsche GT3R race car.
+
+## I have worked for
+Logo kerkhofje
+
+## Friends
+
+- Niek Dekker
+- Jordi van der Oord
+- Marc Vermeeren
+- Homerun.co
+- Timo Kuilder
+- StudioSpass
+- Stamkroeg
+
 > ## Hi, I’m Rachael
 >
 > I’m a specialist _SaaS_ and _B2B_ copywriter on a mission to turn the buttoned-up and boring world of business sales copy into something that speaks to real people -- not demographics.
