@@ -192,13 +192,6 @@ module.exports = function (eleventyConfig) {
     return path.split('/')[0];
   });
 
-  eleventyConfig.setBrowserSyncConfig({
-    https: {
-      key: 'snowpack.key',
-      cert: 'snowpack.crt',
-    },
-  });
-
   // You can return your Config object (optional).
   return {
     dir: {
