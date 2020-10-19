@@ -4,9 +4,9 @@
   @include effect-exclusion;
   mix-blend-mode: exclusion;
 
-  position: fixed;
-  top: calc(var(--gutter) * 2);
-  right: calc(var(--gutter) * 1);
+  position: sticky;
+  top: var(--gutter);
+  padding-right: var(--gutter);
   display: inline-flex;
   justify-content: flex-end;
   z-index: z-index(body);
