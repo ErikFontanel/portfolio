@@ -5,7 +5,7 @@ module.exports = {
   plugins: [
     require('postcss-media-minmax'),
     require('postcss-custom-media'),
-    isProduction()
+    ...(isProduction()
       ? require('postcss-preset-env')({
           autoprefixer: isProduction()
             ? {
@@ -13,11 +13,11 @@ module.exports = {
               }
             : false,
         })
-      : false,
-    isProduction
+      : []),
+    ...(isProduction()
       ? require('cssnano')({
           preset: 'default',
         })
-      : false,
+      : []),
   ],
 };

@@ -1,5 +1,5 @@
-{%- set cssPath = '/static/css/app.css' | url -%}
-{%- set jsPath = '/static/app.js' | url -%}
+{%- set cssPath = '/app.css' | url -%}
+{%- set jsPath = '/app.js' | url -%}
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -26,8 +26,8 @@
       {% endif %}
 
       <link rel="preload" as="style" href="{{ cssPath }}">
-      <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
     {% endif %}
+      <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
 
     <meta name="theme-color" content="{{ metadata.theme_color }}">
   </head>
@@ -55,7 +55,9 @@
       </template>
     {% endblock %}
 
-    <script type="module" src="{{ jsPath }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" integrity="sha512-yNJzAsg5JyP91u+sLHlUDULMBd3hmEiVkYeeN1cQBKaLZ7EyT6oH2u5THNIRM2Fu6VKcZJv+F/QAp1h/qzy9Ow==" crossorigin="anonymous"defer async></script>
+    <script src="{{ jsPath }}"></script>
+    {# <script type="module" src="{{ jsPath }}"></script> #}
 
     {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
   <script type="15fc1a45c18dbc577066fcf7-text/javascript">function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-4641190-1");</script> #}

@@ -10,6 +10,8 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "dev:eleventy": "eleventy --serve --quiet",
+    "dev:parcel": "parcel watch ./src/app.js",
+    "dev": "npx run-p \"dev:*\"",
     "build:critical": "./node_modules/.bin/critical dist/index.html -c src/css/app.css --base / > src/css/critical.css",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
     "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",

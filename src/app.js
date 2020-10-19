@@ -8,13 +8,13 @@ import Nav from './js/Nav';
 
 document.documentElement.classList.remove('no-js');
 
-if (import.meta.hot) {
-  import.meta.hot.accept(() => {
+if (module.hot) {
+  module.hot.accept(() => {
     // Accept the module, apply it to your application.
     console.log('hot reloading…');
   });
 
-  import.meta.hot.dispose(() => {
+  module.hot.dispose(() => {
     // Cleanup any side-effects. Optional.
   });
 }
