@@ -31,7 +31,11 @@ $nav-index: main, projects;
   transition-property: background, backdrop-filter;
   backface-visibility: hidden;
   backdrop-filter: saturate(100%) blur(0);
-  background-color: rgba(var(--color-background-overlay-rgb), 0);
+  background-color: rgba(var(--color-background-overlay-rgb-inverted), 0);
+
+  [data-showing-modal='true'] & {
+    background-color: rgba(var(--color-background-overlay-rgb), 0);
+  }
 
   > * {
     grid-column: 2;
@@ -39,8 +43,12 @@ $nav-index: main, projects;
 
   [data-showing-overlay='true'] & {
     pointer-events: auto;
-    background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+    background-color: rgba(var(--color-background-overlay-rgb-inverted), 0.5);
     backdrop-filter: saturate(140%) blur(#{rem(3px)});
+  }
+
+  [data-showing-modal='true'][data-showing-overlay='true'] & {
+    background-color: rgba(var(--color-background-overlay-rgb), 0.5);
   }
 }
 
@@ -119,7 +127,6 @@ nav {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    // transform: scale(0.625, 0.9625) rotate(5deg) translate3d(0, 10%, 0);
     transform: scale(0.8) translate3d(0, 10%, 0);
   }
 

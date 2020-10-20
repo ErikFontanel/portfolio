@@ -10,6 +10,10 @@
   --color-background: #{$color-background};
   --color-background-overlay: #{$color-background-overlay};
   --color-background-overlay-rgb: #{hexToRGB($color-background-overlay)};
+  --color-background-overlay-inverted: #{$color-background-overlay-inverted};
+  --color-background-overlay-rgb-inverted: #{hexToRGB(
+      $color-background-overlay-inverted
+    )};
   --color-background-modal: #{$color-background-overlay};
   --color-background-ui: #{$color-background-ui};
   --color-background-inverted: #{invert($color-background)};

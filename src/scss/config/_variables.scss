@@ -9,6 +9,7 @@ $color-primary: $color-blue;
 $color-background: $color-white;
 $color-background-inverted: color.invert($color-white);
 $color-background-overlay: $color-sky;
+$color-background-overlay-inverted: color.invert($color-sky);
 $color-background-modal: $color-blue-lightest;
 $color-background-ui: $color-white;
 
