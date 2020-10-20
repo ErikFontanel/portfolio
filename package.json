@@ -14,6 +14,7 @@
     "dev": "npx run-p \"dev:*\"",
     "build:critical": "./node_modules/.bin/critical dist/index.html -c src/css/app.css --base / > src/css/critical.css",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
+    "build:parcel": "parcel build ./src/app.js --no-content-hash",
     "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
     "build:snowpack": "snowpack build",
     "build:clean": "rm -rf ./dist/static/scss",
@@ -67,7 +68,7 @@
     "postcss-preset-env": "^6.7.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "sass": "^1.27.0",
-    "snowpack": "^2.14.3"
+    "snowpack": "^2.15.0"
   },
   "babel": {
     "presets": [
