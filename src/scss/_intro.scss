@@ -1,5 +1,5 @@
 .intro {
-  min-height: 100vh;
+  height: calc(100vh - var(--gutter));
   grid-template-rows: 100vh;
   position: sticky;
   background-color: var(--color-background-inverted);
@@ -7,7 +7,7 @@
   left: 0;
   width: 100vw;
   z-index: 1;
-  transition: opacity calc(var(--animation-duration-slow) * 3) linear;
+  transition: opacity calc(var(--animation-duration-slow) * 2) ease-out;
 
   &.grid {
     padding: 0;
@@ -39,5 +39,9 @@
 
   ~ * {
     z-index: 1;
+  }
+
+  + .projects {
+    padding-top: var(--gutter);
   }
 }

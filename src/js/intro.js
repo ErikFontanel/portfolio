@@ -50,22 +50,23 @@ orb2.position.z = -12;
 scene.add(orb);
 scene.add(orb2);
 
-function animate() {
-  requestAnimationFrame(animate);
-
+let animation;
+const scrolledPastTreshold = () => window.scrollY > window.innerHeight * 0.33;
+const animate = () => {
+  animation = requestAnimationFrame(animate);
   orb.rotation.x += 0.01;
   orb.rotation.y += 0.01;
   orb2.rotation.x += 0.01;
   orb2.rotation.y += 0.01;
 
-  orb2.position.x += 0.01;
-  orb2.position.y += 0.01;
-  orb2.position.z += 0.01;
-
   renderer.render(scene, camera);
-}
+};
 
-animate();
+if (module.hot) {
+  module.hot.accept(() => {
+    renderer.render(scene, camera);
+  });
+}
 
 function onWindowResize() {
   requestAnimationFrame(() => {
@@ -85,8 +86,36 @@ window.addEventListener('resize', debounce(onWindowResize), false);
 
 // Fade on scroll
 const intro = document.querySelector('.intro');
+
 function onScroll() {
-  intro.classList.toggle('is-hidden', window.scrollY);
+  intro.classList.toggle('is-hidden', scrolledPastTreshold());
+  if (scrolledPastTreshold()) {
+    intro.addEventListener(
+      'transitionend',
+      () => {
+        if (intro.classList.contains('is-hidden'))
+          cancelAnimationFrame(animation);
+      },
+      { passive: true, once: true }
+    );
+  }
+  if (!scrolledPastTreshold())
+    intro.addEventListener(
+      'transitionstart',
+      () => {
+        if (!intro.classList.contains('is-hidden')) {
+          animation = requestAnimationFrame(animate);
+        }
+      },
+      { passive: true, once: true }
+    );
 }
 
-window.addEventListener('scroll', debounce(onScroll), { passive: true });
+window.addEventListener('scroll', debounce(onScroll, 100), { passive: true });
+window.addEventListener(
+  'load',
+  (event) => {
+    if (!scrolledPastTreshold()) animation = requestAnimationFrame(animate);
+  },
+  { once: true, passive: true }
+);
