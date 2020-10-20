@@ -4,7 +4,6 @@ import fitvids from 'fitvids';
 import 'focus-visible';
 
 import Nav from './js/Nav';
-// import ProjectsList from './js/ProjectsList';
 
 document.documentElement.classList.remove('no-js');
 
@@ -21,8 +20,7 @@ if (module.hot) {
 
 const navMain = document.querySelector('.site-header');
 const carousels = document.querySelectorAll('.carousel');
-const isHome = () => document.querySelector('.home');
-// const projects = document.querySelectorAll('.projects');
+const isHome = document.querySelector('.home');
 
 fitvids();
 
@@ -33,6 +31,10 @@ if (carousels) {
   [...carousels].map((el) => new Carousel({ el: el }));
 }
 
-if (isHome()) {
-  import('./js/intro.js');
+if (isHome) {
+  import(
+    'https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'
+  ).then(() => {
+    import('./js/intro.js').then(() => {});
+  });
 }
