@@ -1,6 +1,5 @@
-// global THREE
-// import * as THREE from 'three/build/three.module.js';
-import { debounce } from 'lodash/debounce';
+/* global THREE */
+import { debounce } from 'lodash';
 const canvas = document.querySelector('canvas');
 const canvasWidth = canvas.parentElement.clientWidth;
 const canvasHeight = canvas.parentElement.clientHeight;
