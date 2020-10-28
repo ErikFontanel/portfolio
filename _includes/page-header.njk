@@ -1,18 +1,15 @@
-<header class="project-header project-item {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
+<header class="page-header {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
   {% if thumbnail %}
-    <div class="project-item--img" >
+    <div class="page-header--img" >
       {% image thumbnail, '', 'thumb', 'auto', 'alt='+project.data.title %}
-    </a>
     </div>
   {% endif %}
 
-  <div class="project-item--text">
-    {% if client %}
-      <h3 class="project-item--client  text-sub h-l">{{ client }}</h3>
-    {% endif %}
+  <div class="page-header--text">
+    {% if intro %}
 
-    {% if title %}
-      <h2 class="project-item--title h-xxl">{{ intro }}</h2>
+      <h1 class="page-header--title h-m">{{ title }}</h1>
+      <h2 class="page-header--intro h-xl">{{ intro }}</h2>
     {% endif %}
-
   </div>
+</header>

@@ -1,7 +1,7 @@
 /* global THREE */
 import debounce from 'lodash/debounce';
-const canvas = document.querySelector('canvas.intro');
-const parent = canvas.parentElement.parentElement;
+const canvas = document.querySelector('canvas.blobs');
+const parent = canvas.parentElement;
 const canvasWidth = parent.clientWidth;
 const canvasHeight = parent.clientHeight;
 
@@ -20,6 +20,8 @@ renderer.setSize(canvasWidth, canvasHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 let animation;
+camera.position.set(0, 0, 5);
+camera.lookAt(scene.position);
 
 camera.aspect = canvasWidth / canvasHeight;
 camera.updateProjectionMatrix();
@@ -51,13 +53,14 @@ scene.add(orb);
 scene.add(orb2);
 
 const animate = () => {
+  animation = requestAnimationFrame(animate);
+
   orb.rotation.x += 0.01;
   orb.rotation.y += 0.01;
   orb2.rotation.x += 0.01;
   orb2.rotation.y += 0.01;
 
   renderer.render(scene, camera);
-  animation = requestAnimationFrame(animate);
 };
 
 if (import.meta.hot) {
@@ -87,49 +90,29 @@ window.addEventListener('resize', debounce(onWindowResize), false);
 
 // Fade on scroll
 function onScroll(entries) {
-  entries
-    .filter((entry) => entry.isIntersecting)
-    .map((entry) => {
-      console.log('animation ' + animation);
-      const projectsTop = entry.boundingClientRect.top;
+  entries.map((entry) => {
+    entry.target.classList.toggle('is-hidden', entry.intersectionRatio < 0.5);
 
-      parent.classList.toggle(
-        'is-hidden',
-        projectsTop < window.innerHeight * 0.75
-      );
+    entry.target.addEventListener(
+      'transitionend',
+      () => cancelAnimationFrame(animation),
+      { passive: true, once: true }
+    );
+  });
 
-      parent.addEventListener(
-        'transitionend',
-        () => {
-          if (parent.classList.contains('is-hidden') && animation) {
-            cancelAnimationFrame(animation);
-            animation = undefined;
-          }
-        },
-        {
-          passive: true,
-          once: true,
-        }
-      );
-
-      parent.addEventListener(
-        'transitionstart',
-        () => {
-          if (!parent.classList.contains('is-hidden') && !animation) {
-            animation = requestAnimationFrame(animate);
-          }
-        },
-        {
-          passive: true,
-          once: true,
-        }
-      );
-    });
+  // target.addEventListener(
+  //   'transitionstart',
+  //   () => {
+  //     if (!target.classList.contains('is-hidden')) {
+  //       animation = requestAnimationFrame(animate);
+  //     }
+  //   },
+  //   { passive: true, once: true }
+  // );
 }
+// window.addEventListener('scroll', debounce(onScroll, 100), { passive: true });
 
-animation = requestAnimationFrame(animate);
 const observer = new IntersectionObserver(onScroll, {
-  threshold: [...Array(100).keys()].filter((n) => n > 0).map((i) => i * 0.01),
+  threshold: [...Array(10).keys()].map((i) => i * 0.1),
 });
-
-observer.observe(document.querySelector('.projects-wrapper'));
+observer.observe(parent);

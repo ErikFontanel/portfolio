@@ -46,14 +46,15 @@
           {% endblock %}
         </div>
 
-        <div class="object grid:full"><canvas></canvas></div>
+        <div class="object grid:full"><canvas class="intro"></canvas></div>
       </div>
     {% endblock %}
   {% endblock %}
 
   {% block projects %}
     {% if projects %}
-      <div class="projects">
+    <div class="projects-wrapper grid grid:full">
+      <div class="projects grid:wide">
         {% for project in projects %}
 
           {% include "../project-item.njk" %}
@@ -65,6 +66,7 @@
           {% endif %}
 
         {% endfor %}
+        </div>
       </div>
     {% endif %}
   {% endblock %}

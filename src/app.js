@@ -7,20 +7,11 @@ import Nav from './js/Nav';
 
 document.documentElement.classList.remove('no-js');
 
-if (module.hot) {
-  module.hot.accept(() => {
-    // Accept the module, apply it to your application.
-    console.log('hot reloading…');
-  });
-
-  module.hot.dispose(() => {
-    // Cleanup any side-effects. Optional.
-  });
-}
-
 const navMain = document.querySelector('.site-header');
 const carousels = document.querySelectorAll('.carousel');
 const isHome = document.querySelector('.home');
+const isIntro = document.querySelector('canvas.intro');
+const isBlobs = document.querySelector('canvas.blobs');
 
 fitvids();
 
@@ -31,10 +22,19 @@ if (carousels) {
   [...carousels].map((el) => new Carousel({ el: el }));
 }
 
-if (isHome) {
-  import(
-    'https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'
-  ).then(() => {
+let threejs;
+
+async function loadThree() {
+  if (isHome || isBlobs) {
+    threejs = await import(
+      'https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'
+    );
+  }
+  if (threejs && isIntro) {
     import('./js/intro.js').then(() => {});
-  });
+  }
+  if (threejs && isBlobs) {
+    // import('./js/blobs.js').then(() => {});
+  }
 }
+loadThree();

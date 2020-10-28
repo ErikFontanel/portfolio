@@ -1,12 +1,14 @@
+@use 'config' as *;
+
 .intro {
   height: calc(100vh - var(--gutter));
   grid-template-rows: 100vh;
   position: sticky;
   background-color: var(--color-background-inverted);
-  top: 0;
+  top: -1px;
   left: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: z-index(intro);
   transition: opacity calc(var(--animation-duration-slow) * 2) ease-out;
 
   &.grid {
@@ -44,4 +46,8 @@
   + .projects {
     padding-top: var(--gutter);
   }
+}
+.projects-wrapper {
+  background-color: var(--color-background);
+  z-index: z-index(body);
 }

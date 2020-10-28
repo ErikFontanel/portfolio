@@ -1,23 +1,42 @@
+@use 'config' as *;
+
+$z-index: (body, canvas);
 .page-item {
-  padding: var(--spacing-block) 0;
-  min-height: 100vh;
-  gap: 0 var(--gutter);
+  z-index: z-index(blobs);
+  transition: opacity calc(var(--animation-duration-slow) * 2) ease-out;
 
-  > * {
-    grid-column: wide;
-
-    @media (--tablet-up) {
-      grid-column-end: center;
-    }
-
-    + * {
-      margin-top: 1.5em;
-      margin-bottom: 0;
-    }
+  &.is-hidden {
+    opacity: 0;
   }
 
-  &--title {
-    grid-column-end: span 10;
-    max-width: 32ch;
+  canvas {
+    grid-row: 1 / 1;
+    z-index: z-index(canvas, $z-index);
+  }
+
+  &--wrapper {
+    padding: var(--spacing-block) 0;
+    min-height: 100vh;
+    gap: 0 var(--gutter);
+    grid-row: 1 / 1;
+    z-index: z-index(body, $z-index);
+
+    > * {
+      grid-column: wide;
+
+      @media (--tablet-up) {
+        grid-column-end: center;
+      }
+
+      + * {
+        margin-top: 1.5em;
+        margin-bottom: 0;
+      }
+    }
+
+    &--title {
+      grid-column-end: span 10;
+      max-width: 32ch;
+    }
   }
 }

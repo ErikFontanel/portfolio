@@ -19,3 +19,8 @@
     margin-top: calc(var(--gutter) * -1);
   }
 }
+
+.col.card {
+  background-color: #f8f9fa;
+  box-shadow: none;
+}

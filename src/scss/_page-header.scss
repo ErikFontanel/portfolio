@@ -2,5 +2,22 @@
 
 .page-header {
   grid-column: wide;
-  padding: var(--gutter);
+  min-height: 66vh;
+  display: grid;
+  // grid-template-areas:
+  //   'img'
+  //   'text'
+  //   'meta';
+  // align-content: end;
+
+  &--text {
+    display: flex;
+    flex-flow: row wrap;
+    padding-bottom: var(--spacing-block);
+    align-items: flex-end;
+  }
+
+  &--title {
+    margin-bottom: auto;
+  }
 }

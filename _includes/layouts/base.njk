@@ -1,5 +1,5 @@
-{%- set cssPath = '/app.css' | url -%}
-{%- set jsPath = '/app.js' | url -%}
+{%- set cssPath = '/static/app.css' | url -%}
+{%- set jsPath = '/static/app.js' | url -%}
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -13,6 +13,7 @@
     <link rel="alternate icon" href="{{ '/static/img/favicon.ico' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="preload" as="font" href="/static/fonts/Inter.var.woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/static/fonts/iosevka-ss01-extended.woff2" crossorigin="anonymous">
 
     {% if env.environment === 'production' %}
       {% set criticalcss %}
@@ -55,8 +56,7 @@
       </template>
     {% endblock %}
 
-    <script src="{{ jsPath }}"></script>
-    {# <script type="module" src="{{ jsPath }}"></script> #}
+    <script type="module" src="{{ jsPath }}"></script>
 
     {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
   <script type="15fc1a45c18dbc577066fcf7-text/javascript">function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-4641190-1");</script> #}

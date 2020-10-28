@@ -24,4 +24,19 @@
       }
     }
   }
+
+  .button {
+    --button-color: var(--color-text);
+    --button-background-color: var(--color-label-background);
+
+    &:hover {
+      --button-color: var(--color-text-inverted);
+      --button-background-color: var(--color-primary);
+    }
+  }
+}
+.page .content {
+  > *:not(.block) {
+    grid-column: center / wide;
+  }
 }

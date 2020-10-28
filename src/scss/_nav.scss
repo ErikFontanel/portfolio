@@ -9,7 +9,7 @@ $nav-index: main, projects;
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding: font-size(medium);
+  padding: var(--gutter);
   pointer-events: none;
   z-index: z-index(navigation);
 

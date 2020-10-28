@@ -23,11 +23,7 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
   border: none;
   border-radius: 9999em;
   font-family: $font-stack-base;
-  font-size: clamp(
-    #{font-size(small)},
-    vw(font-size(small)),
-    #{font-size(medium)}
-  );
+  font-size: font-size(medium);
   line-height: 1;
   height: 2.2em;
   padding: 0.25em 1em;
@@ -145,11 +141,7 @@ button {
   @extend %button;
 
   &_large {
-    font-size: clamp(
-      #{font-size(small)},
-      #{vw(font-size(medium))},
-      #{font-size(large)}
-    );
+    font-size: font-size(medium);
   }
 
   &_outline {
@@ -287,10 +279,6 @@ button {
   --button-color: #{$color-ink-lighter};
   height: 2em;
   background-color: var(--color-label-background);
-  font-size: clamp(
-    #{font-size(tiny)},
-    #{vw(font-size(tiny))},
-    #{font-size(extra-small)}
-  );
+  font-size: font-size(tiny);
   border-radius: 9999em;
 }

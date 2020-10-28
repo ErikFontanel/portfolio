@@ -79,7 +79,6 @@ body {
   padding: 0;
   background-color: var(--color-background-inverted, #{$color-background});
   transition: background-color $transition-default;
-
   &[data-loading] {
     // opacity: 0;
   }

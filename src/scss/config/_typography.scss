@@ -1,3 +1,5 @@
+@use 'sass:map';
+@use 'sass:list';
 @use 'variables' as *;
 @use 'utilities' as *;
 /// Returns the font size for a given text style and variant.
@@ -6,10 +8,29 @@
 /// @param {String} $variant [base] - The variant on the font-size.
 /// @return {Number} The font-size for the text-style.
 @function font-size($variant) {
-  $fetched-font-size: map-get($font-sizes, $variant);
+  $fetched-font-size: map.get($font-sizes, $variant);
+  $list: map.keys($font-sizes);
+  $length: list.length($list);
+  $index: list.index($list, $variant);
+
+  $smaller: if(
+    $index < $length,
+    list.nth($list, $index + 1),
+    list.nth($list, $index)
+  );
+
+  $bigger: if(
+    $index > $length or $index == 1,
+    list.nth($list, $index),
+    list.nth($list, $index - 1)
+  );
 
   @if type-of($fetched-font-size) {
-    @return $fetched-font-size;
+    @return clamp(
+      #{map.get($font-sizes, $smaller)},
+      #{vw($fetched-font-size)},
+      #{map.get($font-sizes, $bigger)}
+    );
   } @else {
     @error 'Font size `#{$variant}` not found.';
   }
@@ -35,11 +56,7 @@
   font-family: $font-stack-base;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(
-    #{font-size(extra-small)},
-    #{vw(font-size(extra-small))},
-    #{font-size(small)}
-  );
+  font-size: font-size(extra-small);
   line-height: line-height(caption);
   font-variation-settings: 'wght' 320, 'slnt' 0;
   letter-spacing: -0.04em;
@@ -49,11 +66,7 @@
   font-family: $font-stack-base;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(
-    #{font-size(small)},
-    #{vw(font-size(medium))},
-    #{font-size(large)}
-  );
+  font-size: font-size(medium);
   line-height: clamp(
     #{line-height(extra-small)},
     #{line-height(small)},
@@ -67,11 +80,7 @@
   font-family: $font-stack-base;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(
-    #{font-size(extra-small)},
-    #{vw(font-size(small))},
-    #{font-size(small)}
-  );
+  font-size: font-size(small);
   line-height: line-height(small);
   font-variation-settings: 'wght' 320, 'slnt' 0;
   letter-spacing: -0.04em;
@@ -81,11 +90,7 @@
   font-family: $font-stack-base;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(
-    #{font-size(small)},
-    #{vw(font-size(medium))},
-    #{font-size(large)}
-  );
+  font-size: font-size(medium);
   line-height: line-height(medium);
   font-variation-settings: 'wght' 320, 'slnt' 0;
   letter-spacing: -0.04em;
@@ -93,11 +98,7 @@
 
 @mixin text-style-large {
   font-family: $font-stack-base;
-  font-size: clamp(
-    #{font-size(small)},
-    #{vw(font-size(large))},
-    #{font-size(extra-large)}
-  );
+  font-size: font-size(large);
   line-height: line-height(extra-large);
   font-variation-settings: 'wght' 320, 'slnt' 0;
   letter-spacing: -0.04em;
@@ -105,11 +106,7 @@
 
 @mixin text-style-extra-large {
   font-family: $font-stack-base;
-  font-size: clamp(
-    #{font-size(large)},
-    #{vw(font-size(extra-large))},
-    #{font-size(extra-large)}
-  );
+  font-size: font-size(extra-large);
   line-height: line-height(extra-large);
   font-variation-settings: 'wght' 320, 'slnt' 0;
   letter-spacing: -0.04em;
@@ -117,11 +114,7 @@
 
 @mixin text-style-extra-extra-large {
   font-family: $font-stack-base;
-  font-size: clamp(
-    #{font-size(extra-large)},
-    #{vw(font-size(extra-extra-large))},
-    #{font-size(extra-extra-large)}
-  );
+  font-size: font-size(extra-extra-large);
   line-height: line-height(extra-extra-large);
   font-variation-settings: 'wght' 420, 'slnt' -8;
   letter-spacing: -0.04em;

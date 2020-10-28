@@ -1,4 +1,4 @@
-@use 'config/variables' as *;
+@use 'config' as *;
 .grid {
   display: grid;
   // prettier-ignore
@@ -38,7 +38,7 @@
   --padding: var(--gutter);
 
   display: grid;
-  gap: $spacing-base var(--gutter);
+  gap: calc(var(--gutter) / 2) var(--gutter);
   grid-template-columns: var(--gutter);
   grid-auto-columns: calc(75vmin - var(--gutter));
   scroll-behavior: smooth;
@@ -67,6 +67,24 @@
 
   > :not(figcaption) {
     grid-column: auto / span 1;
+  }
+}
+
+.grid\:3 {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  // grid-auto-columns: 1fr;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gutter);
+  .col {
+    flex: 1 0 320px;
+    font-size: font-size(small);
+    padding: var(--gutter);
+
+    > p {
+      font-size: 1em;
+    }
   }
 }
 

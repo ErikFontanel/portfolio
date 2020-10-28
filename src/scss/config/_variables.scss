@@ -2,7 +2,7 @@
 @use './colors' as *;
 @use 'utilities' as * with (
   $base-font-size: 10px,
-  $global-zindex: (navigation, modal, layer, body, background)
+  $global-zindex: (navigation, modal, layer, body, blobs, intro, background)
 );
 
 $color-primary: $color-blue;
@@ -40,7 +40,7 @@ $font-sizes: (
   'extra-extra-large': rem(56px),
   'extra-large': rem(42px),
   'large': rem(32px),
-  'medium': rem(28px),
+  'medium': rem(24px),
   'small': rem(18px),
   'extra-small': rem(14px),
   'tiny': rem(11px),
@@ -50,8 +50,8 @@ $line-heights: (
   'extra-extra-large': 1.1,
   'extra-large': 1.2,
   'large': 1.2,
-  'medium': 1.5,
-  'small': 1.5,
+  'medium': 1.6,
+  'small': 1.6,
   'extra-small': 1.2,
 );
 
