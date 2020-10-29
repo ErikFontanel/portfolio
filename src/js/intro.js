@@ -40,8 +40,9 @@ const geometry = new THREE.IcosahedronGeometry(2, 1);
 const orb = new THREE.Mesh(geometry, material);
 const orb2 = new THREE.Mesh(geometry, material);
 
-orb.position.x = 5;
-orb.position.y = 3;
+orb.position.x = 1;
+orb.position.y = 0;
+orb.position.z = -6;
 
 orb2.position.x = -3;
 orb2.position.y = -1;
@@ -61,7 +62,7 @@ const animate = () => {
 };
 
 if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
+  import.meta.hot.accept(() => {
     renderer.render(scene, camera);
   });
   import.meta.hot.dispose(() => {
@@ -90,7 +91,6 @@ function onScroll(entries) {
   entries
     .filter((entry) => entry.isIntersecting)
     .map((entry) => {
-      console.log('animation ' + animation);
       const projectsTop = entry.boundingClientRect.top;
 
       parent.classList.toggle(

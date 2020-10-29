@@ -27,14 +27,14 @@ let threejs;
 async function loadThree() {
   if (isHome || isBlobs) {
     threejs = await import(
-      'https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'
+      'https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js'
     );
   }
   if (threejs && isIntro) {
     import('./js/intro.js').then(() => {});
   }
   if (threejs && isBlobs) {
-    // import('./js/blobs.js').then(() => {});
+    import('./js/blobs.js').then(() => {});
   }
 }
 loadThree();
