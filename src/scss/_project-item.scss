@@ -33,7 +33,7 @@
     grid-area: img;
 
     border-radius: $radius;
-    background-color: $color-sky-lighter;
+    background-color: var(--color-background);
     display: grid;
     overflow: hidden;
 
