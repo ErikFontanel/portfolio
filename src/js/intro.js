@@ -130,6 +130,7 @@ function onScroll(entries) {
 animation = requestAnimationFrame(animate);
 const observer = new IntersectionObserver(onScroll, {
   threshold: [...Array(100).keys()].filter((n) => n > 0).map((i) => i * 0.01),
+  rootMargin: '200px 0px',
 });
 
 observer.observe(document.querySelector('.projects-wrapper'));
