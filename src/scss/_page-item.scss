@@ -3,29 +3,30 @@
 $z-index: (body, canvas);
 .page-item {
   z-index: z-index(blobs);
-  transition: opacity calc(var(--animation-duration-slow) * 2) ease-out;
-
-  &.is-hidden {
-    opacity: 0;
-  }
 
   canvas {
     grid-row: 1 / 1;
     z-index: z-index(canvas, $z-index);
+    transition: opacity calc(var(--animation-duration-slow) * 2) ease-out;
+
+    &.is-hidden {
+      opacity: 0;
+    }
   }
 
   &--wrapper {
     padding: var(--spacing-block) 0;
-    min-height: 100vh;
+    min-height: 133vh;
     gap: 0 var(--gutter);
     grid-row: 1 / 1;
     z-index: z-index(body, $z-index);
+    align-content: center;
 
     > * {
       grid-column: wide;
 
       @media (--tablet-up) {
-        grid-column-end: center;
+        grid-column: center / wide;
       }
 
       + * {
