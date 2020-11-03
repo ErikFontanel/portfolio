@@ -40,7 +40,7 @@ const geometry = new THREE.IcosahedronGeometry(2, 4);
 
 function buildTwistMaterial(amount) {
   const material = new THREE.MeshNormalMaterial();
-  material.wireframe = true;
+  material.wireframe = false;
   material.onBeforeCompile = function (shader) {
     shader.uniforms.time = { value: 0 };
 
@@ -51,7 +51,7 @@ function buildTwistMaterial(amount) {
         `float theta = sin( time + position.y ) / ${amount.toFixed(1)};`,
         'float c = cos( theta );',
         'float s = sin( theta );',
-        'mat3 m = mat3( c, 0, s, 0, 1, 0, -s, 0, c );',
+        'mat3 m = mat3( c, 0, s, 0, 1, 0, -s, 0, -c );',
         'vec3 transformed = vec3( position ) * m;',
         'vNormal = vNormal * m;',
       ].join('\n')
