@@ -1,6 +1,7 @@
 ---
 thumbnail: at-thumb.jpg
 client: Ace & Tate
+date: 2020-01-02
 title: Future proof e-commerce platform for a growing direct-to-consumer eyewear brand
 logo: logo-aceandtate.svg
 tags:

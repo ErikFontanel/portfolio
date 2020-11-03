@@ -1,6 +1,7 @@
 ---
 thumbnail: porsche-thumb.jpg
 client: Porsche
+date: 2020-01-05
 title: Ever dreamed of owning a Porsche?
 tags:
   - project

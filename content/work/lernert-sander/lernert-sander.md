@@ -1,5 +1,6 @@
 ---
 client: Lernert & Sander
+date: 2020-01-03
 title: Award winning mini-campaign for Lernert & Sander
 thumbnail: 'ls-thumb.jpg'
 logo: 'ls-logo.svg'

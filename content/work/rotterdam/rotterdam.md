@@ -1,3 +1,16 @@
+---
+thumbnail: rotterdam-thumb.png
+client: Rotterdam Tourist Information
+date: 2020-01-06
+title: Everything seems possible here, and there’s so much left to explore.
+tags:
+  - project
+  - interaction design
+  - visual design
+role: UX design
+team: Studio Dumbar
+---
+
 ## Rotterdam Tourist Information —
 
 # Everything seems possible here, and there’s so much left to explore.

@@ -1,6 +1,16 @@
-## Fontanel—
-
-# The platform for dutch creative culture since 2006
+---
+thumbnail: fontanel-thumb.png
+client: Fontanel
+date: 2020-01-08
+title: The platform for dutch creative culture since 2006
+tags:
+  - project
+  - ux design
+  - development
+  - editor
+Role: Founder
+Team: Thomas Moes, Willem van Roosmalen et al.
+---
 
 Almost 15 years ago I founded [Fontanel](https://fontanel.nl). Launched in 2006, Fontanel started as a small blog and grew out to become one of the most popular platforms to discover talent, events and jobs in Dutch creative culture. Now Fontanel explores Dutch creative culture and careers, through interviews with leading creatives, a selection of events and helps creatives find a job at a Dutch agency, brand or startup.
 

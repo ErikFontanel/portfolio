@@ -1,5 +1,6 @@
 ---
 client: Let It Grow
+date: 2020-01-04
 title: Showcasing global green initiatives through a design sprint
 thumbnail: lig-thumb.png
 tags:

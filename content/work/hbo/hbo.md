@@ -1,6 +1,7 @@
 ---
 thumbnail: hbo-thumb.jpg
 client: HBO
+date: 2020-01-07
 title: It's not TV, it's HBO
 tags:
   - project

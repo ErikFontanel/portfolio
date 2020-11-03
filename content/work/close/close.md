@@ -1,5 +1,7 @@
 ---
+thumbnail: close-thumb.jpg
 client: Close
+date: 2020-01-01
 title: SaaS platform for an event marketing start-up
 tags:
   - project
