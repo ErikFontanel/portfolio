@@ -12,8 +12,13 @@
   justify-content: flex-end;
   z-index: z-index(body);
   grid-column: full;
+  margin-bottom: -1.7em;
 
   .button {
     color: inherit;
+  }
+
+  .modal & {
+    top: calc(-2 * var(--gutter));
   }
 }
