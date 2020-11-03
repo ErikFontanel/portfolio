@@ -39,15 +39,11 @@
     }
   }
 
-  ~ * {
+  > * {
     z-index: 1;
   }
 
   + .projects {
     padding-top: var(--gutter);
   }
-}
-.projects-wrapper {
-  background-color: var(--color-background);
-  z-index: z-index(body);
 }
