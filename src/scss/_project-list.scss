@@ -47,4 +47,10 @@
 .home .projects {
   background-color: var(--color-background);
   z-index: 2;
+  box-shadow: rgba($color-black, 0.8) 0 rem(-1px) $spacing-block * 2 $gutter;
+}
+
+.projects-wrapper {
+  background-color: var(--color-background);
+  z-index: z-index(body);
 }
