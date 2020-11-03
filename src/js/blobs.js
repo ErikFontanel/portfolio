@@ -6,7 +6,7 @@ const canvasWidth = parent.clientWidth;
 const canvasHeight = parent.clientHeight;
 
 const scene = new THREE.Scene();
-const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -35,8 +35,8 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 // orb geometry
-// const geometry = new THREE.BoxGeometry(3, 4, 8, 2, 3, 4);
-const geometry = new THREE.IcosahedronGeometry(2, 1);
+const twistGeometry = new THREE.IcosahedronGeometry(4, 4);
+const geometry = new THREE.IcosahedronGeometry(2, 4);
 
 function buildTwistMaterial(amount) {
   const material = new THREE.MeshNormalMaterial();
@@ -70,29 +70,43 @@ function buildTwistMaterial(amount) {
 }
 
 // create orb
-const orb = new THREE.Mesh(geometry, material);
-const orb2 = new THREE.Mesh(geometry, buildTwistMaterial(2.0));
+const orb = new THREE.Mesh(geometry, buildTwistMaterial(2.0));
+const orb2 = new THREE.Mesh(twistGeometry, buildTwistMaterial(3.0));
+const orb3 = new THREE.Mesh(geometry, buildTwistMaterial(4.0));
 
 orb2.name = 'twist';
 
-orb.position.x = -8;
-orb.position.y = 3;
-orb.position.z = -4;
+orb.position.x = 14;
+orb.position.y = 8;
+orb.position.z = -12;
 
 orb2.position.x = -3;
 orb2.position.y = -1;
-orb2.position.z = -12;
+orb2.position.z = -10;
+
+orb3.position.x = 12;
+orb3.position.y = -7;
+orb3.position.z = -14;
 
 scene.add(orb);
 scene.add(orb2);
+scene.add(orb3);
 
+let speed = 0.01;
+let direction = 1;
 const animate = () => {
   animation = requestAnimationFrame(animate);
 
-  orb.rotation.x += 0.01;
-  orb.rotation.y += 0.01;
-  orb2.rotation.x += 0.01;
-  orb2.rotation.y += 0.01;
+  orb.rotation.x += 0.002;
+  orb.rotation.y += 0.002;
+  orb2.rotation.x += 0.002;
+  orb2.rotation.y -= 0.002;
+
+  if (orb.position.x > 15 || orb.position.x < -15) {
+    direction = -1;
+  }
+
+  orb.position.x += speed * direction;
 
   scene.traverse(function (child) {
     if (child.isMesh) {
