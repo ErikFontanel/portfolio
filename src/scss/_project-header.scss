@@ -16,11 +16,10 @@
   overflow: hidden;
 
   @media (--mobile-up) {
-    grid-template-rows: minmax(auto, 80vh) auto;
+    grid-template-rows: 100vh auto;
 
     &.portrait\:2-col {
       grid-template-areas:
-        'text img'
         'text img'
         'meta img';
       grid-template-columns: 1fr 1fr;
@@ -34,14 +33,19 @@
     display: flex;
     flex-flow: column;
     max-height: 100vh;
+    height: 100%;
+    padding: calc(var(--gutter) * 2);
 
-    padding: 0 calc(var(--gutter) * 2) calc(var(--spacing-block) * 0.5);
+    .project-item--title {
+      margin: auto 0;
+    }
   }
 
   .project-item--img {
     grid-area: img;
     border-radius: 0;
     --ratio: calc(100% / (3 / 4));
+
     &::before {
       border-radius: 0;
     }

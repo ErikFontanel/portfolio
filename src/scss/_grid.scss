@@ -48,7 +48,8 @@
     @media (--mobile) {
       grid-auto-flow: column;
       overflow: auto;
-      grid-template-columns: 12.5vmin 80vmin;
+      grid-template-columns: var(--gutter) calc(80vmin - var(--gutter));
+      justify-content: start;
 
       &::after,
       &::before {
@@ -77,6 +78,7 @@
   display: flex;
   flex-flow: row wrap;
   gap: var(--gutter);
+
   .col {
     flex: 1 0 320px;
     font-size: font-size(small);
@@ -98,6 +100,8 @@
 }
 
 .grid\:main {
-  grid-column: main;
-  width: auto;
+  @media (--mobile-up) {
+    grid-column: main;
+    width: auto;
+  }
 }
