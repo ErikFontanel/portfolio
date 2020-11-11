@@ -18,8 +18,9 @@ fitvids();
 if (navMain) new Nav(navMain);
 
 if (carousels) {
-  const Carousel = import('./js/carousel');
-  [...carousels].map((el) => new Carousel({ el: el }));
+  import('./js/Carousel').then(({ default: Carousel }) => {
+    [...carousels].map((el) => new Carousel({ el: el }));
+  });
 }
 
 let threejs;
