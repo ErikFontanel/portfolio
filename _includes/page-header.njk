@@ -1,7 +1,7 @@
 <header class="page-header {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
   {% if thumbnail %}
     <div class="page-header--img" >
-      {% image thumbnail, '', 'thumb', 'auto', 'alt='+project.data.title %}
+      {% image thumbnail, '', 'thumb', 'auto', 'alt='+page.data.title %}
     </div>
   {% endif %}
 

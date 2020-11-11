@@ -142,10 +142,13 @@ $gallery-index: (caption, images);
   }
 }
 
-.gallery .devices img,
 .device {
   border-radius: $radius;
-  filter: drop-shadow(0px 0px 12px rgba(0 0 0 / 50%));
+  filter: drop-shadow(0px 0px 12px rgba(0 0 0 / 8%));
+
+  img {
+    border-radius: $radius;
+  }
 }
 
 .carousel {
@@ -165,6 +168,7 @@ $gallery-index: (caption, images);
     grid-column: 1;
     width: auto;
     height: 100%;
+    cursor: e-resize;
   }
 
   figcaption {
