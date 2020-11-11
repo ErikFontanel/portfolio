@@ -1,6 +1,8 @@
 ---
 title: About
-layout: ./layouts/page.njk
+thumbnail: hellothisismeyourelookingfor.jpg
+layout: ./layouts/about.njk
+intro: ▪︎ one who experiments with materials and ideas to fully understand their capacities, and who further iterates on their learning to find better solutions to current problems.
 tags:
   - page
 ---
@@ -15,18 +17,47 @@ I founded Fontanel.nl, an online magazine that has grown to be the Dutch creativ
 
 Tinkering is in my blood. In my free time I like to work on my own projects. I have a 3D printer and used that to learn CAD (Fusion 360) and some basic electronics. Recently I built a steering wheel replica of a BMW M3 DTM race car and a steering wheel replica of the Porsche GT3R race car.
 
-## I have worked for
-Logo kerkhofje
 
-## Friends
 
-- Niek Dekker
-- Jordi van der Oord
-- Marc Vermeeren
-- Homerun.co
-- Timo Kuilder
-- StudioSpass
+I'm a Product Designer / Front-end Designer with over 10 years of experience creating digital products for brands and start-ups.
+
+I like to fulfil an architect like role, being the translator between the designers intent, the developer's technical implementations, the user's experience and the business goals.
+
+As a front-end developer I am specialised in creating a responsive and performant experience using HTML, SCSS and Javascript. I'm specialised in CSS, in particular the architecture of css in design systems, browser quirks and performance.
+
+In the past I have founded [Fontanel](https://fontanel.nl), a platform supporting Dutch creative careers through exclusive magazine content, a job board, an active community and collaborations with brands.
+
+## Side projects
+
+In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino's and electronics and [Fusion 360](https://www.autodesk.com/products/fusion-360/overview) to create things like these:
+
+
+- [BMW M3 DTM Steering Wheel replica](/work/bmw-m3-dtm-steering-wheel)
+- [Porsche GT3R Steering Wheel replica](/work/porsche-gt3r-steering-wheel)
+
+<aside>
+
+### Friends
+
+- [Frederique Matti](https://frederiquematti.com)
+- [Homerun](https://homerun.co)
+- [Jordi van der Oord](https://jordivanderoord.com)
+- [Marc Vermeeren](https://marcvermeeren.com)
+- [Niek Dekker](https://niekdekker.com)
+- [Timo Kuilder](https://timokuilder.com)
+- [StudioSpass](https://studiospass.com)
 - Stamkroeg
+
+</aside>
+
+<aside>
+
+### Colophon
+
+Fonts in use: Inter Variable by Rasmus Anderson, Iosevka Extended by Belleve Invis.
+Built with [Eleventy](https://www.11ty.dev/), [Snowpack](https://www.snowpack.dev/) and [three.js](http://threejs.org/), hosted on [Netlify](https://netlify.com).
+
+</aside>
 
 > ## Hi, I’m Rachael
 >
