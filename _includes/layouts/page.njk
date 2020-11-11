@@ -1,4 +1,4 @@
-{% extends "./base.njk" %}
+{%- extends "./base.njk" -%}
 
 {%- block bodyClass -%}page{%- endblock -%}
 
@@ -12,7 +12,11 @@
   {% block pageHeader %}
     {% include "../page-header.njk" %}
   {% endblock %}
-  <article class="content grid grid:full">
-    {{ content | safe }}
-  </article>
+
+  {% block pageContent %}
+    <article class="content grid grid:full">
+      {{ content | safe }}
+    </article>
+  {% endblock %}
+
 {% endblock %}
