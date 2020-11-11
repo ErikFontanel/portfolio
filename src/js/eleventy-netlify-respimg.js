@@ -94,7 +94,7 @@ function image(context, file, cssClasses, preset, loading, alt) {
   }
 
   const { src, srcset, sizes } = getSrcset(imgUrl, preset);
-  alt = `alt="${alt}"`;
+  alt = alt ? `alt="${alt}"` : '';
   const { width, height } = dimensions;
 
   return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt}>`;
