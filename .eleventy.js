@@ -82,6 +82,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
 
+  eleventyConfig.addPassthroughCopy('content/work/matter/site');
+
   const mdOptions = {
     html: true,
     breaks: true,
