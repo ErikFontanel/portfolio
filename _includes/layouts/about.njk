@@ -1,0 +1,22 @@
+{%- extends "./page.njk" -%}
+
+{%- block bodyClass -%}page page-about{%- endblock -%}
+
+{% block main %}
+  {% block pageHeader %}
+      {% include "../project-header.njk" %}
+    {% endblock %}
+
+  {% block pageContent %}
+    <article class="content grid grid:full">
+      {{ content | safe }}
+    </article>
+  {% endblock %}
+
+
+  <h2>Side projects</h2>
+  {% set projects = collections['side-project'] %}
+{% set projectsClass = 'grid:3' %}
+  {% include "../projects-list.njk" %}
+
+{% endblock %}
