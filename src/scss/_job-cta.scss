@@ -9,11 +9,10 @@
   &::after {
     content: '*';
     display: inline;
-    color: #ff0000;
+    color: var(--color-background);
     font-size: 0.75em;
     position: relative;
     margin-left: -0.5ex;
-    top: -0.66ex;
   }
 }
 .job-cta {
@@ -21,20 +20,24 @@
   z-index: z-index(body);
   display: block;
   width: 140px;
-  font-size: 0.75em;
-  top: calc(-100% - 1.25ch);
-  left: calc(100% - 70px - 0.33ch);
+  font-size: font-size(medium);
+  top: calc(-100% - 0.33ex);
+  left: calc(100% - 70px - 0.43ch);
   transform-origin: 50% 47.5%;
   transition: $transition-slow $transition-timing;
   transition-property: opacity, transform;
 
-  :not(:hover) & {
-    opacity: 0;
-    transform: scale(0.01);
+  #asterisks {
+    fill: #ff0000;
   }
 
-  #asterisks {
-    fill: transparent;
+  #curve {
+    transition: $transition-slow $transition-timing;
+    transition-property: opacity, transform;
+    transform-origin: center;
+    :not(:hover) & {
+      transform: scale(0.01);
+    }
   }
 
   #jobText {
@@ -42,6 +45,11 @@
     animation: rotateText infinite 3s linear;
     transform-origin: center;
     letter-spacing: 0.025em;
+    transition: $transition-slow $transition-timing;
+    transition-property: opacity, transform;
+    :not(:hover) & {
+      opacity: 0;
+    }
   }
 }
 @keyframes rotateText {
