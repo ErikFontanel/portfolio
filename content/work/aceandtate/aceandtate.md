@@ -14,7 +14,6 @@ list_layout: portrait:2-col
 role: Design Lead
 team: "Jordi van der Oord, Joram van den Boezem, Joris Fritzsche, Jons Janssens
 (and others, most with a name not starting with J)"
-
 ---
 
 For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition; Affordable and fashionable glasses to go with any outfit and occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
@@ -41,14 +40,14 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
   caption: 'Product Detail page',
   css: 'carousel device'
 } %}
-  {% image 'at-pdp1.png' %}
-  {% image 'at-pdp2.png' %}
   {% image 'at-pdp3.png' %}
+  {% image 'at-pdp2.png' %}
+  {% image 'at-pdp1.png' %}
 {% endgallery %}
 
 {% gallery {
   caption: 'Product Category page',
-  css: 'carousel devices'
+  css: 'carousel device'
 } %}
 {% image 'at-pcp1.png' %}
 {% image 'at-pcp2.png' %}
