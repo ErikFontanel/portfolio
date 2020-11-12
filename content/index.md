@@ -6,5 +6,6 @@ pagination:
   size: 999
   alias: projects
 bodyClass: index
-title: Freelance product designer and front-end developer with over 10 years of experience working on the internet, available now
+title: Freelance product designer and front-end developer with over 10 years of experience working on the internet
+subtitle: Currently available for new collaborations
 ---
