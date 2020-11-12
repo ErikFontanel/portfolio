@@ -9,6 +9,10 @@
     margin-bottom: 1.2em;
   }
 
+  *:not(p) + * {
+    margin-top: 1em;
+  }
+
   ul {
     margin: 0 0 1em;
 

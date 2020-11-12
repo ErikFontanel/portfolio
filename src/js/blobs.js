@@ -1,12 +1,14 @@
 /* global THREE */
 import debounce from 'lodash/debounce';
+import EventBus from './EventBus';
+
 const canvas = document.querySelector('canvas.blobs');
 const parent = canvas.parentElement;
 const canvasWidth = parent.clientWidth;
 const canvasHeight = parent.clientHeight;
 
 const scene = new THREE.Scene();
-const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false });
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -146,6 +148,19 @@ function onWindowResize() {
 
 window.addEventListener('resize', debounce(onWindowResize), false);
 
+function pauseAnimation() {
+  cancelAnimationFrame(animation);
+  animation = undefined;
+  renderer.dispose();
+  console.log('paused');
+}
+
+function resumeAnimation() {
+  renderer.render(scene, camera);
+  animation = requestAnimationFrame(animate);
+  console.log('resumed');
+}
+
 // Fade on scroll
 function onScroll(entries) {
   entries.map((entry) => {
@@ -186,3 +201,6 @@ const observer = new IntersectionObserver(onScroll, {
   rootMargin: `${window.innerHeight * 0.5}px 0px`,
 });
 observer.observe(parent);
+
+EventBus.on('modal:show', pauseAnimation);
+EventBus.on('modal:hide', resumeAnimation);

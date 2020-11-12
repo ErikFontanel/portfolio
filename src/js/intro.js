@@ -30,7 +30,7 @@ renderer.render(scene, camera);
 
 // orb material
 const material = new THREE.MeshBasicMaterial({
-  color: 0xffffff,
+  color: 0x313fff,
   wireframe: true,
 });
 
@@ -51,26 +51,17 @@ orb2.position.y = -1;
 orb2.position.z = -12;
 
 scene.add(orb);
-scene.add(orb2);
+// scene.add(orb2);
 
 const animate = () => {
-  orb.rotation.x += 0.01;
-  orb.rotation.y += 0.01;
+  orb.rotation.x -= 0.005;
+  orb.rotation.y -= 0.005;
   orb2.rotation.x += 0.01;
   orb2.rotation.y += 0.01;
 
   renderer.render(scene, camera);
   animation = requestAnimationFrame(animate);
 };
-
-if (import.meta.hot) {
-  import.meta.hot.accept(() => {
-    renderer.render(scene, camera);
-  });
-  import.meta.hot.dispose(() => {
-    // Cleanup any side-effects. Optional.
-  });
-}
 
 function onWindowResize() {
   requestAnimationFrame(() => {
@@ -88,6 +79,19 @@ function onWindowResize() {
 
 window.addEventListener('resize', debounce(onWindowResize), false);
 
+function pauseAnimation() {
+  cancelAnimationFrame(animation);
+  animation = undefined;
+  renderer.dispose();
+  console.log('paused');
+}
+
+function resumeAnimation() {
+  renderer.render(scene, camera);
+  animation = requestAnimationFrame(animate);
+  console.log('resumed');
+}
+
 // Fade on scroll
 function onScroll(entries) {
   entries
@@ -104,8 +108,7 @@ function onScroll(entries) {
         'transitionend',
         () => {
           if (parent.classList.contains('is-hidden') && animation) {
-            cancelAnimationFrame(animation);
-            animation = undefined;
+            pauseAnimation();
           }
         },
         {
@@ -118,7 +121,7 @@ function onScroll(entries) {
         'transitionstart',
         () => {
           if (!parent.classList.contains('is-hidden') && !animation) {
-            animation = requestAnimationFrame(animate);
+            resumeAnimation();
           }
         },
         {
@@ -136,3 +139,6 @@ const observer = new IntersectionObserver(onScroll, {
 });
 
 observer.observe(document.querySelector('.projects-wrapper'));
+
+EventBus.on('modal:show', pauseAnimation);
+EventBus.on('modal:hide', resumeAnimation);
