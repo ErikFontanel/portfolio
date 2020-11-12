@@ -42,6 +42,14 @@
   &:first-of-type {
     padding-top: var(--gutter);
   }
+
+  &.grid\:3 {
+    @media (--mobile-up) {
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+      gap: 0 var(--gutter);
+      grid-column: full;
+    }
+  }
 }
 
 .home .projects {

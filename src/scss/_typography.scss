@@ -92,6 +92,10 @@ p {
   a > & {
     color: $color-text;
   }
+
+  .single-body & + * {
+    margin-top: 1em;
+  }
 }
 
 p {

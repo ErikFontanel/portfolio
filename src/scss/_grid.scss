@@ -72,9 +72,6 @@
 }
 
 .grid\:3 {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  // grid-auto-columns: 1fr;
   display: flex;
   flex-flow: row wrap;
   gap: var(--gutter);
