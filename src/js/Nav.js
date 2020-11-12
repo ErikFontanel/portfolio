@@ -1,4 +1,5 @@
 import Modal from './Modal';
+import EventBus from './EventBus';
 
 export default class Nav {
   constructor(el) {
@@ -90,9 +91,10 @@ export default class Nav {
       .then((modal) => {
         this.hide();
         modal.show();
-        modal.el.addEventListener('modal:show', this);
-        modal.el.addEventListener('modal:hide', this);
-        modal.el.addEventListener('modal:disabled', this);
+
+        EventBus.on('modal:show', () => this);
+        EventBus.on('modal:hide', () => this);
+        EventBus.on('modal:disabled', () => this);
       })
       .catch((err) => console.error(err));
   }

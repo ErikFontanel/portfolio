@@ -1,5 +1,7 @@
 /* global THREE */
 import debounce from 'lodash/debounce';
+import EventBus from './EventBus';
+
 const canvas = document.querySelector('canvas.intro');
 const parent = canvas.parentElement.parentElement;
 const canvasWidth = parent.clientWidth;

@@ -1,3 +1,5 @@
+import EventBus from './EventBus';
+
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
@@ -76,11 +78,7 @@ export default class Modal {
       () => {
         this.el.classList.remove('animating', 'animation:slideInUp');
 
-        let event = new CustomEvent('modal:show', {
-          detail: { ...this.pageDetails },
-        });
-
-        this.el.dispatchEvent(event);
+        EventBus.emit('modal:show', { ...this.pageDetails });
       },
       {
         passive: true,
@@ -117,10 +115,8 @@ export default class Modal {
 
         body.dataset.showingModal = false;
 
-        let event = new CustomEvent('modal:hide', {
-          detail: { ...this.pageDetails },
-        });
-        this.el.dispatchEvent(event);
+        EventBus.emit('modal:hide', { ...this.pageDetails });
+
         this.destroy();
       },
       { passive: true, once: true }
@@ -141,11 +137,7 @@ export default class Modal {
     this.el.addEventListener(
       'animationend',
       () => {
-        let event = new CustomEvent('modal:disabled', {
-          detail: this,
-        });
-
-        this.el.dispatchEvent(event);
+        EventBus.emit('modal:disabled', this);
       },
       {
         passive: true,
