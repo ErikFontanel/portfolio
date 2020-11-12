@@ -66,7 +66,7 @@ export default class Modal {
 
     this.el
       .querySelector('.button[data-close-modal]')
-      .addEventListener('click', this.close.bind(this), {
+      ?.addEventListener('click', this.close.bind(this), {
         passive: false,
         once: true,
       });
