@@ -1,23 +1,14 @@
-{%- set cta -%}
-  <abbr aria-label="open to job offers" class="jobs-cta">
-    Freelance {%- include "cta-jobs.njk" -%}
-  </abbr>
-{%- endset -%}
-
-<div class="intro">
+<div class="intro grid grid:full">
   <div class="info">
-    {% if title %}
-      <h1 class="h-m">{{ title }}</h1>
-    {% endif %}
-
-    {{ content|replace('Freelance', cta, 1)|safe }}
-    {% if about %}
-      {% button
-        url = about.url,
-        label = 'about' if about
-        %}
-    {% endif %}
+    {% block info %}
+      {% if title %}
+        <h1 class="h-xl">{{- title|replace('Freelance', cta, 1)|safe -}}</h1>
+      {% endif %}
+      {% if subtitle %}
+        <h2 class="h-m">{{ subtile }}</h2>
+      {% endif %}
+    {% endblock %}
   </div>
 
-  {% include "cta.njk" %}
+  <div class="object grid:full"><canvas class="intro"></canvas></div>
 </div>
