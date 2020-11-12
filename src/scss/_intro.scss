@@ -22,8 +22,15 @@
   .info {
     grid-row: 1;
     z-index: 1;
+    grid-column: wide;
+    padding: var(--gutter) 0;
     align-self: center;
-    grid-column: wide / center;
+
+    @media (--tablet-up) {
+      align-self: start;
+      padding: calc(var(--gutter) * 2) var(--gutter);
+      grid-column: wide / span 8;
+    }
   }
 
   .object {

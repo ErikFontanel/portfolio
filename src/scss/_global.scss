@@ -34,7 +34,7 @@
   --border-radius: #{$radius};
   --border-radius-large: #{$radius-large};
 
-  @media (--tablet-down) {
+  @media (--mobile) {
     --gutter: #{$gutter / 2};
     --spacing-block: #{$spacing-block};
   }
