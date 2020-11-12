@@ -1,19 +1,17 @@
 ---
 title: About
-thumbnail: hellothisismeyourelookingfor.jpg
+# thumbnail: hellothisismeyourelookingfor.jpg
 layout: ./layouts/about.njk
-intro: ▪︎ one who experiments with materials and ideas to fully understand their capacities, and who further iterates on their learning to find better solutions to current problems.
+intro: ▪︎ Tree-shaped, not T-shaped
 tags:
   - page
 ---
-
-Tree-shaped, not T-shaped
 
 Ever since I used a computer at the age of four, I have been captivated by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website (about Pokémon).
 
 For over 10 years I've been working professionally for clients on digital projects ranging from e-commerce platforms to web applications for start-ups.
 
-I founded Fontanel.nl, an online magazine that has grown to be the Dutch creative culture.
+I founded Fontanel.nl, an online magazine that has grown to be the Dutch creative culture. Launched in 2006, [FONTANEL](https://fontanel.nl) started as a small blog and grew out to become one of the most popular platforms to discover talent, events and jobs in Dutch creative culture.
 
 Tinkering is in my blood. In my free time I like to work on my own projects. I have a 3D printer and used that to learn CAD (Fusion 360) and some basic electronics. Recently I built a steering wheel replica of a BMW M3 DTM race car and a steering wheel replica of the Porsche GT3R race car.
 
@@ -31,9 +29,6 @@ In the past I have founded [Fontanel](https://fontanel.nl), a platform supportin
 
 In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino's and electronics and [Fusion 360](https://www.autodesk.com/products/fusion-360/overview) to create things like these:
 
-
-- [BMW M3 DTM Steering Wheel replica](/work/bmw-m3-dtm-steering-wheel)
-- [Porsche GT3R Steering Wheel replica](/work/porsche-gt3r-steering-wheel)
 
 ::: aside
 
