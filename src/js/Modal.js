@@ -73,12 +73,16 @@ export default class Modal {
         once: true,
       });
 
+    this.el.addEventListener('animationstart', () =>
+      EventBus.emit('modal:beforeShow', { ...this.pageDetails })
+    );
+
     this.el.addEventListener(
       'animationend',
       () => {
         this.el.classList.remove('animating', 'animation:slideInUp');
 
-        EventBus.emit('modal:show', { ...this.pageDetails });
+        EventBus.emit('modal:beforeShow', { ...this.pageDetails });
       },
       {
         passive: true,

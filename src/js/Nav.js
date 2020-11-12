@@ -92,9 +92,10 @@ export default class Nav {
         this.hide();
         modal.show();
 
-        EventBus.on('modal:show', () => this);
-        EventBus.on('modal:hide', () => this);
-        EventBus.on('modal:disabled', () => this);
+        EventBus.on('modal:beforeShow', this['onmodal:beforeShow'].bind(this));
+        EventBus.on('modal:show', this['onmodal:show'].bind(this));
+        EventBus.on('modal:hide', this['onmodal:hide'].bind(this));
+        EventBus.on('modal:disabled', this['onmodal:disabled'].bind(this));
       })
       .catch((err) => console.error(err));
   }
@@ -103,16 +104,20 @@ export default class Nav {
     this['on' + event.type](event);
   }
 
+  ['onmodal:beforeShow'](event) {
+    this.updateActiveLink(event);
+  }
+
   ['onmodal:show'](event) {
-    this.updateActiveLink(event.detail);
+    // this.updateActiveLink(event);
   }
 
   ['onmodal:hide'](event) {
-    this.unsetActiveLink(event.detail);
+    this.unsetActiveLink(event);
   }
 
   ['onmodal:disabled'](event) {
-    event.detail.destroy();
+    event.destroy();
   }
 
   unsetActiveLink(detail) {
