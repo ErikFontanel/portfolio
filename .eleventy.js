@@ -12,6 +12,7 @@ const markdownItBlockEmbed = require('markdown-it-block-embed');
 const markdownItImplicitFigures = require('markdown-it-implicit-figures');
 const markdownItBlockEmbedLocalService = require('./src/js/markdown-it-local-embed');
 const markdownItLazyImg = require('./src/js/markdown-it-lazy');
+const markdownItContainer = require('markdown-it-container');
 
 const Gallery = require('./src/js/Gallery.js');
 const List = require(`${componentsDir}/List.js`);
@@ -103,6 +104,9 @@ module.exports = function (eleventyConfig) {
     'md',
     markdownIt(mdOptions)
       .use(markdownItAttrs)
+      .use(markdownItContainer, 'section')
+      .use(markdownItContainer, 'section-3col')
+      .use(markdownItContainer, 'aside')
       .use(markdownItLinkAttrs, mdLinkAttrOptions)
       .use(markdownItAnchor)
       .use(markdownItLazyImg, responsiveImagesConfig)
