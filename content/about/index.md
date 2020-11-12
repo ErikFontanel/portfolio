@@ -35,7 +35,7 @@ In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino'
 - [BMW M3 DTM Steering Wheel replica](/work/bmw-m3-dtm-steering-wheel)
 - [Porsche GT3R Steering Wheel replica](/work/porsche-gt3r-steering-wheel)
 
-<aside>
+::: aside
 
 ### Friends
 
@@ -48,16 +48,15 @@ In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino'
 - [StudioSpass](https://studiospass.com)
 - Stamkroeg
 
-</aside>
-
-<aside>
+:::
+::: aside
 
 ### Colophon
 
 Fonts in use: Inter Variable by Rasmus Anderson, Iosevka Extended by Belleve Invis.
 Built with [Eleventy](https://www.11ty.dev/), [Snowpack](https://www.snowpack.dev/) and [three.js](http://threejs.org/), hosted on [Netlify](https://netlify.com).
 
-</aside>
+:::
 
 > ## Hi, I’m Rachael
 >
