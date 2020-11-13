@@ -52,8 +52,6 @@ body[data-showing-overlay='true'] {
 }
 
 [data-showing-modal='true'] {
-  background-color: rgba(var(--color-background-overlay-rgb), 0.5);
-
   > .wrapper {
     transform: scale(0.9);
     filter: saturate(140%) blur(#{rem(3px)});
