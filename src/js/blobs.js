@@ -76,15 +76,18 @@ const orb = new THREE.Mesh(geometry, buildTwistMaterial(2.0));
 const orb2 = new THREE.Mesh(twistGeometry, buildTwistMaterial(3.0));
 const orb3 = new THREE.Mesh(geometry, buildTwistMaterial(4.0));
 
+orb.name = 'top';
 orb2.name = 'twist';
+orb3.name = 'bottom';
 
 orb.position.x = 14;
 orb.position.y = 8;
 orb.position.z = -12;
 
-orb2.position.x = -3;
+orb2.position.x = -6;
 orb2.position.y = -1;
 orb2.position.z = -10;
+orb2.scale.set(1.5, 1.5, 1.5);
 
 orb3.position.x = 12;
 orb3.position.y = -7;
@@ -95,7 +98,9 @@ scene.add(orb2);
 scene.add(orb3);
 
 let speed = 0.01;
-let direction = 1;
+let directionx = 1;
+let directiony = -1;
+
 const animate = () => {
   animation = requestAnimationFrame(animate);
 
@@ -105,10 +110,14 @@ const animate = () => {
   orb2.rotation.y -= 0.002;
 
   if (orb.position.x > 15 || orb.position.x < -15) {
-    direction = -1;
+    directionx = -1;
+  }
+  if (orb.position.y > 15 || orb.position.y < -15) {
+    directiony = -1;
   }
 
-  orb.position.x += speed * direction;
+  orb.position.x += speed * directionx;
+  orb.position.y += speed * directiony;
 
   scene.traverse(function (child) {
     if (child.isMesh) {
