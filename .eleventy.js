@@ -16,6 +16,7 @@ const markdownItContainer = require('markdown-it-container');
 
 const Gallery = require('./src/js/Gallery.js');
 const List = require(`${componentsDir}/List.js`);
+const Canvas = require(`${componentsDir}/Canvas.js`);
 const Button = require(`${componentsDir}/Button.js`);
 const Label = require(`${componentsDir}/Label.js`);
 
@@ -159,6 +160,7 @@ module.exports = function (eleventyConfig) {
 
   // Custom components
   eleventyConfig.addNunjucksShortcode('button', Button);
+  eleventyConfig.addNunjucksShortcode('canvas', Canvas);
   eleventyConfig.addNunjucksShortcode('label', Label);
   eleventyConfig.addPairedNunjucksShortcode('list', List);
 
