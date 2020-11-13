@@ -13,18 +13,22 @@
     }
   }
 
+  p {
+    margin-bottom: 1.2em;
+  }
+
   ul {
     margin: 0 0 1em;
+    position: relative;
+    padding-left: calc(var(--gutter) * 2);
 
     li {
       list-style: none;
-      position: relative;
 
       &:before {
         position: absolute;
-        content: '-';
-        left: -1.5ch;
-        color: $color-primary;
+        content: '→';
+        left: 0.5ch;
       }
     }
   }
@@ -36,6 +40,7 @@
     &:hover {
       --button-color: var(--color-text-inverted);
       --button-background-color: var(--color-primary);
+      --button-hover-border-color: var(--button-hover-border-color);
     }
   }
 }
@@ -47,28 +52,78 @@
 }
 
 .section {
-  &:first-of-type {
-    padding: var(--gutter);
-    grid-column: full;
-    color: var(--color-text-inverted);
-    background-color: var(--color-background-inverted);
-  }
+  position: relative;
+  padding: var(--spacing-block) var(--gutter);
+  grid-column: full;
+  color: var(--color-text-inverted);
+  background-color: var(--color-background-inverted);
+  min-height: 100vh;
+
   @media (--tablet-up) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 var(--gutter);
-    grid-column: wide;
-    margin: var(--spacing-block) 0;
     align-items: baseline;
+    padding-bottom: calc(var(--spacing-block) * 2);
   }
-}
 
-.section-3col {
-  @media (--tablet-up) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0 var(--gutter);
-    grid-column: wide;
+  &:first-of-type {
+    margin-top: var(--spacing-block);
+  }
+
+  &:nth-of-type(even) {
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+
+  > h1,
+  > h2 {
+    @include text-style-extra-large;
+
+    @media (--tablet-up) {
+      grid-column: 1;
+      grid-row: 1;
+      position: sticky;
+      top: var(--gutter);
+      margin-bottom: 0;
+    }
+  }
+  > * {
+    grid-column: 2;
+    z-index: 1;
+  }
+
+  > img {
+    grid-column: 1;
+  }
+
+  .canvas {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    grid-column: auto;
+  }
+
+  .col {
+    font-size: font-size(small);
+
+    h3 {
+      font-size: inherit;
+      font-family: inherit;
+      margin: 0;
+      color: var(--color-text-sub);
+    }
+
+    ul {
+      padding: 0;
+
+      li::before {
+        content: unset;
+      }
+    }
   }
 }
 

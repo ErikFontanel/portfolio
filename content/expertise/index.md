@@ -1,12 +1,12 @@
 ---
 title: Expertise
-intro: • one who experiments with materials and ideas to fully understand their capacities, and who further iterates on their learning to find better solutions to current problems.
+intro: ▪︎ one who experiments with materials and ideas to fully understand their capacities, and who further iterates on their learning to find better solutions to current problems.
 layout: ./layouts/page.njk
 tags:
   - page
 ---
 
-As a **Digital Product Designer** and **Front-End Developer** I design and develop innovative digital products for the internet in the realm of e-commerce and digital products (SaaS).
+As a **Digital Product Designer** and **Front-End Developer** I help clients translate their vision and business goals into interactive digital products through an interdisciplinary understanding of design, development and strategy.
 
 In everything I do, I'm interested in how design and technology can intersect to create the best possible outcome for the user and the business.
 
@@ -14,13 +14,18 @@ In everything I do, I'm interested in how design and technology can intersect to
 
 ## What I Do
 
-I collaborate with brands and startups to help them translate their vision and business goals into interactive digital products through an interdisciplinary understanding of design, development and strategy. I lead design teams, setup collaborative workflows, scaled design systems, hold workshops, and coach and train designers.
+My main focus is **digital product design**. I like to fulfil an architect like role, being the translator between the designers intent, the developer's technical implementation, the user's experience and the business' goals.
+
+I create concepts, architect user flows and design interfaces. I lead design teams, setup interdisciplinary workflows, scaled design systems, hold workshops, and coaching and training of your designers.
+
+{# {% canvas name='blobs' %} #}
 
 :::
+::: section
 
-## Working at the intersection of
+## My capabilities
 
-::: section-3col
+I'm working at the intersection of the following disciplines:
 
 <div class="col">
 
@@ -32,7 +37,6 @@ I collaborate with brands and startups to help them translate their vision and b
 - UI Design
 
 </div>
-
 <div class="col">
 
 ### Front-end Development
@@ -42,7 +46,6 @@ I collaborate with brands and startups to help them translate their vision and b
 - Prototyping
 
 </div>
-
 <div class="col">
 
 ### Strategy & Management
@@ -52,8 +55,6 @@ I collaborate with brands and startups to help them translate their vision and b
 - Training & Workshops
 
 </div>
-</div>
-
 :::
 ::: section
 
@@ -65,6 +66,6 @@ I collaborate with brands and startups to help them translate their vision and b
 - You have an idea, a budget and a team but don't know where to start
 - You want to create a digital product with a great user experience
 
-{% button label = 'hiv', url = 'mailto:hello@erikgelderblom.com', size = 'large' %}
+{% button label = 'Let\'s collaborate', url = 'mailto:hello@erikgelderblom.com', size = 'large' %}
 
 :::
