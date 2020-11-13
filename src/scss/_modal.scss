@@ -43,7 +43,10 @@ body[data-showing-overlay='true'] {
     box-shadow: shadow(2);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    padding-bottom: var(--spacing-block);
+
+    .modal:not([data-slug='expertise']) & {
+      padding-bottom: var(--spacing-block);
+    }
   }
 
   &--body > .wrapper {

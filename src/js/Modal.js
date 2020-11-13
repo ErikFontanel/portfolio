@@ -21,7 +21,7 @@ export default class Modal {
     frag.innerHTML = data;
 
     const unneededElements = frag.content.querySelectorAll(
-      '*:scope > *:not(main)'
+      '*:scope > *:not(main):not(.site-footer)'
     );
     const assets = frag.content.querySelectorAll(
       'img[src], img[srcset]',
@@ -58,6 +58,7 @@ export default class Modal {
 
   show() {
     this.el = this.template.content.firstElementChild;
+    this.el.dataset.slug = this.pageDetails.slug;
 
     if (this.animateParent)
       wrapper.classList.add('animating', 'animation:scaleInDown');
