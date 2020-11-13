@@ -15,25 +15,33 @@ const getDimensions = (img) => {
   }
 
   const imgurl = url.parse(`${process.env.URL}${img}`);
-  const req = http.get(imgurl, function (response) {
-    const chunks = [];
-    response
-      .on('data', function (chunk) {
-        chunks.push(chunk);
-      })
-      .on('end', function () {
-        const buffer = Buffer.concat(chunks);
-        if (buffer) {
-          const { width, height } = sizeOf(buffer);
-          if (width && height) return { width: width, height: height };
-        }
 
-        return { width: '100%', height: 'auto' };
-      })
-      .on('error', (error) => console.error(error));
-  });
+  try {
+    const req = http.get(imgurl, function (response) {
+      const chunks = [];
+      response
+        .on('data', function (chunk) {
+          chunks.push(chunk);
+        })
+        .on('end', function () {
+          const buffer = Buffer.concat(chunks);
+          if (buffer) {
+            const { width, height } = sizeOf(buffer);
+            if (width && height) return { width: width, height: height };
+          }
 
-  req.on('error', (e) => console.error(e));
+          return { width: '100%', height: 'auto' };
+        })
+        .on('error', (error) => {
+          return { width: '100%', height: 'auto' };
+        });
+    });
+    req.on('error', (e) => {
+      return { width: '100%', height: 'auto' };
+    });
+  } catch (error) {
+    return { width: '100%', height: 'auto' };
+  }
 };
 
 const getSrcset = (url, preset = 'default', args) => {
@@ -48,6 +56,8 @@ const getSrcset = (url, preset = 'default', args) => {
       }
     });
 
+  options = options[preset];
+
   let {
     min_width,
     max_width,
@@ -55,7 +65,7 @@ const getSrcset = (url, preset = 'default', args) => {
     steps,
     sizes,
     resize,
-  } = options[preset];
+  } = options;
 
   resize = resize || 'fit';
   sizes = sizes || '100vw';
@@ -78,8 +88,10 @@ const getSrcset = (url, preset = 'default', args) => {
   };
 };
 
-function image(context, file, cssClasses, preset, loading, alt) {
-  let dimensions;
+function image(context, file, cssClasses, preset, loading = 'lazy', alt) {
+  let dimensions = { width: '100%', height: 'auto' };
+  let width = '100%';
+  let height = 'auto';
 
   const imgUrl = file.startsWith('/') ? file : `${context.ctx.page.url}${file}`;
 
@@ -95,7 +107,11 @@ function image(context, file, cssClasses, preset, loading, alt) {
 
   const { src, srcset, sizes } = getSrcset(imgUrl, preset);
   alt = alt ? `alt="${alt}"` : '';
-  const { width, height } = dimensions;
+
+  if (!dimensions) {
+    width = '100%';
+    height = 'auto';
+  }
 
   return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt}>`;
 }
