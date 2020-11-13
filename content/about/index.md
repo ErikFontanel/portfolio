@@ -7,7 +7,7 @@ tags:
   - page
 ---
 
-Ever since I used a computer at the age of four, I have been captivated by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website (about Pokémon).
+For over ten years I have been working as a freelance digital designer, collaborating with clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products. Ever since I used a computer at the age of four, I have been intrigued by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website in sixth grade (about Pokémon).
 
 For over 10 years I've been working professionally for clients on digital projects ranging from e-commerce platforms to web applications for start-ups.
 
