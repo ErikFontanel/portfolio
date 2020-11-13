@@ -8,7 +8,7 @@
   h5 {
     margin-bottom: 1.2em;
 
-    *:not + &:not(:first-child) {
+    * + & {
       margin-top: 2em;
     }
   }
@@ -46,7 +46,7 @@
 }
 
 .page .content {
-  > *:not(.block):not(.section):not(.section-3col):not {
+  > *:not(.block):not(.section) {
     grid-column: center / wide;
   }
 }
@@ -93,6 +93,7 @@
       margin-bottom: 0;
     }
   }
+
   > * {
     grid-column: 2;
     z-index: 1;
