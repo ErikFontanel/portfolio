@@ -53,22 +53,27 @@
 
 .section {
   position: relative;
-  padding: var(--spacing-block) var(--gutter);
+  padding: var(--spacing-block) var(--gutter) 0;
   grid-column: full;
-  color: var(--color-text-inverted);
-  background-color: var(--color-background-inverted);
-  min-height: 100vh;
 
   @media (--tablet-up) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 var(--gutter);
     align-items: baseline;
-    padding-bottom: calc(var(--spacing-block) * 2);
+    align-content: start;
+    grid-auto-rows: auto;
+  }
+
+  &:not(:last-child) {
+    color: var(--color-text-inverted);
+    background-color: var(--color-background-inverted);
   }
 
   &:first-of-type {
+    min-height: 100vmin;
     margin-top: var(--spacing-block);
+    padding-bottom: calc(var(--spacing-block) * 2);
   }
 
   &:nth-of-type(even) {
@@ -109,6 +114,7 @@
 
   .col {
     font-size: font-size(small);
+    grid-column: auto / span 1;
 
     h3 {
       font-size: inherit;
@@ -124,6 +130,26 @@
         content: unset;
       }
     }
+  }
+
+  .button_large {
+    margin-top: calc(var(--gutter) * 0.5);
+  }
+}
+
+[data-slug='expertise'] .section:nth-of-type(2) {
+  grid-template-columns: [title] 1fr repeat(3, [col] 1fr);
+
+  > *:not(.col):not(h1):not(h2) {
+    grid-column: col 1 / -1;
+  }
+
+  > h2 {
+    grid-column: title / col;
+  }
+
+  .col:first-of-type {
+    grid-column: col 1;
   }
 }
 
