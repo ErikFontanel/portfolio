@@ -2,9 +2,9 @@ module.exports = {
   homepage: '/',
   installOptions: {
     namedExports: ['lodash'],
-    // rollup: {
-    //   plugins: [require('rollup-plugin-node-polyfills')()],
-    // },
+    rollup: {
+      plugins: [require('rollup-plugin-node-polyfills')()],
+    },
   },
   buildOptions: {
     clean: true,
