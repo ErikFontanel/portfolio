@@ -2,7 +2,6 @@
 title: About
 thumbnail: hellothisismeyourelookingfor.jpg
 layout: ./layouts/about.njk
-intro: ▪︎ Tree-shaped, not T-shaped
 tags:
   - page
 ---

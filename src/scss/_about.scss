@@ -2,67 +2,113 @@
 
 .page-about {
   .page-content {
-    padding-top: var(--gutter);
-    padding-bottom: var(--spacing-block);
     place-content: start;
+    padding-top: var(--gutter);
+    padding-bottom: calc(var(--spacing-block) * 2);
 
     @media (--tablet-up) {
+      grid-column: wide;
       grid-template-areas:
+        'title . .'
         'main pic .'
         'main . aside';
 
       grid-template-columns: 3fr 2fr 1fr;
       column-gap: calc(var(--gutter) * 2);
+      width: 100%;
     }
 
     .page-content--text {
-      grid-area: main;
+      @media (--tablet-up) {
+        grid-area: main;
+      }
     }
 
     aside {
-      grid-area: aside;
-
       > div + div {
         margin-top: 2em;
       }
-    }
 
-    .portrait {
-      align-self: stretch;
-      object-fit: contain;
-      grid-area: pic;
-    }
+      @media (--tablet-up) {
+        grid-area: aside;
 
-    .page-header--title {
-      margin-bottom: 2em;
-    }
+        &.colophon {
+          grid-area: colophon;
+        }
 
-    .page-header--intro {
-      margin-top: 0;
-    }
-
-    aside {
-      &.colophon {
-        grid-area: colophon;
-      }
-
-      &.friends {
-        grid-area: friends;
+        &.friends {
+          grid-area: friends;
+        }
       }
     }
   }
 
+  .portrait {
+    align-self: stretch;
+    object-fit: cover;
+
+    @media (--mobile) {
+      grid-row: 1;
+      margin-top: calc(var(--gutter) * -1);
+      margin-bottom: var(--spacing-block);
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    @media (--tablet-up) {
+      object-fit: cover;
+      object-position: 50%;
+      margin: 0;
+      grid-area: pic;
+    }
+  }
+
+  .page-header--title {
+    grid-area: title;
+    margin-bottom: 2em;
+
+    @media (--mobile) {
+      grid-row: 1;
+      grid-column: wide;
+      z-index: z-index(body);
+      position: sticky;
+      top: var(--gutter);
+      mix-blend-mode: exclusion;
+      color: white;
+      margin-bottom: 0;
+      margin-top: 0.2em;
+      left: 0;
+      font-size: font-size(medium);
+    }
+  }
+
+  .page-header--intro {
+    margin-top: 0;
+  }
+
   .side-projects {
+    margin-top: 0;
+
     .section--title {
-      align-self: start;
+      @media (--mobile) {
+        grid-column: wide;
+        margin-bottom: 1em;
+      }
     }
 
     @media (--tablet-up) {
       grid-template-columns: repeat(4, 1fr);
 
+      .section--title {
+        align-self: start;
+      }
+
       .projects {
         grid-column: 2 / -1;
       }
+
       .project-item--title {
         font-size: font-size(medium);
       }

@@ -1,20 +1,30 @@
-@use 'config' as *;
 .grid {
   display: grid;
   // prettier-ignore
   grid-template-columns:
-    [full-start] var(--gutter)
-    [wide-start] 1fr 1fr
-    [main-start] repeat(4, 1fr)
-    [center] repeat(4, 1fr)
-    [main-end] 1fr 1fr
-    [wide-end] var(--gutter)
+    [full-start] 0
+    [wide-start] var(--gutter)
+    [main-start] 1fr
+    [center] 1fr
+    [main-end] var(--gutter)
+    [wide-end] 0
     [full-end];
   grid-auto-columns: auto;
   grid-auto-rows: auto;
   gap: 0 var(--gutter);
   align-items: start;
   align-content: start;
+
+  @media (--tablet-up) {
+    grid-template-columns:
+      [full-start] var(--gutter)
+      [wide-start] 1fr 1fr
+      [main-start] repeat(4, 1fr)
+      [center] repeat(4, 1fr)
+      [main-end] 1fr 1fr
+      [wide-end] var(--gutter)
+      [full-end];
+  }
 
   > * {
     grid-column: wide;

@@ -5,17 +5,18 @@
 {% block pageHeader %}
 {% endblock %}
 
-
-
 {% block pageContent %}
-  <article class="page-content grid grid:wide">
+  <article class="page-content grid grid:full">
+    {% if title %}
+      <h1 class="page-header--title h-l">{{ title }}</h1>
+    {% endif %}
+
     {% if thumbnail %}
       {% image thumbnail, 'portrait', 'thumb', 'auto' %}
     {% endif %}
 
     <div class="page-content--text">
       {% if intro %}
-        <h1 class="page-header--title h-l">{{ title }}</h1>
         <h2 class="page-header--intro h-xl">{{ intro }}</h2>
       {% endif %}
 
