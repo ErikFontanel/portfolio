@@ -2,10 +2,10 @@
   <div class="info">
     {% block info %}
       {% if title %}
-        <h1 class="h-xl">{{- title|replace('Freelance', cta, 1)|safe -}}</h1>
+        <h1 class="h-l intro--title">{{- title|replace('Freelance', cta, 1)|safe -}}</h1>
       {% endif %}
       {% if subtitle %}
-        <h2 class="h-m">{{ subtitle }}</h2>
+        <h2 class="h-s intro--subtitle">{{ subtitle }}</h2>
       {% endif %}
     {% endblock %}
   </div>

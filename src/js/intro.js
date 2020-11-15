@@ -8,18 +8,18 @@ const canvasWidth = parent.clientWidth;
 const canvasHeight = parent.clientHeight;
 
 const scene = new THREE.Scene();
-const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 
 const camera = new THREE.PerspectiveCamera(
   75,
   canvasWidth / canvasHeight,
   0.1,
-  1000
+  2000
 );
 
-scene.background = new THREE.Color('#000');
 renderer.setSize(canvasWidth, canvasHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setClearColor(0xffffff, 0);
 
 let animation;
 
@@ -35,29 +35,40 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 // orb geometry
-// const geometry = new THREE.BoxGeometry(3, 4, 8, 2, 3, 4);
-const geometry = new THREE.IcosahedronGeometry(2, 1);
+const geometry = new THREE.IcosahedronGeometry(2, 6);
 
 // create orb
 const orb = new THREE.Mesh(geometry, material);
-const orb2 = new THREE.Mesh(geometry, material);
 
-orb.position.x = 1;
-orb.position.y = 0;
-orb.position.z = -6;
-
-orb2.position.x = -3;
-orb2.position.y = -1;
-orb2.position.z = -12;
+orb.scale.set(3, 3, 3);
+orb.position.set(8, -2, -10);
 
 scene.add(orb);
-// scene.add(orb2);
+
+let speed = 0.001;
+let rotationSpeed = 0.0005;
+let directionx = -1;
+let directiony = 1;
+let directionz = -1;
 
 const animate = () => {
-  orb.rotation.x -= 0.005;
-  orb.rotation.y -= 0.005;
-  orb2.rotation.x += 0.01;
-  orb2.rotation.y += 0.01;
+  orb.rotation.x -= rotationSpeed;
+  orb.rotation.y -= rotationSpeed;
+
+  if (orb.position.x > 5 || orb.position.x < -5) {
+    directionx = directionx * -1;
+  }
+  if (orb.position.y > 2 || orb.position.y < -2) {
+    directiony = directiony * -1;
+  }
+
+  if (orb.position.z > -12 || orb.position.z < -20) {
+    directionz = directionz * -1;
+  }
+
+  orb.position.x += speed * directionx;
+  orb.position.y += speed * directiony;
+  orb.position.z += speed * directionz;
 
   renderer.render(scene, camera);
   animation = requestAnimationFrame(animate);
