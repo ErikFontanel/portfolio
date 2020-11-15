@@ -5,8 +5,9 @@
 {% block pageContent %}
   {{ super() }}
 
-  {# {% set projects = collections['side-project'] %}
-  {% set projectsClass = 'grid:3' %}
-  {% include "../projects-list.njk" %} #}
+  {% set projects = collections['side-project'] %}
+  {% set projectsClass = 'grid:3 bg-inverted' %}
+  {% set projectsTitle = 'Side Projects' %}
+  {% include "../projects-list.njk" %}
 
 {% endblock %}

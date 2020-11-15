@@ -1,4 +1,7 @@
 <div class="projects {{ projectsClass }}">
+  {% if projectsTitle %}
+    <h2 class="projects--title">{{ projectsTitle }}</h2>
+  {% endif %}
   {% for project in projects %}
     {% include "project-item.njk" %}
   {% endfor %}

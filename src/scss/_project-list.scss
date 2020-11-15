@@ -45,10 +45,16 @@
 
   &.grid\:3 {
     @media (--mobile-up) {
-      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       gap: 0 var(--gutter);
       grid-column: full;
+      padding: var(--spacing-block) 0;
     }
+  }
+
+  &--title {
+    grid-row: 1;
+    grid-column: 1 / -1;
   }
 }
 
