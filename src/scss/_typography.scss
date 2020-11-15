@@ -123,7 +123,7 @@ ul,
 ol {
   margin: 0;
 
-  article:not(.content) & {
+  .page-content & {
     padding: 0;
     padding-left: calc(1 / 12 * 100% + 1em);
     padding-right: calc(1 / 12 * 100% + 1em);

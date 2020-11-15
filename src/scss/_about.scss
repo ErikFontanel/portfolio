@@ -1,0 +1,71 @@
+@use 'config' as *;
+
+.page-about {
+  .page-content {
+    padding-top: var(--gutter);
+    padding-bottom: var(--spacing-block);
+    place-content: start;
+
+    @media (--tablet-up) {
+      grid-template-areas:
+        'main pic .'
+        'main . aside';
+
+      grid-template-columns: 3fr 2fr 1fr;
+      column-gap: calc(var(--gutter) * 2);
+    }
+
+    .page-content--text {
+      grid-area: main;
+    }
+
+    aside {
+      grid-area: aside;
+
+      > div + div {
+        margin-top: 2em;
+      }
+    }
+
+    .portrait {
+      align-self: stretch;
+      object-fit: contain;
+      grid-area: pic;
+    }
+
+    .page-header--title {
+      margin-bottom: 2em;
+    }
+
+    .page-header--intro {
+      margin-top: 0;
+    }
+
+    aside {
+      &.colophon {
+        grid-area: colophon;
+      }
+
+      &.friends {
+        grid-area: friends;
+      }
+    }
+  }
+
+  .side-projects {
+    .section--title {
+      align-self: start;
+    }
+
+    @media (--tablet-up) {
+      grid-template-columns: repeat(4, 1fr);
+
+      .projects {
+        grid-column: 2 / -1;
+      }
+      .project-item--title {
+        font-size: font-size(medium);
+      }
+    }
+  }
+}

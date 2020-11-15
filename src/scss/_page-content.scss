@@ -1,6 +1,6 @@
 @use 'config' as *;
 
-.content {
+.page-content {
   h1,
   h2,
   h3,
@@ -18,7 +18,7 @@
   }
 
   ul {
-    margin: 0 0 1em;
+    margin: 0.8em 0 1em;
     position: relative;
     padding-left: calc(var(--gutter) * 2);
 
@@ -43,10 +43,14 @@
       --button-hover-border-color: var(--button-hover-border-color);
     }
   }
-}
 
-.page .content {
-  > *:not(.block):not(.section) {
+  > p,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
     grid-column: center / wide;
   }
 }
@@ -157,11 +161,28 @@
 .aside {
   font-size: font-size(extra-small);
   color: var(--color-text-sub);
-  grid-column: wide / span 3;
 
   > h3,
   > p {
     font-family: $font-stack-monospace;
-    font-size: font-size(small);
+  }
+
+  > h3 {
+    font-size: font-size(extra-small);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  > p,
+  > ul {
+    font-size: font-size(tiny);
+  }
+
+  > ul {
+    padding-left: var(--gutter);
+
+    li + li {
+      margin-top: 0.2em;
+    }
   }
 }
