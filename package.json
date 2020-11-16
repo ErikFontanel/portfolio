@@ -9,6 +9,7 @@
   },
   "scripts": {
     "clean": "rm -rf ./dist",
+    "fonts": "cp .\/node_modules\/inter-ui\/Inter\\ \\(web\\)\/Inter.var.woff2 src/fonts/",
     "dev:eleventy": "eleventy --serve --quiet",
     "dev:parcel": "parcel watch ./src/app.js",
     "dev": "npx run-p \"dev:*\"",
@@ -18,7 +19,7 @@
     "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
     "build:snowpack": "snowpack build",
     "build:clean": "rm -rf ./dist/static/scss",
-    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run build:snowpack",
+    "build": "npm run fonts && NODE_ENV=production ELEVENTY_ENV=production npm run build:snowpack",
     "start": "snowpack dev"
   },
   "repository": {
@@ -52,6 +53,7 @@
     "fitvids": "^2.1.1",
     "focus-visible": "^5.2.0",
     "image-size": "^0.9.3",
+    "inter-ui": "^3.15.0",
     "markdown-it-anchor": "^6.0.0",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-block-embed": "0.0.3",
