@@ -16,32 +16,30 @@ const getDimensions = (img) => {
 
   const imgurl = url.parse(`${process.env.URL}${img}`);
 
-  try {
-    const req = http.get(imgurl, function (response) {
-      const chunks = [];
-      response
-        .on('data', function (chunk) {
-          chunks.push(chunk);
-        })
-        .on('end', function () {
+  const req = http.get(imgurl, (response) => {
+    const chunks = [];
+    response
+      .on('data', (chunk) => {
+        chunks.push(chunk);
+      })
+      .on('end', () => {
+        if (chunks.length) {
           const buffer = Buffer.concat(chunks);
-          if (buffer) {
-            const { width, height } = sizeOf(buffer);
-            if (width && height) return { width: width, height: height };
-          }
 
-          return { width: '100%', height: 'auto' };
-        })
-        .on('error', (error) => {
-          return { width: '100%', height: 'auto' };
-        });
-    });
-    req.on('error', (e) => {
-      return { width: '100%', height: 'auto' };
-    });
-  } catch (error) {
+          const { width, height } = sizeOf(buffer);
+          if (width && height) return { width: width, height: height };
+        }
+      })
+      .on('error', () => {
+        return { width: '100%', height: 'auto' };
+      });
+  });
+
+  req.on('error', (e) => {
     return { width: '100%', height: 'auto' };
-  }
+  });
+
+  return { width: '100%', height: 'auto' };
 };
 
 const getSrcset = (url, preset = 'default', args) => {
