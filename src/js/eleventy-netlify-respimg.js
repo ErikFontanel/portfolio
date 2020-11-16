@@ -26,8 +26,10 @@ const getDimensions = (img) => {
         if (chunks.length) {
           const buffer = Buffer.concat(chunks);
 
-          const { width, height } = sizeOf(buffer);
-          if (width && height) return { width: width, height: height };
+          if (buffer.length) {
+            const { width, height } = sizeOf(buffer);
+            if (width && height) return { width: width, height: height };
+          }
         }
       })
       .on('error', () => {
