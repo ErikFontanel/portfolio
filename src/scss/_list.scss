@@ -35,12 +35,4 @@
       padding-left: calc(2 / 12 * 100% - #{rem(34px * 1.5)});
     }
   }
-
-  ul li {
-    background: $color-background url('/img/hand.svg') no-repeat 0
-      (1em * line-height(medium)) / 6;
-    background-size: 1em;
-    padding-left: rem(34px * 1.5);
-    background-blend-mode: difference;
-  }
 }

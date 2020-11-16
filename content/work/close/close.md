@@ -37,6 +37,7 @@ At the end of 2018 the super ambitious but then still small Close team just rais
 {% image 'close7.png', '', 'full' %}
 {% endgallery %}
 
+{% list "Results" %}
 In the period of a year I did many things:
 
 - designed the concept for the event organiser experience
@@ -46,6 +47,8 @@ In the period of a year I did many things:
 - oversaw the front-end implementation with a team of (eventually) 5 developers: 3 back-end, 1 front-end and 1 tech lead.
 - made 338 commits myself to the front-end code
 - designed, implemented and tested components that make up the design system using [Sketch](https://sketch.com) and [Storybook](https://storybook.js.org/)
+
+{% endlist %}
 
 &rarr; https://thecloseapp.com/
 
