@@ -34,6 +34,9 @@
   --border-radius: #{$radius};
   --border-radius-large: #{$radius-large};
 
+  --inter-font-weight: 320;
+  --inter-font-slant: 0;
+
   @media (--mobile) {
     --gutter: #{$gutter / 2};
     --spacing-block: #{$spacing-block};

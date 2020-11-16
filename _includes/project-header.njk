@@ -5,22 +5,33 @@
 <header class="project-header project-item {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
   {% if thumbnail %}
     <div class="project-item--img" >
+
+    {% if single_thumbnail|length %}
+      <picture>
+        <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," media="(min-width: 48rem)" width="100%" height="auto" class="content-image"/>
+        <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," width="100%" height="auto" class="content-image" alt="A SaaS platform for an event marketing messaging app" />
+         <img src="{{ single_thumbnail }}?nf_resize=fit&amp;w=1280" />
+      </picture>
+    {% else %}
       {% image thumbnail, '', 'thumb', 'auto', title %}
+    {% endif %}
     </div>
   {% endif %}
 
   <div class="project-item--text">
-    {% if client %}
-      <h3 class="project-item--client  text-sub h-l">{{ client }}</h3>
+    {% if client and not single_thumbnail|length %}
+      <h3 class="project-item--client  text-sub {{ 'h-m' if single_thumbnail else 'h-l' }}">{{ client }}</h3>
     {% endif %}
 
     {% if title %}
-      <h2 class="project-item--title h-xxl">{{ title }}</h2>
+      <h2 class="project-item--title {{ 'h-xl' if single_thumbnail else 'h-xxl' }}">{{ title }}</h2>
     {% endif %}
 
   </div>
 
   {% block projectMeta %}
-    {% include "./project-meta.njk" %}
+    {% if role|length or team|length %}
+      {% include "./project-meta.njk" %}
+    {% endif %}
   {% endblock %}
 </header>

@@ -33,7 +33,7 @@
     grid-area: img;
 
     border-radius: $radius;
-    background-color: var(--color-background);
+    background-color: var(--color-background-inverted);
     display: grid;
     overflow: hidden;
 
@@ -68,12 +68,14 @@
   &--client {
     @media (--mobile) {
       margin-top: 1em;
+      font-size: font-size(medium);
     }
   }
 
   &--title {
     @media (--mobile) {
       margin-top: 0.25em * line-height(large);
+      font-size: font-size(extra-large);
     }
   }
 }

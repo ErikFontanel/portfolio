@@ -1,6 +1,21 @@
 .single-body {
   padding-bottom: var(--spacing-block);
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p + *:not([class~='block']):not([class~='section']) {
+    margin-top: 1em;
+  }
+
+  ul,
+  ol {
+    margin: 1em 0;
+  }
+
   > .content-image {
     width: 100%;
     max-width: 100%;
@@ -10,25 +25,6 @@
     & + * {
       margin-top: 0;
     }
-  }
-}
-.project-meta {
-  grid-column: meta;
-
-  dl {
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0 var(--gutter);
-
-    + * {
-      margin-top: 1em;
-    }
-  }
-
-  dd {
-    margin: 0;
-    grid-column-end: span 3;
   }
 }
 
@@ -54,4 +50,10 @@
 .block-embed {
   margin-left: calc(var(--gutter) * -1);
   margin-right: calc(var(--gutter) * -1);
+  .fluid-width-video-wrapper {
+    padding-top: 56.67% !important;
+  }
+  @media (--tablet-up) {
+    grid-column: 3 / 13;
+  }
 }

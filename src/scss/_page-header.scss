@@ -21,6 +21,12 @@
     flex: 1 1 100%;
     margin-bottom: auto;
     color: var(--color-text-sub);
+
+    @media (--mobile) {
+      visibility: hidden;
+      opacity: 0;
+      clip-path: inset(0 0 0 0);
+    }
   }
 
   &--intro {

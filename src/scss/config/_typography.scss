@@ -58,7 +58,8 @@
   font-style: normal;
   font-size: font-size(extra-small);
   line-height: line-height(caption);
-  font-variation-settings: 'wght' 320, 'slnt' 0;
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
   letter-spacing: -0.04em;
 }
 
@@ -82,7 +83,8 @@
   font-style: normal;
   font-size: font-size(small);
   line-height: line-height(small);
-  font-variation-settings: 'wght' 320, 'slnt' 0;
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
   letter-spacing: -0.04em;
 }
 
@@ -92,15 +94,17 @@
   font-style: normal;
   font-size: font-size(medium);
   line-height: line-height(medium);
-  font-variation-settings: 'wght' 320, 'slnt' 0;
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
   letter-spacing: -0.04em;
 }
 
 @mixin text-style-large {
   font-family: $font-stack-base;
   font-size: font-size(large);
-  line-height: line-height(extra-large);
-  font-variation-settings: 'wght' 320, 'slnt' 0;
+  line-height: line-height(large);
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
   letter-spacing: -0.04em;
 }
 
@@ -108,15 +112,19 @@
   font-family: $font-stack-base;
   font-size: font-size(extra-large);
   line-height: line-height(extra-large);
-  font-variation-settings: 'wght' 320, 'slnt' 0;
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
   letter-spacing: -0.04em;
 }
 
 @mixin text-style-extra-extra-large {
+  --inter-font-weight: 360;
+
   font-family: $font-stack-base;
   font-size: font-size(extra-extra-large);
   line-height: line-height(extra-extra-large);
-  font-variation-settings: 'wght' 420, 'slnt' -8;
+  font-variation-settings: 'wght' var(--inter-font-weight),
+    'slnt' var(--inter-font-slant);
   letter-spacing: -0.04em;
 }
 

@@ -8,6 +8,7 @@
     'meta';
   align-items: stretch;
   margin-bottom: var(--spacing-block);
+  grid-template-rows: 4 / 3 * 100vmin auto auto;
 
   border-top-left-radius: var(--gutter);
   border-top-right-radius: var(--gutter);
@@ -16,13 +17,21 @@
   overflow: hidden;
 
   @media (--mobile-up) {
-    grid-template-rows: 100vh auto;
-
     &.portrait\:2-col {
       grid-template-areas:
         'text img'
         'meta img';
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 100vmin auto;
+    }
+
+    &.landscape\:2-col {
+      grid-template-areas:
+        'meta text'
+        'img img';
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 50vh 50vh;
+      align-items: stretch;
     }
   }
 
@@ -34,29 +43,34 @@
     flex-flow: column;
     max-height: 100vh;
     height: 100%;
-    padding: calc(var(--gutter) * 2);
+    padding: var(--gutter);
+
+    @media (--tablet-up) {
+      padding: calc(var(--gutter) * 2);
+    }
 
     .project-item--title {
       margin: auto 0;
+    }
+
+    .project-item--client {
+      @media (--mobile) {
+        display: none;
+      }
     }
   }
 
   .project-item--img {
     grid-area: img;
     border-radius: 0;
-    --ratio: calc(100% / (3 / 4));
 
     &::before {
-      border-radius: 0;
+      content: unset;
     }
   }
 
   .project-item--tags {
     align-self: start;
-  }
-
-  .project-meta {
-    padding: 0 calc(var(--gutter) * 2);
   }
 
   &--title {
@@ -66,5 +80,41 @@
 
   &--subtitle {
     margin-bottom: 0.5em;
+  }
+}
+
+.project-meta {
+  grid-area: meta;
+  padding: calc(var(--gutter) * 2);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+
+  > * {
+    flex: 1 0 100%;
+  }
+
+  .project-item--client {
+    --inter-font-weight: 450;
+
+    margin-top: auto;
+    margin-bottom: 0.5em;
+    font-size: font-size(small);
+  }
+
+  dl {
+    margin: 0 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 var(--gutter);
+
+    + * {
+      margin-top: 1em;
+    }
+  }
+
+  dd {
+    margin: 0;
+    grid-column-end: span 3;
   }
 }
