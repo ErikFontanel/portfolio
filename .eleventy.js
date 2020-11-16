@@ -28,7 +28,7 @@ const responsiveImagesConfig = {
         max_width: 3320,
         fallback_max_width: 1280,
         steps: 5,
-        sizes: '(min-width: 64rem) 60vw, 100vw',
+        sizes: '100vw',
         attributes: { class: 'img-full' },
       },
     },
