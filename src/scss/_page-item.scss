@@ -3,6 +3,7 @@
 $z-index: (body, canvas);
 .page-item {
   z-index: z-index(blobs);
+  background-color: var(--color-background-inverted);
 
   canvas {
     grid-row: 1 / 1;
