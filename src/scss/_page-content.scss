@@ -19,18 +19,7 @@
 
   ul {
     margin: 0.8em 0 1em;
-    position: relative;
     padding-left: calc(var(--gutter) * 2);
-
-    li {
-      list-style: none;
-
-      &:before {
-        position: absolute;
-        content: '→';
-        left: 0.5ch;
-      }
-    }
   }
 
   .button {
