@@ -130,6 +130,8 @@ const animate = () => {
   });
 
   renderer.render(scene, camera);
+  geometry.dispose();
+  material.dispose();
 };
 
 if (import.meta.hot) {
@@ -160,14 +162,12 @@ window.addEventListener('resize', debounce(onWindowResize), false);
 function pauseAnimation() {
   cancelAnimationFrame(animation);
   animation = undefined;
-  renderer.dispose();
-  console.log('paused');
+  console.log('blobs paused');
 }
 
 function resumeAnimation() {
-  renderer.render(scene, camera);
   animation = requestAnimationFrame(animate);
-  console.log('resumed');
+  console.log('blobs resumed');
 }
 
 // Fade on scroll
@@ -179,8 +179,7 @@ function onScroll(entries) {
       'transitionend',
       () => {
         if (canvas.classList.contains('is-hidden') && animation) {
-          cancelAnimationFrame(animation);
-          animation = undefined;
+          pauseAnimation();
         }
       },
       {
@@ -193,7 +192,7 @@ function onScroll(entries) {
       'transitionstart',
       () => {
         if (!canvas.classList.contains('is-hidden') && !animation) {
-          animation = requestAnimationFrame(animate);
+          resumeAnimation();
         }
       },
       {

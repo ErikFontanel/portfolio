@@ -25,6 +25,7 @@ body[data-showing-overlay='true'] {
   will-change: transform;
   backface-visibility: hidden;
   padding: calc(var(--gutter) * 2) 0 0;
+  contain: strict;
 
   &[data-visible='true'] {
     pointer-events: auto;

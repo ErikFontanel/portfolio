@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(
 
 renderer.setSize(canvasWidth, canvasHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setClearColor(0xffffff, 0);
+// renderer.setClearColor(0xffffff, 0);
 
 let animation;
 
@@ -52,6 +52,8 @@ let directiony = 1;
 let directionz = -1;
 
 const animate = () => {
+  animation = requestAnimationFrame(animate);
+
   orb.rotation.x -= rotationSpeed;
   orb.rotation.y -= rotationSpeed;
 
@@ -71,7 +73,8 @@ const animate = () => {
   orb.position.z += speed * directionz;
 
   renderer.render(scene, camera);
-  animation = requestAnimationFrame(animate);
+  geometry.dispose();
+  material.dispose();
 };
 
 function onWindowResize() {
@@ -93,63 +96,93 @@ window.addEventListener('resize', debounce(onWindowResize), false);
 function pauseAnimation() {
   cancelAnimationFrame(animation);
   animation = undefined;
-  renderer.dispose();
-  console.log('paused');
+  console.log('intro paused');
 }
 
 function resumeAnimation() {
-  renderer.render(scene, camera);
   animation = requestAnimationFrame(animate);
-  console.log('resumed');
+  console.log('intro resumed');
 }
 
 // Fade on scroll
-function onScroll(entries) {
-  entries
-    .filter((entry) => entry.isIntersecting)
-    .map((entry) => {
-      const projectsTop = entry.boundingClientRect.top;
+// function onScroll(entries) {
+//   entries
+//     .filter((entry) => entry.isIntersecting)
+//     .map((entry) => {
+//       const projectsTop = entry.boundingClientRect.top;
 
-      parent.classList.toggle(
-        'is-hidden',
-        projectsTop < window.innerHeight * 0.75
-      );
+//       parent.classList.toggle(
+//         'is-hidden',
+//         projectsTop < window.innerHeight * 0.75
+//       );
 
-      parent.addEventListener(
-        'transitionend',
-        () => {
-          if (parent.classList.contains('is-hidden') && animation) {
-            pauseAnimation();
-          }
-        },
-        {
-          passive: true,
-          once: true,
-        }
-      );
+//       parent.addEventListener(
+//         'transitionend',
+//         () => {
+//           if (parent.classList.contains('is-hidden') && animation) {
+//             pauseAnimation();
+//           }
+//         },
+//         {
+//           passive: true,
+//           once: true,
+//         }
+//       );
 
-      parent.addEventListener(
-        'transitionstart',
-        () => {
-          if (!parent.classList.contains('is-hidden') && !animation) {
-            resumeAnimation();
-          }
-        },
-        {
-          passive: true,
-          once: true,
-        }
-      );
-    });
+//       parent.addEventListener(
+//         'transitionstart',
+//         () => {
+//           if (!parent.classList.contains('is-hidden') && !animation) {
+//             resumeAnimation();
+//           }
+//         },
+//         {
+//           passive: true,
+//           once: true,
+//         }
+//       );
+//     });
+// }
+function onScroll() {
+  parent.classList.toggle(
+    'is-hidden',
+    window.scrollY > window.innerHeight * 0.5
+  );
+
+  parent.addEventListener(
+    'transitionend',
+    () => {
+      if (parent.classList.contains('is-hidden') && animation) {
+        pauseAnimation();
+      }
+    },
+    {
+      passive: true,
+      once: true,
+    }
+  );
+
+  parent.addEventListener(
+    'transitionstart',
+    () => {
+      if (!parent.classList.contains('is-hidden') && !animation) {
+        resumeAnimation();
+      }
+    },
+    {
+      passive: true,
+      once: true,
+    }
+  );
 }
-
 animation = requestAnimationFrame(animate);
-const observer = new IntersectionObserver(onScroll, {
-  threshold: [...Array(100).keys()].filter((n) => n > 0).map((i) => i * 0.01),
-  rootMargin: '200px 0px',
-});
+// const observer = new IntersectionObserver(onScroll, {
+//   threshold: [...Array(100).keys()].filter((n) => n > 0).map((i) => i * 0.01),
+//   rootMargin: '200px 0px',
+// });
 
-observer.observe(document.querySelector('.projects-wrapper'));
+// observer.observe(document.querySelector('.projects-wrapper'));
+window.addEventListener('scroll', debounce(onScroll, 50));
 
 EventBus.on('modal:show', pauseAnimation);
 EventBus.on('modal:hide', resumeAnimation);

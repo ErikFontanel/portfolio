@@ -5,6 +5,7 @@
   position: relative;
   text-decoration: none;
   cursor: help;
+  display: inline-block;
 
   &::after {
     content: '*';
@@ -21,11 +22,10 @@
   display: block;
   width: 140px;
   font-size: font-size(medium);
-  top: calc(-100% - 0.33ex);
-  left: calc(100% - 70px - 0.43ch);
   transform-origin: 50% 47.5%;
   transition: $transition-slow $transition-timing;
   transition-property: opacity, transform;
+  transform: translate(51%, -73%);
 
   #asterisks {
     fill: #ff0000;
@@ -35,6 +35,7 @@
     transition: $transition-slow $transition-timing;
     transition-property: opacity, transform;
     transform-origin: center;
+
     :not(:hover) & {
       transform: scale(0.01);
     }
