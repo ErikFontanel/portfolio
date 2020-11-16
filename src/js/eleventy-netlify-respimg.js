@@ -14,34 +14,34 @@ const getDimensions = (img) => {
     return { width: width, height: height };
   }
 
-  const imgurl = url.parse(`${process.env.URL}${img}`);
-
-  const req = http.get(imgurl, (response) => {
-    const chunks = [];
-    response
-      .on('data', (chunk) => {
-        chunks.push(chunk);
-      })
-      .on('end', () => {
-        if (chunks.length) {
-          const buffer = Buffer.concat(chunks);
-
-          if (buffer !== undefined && buffer.length) {
-            const { width, height } = sizeOf(buffer);
-            if (width && height) return { width: width, height: height };
-          }
-        }
-      })
-      .on('error', () => {
-        return { width: '100%', height: 'auto' };
-      });
-  });
-
-  req.on('error', (e) => {
-    return { width: '100%', height: 'auto' };
-  });
-
   return { width: '100%', height: 'auto' };
+
+  // const imgurl = url.parse(`${process.env.URL}${img}`);
+
+  // const req = http.get(imgurl, (response) => {
+  //   const chunks = [];
+  //   response
+  //     .on('data', (chunk) => {
+  //       chunks.push(chunk);
+  //     })
+  //     .on('end', () => {
+  //       if (chunks.length) {
+  //         const buffer = Buffer.concat(chunks);
+
+  //         if (buffer !== undefined && buffer.length) {
+  //           const { width, height } = sizeOf(buffer);
+  //           if (width && height) return { width: width, height: height };
+  //         }
+  //       }
+  //     })
+  //     .on('error', () => {
+  //       return { width: '100%', height: 'auto' };
+  //     });
+  // });
+
+  // req.on('error', (e) => {
+  //   return { width: '100%', height: 'auto' };
+  // });
 };
 
 const getSrcset = (url, preset = 'default', args) => {
