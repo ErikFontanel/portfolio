@@ -12,6 +12,7 @@ const carousels = document.querySelectorAll('.carousel');
 const isHome = document.querySelector('.home');
 const isIntro = document.querySelector('canvas.intro');
 const isBlobs = document.querySelector('canvas.blobs');
+const projectNav = document.querySelector('.project-nav');
 
 fitvids();
 
@@ -20,6 +21,12 @@ if (navMain) new Nav(navMain);
 if (carousels) {
   import('./js/Carousel').then(({ default: Carousel }) => {
     [...carousels].map((el) => new Carousel({ el: el }));
+  });
+}
+
+if (projectNav) {
+  import('./js/ProjectNav').then(({ default: ProjectNav }) => {
+    new ProjectNav(projectNav);
   });
 }
 
