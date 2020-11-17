@@ -4,7 +4,7 @@
 {%- set list_layout = project.data.list_layout -%}
 {%- set title = project.data.title -%}
 
-<article class="project-item {{ project.data.list_layout }}">
+<article class="project-item {{ project.data.list_layout }}" data-slug="{{ project.fileSlug }}">
   {% if thumbnail %}
     <a href="{{ project.url }}" class="project-item--img">
       {% image project.url + thumbnail, '', 'thumb', 'auto', project.data.title %}
