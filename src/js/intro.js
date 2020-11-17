@@ -45,7 +45,7 @@ orb.position.set(8, -2, -10);
 
 scene.add(orb);
 
-let speed = 0.001;
+let speed = 0.003;
 let rotationSpeed = 0.0005;
 let directionx = -1;
 let directiony = 1;
@@ -57,7 +57,7 @@ const animate = () => {
   orb.rotation.x -= rotationSpeed;
   orb.rotation.y -= rotationSpeed;
 
-  if (orb.position.x > 5 || orb.position.x < -5) {
+  if (orb.position.x > 10 || orb.position.x < -12) {
     directionx = directionx * -1;
   }
   if (orb.position.y > 2 || orb.position.y < -2) {
