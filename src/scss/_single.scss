@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 .single-body {
   padding-bottom: var(--spacing-block);
 
@@ -9,6 +11,10 @@
   h6,
   p + *:not([class~='block']):not([class~='section']):not(.content-image) {
     margin-top: 1em;
+  }
+
+  p:first-child {
+    font-size: font-size(large);
   }
 
   > .content-image {

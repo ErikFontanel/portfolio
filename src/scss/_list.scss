@@ -28,7 +28,7 @@
     h3 {
       @include text-style-large;
 
-      color: invert($color-primary);
+      color: var(--color-text-sub-inverted);
       position: relative;
       width: auto;
       display: inline-block;
