@@ -2,7 +2,7 @@
 thumbnail: close-thumb.png
 client: Close
 date: 2020-01-01
-title: A SaaS platform for an event marketing messaging app
+title: A SaaS platform for an event marketing messaging start-up
 tags:
   - project
   - ux design
