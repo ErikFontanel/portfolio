@@ -9,6 +9,7 @@
   row-gap: var(--gutter);
   align-content: center;
   align-items: start;
+  z-index: z-index(modal);
 
   @media (--tablet-up) {
     align-content: space-evenly;
