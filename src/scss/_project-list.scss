@@ -68,6 +68,8 @@
   z-index: z-index(body);
 
   .home & {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
     box-shadow: rgba($color-black, 1) 0 rem(-1px) $spacing-block * 2 $gutter;
     margin-top: 100vh;
   }

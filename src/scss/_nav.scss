@@ -12,7 +12,7 @@ $nav-index: main, projects;
   padding: var(--gutter);
   pointer-events: none;
   z-index: z-index(navigation);
-
+  contain: strict;
   display: grid;
   grid-template-columns:
     minmax(var(--gutter), 1fr)
