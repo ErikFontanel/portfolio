@@ -72,9 +72,9 @@ function buildTwistMaterial(amount) {
 }
 
 // create orb
-const orb = new THREE.Mesh(geometry, buildTwistMaterial(2.0));
-const orb2 = new THREE.Mesh(twistGeometry, buildTwistMaterial(3.0));
-const orb3 = new THREE.Mesh(geometry, buildTwistMaterial(4.0));
+const orb = new THREE.Mesh(geometry, buildTwistMaterial(4.0));
+const orb2 = new THREE.Mesh(twistGeometry, buildTwistMaterial(5.0));
+const orb3 = new THREE.Mesh(geometry, buildTwistMaterial(2.4));
 
 orb.name = 'top';
 orb2.name = 'twist';
@@ -84,40 +84,56 @@ orb.position.x = 14;
 orb.position.y = 8;
 orb.position.z = -12;
 
-orb2.position.x = -6;
+orb2.position.x = -7;
 orb2.position.y = -1;
-orb2.position.z = -10;
-orb2.scale.set(1.5, 1.5, 1.5);
+orb2.position.z = -8;
+orb2.scale.set(1, 1, 1);
 
 orb3.position.x = 12;
 orb3.position.y = -7;
-orb3.position.z = -14;
+orb3.position.z = -16;
 
 scene.add(orb);
 scene.add(orb2);
 scene.add(orb3);
 
-let speed = 0.01;
-let directionx = 1;
-let directiony = -1;
+function animateOrb(orb, props) {
+  const { rotationSpeed, movementSpeed, direction } = props;
+  orb.rotation.x += rotationSpeed;
+  orb.rotation.y += rotationSpeed;
+
+  if (orb.position.x > 14 || orb.position.x < -14) {
+    direction.x = -1;
+  }
+
+  if (orb.position.y > 10 || orb.position.y < -10) {
+    direction.y = -1;
+  }
+
+  orb.position.x += movementSpeed * direction.x;
+  orb.position.y += movementSpeed * direction.y;
+}
 
 const animate = () => {
   animation = requestAnimationFrame(animate);
 
-  orb.rotation.x += 0.002;
-  orb.rotation.y += 0.002;
-  orb2.rotation.x += 0.002;
-  orb2.rotation.y -= 0.002;
+  animateOrb(orb, {
+    movementSpeed: 0.002,
+    rotationSpeed: 0.003,
+    direction: { x: -1, y: -1 },
+  });
 
-  if (orb.position.x > 15 || orb.position.x < -15) {
-    directionx = -1;
-  }
-  if (orb.position.y > 15 || orb.position.y < -15) {
-    directiony = -1;
-  }
+  animateOrb(orb2, {
+    movementSpeed: 0.0005,
+    rotationSpeed: 0.0005,
+    direction: { x: 1, y: 1 },
+  });
 
-  orb.position.x += speed * directionx;
-  orb.position.y += speed * directiony;
+  animateOrb(orb3, {
+    movementSpeed: 0.003,
+    rotationSpeed: 0.004,
+    direction: { x: -1, y: 1 },
+  });
 
   scene.traverse(function (child) {
     if (child.isMesh) {
