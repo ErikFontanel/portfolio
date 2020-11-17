@@ -182,7 +182,7 @@ animation = requestAnimationFrame(animate);
 // });
 
 // observer.observe(document.querySelector('.projects-wrapper'));
-window.addEventListener('scroll', debounce(onScroll, 50));
+window.addEventListener('scroll', debounce(onScroll, 100));
 
 EventBus.on('modal:show', pauseAnimation);
 EventBus.on('modal:hide', resumeAnimation);
