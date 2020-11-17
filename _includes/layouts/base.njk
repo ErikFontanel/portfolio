@@ -16,15 +16,15 @@
     <link rel="preload" as="font" href="/static/fonts/iosevka-ss01-extended.woff2" crossorigin="anonymous">
 
     {% if env.environment === 'production' %}
-      {# {% set criticalcss %}
+      {% set criticalcss %}
         {% include "../../src/css/critical.css" ignore missing %}
       {% endset %}
 
       {% if criticalcss|length %}
         <style>
-          {{criticalcss|safe}}
+          {{ criticalcss|safe }}
         </style>
-      {% endif %} #}
+      {% endif %}
 
       <link rel="preload" as="style" href="{{ cssPath }}">
       <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
