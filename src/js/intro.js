@@ -108,8 +108,8 @@ function resumeAnimation() {
 function onScroll() {
   const scrollTotal = window.innerHeight;
   const scrollPos = window.scrollY;
-  const opacity = 0.8 - scrollPos / scrollTotal;
-  parent.style.setProperty('--intro-opacity', opacity);
+  const opacity = 1 - scrollPos / scrollTotal;
+  parent.style.setProperty('--opacity', opacity);
   if (opacity <= 0 && animation) {
     pauseAnimation();
   } else if (opacity >= 0 && !animation) {

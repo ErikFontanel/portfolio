@@ -189,7 +189,24 @@ function resumeAnimation() {
 // Fade on scroll
 function onScroll(entries) {
   entries.map((entry) => {
-    canvas.classList.toggle('is-hidden', entry.intersectionRatio < 0.5);
+    // canvas.classList.toggle('is-hidden', entry.intersectionRatio < 0.5);
+    let opacity;
+
+    if (entry.intersectionRatio >= 0.5) {
+      opacity = 1;
+    } else if (entry.intersectionRatio <= 0.1) {
+      opacity = 0;
+    } else {
+      opacity = entry.intersectionRatio;
+    }
+
+    if (opacity === 0 && animation) {
+      pauseAnimation();
+    } else if (opacity === 1 && !animation) {
+      resumeAnimation();
+    }
+
+    parent.style.setProperty('--opacity', opacity);
 
     canvas.addEventListener(
       'transitionend',

@@ -2,19 +2,21 @@
 
 $z-index: (body, canvas);
 .page-item {
+  --opacity: 1;
+
   z-index: z-index(blobs);
   background-color: var(--color-background-inverted);
   height: 133vh;
+  align-content: center;
+  align-items: center;
+  opacity: var(--opacity);
 
   canvas {
     grid-row: 1 / 1;
     z-index: z-index(canvas, $z-index);
-    transition: opacity calc(var(--animation-duration-slow) * 2) ease-out;
-    contain: strict style;
-
-    &.is-hidden {
-      opacity: 0;
-    }
+    contain: strict;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
 
   &--wrapper {
@@ -28,7 +30,7 @@ $z-index: (body, canvas);
       grid-column: wide;
 
       @media (--tablet-up) {
-        grid-column: center / wide;
+        grid-column: 4 / wide;
       }
 
       + * {
