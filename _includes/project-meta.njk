@@ -1,5 +1,7 @@
 <div class="project-meta text-xs">
-  <h3 class="project-item--client  text-sub h-s">{{ client }}</h3>
+  {% if single_thumbnail|length %}
+    <h3 class="project-item--client  text-sub ">{{ client }}</h3>
+  {% endif %}
   <dl>
     {% if role|length %}
       <dt>Role</dt>
