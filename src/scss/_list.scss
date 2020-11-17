@@ -9,15 +9,21 @@
   @media (--tablet-up) {
     margin-top: $spacing-block * 2;
     margin-bottom: $spacing-block * 2;
+    padding-left: calc(3 / 12 * 100% - var(--gutter));
   }
 
   .list--title {
     mix-blend-mode: difference;
     position: sticky;
-    // top: $spacing-loose * 2;
     top: calc(25% - 1.2em);
-    margin: 0;
     z-index: 0;
+    margin: 0;
+    margin-bottom: 1em;
+
+    @media (--tablet-up) {
+      margin: 0;
+      margin-left: calc(3 / 12 * -100% - var(--gutter));
+    }
 
     h3 {
       @include text-style-large;
@@ -32,9 +38,5 @@
   ol,
   ul {
     padding-bottom: 1em * line-height(small);
-
-    @media (--tablet-up) {
-      margin-left: calc(2 / 12 * 100% - var(--gutter));
-    }
   }
 }

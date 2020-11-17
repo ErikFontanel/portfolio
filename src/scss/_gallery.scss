@@ -201,6 +201,7 @@ $gallery-index: (caption, images);
     mix-blend-mode: normal;
     color: var(--color-text-sub);
     margin-bottom: 0;
+    justify-self: start;
   }
 
   .hidden {
