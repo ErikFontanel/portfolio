@@ -13,7 +13,7 @@
 
   ul,
   ol {
-    margin: 1em 0;
+    margin: 1em 0 0 calc(3 / 12 * 100% - var(--gutter));
   }
 
   > .content-image {
@@ -32,6 +32,7 @@
   position: relative;
   margin-top: var(--spacing-block);
   margin-bottom: var(--spacing-block);
+  background-color: var(--color-background);
 
   & + .block {
     margin-top: 0;

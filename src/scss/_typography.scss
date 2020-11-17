@@ -119,11 +119,8 @@ ol {
   .page-content & {
     margin: 0.8em 0 1em;
     position: relative;
-    padding-left: calc(var(--gutter) * 2);
-
     padding: 0;
-    padding-left: calc(1 / 12 * 100% + 1em);
-    padding-right: calc(1 / 12 * 100% + 1em);
+    padding-left: calc(var(--gutter) * 2);
 
     li {
       list-style: none;

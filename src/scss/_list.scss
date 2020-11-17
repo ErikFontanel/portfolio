@@ -21,6 +21,7 @@
 
     h3 {
       @include text-style-large;
+
       color: invert($color-primary);
       position: relative;
       width: auto;
@@ -31,8 +32,9 @@
   ol,
   ul {
     padding-bottom: 1em * line-height(small);
+
     @media (--tablet-up) {
-      padding-left: calc(2 / 12 * 100% - #{rem(34px * 1.5)});
+      margin-left: calc(2 / 12 * 100% - var(--gutter));
     }
   }
 }
