@@ -10,8 +10,8 @@
   margin-bottom: var(--spacing-block);
   grid-template-rows: 4 / 3 * 100vmin auto auto;
 
-  border-top-left-radius: var(--gutter);
-  border-top-right-radius: var(--gutter);
+  border-top-left-radius: $radius-large;
+  border-top-right-radius: $radius-large;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   overflow: hidden;
@@ -50,14 +50,20 @@
     }
 
     .project-item--title {
-      margin: auto 0;
+      margin: 1em 0 auto;
     }
 
     .project-item--client {
+      margin-top: 0.25em;
+
       @media (--mobile) {
         display: none;
       }
     }
+  }
+
+  &.landscape\:2-col .project-item--text .project-item--title {
+    margin-top: auto;
   }
 
   .project-item--img {
@@ -85,10 +91,14 @@
 
 .project-meta {
   grid-area: meta;
-  padding: calc(var(--gutter) * 2);
   display: flex;
   flex-flow: row wrap;
   align-items: baseline;
+  padding: var(--gutter);
+
+  @media (--tablet-up) {
+    padding: calc(var(--gutter) * 2);
+  }
 
   > * {
     flex: 1 0 100%;
@@ -99,13 +109,13 @@
 
     margin-top: auto;
     margin-bottom: 0.5em;
-    font-size: font-size(small);
+    // font-size: font-size(small);
   }
 
   dl {
     margin: 0 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 0 var(--gutter);
 
     + * {
@@ -113,8 +123,13 @@
     }
   }
 
+  dt {
+    color: var(--color-text-sub);
+  }
+
   dd {
+    color: var(--color-text);
     margin: 0;
-    grid-column-end: span 3;
+    grid-row: 2;
   }
 }
