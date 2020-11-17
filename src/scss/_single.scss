@@ -29,6 +29,11 @@
   margin-bottom: calc(var(--spacing-block) * 2);
   background-color: var(--color-background);
 
+  @media (--tablet-up) {
+    margin-top: var(--spacing-block);
+    margin-bottom: var(--spacing-block);
+  }
+
   & + .block {
     margin-top: 0;
   }
