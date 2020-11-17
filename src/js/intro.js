@@ -105,84 +105,22 @@ function resumeAnimation() {
 }
 
 // Fade on scroll
-// function onScroll(entries) {
-//   entries
-//     .filter((entry) => entry.isIntersecting)
-//     .map((entry) => {
-//       const projectsTop = entry.boundingClientRect.top;
-
-//       parent.classList.toggle(
-//         'is-hidden',
-//         projectsTop < window.innerHeight * 0.75
-//       );
-
-//       parent.addEventListener(
-//         'transitionend',
-//         () => {
-//           if (parent.classList.contains('is-hidden') && animation) {
-//             pauseAnimation();
-//           }
-//         },
-//         {
-//           passive: true,
-//           once: true,
-//         }
-//       );
-
-//       parent.addEventListener(
-//         'transitionstart',
-//         () => {
-//           if (!parent.classList.contains('is-hidden') && !animation) {
-//             resumeAnimation();
-//           }
-//         },
-//         {
-//           passive: true,
-//           once: true,
-//         }
-//       );
-//     });
-// }
 function onScroll() {
-  parent.classList.toggle(
-    'is-hidden',
-    window.scrollY > window.innerHeight * 0.5
-  );
-
-  parent.addEventListener(
-    'transitionend',
-    () => {
-      if (parent.classList.contains('is-hidden') && animation) {
-        pauseAnimation();
-      }
-    },
-    {
-      passive: true,
-      once: true,
-    }
-  );
-
-  parent.addEventListener(
-    'transitionstart',
-    () => {
-      if (!parent.classList.contains('is-hidden') && !animation) {
-        resumeAnimation();
-      }
-    },
-    {
-      passive: true,
-      once: true,
-    }
-  );
+  const scrollTotal = window.innerHeight;
+  const scrollPos = window.scrollY;
+  const opacity = 0.8 - scrollPos / scrollTotal;
+  parent.style.setProperty('--intro-opacity', opacity);
+  if (opacity <= 0 && animation) {
+    pauseAnimation();
+  } else if (opacity >= 0 && !animation) {
+    resumeAnimation();
+  }
 }
 animation = requestAnimationFrame(animate);
-// const observer = new IntersectionObserver(onScroll, {
-//   threshold: [...Array(100).keys()].filter((n) => n > 0).map((i) => i * 0.01),
-//   rootMargin: '200px 0px',
-// });
 
-// observer.observe(document.querySelector('.projects-wrapper'));
-window.addEventListener('scroll', debounce(onScroll, 100));
+window.addEventListener('scroll', () => requestAnimationFrame(onScroll), {
+  passive: true,
+});
 
 EventBus.on('modal:show', pauseAnimation);
 EventBus.on('modal:hide', resumeAnimation);
