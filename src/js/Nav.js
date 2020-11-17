@@ -19,7 +19,6 @@ export default class Nav {
     this.el.addEventListener('touchend', this.onclick.bind(this));
 
     [...this.projectItems].map((link) => {
-      console.log(link);
       link.addEventListener('click', this.onclickProjectItem.bind(this));
       link.addEventListener('touchend', this.onclickProjectItem.bind(this));
     });
