@@ -6,6 +6,7 @@ export default class Nav {
     this.el = el;
     this.navMain = this.el.querySelector('.nav-main');
     this.navProjects = this.el.querySelector('.nav-projects');
+    this.projectItems = document.querySelectorAll('.project-item a');
 
     this.visible = false;
     this.modal = null;
@@ -16,6 +17,12 @@ export default class Nav {
 
     this.el.addEventListener('click', this.onclick.bind(this));
     this.el.addEventListener('touchend', this.onclick.bind(this));
+
+    [...this.projectItems].map((link) => {
+      console.log(link);
+      link.addEventListener('click', this.onclickProjectItem.bind(this));
+      link.addEventListener('touchend', this.onclickProjectItem.bind(this));
+    });
 
     // Disabled focus ring triggering in Chrome
     this.el.addEventListener(
@@ -73,6 +80,12 @@ export default class Nav {
     } else if (this.visible && event.target !== btn) {
       this.hide();
     }
+  }
+
+  onclickProjectItem(event) {
+    event.preventDefault();
+
+    this.loadUrl(event.currentTarget);
   }
 
   loadUrl(btn) {
