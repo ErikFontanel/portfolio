@@ -171,6 +171,7 @@ $gallery-index: (caption, images);
 
   img {
     border-radius: $radius;
+    filter: drop-shadow(0px 0px 12px rgba(0 0 0 / 8%));
   }
 }
 
@@ -198,12 +199,17 @@ $gallery-index: (caption, images);
     grid-row: 2;
     grid-column: 1;
     mix-blend-mode: normal;
-    color: $color-ink-lighter;
+    color: var(--color-text-sub);
     margin-bottom: 0;
   }
 
   .hidden {
     animation: fade 0.2s linear forwards reverse;
+  }
+
+  &.device {
+    filter: none;
+    border-radius: 0;
   }
 }
 
