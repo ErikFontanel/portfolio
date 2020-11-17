@@ -19,19 +19,18 @@
   {% endif %}
 
   <div class="project-item--text">
-    {% if client and not single_thumbnail|length %}
-      <h3 class="project-item--client  text-sub {{ 'h-m' if single_thumbnail else 'h-l' }}">{{ client }}</h3>
+    {% if client %}
+      <h3 class="project-item--client text-sub {{ 'h-m' if single_thumbnail else 'h-l' }}">{{ client }}</h3>
     {% endif %}
 
     {% if title %}
       <h2 class="project-item--title {{ 'h-xl' if single_thumbnail else 'h-xxl' }}">{{ title }}</h2>
     {% endif %}
 
+    {% block projectMeta %}
+      {% if role|length or team|length %}
+        {% include "./project-meta.njk" %}
+      {% endif %}
+    {% endblock %}
   </div>
-
-  {% block projectMeta %}
-    {% if role|length or team|length %}
-      {% include "./project-meta.njk" %}
-    {% endif %}
-  {% endblock %}
 </header>
