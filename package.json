@@ -13,7 +13,7 @@
     "dev:eleventy": "eleventy --serve --quiet",
     "dev:parcel": "parcel watch ./src/app.js",
     "dev": "npx run-p \"dev:*\"",
-    "build:critical": "./node_modules/.bin/critical dist/index.html -c src/css/app.css --base / > src/css/critical.css",
+    "build:critical": "./node_modules/.bin/critical dist/index.html -c dist/static/scss/app.css --base / > src/scss/critical.css",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
     "build:parcel": "parcel build ./src/app.js --no-content-hash",
     "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
