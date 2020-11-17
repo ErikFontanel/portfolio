@@ -118,8 +118,6 @@
 }
 
 @mixin text-style-extra-extra-large {
-  --inter-font-weight: 360;
-
   font-family: $font-stack-base;
   font-size: font-size(extra-extra-large);
   line-height: line-height(extra-extra-large);

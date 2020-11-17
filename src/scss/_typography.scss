@@ -140,14 +140,20 @@ ol {
 }
 
 h1 {
+  --inter-font-weight: 360;
+
   @include text-style-large();
 }
 
 h2 {
+  --inter-font-weight: 360;
+
   @include text-style-large();
 }
 
 h3 {
+  --inter-font-weight: 360;
+
   @include text-style-medium();
 }
 
