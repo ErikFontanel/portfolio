@@ -5,8 +5,10 @@ export default class ProjectNav {
     this.el = el;
     this.pageHeader =
       document.querySelector('.project-header') ||
-      document.querySelector('.page-header');
-    window.addEventListener('scroll', debounce(this.onScroll.bind(this), 50));
+      document.querySelector('.page-header') ||
+      document.querySelector('.page-header--title');
+    if (this.pageHeader)
+      window.addEventListener('scroll', debounce(this.onScroll.bind(this), 50));
   }
 
   onScroll() {
