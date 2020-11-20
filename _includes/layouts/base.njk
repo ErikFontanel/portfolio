@@ -32,12 +32,12 @@
 
     <meta name="theme-color" content="{{ metadata.theme_color }}">
   </head>
-  <body class="{%- block bodyClass -%}{%- endblock %}{{- page.data.tags[0] -}} {{- page.data.layout -}}">
+  <body class="{%- block bodyClass -%}{%- endblock %} {{- page.data.tags[0] -}} {{- page.data.layout -}}">
 
     {% block nav %}
       {% include "nav.njk" %}
     {% endblock %}
-    <main class="wrapper grid {% block mainClass -%}{%- endblock -%}" data-slug="{{ page.fileSlug }}" data-url="{{ page.url }}" data-title="{{ client if client else title }}" data-type="{{ page.filePathStem|taxonomy }}">
+    <main class="wrapper grid" data-slug="{{ page.fileSlug }}" data-url="{{ page.url }}" data-title="{{ client if client else title }}" data-type="{{ page.filePathStem|taxonomy }}" data-bodyclass="{% block mainClass -%}{%- endblock -%}">
 
       {% block main %}
         {{ content | safe }}

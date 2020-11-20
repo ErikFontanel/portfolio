@@ -1,5 +1,7 @@
 {% extends './base.njk' %}
 
+{%- block bodyClass -%} home bg-inverted {%- endblock -%}
+
 {% import "../page-item.njk" as pageitem %}
 
 {# Get About page content #}
@@ -13,14 +15,6 @@
     {% set expertise = item %}
   {% endif %}
 {% endfor %}
-
-{%- block bodyClass -%}
-  home
-{%- endblock -%}
-
-{%- block mainClass -%}
-  bg-inverted
-{%- endblock -%}
 
 {%- set cta -%}
   <abbr aria-label="open to job offers" class="jobs-cta">

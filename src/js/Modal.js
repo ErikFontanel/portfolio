@@ -27,9 +27,10 @@ export default class Modal {
       'img[src], img[srcset]',
       'video'
     );
+    const dataset = frag.content.querySelector('main').dataset;
 
-    this.slug = frag.content.querySelector('main').dataset.slug;
-    this.url = frag.content.querySelector('main').dataset.url;
+    this.slug = dataset.slug;
+    this.url = dataset.url;
 
     [...unneededElements].map((el) => el.remove());
     [...assets].map((el) => {
@@ -53,12 +54,13 @@ export default class Modal {
     this.template.content.querySelector('.modal--body').innerHTML =
       frag.innerHTML;
 
-    this.pageDetails = this.template.content.querySelector('main').dataset;
+    this.pageDetails = { ...dataset, bodyclass: dataset.bodyclass.split(' ') };
   }
 
   show() {
     this.el = this.template.content.firstElementChild;
     this.el.dataset.slug = this.pageDetails.slug;
+    this.el.classList.add(...this.pageDetails.bodyclass);
 
     if (this.animateParent)
       wrapper.classList.add('animating', 'animation:scaleInDown');
