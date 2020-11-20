@@ -29,6 +29,14 @@
       grid-template-rows: 50vh 50vh;
       align-items: stretch;
     }
+
+    &.portrait\:2-3col {
+      grid-template-areas:
+        'text img'
+        'meta img';
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 100vmin;
+    }
   }
 
   .project-item--text {
