@@ -1,7 +1,7 @@
 @use 'config' as *;
 
 .card {
-  background-color: var(--color-background, var(--color-background-ui));
+  background-color: var(--color-background-ui);
   border-radius: $radius;
   padding: var(--spacing-base) var(--spacing-loose);
   box-shadow: shadow(3);
