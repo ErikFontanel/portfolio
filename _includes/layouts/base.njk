@@ -17,7 +17,7 @@
 
     {% if env.environment === 'production' %}
       {% set criticalcss %}
-        {% include "../../src/css/critical.css" ignore missing %}
+        {% include "../../src/scss/critical.css" ignore missing %}
       {% endset %}
 
       {% if criticalcss|length %}
