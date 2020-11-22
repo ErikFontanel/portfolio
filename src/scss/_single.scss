@@ -65,6 +65,18 @@
   .fluid-width-video-wrapper {
     padding-top: 56.67% !important;
   }
+
+  + .inline-caption {
+    margin-top: calc(var(--spacing-block) * -1 + 1em);
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+    grid-column-end: 13;
+    grid-column-start: 10;
+
+    p {
+      @include text-style-caption;
+    }
+  }
 }
 
 .single-body {
