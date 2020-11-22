@@ -1,5 +1,6 @@
 import Modal from './Modal';
 import EventBus from './EventBus';
+import fitvids from 'fitvids';
 
 export default class Nav {
   constructor(el) {
@@ -118,11 +119,10 @@ export default class Nav {
 
   ['onmodal:beforeShow'](event) {
     this.updateActiveLink(event);
+    fitvids();
   }
 
-  ['onmodal:show'](event) {
-    // this.updateActiveLink(event);
-  }
+  ['onmodal:show'](event) {}
 
   ['onmodal:hide'](event) {
     this.unsetActiveLink(event);
