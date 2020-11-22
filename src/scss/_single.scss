@@ -84,12 +84,4 @@
     padding-bottom: 0;
     margin-bottom: 0;
   }
-
-  [data-slug='close'] & {
-    .grid\:3 {
-      img {
-        grid-column-end: span 12;
-      }
-    }
-  }
 }
