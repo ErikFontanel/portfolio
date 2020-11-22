@@ -115,9 +115,14 @@ module.exports = function (eleventyConfig) {
       .use(markdownItBlockEmbed, {
         containerClassName: 'block block-embed',
         filterUrl: (url, serviceName, videoID, options) => {
-          if (!serviceName === 'youtube') {
+          if (!serviceName === 'youtube' || serviceName === 'vimeo') {
             return url;
           }
+
+          if (serviceName === 'vimeo') {
+            return `<iframe src="https://player.vimeo.com/video/${videoID}?color=ff3300&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+          }
+
           const ytOptions = {
             autoplay: 0,
             modestbranding: 1,
