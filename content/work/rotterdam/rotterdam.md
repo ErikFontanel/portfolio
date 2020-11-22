@@ -9,22 +9,19 @@ tags:
   - visual design
 role: UX design
 team: Studio Dumbar
+single_layout: 'landscape:2-col'
+single_thumbnail: rotterdam1.png
 ---
-
-## Rotterdam Tourist Information —
-
-# Everything seems possible here, and there’s so much left to explore.
 
 Rotterdam.info is the place to go if you are visiting our living in Rotterdam and want to know what's on in Rotterdam. In collaboration with [Studio Dumbar](https://studiodumbar.com) I redesigned the website for the Rotterdam Tourist Information centre.
 
-Role: UX Design
-Team: Studio Dumbar
-
----
-
-rotterdam collage
-
----
-
 &rarr; https://rotterdam.info
 &rarr; https://rotterdampartners.nl
+
+
+{% gallery { css: 'devices full-width grid:rotterdam' } %}
+{% image 'rotterdam2.png'  %}
+{% image 'rotterdam3.png'  %}
+{% image 'rotterdam5.png'  %}
+{% image 'rotterdam4.png'  %}
+{% endgallery %}

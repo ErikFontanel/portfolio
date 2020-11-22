@@ -186,6 +186,30 @@ $gallery-index: (caption, images);
         grid-column: 3 / span 8;
       }
     }
+
+    &.grid\:rotterdam {
+      display: grid;
+      gap: var(--spacing-block) var(--gutter);
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      align-items: end;
+      grid-auto-flow: row;
+      padding-right: 25%;
+      margin-bottom: calc(var(--spacing-block) * -1);
+
+      img {
+        grid-column-end: span 3;
+        width: 100%;
+        max-width: max-content;
+      }
+
+      img:first-of-type,
+      img:last-of-type {
+        grid-column-end: span 1;
+        width: auto;
+        height: 66%;
+      }
+    }
   }
 }
 
