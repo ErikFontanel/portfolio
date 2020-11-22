@@ -6,15 +6,17 @@
   {% if thumbnail %}
     <div class="project-item--img" >
 
-    {% if single_thumbnail|length %}
-      <picture>
-        <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," media="(min-width: 48rem)" width="100%" height="auto" class="content-image"/>
-        <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," width="100%" height="auto" class="content-image" alt="A SaaS platform for an event marketing messaging app" />
-         <img src="{{ single_thumbnail }}?nf_resize=fit&amp;w=1280" />
-      </picture>
-    {% else %}
-      {% image thumbnail, '', 'thumb', 'auto', title %}
-    {% endif %}
+      {% if single_thumbnail|length %}
+        {% set single_thumbnail = url + single_thumbnail %}
+
+        <picture>
+          <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," media="(min-width: 48rem)" width="100%" height="auto" class="content-image"/>
+          <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," width="100%" height="auto" class="content-image" alt="A SaaS platform for an event marketing messaging app" />
+          <img src="{{ single_thumbnail }}?nf_resize=fit&amp;w=1280" />
+        </picture>
+      {% else %}
+        {% image thumbnail, '', 'thumb', 'auto', title %}
+      {% endif %}
     </div>
   {% endif %}
 
