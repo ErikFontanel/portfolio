@@ -13,7 +13,7 @@ tags:
 role: Product Design Lead
 team: Jankees van Woezik, Close
 single_layout: 'landscape:2-col'
-single_thumbnail: 'close1.png'
+single_thumbnail: close1.png
 ---
 
 For event marketing start-up Close I designed the UX for the Close web app, set up a design workflow and -system and worked on the implementation of the front-end.
@@ -34,7 +34,7 @@ The mobile app for the event visitors is powered by a web app (SPA), used by the
 At the end of 2018 the super ambitious but then still small Close team just raised their first round of funding with their MVP and they were looking for reinforcements of the team to grow the company. They reached out to me for the UX design for the Close web app.
 
 {% gallery {
-  css: 'grid:3'
+  css: 'full-width'
 } %}
 {% image 'close7.png', '', 'full' %}
 {% endgallery %}
