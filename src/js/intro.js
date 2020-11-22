@@ -96,12 +96,10 @@ window.addEventListener('resize', debounce(onWindowResize), false);
 function pauseAnimation() {
   cancelAnimationFrame(animation);
   animation = undefined;
-  console.log('intro paused');
 }
 
 function resumeAnimation() {
   animation = requestAnimationFrame(animate);
-  console.log('intro resumed');
 }
 
 // Fade on scroll
