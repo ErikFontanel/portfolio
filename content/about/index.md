@@ -2,7 +2,7 @@
 title: About
 thumbnail: hellothisismeyourelookingfor.jpg
 layout: ./layouts/about.njk
-sideprojects_intro: In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino's and electronics and [Fusion 360](https://www.autodesk.com/products/fusion-360/overview).
+sideprojects_intro: In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino's, and Fusion 360.
 tags:
   - page
 ---
