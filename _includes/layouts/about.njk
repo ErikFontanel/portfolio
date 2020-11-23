@@ -50,7 +50,12 @@
   </article>
 
 <section class="section side-projects bg-inverted grid:full grid">
-  <h2 class="section--title">Side Projects</h2>
+  <div class="section--text">
+    <h2 class="section--title">Side Projects</h2>
+    <p class="section--intro text-s">
+      {{ sideprojects_intro }}
+    </p>
+  </div>
 
   {% set projects = collections['side-project'] %}
   {% set projectsClass = 'grid:3 bg-inverted' %}

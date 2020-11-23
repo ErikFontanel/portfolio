@@ -2,6 +2,7 @@
 title: About
 thumbnail: hellothisismeyourelookingfor.jpg
 layout: ./layouts/about.njk
+sideprojects_intro: In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino's and electronics and [Fusion 360](https://www.autodesk.com/products/fusion-360/overview).
 tags:
   - page
 ---
@@ -15,5 +16,3 @@ I like to fulfil an architect like role, being the translator between the design
 As a front-end developer I am specialised in creating a responsive and performant experience using HTML, SCSS and Javascript. I'm specialised in CSS, in particular the architecture of css in design systems, browser quirks and performance.
 
 In the past I have founded [Fontanel](/work/fontanel). Launched in 2006, Fontanel started as a small blog and grew out to become one of the most popular platforms to discover talent, events and jobs in Dutch creative culture.
-
-In my free time I like to tinker with my 3D Printer (Creality Ender 3), Arduino's and electronics and [Fusion 360](https://www.autodesk.com/products/fusion-360/overview).

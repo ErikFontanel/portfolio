@@ -91,9 +91,12 @@
   .side-projects {
     margin-top: 0;
 
-    .section--title {
-      @media (--mobile) {
-        grid-column: wide;
+    .section--text {
+      z-index: z-index(navigation);
+      background-color: var(--color-background-inverted);
+      grid-column: wide;
+
+      .section--title {
         margin-bottom: 1em;
       }
     }
@@ -101,8 +104,13 @@
     @media (--tablet-up) {
       grid-template-columns: repeat(4, 1fr);
 
-      .section--title {
+      .section--text {
+        padding: var(--gutter) 0;
+        grid-column: 1;
         align-self: start;
+        position: sticky;
+        top: var(--gutter);
+        z-index: z-index(navigation);
       }
 
       .projects {
