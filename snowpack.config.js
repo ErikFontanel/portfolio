@@ -24,12 +24,13 @@ module.exports = {
       { native: process.env.NODE_ENV !== 'production' },
     ],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
+    ['@snowpack/plugin-optimize'],
   ],
   devOptions: {
     port: 8080,
     open: 'none',
     secure: true,
     hmrDelay: 300,
-    bundle: true,
+    hostname: 'portfolio.test',
   },
 };
