@@ -25,11 +25,13 @@
 
   align-items: start;
   justify-items: stretch;
+  justify-content: center;
   grid-column: full;
   padding: 0 var(--gutter);
 
   @media (--mobile-up) {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 33vw);
     gap: calc(var(--gutter) * 3) $column-spacing;
     grid-column: wide;
     padding: 0 $column-padding;
