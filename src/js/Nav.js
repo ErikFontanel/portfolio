@@ -7,7 +7,6 @@ export default class Nav {
     this.el = el;
     this.navMain = this.el.querySelector('.nav-main');
     this.navProjects = this.el.querySelector('.nav-projects');
-    this.projectItems = document.querySelectorAll('.project-item a');
 
     this.visible = false;
     this.modal = null;
@@ -16,12 +15,9 @@ export default class Nav {
       this.btnToggle.getAttribute('aria-controls')
     );
 
+    this.registerListeners();
     this.el.addEventListener('click', this.onclick.bind(this));
     this.el.addEventListener('touchend', this.onclick.bind(this));
-
-    [...this.projectItems].map((link) => {
-      link.addEventListener('click', this.onclickProjectItem.bind(this));
-    });
 
     // Disabled focus ring triggering in Chrome
     this.el.addEventListener(
@@ -118,6 +114,7 @@ export default class Nav {
 
   ['onmodal:beforeShow'](event) {
     this.updateActiveLink(event);
+    this.registerListeners();
     fitvids();
   }
 
@@ -130,7 +127,12 @@ export default class Nav {
   ['onmodal:disabled'](event) {
     event.destroy();
   }
-
+  registerListeners() {
+    this.projectItems = document.querySelectorAll('.project-item a');
+    [...this.projectItems].map((link) => {
+      link.addEventListener('click', this.onclickProjectItem.bind(this));
+    });
+  }
   unsetActiveLink(detail) {
     const buttons = [...this.el.querySelectorAll('.button')];
     const btnToggle = this.btnToggle;
