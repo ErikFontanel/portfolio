@@ -50,7 +50,7 @@ loadThree();
 const projectItems = document.querySelectorAll('.project-item');
 if (projectItems.length > 0) {
   const items = [...projectItems];
-  items.map((item) =>
+  items.map((item) => {
     item.addEventListener(
       'mouseenter',
       () => {
@@ -59,9 +59,8 @@ if (projectItems.length > 0) {
           .map((p) => p.classList.add('is-blurred'));
       },
       { passive: true }
-    )
-  );
-  items.map((item) =>
+    );
+
     item.addEventListener(
       'mouseleave',
       () => {
@@ -70,6 +69,6 @@ if (projectItems.length > 0) {
           .map((p) => p.classList.remove('is-blurred'));
       },
       { passive: true }
-    )
-  );
+    );
+  });
 }
