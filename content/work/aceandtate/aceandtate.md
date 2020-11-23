@@ -63,14 +63,14 @@ Non-hierarchical way of browsing the collection by not only filtering on propert
 A smooth and easy configuration a newly designed product configurator.
 
 {% gallery {
-  caption: 'A new photography concept featuring super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.',
+  caption: 'The new photography shows the frames being worn on a wide variety of faces',
   css: 'full-width grid:2'
 } %}
 {% image 'at-main2.jpg' %}
 {% image 'at-main3.jpg' %}
 {% endgallery %}
 
-New, super high resolution pack shots to showcase not only the quality of the frames but are also recognisable as Ace & Tate when shared on platforms like Instagram and Pinterest.
+New high resolution pack shots to showcase the quality of the frames but are also recognisable as Ace & Tate when out of context, ie. shared on platforms like Instagram and Pinterest.
 
 {% gallery {
   css: 'grid:3'
@@ -81,6 +81,7 @@ New, super high resolution pack shots to showcase not only the quality of the fr
 A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
 
 <div class="block grid:main">
+
 {% gallery {
   caption: 'Product Category page',
   css: 'carousel device'
@@ -90,29 +91,29 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
   {% image 'at-co3.png' %}
   {% image 'at-co4.png' %}
 {% endgallery %}
+
 </div>
 
-{% list "Results" %}
-
-- grew from a team of 1 designer and 2 developers to 3 designers and 6 developers
-- set-up a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com)
-- created the overall concept and design of the new online customer experience
-- designed the information architecture of the Ace & Tate e-commerce platform and product taxonomies
-- designed the UX of the website, including check-out and customer (self-)service environment
-- came up with the concept of the new product photography and head shots
-- designed seasonal campaigns, won a Awwward for the Lernert & Sander campaign (of which I also did a part of the front-end)
-- increased conversion and thus revenue (I'm not allowed to share any numbers)
-
-{% endlist %}
 
 {% gallery {
-  css: 'devices full-width'
+  css: 'devices full-width',
+  caption: 'Checkout and customer dashboard'
 } %}
 {% image 'at-checkout.png' %}
 {% image 'at-dashboard.png' %}
 {% endgallery %}
 
-&rarr; https://aceandtate.com/
+{% list "Results" %}
 
-Photography credits:
-[Dennis Swiatkowski](https://www.dennisswiatkowski.com) for Ace & Tate
+- grew the team from 1 designer and 2 developers to 3 designers and 6 developers
+- set-up a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com)
+- designed the overall concept and UI of the new online customer experience
+- designed the information architecture of the Ace & Tate e-commerce platform and product taxonomies
+- designed the UX of the website, including check-out and customer (self-)service environment
+- new concepts for the product photography and head shots
+- designed seasonal campaigns, won a Awwward for the Lernert & Sander campaign (of which I also did a part of the front-end)
+- increased conversion and thus revenue (I'm not allowed to share any numbers)
+
+{% endlist %}
+
+&rarr; https://aceandtate.com/
