@@ -46,6 +46,8 @@
   .portrait {
     align-self: stretch;
     object-fit: cover;
+    border-top-left-radius: var(--border-radius-large);
+    border-top-right-radius: var(--border-radius-large);
 
     @media (--mobile) {
       grid-row: 1;
@@ -62,6 +64,7 @@
       object-position: 50%;
       margin: 0;
       grid-area: pic;
+      border-radius: 0;
     }
   }
 
@@ -90,11 +93,12 @@
 
   .side-projects {
     margin-top: 0;
+    background-color: var(--color-background-inverted);
+    z-index: z-index(navigation);
 
     .section--text {
-      z-index: z-index(navigation);
-      background-color: var(--color-background-inverted);
       grid-column: wide;
+      margin-bottom: var(--spacing-block);
 
       .section--title {
         margin-bottom: 1em;
@@ -111,6 +115,7 @@
         position: sticky;
         top: var(--gutter);
         z-index: z-index(navigation);
+        margin: 0;
       }
 
       .projects {

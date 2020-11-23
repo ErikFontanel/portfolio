@@ -122,11 +122,13 @@
     grid-area: img;
     z-index: 1;
     border-radius: 0;
+    border-top-left-radius: var(--border-radius-large);
     border-top-right-radius: var(--border-radius-large);
 
     @media (--tablet-up) {
       border-radius: 0;
       border-top-right-radius: var(--border-radius-large);
+      border-top-left-radius: 0;
     }
 
     &::before {

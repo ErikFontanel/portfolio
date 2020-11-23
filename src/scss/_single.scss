@@ -40,7 +40,7 @@
   position: relative;
   margin-top: calc(var(--spacing-block) * 2);
   margin-bottom: calc(var(--spacing-block) * 2);
-  background-color: var(--color-background);
+  // background-color: var(--color-background);
 
   @media (--tablet-up) {
     margin-top: var(--spacing-block);

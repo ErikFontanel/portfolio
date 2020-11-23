@@ -196,6 +196,10 @@ $gallery-index: (caption, images);
       > *:nth-child(3) {
         grid-column-end: span 2;
       }
+
+      video {
+        width: auto;
+      }
     }
 
     &.grid\:close {

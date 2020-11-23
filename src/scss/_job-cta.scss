@@ -16,6 +16,7 @@
     margin-left: -0.5ex;
   }
 }
+
 .job-cta {
   position: absolute;
   z-index: z-index(body);
@@ -25,7 +26,8 @@
   transform-origin: 50% 47.5%;
   transition: $transition-slow $transition-timing;
   transition-property: opacity, transform;
-  transform: translate(51%, -73%);
+  top: -230%;
+  right: -58%;
 
   #asterisks {
     fill: #ff0000;
@@ -49,6 +51,7 @@
     letter-spacing: 0.025em;
     transition: $transition-slow $transition-timing;
     transition-property: opacity, transform;
+
     :not(:hover) & {
       opacity: 0;
     }
