@@ -21,7 +21,6 @@ export default class Nav {
 
     [...this.projectItems].map((link) => {
       link.addEventListener('click', this.onclickProjectItem.bind(this));
-      link.addEventListener('touchend', this.onclickProjectItem.bind(this));
     });
 
     // Disabled focus ring triggering in Chrome
