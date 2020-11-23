@@ -3,16 +3,16 @@
 {%- set url = page.url -%}
 
 <header class="project-header {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
+
   {% if thumbnail %}
     <div class="project-item--img" >
-
       {% if single_thumbnail|length %}
-        {% set single_thumbnail = url + single_thumbnail %}
-
+        {% set thumbnail = url + single_thumbnail %}
+        {% set thumbnail_portrait = thumbnail|replace('.jpg','-portrait.jpg')|replace('.png','-portrait.png') %}
         <picture>
-          <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," media="(min-width: 48rem)" width="100%" height="auto" class="content-image"/>
-          <source srcset="{{ single_thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ single_thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ single_thumbnail }}?nf_resize=fit&amp;w=2570 2570w," width="100%" height="auto" class="content-image" alt="A SaaS platform for an event marketing messaging app" />
-          <img src="{{ single_thumbnail }}?nf_resize=fit&amp;w=1280" />
+          <source srcset="{{ thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ thumbnail }}?nf_resize=fit&amp;w=2570 2570w," media="(orientation: landscape)" width="100%" height="auto" alt="{{ title }}" />
+          <source srcset="{{ thumbnail_portrait }}?nf_resize=fit&amp;w=320 320w,{{ thumbnail_portrait }}?nf_resize=fit&amp;w=1070 1070w,{{ thumbnail_portrait }}?nf_resize=fit&amp;w=1820 1820w,{{ thumbnail_portrait }}?nf_resize=fit&amp;w=2570 2570w" media="(orientation: portrait)" width="100%" height="auto" alt="{{ title }}" />
+          <img src="{{ thumbnail_portrait }}?nf_resize=fit&amp;w=1280" />
         </picture>
       {% else %}
         {% image thumbnail, '', 'thumb', 'auto', title %}
