@@ -23,7 +23,7 @@ A replica of a BMW M3 DTM race car steering wheel I made. It can be used on my s
 
 {% image 'bmw2.jpg' %}
 
-@[local](explodedview.mp4)
+@[local]({{ page.url }}explodedview.mp4)
 
 {% image 'bmw3.jpg' %}
 

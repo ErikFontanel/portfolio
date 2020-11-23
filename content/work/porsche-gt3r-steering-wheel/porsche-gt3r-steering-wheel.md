@@ -22,7 +22,7 @@ A replica of a Porsche GT3R race car steering wheel I made. It can used on my si
 
 {% image 'porsche2.jpg' %}
 
-@[local](explodedview.mp4)
+@[local]({{ page.url }}explodedview.mp4)
 
 {% image 'porsche3.jpg' %}
 
