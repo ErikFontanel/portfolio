@@ -10,7 +10,7 @@
         {% set thumbnail = url + single_thumbnail %}
         {% set thumbnail_portrait = thumbnail|replace('.jpg','-portrait.jpg')|replace('.png','-portrait.png') %}
         <picture>
-          <source srcset="{{ thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ thumbnail }}?nf_resize=fit&amp;w=2570 2570w," media="(orientation: landscape)" width="100%" height="auto" alt="{{ title }}" />
+          <source srcset="{{ thumbnail }}?nf_resize=fit&amp;w=320 320w,{{ thumbnail }}?nf_resize=fit&amp;w=1070 1070w,{{ thumbnail }}?nf_resize=fit&amp;w=1820 1820w,{{ thumbnail }}?nf_resize=fit&amp;w=2570 2570w" media="(orientation: landscape)" width="100%" height="auto" alt="{{ title }}" />
           <source srcset="{{ thumbnail_portrait }}?nf_resize=fit&amp;w=320 320w,{{ thumbnail_portrait }}?nf_resize=fit&amp;w=1070 1070w,{{ thumbnail_portrait }}?nf_resize=fit&amp;w=1820 1820w,{{ thumbnail_portrait }}?nf_resize=fit&amp;w=2570 2570w" media="(orientation: portrait)" width="100%" height="auto" alt="{{ title }}" />
           <img src="{{ thumbnail_portrait }}?nf_resize=fit&amp;w=1280" />
         </picture>
