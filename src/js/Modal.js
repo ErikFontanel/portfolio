@@ -24,8 +24,7 @@ export default class Modal {
       '*:scope > *:not(main):not(.site-footer)'
     );
     const assets = frag.content.querySelectorAll(
-      'img[src], img[srcset]',
-      'video'
+      'img[src], img[srcset], video'
     );
     const dataset = frag.content.querySelector('main').dataset;
 
