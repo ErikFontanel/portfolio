@@ -1,6 +1,7 @@
 @use 'config' as *;
 
 .site-footer {
+  position: relative;
   font-size: font-size(extra-small);
   height: 100vh;
   width: 100%;
