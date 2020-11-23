@@ -11,7 +11,6 @@
   padding-right: var(--gutter);
   padding-left: var(--gutter);
   display: flex;
-  justify-content: flex-end;
   z-index: z-index(body);
   grid-column: full;
   margin-bottom: calc(var(--gutter) * -2);
