@@ -3,6 +3,19 @@
 $gallery-index: (caption, images);
 
 .gallery {
+  display: grid;
+  gap: var(--spacing-block) var(--gutter);
+  grid-auto-columns: 1fr;
+
+  @media (--tablet-up) {
+    grid-auto-flow: column;
+  }
+
+  > img,
+  > video {
+    width: 100%;
+  }
+
   figcaption {
     @include effect-exclusion($color-ink);
 
@@ -40,11 +53,8 @@ $gallery-index: (caption, images);
   &.devices {
     background-color: #f6f7f8;
     padding: var(--spacing-block) calc(var(--spacing-block) / 2);
-    grid-auto-columns: 1fr;
-    justify-content: space-evenly;
-    display: grid;
-    grid-auto-flow: column;
     gap: var(--gutter) calc(var(--spacing-block) / 2);
+    justify-content: space-evenly;
 
     img {
       border-radius: $radius;
@@ -54,17 +64,6 @@ $gallery-index: (caption, images);
     & + .devices {
       margin-top: calc(var(--spacing-block) * -2);
     }
-  }
-
-  &.grid\:2 {
-    display: grid;
-    margin-top: var(--spacing-block);
-    margin-bottom: var(--spacing-block);
-    grid-template-columns: minmax(auto, #{5 / 12 * 100%});
-    grid-auto-columns: minmax(auto, #{5 / 12 * 100%});
-    justify-content: space-between;
-    align-items: start;
-    grid-template-rows: 1fr auto 1fr;
 
     @media (--mobile) {
       overflow: auto;
@@ -72,6 +71,43 @@ $gallery-index: (caption, images);
       grid-auto-columns: 80vmin;
       grid-template-columns: 80vmin;
       grid-template-rows: 1fr;
+      align-items: start;
+      justify-content: start;
+
+      > * {
+        grid-row: 1;
+      }
+
+      figcaption,
+      img:first-of-type {
+        grid-column: 1;
+      }
+
+      &::after {
+        content: '';
+        grid-column-start: auto;
+        grid-row: 1;
+        height: 100%;
+        width: 0.1px;
+      }
+    }
+  }
+
+  &.grid\:2 {
+    display: grid;
+    grid-template-columns: minmax(auto, #{5 / 12 * 100%});
+    grid-auto-columns: minmax(auto, #{5 / 12 * 100%});
+    justify-content: space-between;
+    align-items: start;
+    grid-template-rows: 1fr auto 1fr;
+
+    @media (--mobile) {
+      grid-auto-flow: column;
+      grid-auto-columns: 80vmin;
+      grid-template-columns: 80vmin;
+      grid-template-rows: 1fr;
+      padding: 0 var(--gutter);
+      justify-content: start;
     }
 
     > figcaption,
@@ -79,14 +115,28 @@ $gallery-index: (caption, images);
       grid-column: 1;
     }
 
+    &::before,
     &::after {
-      grid-row: 2;
+      grid-row: 1;
+    }
+
+    &::before {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &::after {
+      grid-column-start: auto;
+      grid-row: 1;
+      height: 100%;
+      width: 0.1px;
     }
 
     > *:not(figcaption) {
       grid-column: auto / span 1;
       z-index: z-index(images, $gallery-index);
       grid-row: 1;
+
       @media (--tablet-up) {
         grid-row: 2;
       }
@@ -103,6 +153,7 @@ $gallery-index: (caption, images);
       overflow: auto;
       scroll-behavior: smooth;
       grid-auto-flow: column;
+
       &::after {
         content: '';
         grid-row: 1;
@@ -179,9 +230,15 @@ $gallery-index: (caption, images);
       justify-items: center;
       align-items: center;
 
+      > * {
+        width: 100%;
+      }
+
+      video,
       img {
         grid-column: 3 / span 8;
       }
+
       img:nth-of-type(1),
       img:nth-of-type(3) {
         grid-column: 1 / span 7;
@@ -259,6 +316,8 @@ $gallery-index: (caption, images);
     color: var(--color-text-sub);
     margin-bottom: 0;
     justify-self: start;
+    top: 0;
+    position: relative;
   }
 
   .hidden {
@@ -268,6 +327,10 @@ $gallery-index: (caption, images);
   &.device {
     filter: none;
     border-radius: 0;
+  }
+
+  .block & {
+    height: 100%;
   }
 }
 

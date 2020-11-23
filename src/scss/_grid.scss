@@ -52,7 +52,6 @@
   grid-template-columns: var(--gutter);
   grid-auto-columns: calc(75vmin - var(--gutter));
   scroll-behavior: smooth;
-  // justify-content: space-between;
 
   &:not(.grid\:main) {
     @media (--mobile) {
