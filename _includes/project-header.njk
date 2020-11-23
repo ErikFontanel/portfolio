@@ -2,7 +2,7 @@
 {%- set hasLink = false -%}
 {%- set url = page.url -%}
 
-<header class="project-header project-item {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
+<header class="project-header {{ single_layout if single_layout else 'portrait:2-col' }} grid:full">
   {% if thumbnail %}
     <div class="project-item--img" >
 

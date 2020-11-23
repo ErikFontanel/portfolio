@@ -4,6 +4,7 @@
   grid-template-columns: 1fr;
   align-items: stretch;
   margin-bottom: var(--spacing-block);
+  display: grid;
   grid-template-areas: 'img' 'meta';
   grid-template-rows: 16 / 9 * 100vmin var(--spacing-block);
 
