@@ -1,0 +1,13 @@
+<div class="project-meta text-xs">
+  <dl>
+    {% if role|length %}
+      <dt>Role</dt>
+      <dd>{{ role }}</dd>
+    {% endif %}
+
+    {% if team|length %}
+      <dt>Team</dt>
+      <dd>{{ team }}</dd>
+    {% endif %}
+  </dl>
+</div>

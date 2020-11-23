@@ -1,0 +1,47 @@
+@use 'config' as *;
+
+$z-index: (body, canvas);
+.page-item {
+  --opacity: 1;
+
+  z-index: z-index(blobs);
+  background-color: var(--color-background-inverted);
+  height: 133vh;
+  align-content: center;
+  align-items: center;
+  opacity: var(--opacity);
+
+  canvas {
+    grid-row: 1 / 1;
+    z-index: z-index(canvas, $z-index);
+    contain: strict;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  &--wrapper {
+    padding: var(--spacing-block) 0;
+    gap: 0 var(--gutter);
+    grid-row: 1 / 1;
+    z-index: z-index(body, $z-index);
+    align-content: center;
+
+    > * {
+      grid-column: wide;
+
+      @media (--tablet-up) {
+        grid-column: 4 / wide;
+      }
+
+      + * {
+        margin-top: 1.5em;
+        margin-bottom: 0;
+      }
+    }
+
+    &--title {
+      grid-column-end: span 10;
+      max-width: 32ch;
+    }
+  }
+}

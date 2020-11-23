@@ -1,0 +1,21 @@
+{%- extends "./base.njk" -%}
+
+{%- block bodyClass -%}page{%- endblock -%}
+
+{% block main %}
+
+  {% block projectNav %}
+    {% include "../project-nav.njk" %}
+  {% endblock %}
+
+  {% block pageHeader %}
+    {% include "../page-header.njk" %}
+  {% endblock %}
+
+  {% block pageContent %}
+    <article class="page-content grid grid:full">
+      {{ content | safe }}
+    </article>
+  {% endblock %}
+
+{% endblock %}

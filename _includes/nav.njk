@@ -1,0 +1,50 @@
+{%- set client -%}
+  {%- for project in collections.project -%}
+    {%- if page.url === project.url -%}
+      {{ project.data.client | safe }}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endset -%}
+{%- set active = "active" if page.url === project.url -%}
+<header class="site-header" >
+  <nav class="nav-main">
+    <a href="{{ '/work/' | url }}" class="button button_nav"
+    aria-expanded="false"
+    aria-controls="#nav-projects"
+    aria-label="work"
+    role="switch">
+      <span class="button--label">Work{% if client|length %}:{% endif %}</span>
+      <span class="button--sub-label">{{ client }}</span>
+    </a>
+
+    {%- button
+      url = '/expertise/' | url,
+      label = 'Expertise',
+      name = 'button_nav',
+      attr = ('data-selected="true"' if page.url === '/expertise/' | url) -%}
+
+    {%- button
+      url = '/about/' | url,
+      label = 'About',
+      name ='button_nav',
+      attr = ('data-selected="true"' if page.url === '/about/' | url) -%}
+  </nav>
+
+  {%- if collections.project -%}
+    <nav class="nav-projects card nav-projects__dialog" id="nav-projects" aria-hidden="true">
+    <ul>
+      {%- for project in collections.project -%}
+        {% set active = "active" if page.url === project.url %}
+        <li>
+          {%- button
+            url = project.url|url,
+            label = project.data.client,
+            size = 'large',
+            name = active + ' button_nav',
+            attr = 'aria-current="page" data-selected="true"' if active -%}
+        </li>
+      {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+</header>

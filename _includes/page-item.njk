@@ -1,0 +1,16 @@
+{% macro pageItem(page) %}
+  <section class="bg-inverted grid grid:full page-item">
+    <canvas class="blobs grid:full"></canvas>
+    <div class="page-item--wrapper grid grid:wide">
+      <h2 class="page-item--title h-xl">{{ page.data.teaser }}</h2>
+      <p class="page-item--subtitle h-xl">
+        {{ page.data.intro }}
+      </p>
+
+      {%- button
+        url = page.url|url,
+        label = page.data.title
+      -%}
+    </div>
+  </section>
+{% endmacro %}

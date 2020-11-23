@@ -1,0 +1,130 @@
+@use 'config' as *;
+
+.page-about {
+  .page-content {
+    place-content: start;
+    padding-top: var(--gutter);
+    padding-bottom: calc(var(--spacing-block) * 2);
+
+    @media (--tablet-up) {
+      grid-column: wide;
+      grid-template-areas:
+        'title . .'
+        'main pic .'
+        'main . aside';
+
+      grid-template-columns: 3fr 2fr 1fr;
+      column-gap: calc(var(--gutter) * 2);
+      width: 100%;
+    }
+
+    .page-content--text {
+      @media (--tablet-up) {
+        grid-area: main;
+      }
+    }
+
+    aside {
+      > div + div {
+        margin-top: 2em;
+      }
+
+      @media (--tablet-up) {
+        grid-area: aside;
+
+        &.colophon {
+          grid-area: colophon;
+        }
+
+        &.friends {
+          grid-area: friends;
+        }
+      }
+    }
+  }
+
+  .portrait {
+    align-self: stretch;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius-large);
+    border-top-right-radius: var(--border-radius-large);
+
+    @media (--mobile) {
+      grid-row: 1;
+      margin-top: calc(var(--gutter) * -1);
+      margin-bottom: var(--spacing-block);
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    @media (--tablet-up) {
+      object-fit: cover;
+      object-position: 50%;
+      margin: 0;
+      grid-area: pic;
+      border-radius: 0;
+    }
+  }
+
+  .page-header--title {
+    grid-area: title;
+    margin-bottom: 2em;
+
+    @media (--mobile) {
+      grid-row: 1;
+      grid-column: wide;
+      z-index: z-index(body);
+      position: sticky;
+      top: var(--gutter);
+      mix-blend-mode: exclusion;
+      color: white;
+      margin-bottom: 0;
+      margin-top: 0.2em;
+      left: 0;
+      font-size: font-size(medium);
+    }
+  }
+
+  .page-header--intro {
+    margin-top: 0;
+  }
+
+  .side-projects {
+    margin-top: 0;
+    background-color: var(--color-background-inverted);
+    z-index: z-index(navigation);
+
+    .section--text {
+      grid-column: wide;
+      margin-bottom: var(--spacing-block);
+
+      .section--title {
+        margin-bottom: 1em;
+      }
+    }
+
+    @media (--tablet-up) {
+      grid-template-columns: repeat(4, 1fr);
+
+      .section--text {
+        padding: var(--gutter) 0;
+        grid-column: 1;
+        align-self: start;
+        position: sticky;
+        top: var(--gutter);
+        z-index: z-index(navigation);
+        margin: 0;
+      }
+
+      .projects {
+        grid-column: 2 / -1;
+      }
+
+      .project-item--title {
+        font-size: font-size(medium);
+      }
+    }
+  }
+}

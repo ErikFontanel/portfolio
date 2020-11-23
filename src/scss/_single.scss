@@ -1,0 +1,98 @@
+@use 'config' as *;
+
+.single-body {
+  padding-bottom: var(--spacing-block);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p
+    + *:not([class~='block']):not([class~='section']):not(.content-image):not([class~='aside']) {
+    margin-top: 1em;
+  }
+
+  > p:first-child {
+    @media (--tablet-up) {
+      font-size: font-size(large);
+    }
+  }
+
+  > .content-image {
+    width: 100%;
+    max-width: 100%;
+    margin: var(--spacing-block) 0;
+    justify-self: center;
+
+    & + * {
+      margin-top: 0;
+    }
+  }
+
+  .aside {
+    margin-top: calc(var(--spacing-block) * 0.5);
+  }
+}
+
+.block {
+  position: relative;
+  margin-top: calc(var(--spacing-block) * 2);
+  margin-bottom: calc(var(--spacing-block) * 2);
+  // background-color: var(--color-background);
+
+  @media (--tablet-up) {
+    margin-top: var(--spacing-block);
+    margin-bottom: var(--spacing-block);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & + .block {
+    margin-top: 0;
+  }
+
+  > .block {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.grid\:centered {
+    display: grid;
+  }
+}
+
+.block-embed {
+  margin-left: calc(var(--gutter) * -1);
+  margin-right: calc(var(--gutter) * -1);
+
+  @media (--tablet-up) {
+    grid-column: 3 / 13;
+  }
+
+  .fluid-width-video-wrapper {
+    padding-top: 56.67% !important;
+  }
+
+  + .inline-caption {
+    margin-top: calc(var(--spacing-block) * -1 + 1em);
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+    grid-column-end: 13;
+    grid-column-start: 10;
+
+    p {
+      @include text-style-caption;
+    }
+  }
+}
+
+.single-body {
+  [data-slug='hbo'] & {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}

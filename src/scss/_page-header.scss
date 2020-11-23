@@ -1,0 +1,41 @@
+@use 'config' as *;
+
+.page-header {
+  grid-column: wide;
+  min-height: 75vmin;
+  display: grid;
+  padding: var(--spacing-block) 0;
+
+  @media (--tablet-up) {
+    grid-template-columns: [main] 2fr [pic] 1fr [aside] 1fr;
+  }
+
+  &--text {
+    display: flex;
+    flex-flow: row wrap;
+    grid-column: main;
+    grid-row: 1;
+  }
+
+  &--title {
+    flex: 1 1 100%;
+    margin-bottom: auto;
+    color: var(--color-text-sub);
+
+    @media (--mobile) {
+      visibility: hidden;
+      opacity: 0;
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  &--intro {
+    flex: 1 1 100%;
+    align-self: center;
+  }
+
+  &--img {
+    grid-row: 1;
+    grid-column: pic;
+  }
+}

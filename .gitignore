@@ -1,3 +1,18 @@
 /.gtm/
 .cache
 .vscode
+dist
+
+.now_site
+build
+.now
+snowpack.crt
+snowpack.key
+src/scss/app.css.map
+src/scss/app.css
+src/css
+src/css/**/*.*
+web_modules
+
+# Local Netlify folder
+.netlify

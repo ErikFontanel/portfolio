@@ -1,0 +1,74 @@
+@use 'config' as *;
+
+.site-footer {
+  position: relative;
+  font-size: font-size(extra-small);
+  height: 100vh;
+  width: 100%;
+  padding: var(--spacing-block) 0;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: auto;
+  row-gap: var(--gutter);
+  align-content: center;
+  align-items: start;
+  z-index: z-index(modal);
+
+  @media (--tablet-up) {
+    align-content: space-evenly;
+  }
+
+  * {
+    color: inherit;
+  }
+
+  > * {
+    grid-row: 2;
+    grid-column: wide;
+  }
+
+  &__contact {
+    grid-row: 1;
+    align-self: end;
+    @media (--mobile) {
+      .text-xl {
+        font-size: font-size(large);
+      }
+    }
+    @media (--tablet-up) {
+      align-self: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-row: 2;
+
+    @media (--tablet-up) {
+      grid-column: 2 / -1;
+      flex-flow: row wrap;
+
+      > .button_plain:first-of-type {
+        margin-left: -0.25em;
+      }
+    }
+
+    .button {
+      font-size: 1em;
+
+      & + .button {
+        margin-left: 0.5em;
+      }
+    }
+  }
+
+  > p {
+    font-size: font-size(extra-small);
+    color: var(--color-text-sub-inverted);
+    justify-self: center;
+    grid-row: 3;
+    text-align: center;
+    align-self: start;
+  }
+}

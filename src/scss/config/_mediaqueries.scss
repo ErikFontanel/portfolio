@@ -1,0 +1,8 @@
+@custom-media --mobile (width < 48rem);
+@custom-media --mobile-up (width >= 48rem);
+@custom-media --tablet-up (width >= 64rem);
+@custom-media --tablet-down (width <= 64rem);
+@custom-media --desktop-up (width >= 80rem);
+@custom-media --desktop-down (width <= 80rem);
+@custom-media --portait (orientation: portrait);
+@custom-media --landscape (orientation: landscape);

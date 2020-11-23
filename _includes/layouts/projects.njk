@@ -1,0 +1,14 @@
+---
+title: Projects
+layout: base
+pagination:
+  data: collections.project
+  alias: projects
+  size: 999
+---
+{% block main %}
+
+  {% block projects %}
+    {% include "../projects-list.njk" %}
+  {% endblock %}
+{% endblock %}

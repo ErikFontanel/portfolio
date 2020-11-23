@@ -1,0 +1,10 @@
+.project-item--tags {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5em;
+  font-size: clamp(
+    #{font-size(tiny)},
+    #{vw(font-size(tiny))},
+    #{font-size(extra-small)}
+  );
+}

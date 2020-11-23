@@ -1,0 +1,32 @@
+@use 'config' as *;
+
+.cta {
+  background-color: $color-yellow;
+  width: var(--spacing-block);
+  height: var(--spacing-block);
+  border-radius: 100%;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: font-size(medium);
+  position: fixed;
+  right: var(--spacing-block);
+  top: var(--spacing-block);
+  z-index: z-index(body);
+  transform: rotate(7deg);
+  transition: transform $transition-fast $transition-timing;
+  transform-origin: bottom right;
+
+  &[data-is-scrolling] {
+    transform: rotate(7deg) scale(0.5) translate3d(150%, 50%, 0);
+  }
+
+  * {
+    margin: 0;
+    font-size: font-size(medium);
+    font-family: 'SF Pro Rounded', 'Helvetica Rounded', 'Arial Rounded';
+  }
+}

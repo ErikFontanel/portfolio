@@ -1,0 +1,46 @@
+@use 'config' as *;
+@use 'sass:color';
+
+.project-nav {
+  @include effect-exclusion;
+  mix-blend-mode: exclusion;
+
+  position: sticky;
+  top: 0;
+  padding-top: var(--gutter);
+  padding-right: var(--gutter);
+  padding-left: var(--gutter);
+  display: flex;
+  z-index: z-index(body);
+  grid-column: full;
+  margin-bottom: calc(var(--gutter) * -2);
+  height: 0;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .button {
+    --button-color: #{color.invert($color-text)};
+
+    font-size: font-size(small);
+    margin-left: auto;
+
+    &:hover {
+      --button-color: #{color.invert(color.invert($color-text))};
+      --button-background-color: #{$color-white};
+    }
+  }
+
+  &--title {
+    font-size: font-size(small);
+    transition: opacity var(--animation-duration);
+    opacity: 0;
+
+    [data-is-scrolling] & {
+      opacity: 1;
+    }
+  }
+
+  .modal & {
+    top: calc(-2 * var(--gutter));
+  }
+}

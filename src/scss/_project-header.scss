@@ -1,0 +1,196 @@
+@use 'config' as *;
+
+.project-header {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  margin-bottom: var(--spacing-block);
+  display: grid;
+  grid-template-areas: 'img' 'meta';
+  grid-template-rows: 16 / 9 * 100vmin var(--spacing-block);
+
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  @media (--mobile-up) {
+    &.portrait\:2-col {
+      grid-template-areas:
+        'text img'
+        'meta img';
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 100vmin;
+    }
+
+    &.landscape\:2-col {
+      grid-template-areas:
+        'text text'
+        'img img';
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 50vh 50vh;
+      align-items: stretch;
+    }
+
+    &.portrait\:2-3col {
+      grid-template-areas:
+        'text img'
+        'meta img';
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 100vmin;
+    }
+  }
+
+  .project-item--text {
+    align-items: baseline;
+    align-content: center;
+    align-self: stretch;
+    grid-column: 1;
+    grid-row: img / meta;
+    height: 100%;
+
+    display: grid;
+    grid-template-areas:
+      'client'
+      'title'
+      'meta';
+    grid-template-rows: auto 1fr minmax(auto, var(--spacing-block));
+    align-items: end;
+
+    color: var(--color-text);
+    z-index: 2;
+    padding: calc(var(--gutter) * 2) var(--gutter) 0;
+
+    @media (--mobile) {
+      --color-text: white;
+
+      grid-template-rows: minmax(0, auto) minmax(0, 1fr) var(--spacing-block);
+      padding-top: 0;
+      mix-blend-mode: exclusion;
+    }
+
+    @media (--mobile-up) {
+      grid-area: text;
+      padding: calc(var(--gutter) * 2);
+      // padding-top: calc(var(--gutter) * 4);
+    }
+
+    .project-item--title {
+      margin: 0 0 calc(var(--spacing-block) * 2);
+
+      @media (--mobile-up) {
+        margin-bottom: auto;
+        margin-top: 1em;
+      }
+    }
+
+    .project-item--client {
+      grid-area: client;
+
+      @media (--mobile) {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &.landscape\:2-col .project-item--text {
+    @media (--tablet-up) {
+      grid-area: text;
+
+      grid-template-areas:
+        'client title'
+        'meta title';
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      align-items: baseline;
+      align-content: stretch;
+      padding-top: calc(var(--gutter) * 4);
+
+      .project-item--title {
+        grid-area: title;
+        margin: 0;
+      }
+
+      .project-meta {
+        grid-area: meta;
+        align-self: end;
+      }
+    }
+  }
+
+  .project-item--img {
+    background-color: transparent;
+    grid-area: img;
+    z-index: 1;
+    border-radius: 0;
+    border-top-left-radius: var(--border-radius-large);
+    border-top-right-radius: var(--border-radius-large);
+
+    @media (--tablet-up) {
+      border-radius: 0;
+      border-top-right-radius: var(--border-radius-large);
+      border-top-left-radius: 0;
+    }
+
+    &::before {
+      content: unset;
+    }
+  }
+
+  .project-item--tags {
+    align-self: start;
+  }
+
+  &--title {
+    grid-area: text;
+    margin-bottom: 1em * line-height(extra-large);
+  }
+
+  &--subtitle {
+    margin-bottom: 0.5em;
+  }
+
+  [data-slug='letitgrow'] & {
+    .project-item--img img {
+      object-position: top left;
+    }
+  }
+}
+
+.project-meta {
+  grid-area: meta;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+
+  > * {
+    flex: 1 0 100%;
+  }
+
+  .project-item--client {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: 0.5em;
+    padding-top: 0.8em;
+  }
+
+  dl {
+    margin: 0 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--gutter);
+
+    + * {
+      margin-top: 1em;
+    }
+  }
+
+  dt {
+    color: var(--color-text-sub);
+  }
+
+  dd {
+    color: var(--color-text);
+    margin: 0;
+    grid-row: 2;
+  }
+}

@@ -1,0 +1,23 @@
+@use 'sass:color';
+
+$color-black: #000;
+$color-white: #fff;
+
+$color-ink: #121212;
+$color-ink-light: #454f5b;
+$color-ink-lighter: #637381;
+$color-ink-lightest: #919eab;
+$color-ink-darker: color.scale($color-ink, $lightness: -29%);
+$color-ink-darkest: color.scale($color-ink, $lightness: -58%);
+
+$color-sky: #ededef;
+$color-sky-lightest: color.scale($color-sky, $lightness: 37.5%);
+$color-sky-lighter: color.scale($color-sky, $lightness: 12.5%);
+$color-sky-darker: color.scale($color-sky, $lightness: -12.5%);
+$color-sky-darkest: color.scale($color-sky, $lightness: -37.5%);
+
+$color-yellow: #fff000;
+$color-blue: #313fff;
+$color-blue-lightest: color.scale($color-blue, $lightness: 80%);
+$color-blue-darker: color.scale($color-blue, $lightness: -40%);
+$color-blue-darkest: color.scale($color-blue, $lightness: -85%);

@@ -1,0 +1,14 @@
+<header class="page-header grid:full">
+  {% if thumbnail %}
+    <div class="page-header--img" >
+      {% image thumbnail, '', 'thumb', 'auto', 'alt='+page.data.title %}
+    </div>
+  {% endif %}
+
+  <div class="page-header--text">
+    {% if intro %}
+      <h1 class="page-header--title h-l">{{ title }}</h1>
+      <h2 class="page-header--intro h-xl">{{ intro }}</h2>
+    {% endif %}
+  </div>
+</header>
