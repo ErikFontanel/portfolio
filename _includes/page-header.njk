@@ -1,4 +1,4 @@
-<header class="page-header grid:full">
+<header class="page-header grid:full {{ 'has-image' if thumbnail }}">
   {% if thumbnail %}
     <div class="page-header--img" >
       {% image thumbnail, '', 'thumb', 'auto', 'alt='+page.data.title %}
