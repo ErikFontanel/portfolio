@@ -38,14 +38,14 @@ One of the video's created for the launch of Fontanel Jobs by [Trim Tab Pictures
 
 </div>
 
+Fontanel has been a great way to experiment and learn about interviewing, writing, publishing, code, internet, communities, organising, business, marketing and networking.
+
 {% gallery {
-  css: 'grid:3',
+  css: 'grid:3 full-width',
   caption: "Opening of \'Black and White Are Not Colors\' an event we organised in collaboration with Graphic Design Festival Breda and Trapped in Suburbia at the Ship Of Fools gallery. Over 100 designers were asked to design a poster which then was printed right away during the event."
   } %}
 {% image 'fontanel5.jpg'  %}
 {% endgallery %}
-
-Fontanel has been a great way to experiment and learn about interviewing, writing, publishing, code, internet, communities, organising, business, marketing and networking.
 
 Around 2015 I choose to pursue other opportunities outside Fontanel. But it makes me proud that it's still around and independent.
 
