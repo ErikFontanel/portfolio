@@ -82,7 +82,7 @@
     }
   }
 
-  &--title {
+  div:not(.project-header) & &--title {
     @media (--mobile) {
       margin-top: 0.25em * line-height(large);
       font-size: font-size(large);

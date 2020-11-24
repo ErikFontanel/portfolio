@@ -6,7 +6,9 @@
   margin-bottom: var(--spacing-block);
   display: grid;
   grid-template-areas: 'img' 'meta';
-  grid-template-rows: 16 / 9 * 100vmin var(--spacing-block);
+  grid-template-rows: calc(16 / 9 * 100vmin - var(--gutter)) var(
+      --spacing-block
+    );
 
   border-top-left-radius: var(--border-radius-large);
   border-top-right-radius: var(--border-radius-large);
@@ -75,7 +77,7 @@
     }
 
     .project-item--title {
-      margin: 0 0 calc(var(--spacing-block) * 2);
+      margin: 0 0 var(--spacing-block);
 
       @media (--mobile-up) {
         margin-bottom: auto;

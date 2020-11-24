@@ -6,8 +6,10 @@
   display: grid;
   padding: var(--spacing-block) 0;
 
-  @media (--tablet-up) {
-    grid-template-columns: [main] 2fr [pic] 1fr [aside] 1fr;
+  &.has-image {
+    @media (--tablet-up) {
+      grid-template-columns: [main] 2fr [pic] 1fr [aside] 1fr;
+    }
   }
 
   &--text {

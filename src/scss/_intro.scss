@@ -24,11 +24,10 @@
     grid-row: 1;
     z-index: 1;
     grid-column: wide;
-    padding: var(--gutter) 0;
-    align-self: center;
+    padding: calc(var(--spacing-block) * 2) 0 0;
+    align-self: start;
 
     @media (--tablet-up) {
-      align-self: start;
       padding: calc(var(--gutter) * 2) var(--gutter);
       grid-column: wide / span 8;
     }

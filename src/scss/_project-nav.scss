@@ -33,7 +33,10 @@
   &--title {
     font-size: font-size(small);
     transition: opacity var(--animation-duration);
-    opacity: 0;
+
+    @media (--mobile-up) {
+      opacity: 0;
+    }
 
     [data-is-scrolling] & {
       opacity: 1;

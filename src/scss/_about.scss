@@ -68,6 +68,12 @@
     }
   }
 
+  .page-header {
+    @media (--tablet-up) {
+      grid-template-columns: [main] 2fr [pic] 1fr [aside] 1fr;
+    }
+  }
+
   .page-header--title {
     grid-area: title;
     margin-bottom: 2em;
