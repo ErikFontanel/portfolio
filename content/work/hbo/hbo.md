@@ -37,7 +37,8 @@ Together we achieved the following:
 
 {% endlist %}
 
-&rarr; ~~https://itshbo.nl~~ (No longer online)
+&rarr; ~~https://itshbo.nl~~
+<span class="text-s">(No longer online)</span>
 
 {% gallery {css: 'full-width'} %}
 {% image 'hbo5.png', 'device' %}
