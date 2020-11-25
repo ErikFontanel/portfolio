@@ -144,9 +144,7 @@ export default class Nav {
       }
 
       this.projectItems.forEach((item) =>
-        item?.addEventListener('click', () =>
-          this.onclickProjectItem.bind(this)
-        )
+        item?.addEventListener('click', this.onclickProjectItem.bind(this))
       );
     }
   }
