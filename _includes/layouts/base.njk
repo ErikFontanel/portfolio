@@ -75,8 +75,9 @@
     {% endblock %}
 
     <script type="module" src="{{ jsPath }}"></script>
-
-    {# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
-  <script type="15fc1a45c18dbc577066fcf7-text/javascript">function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-4641190-1");</script> #}
+    {% if env.environment === 'production' %}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4641190-1&aip=1" type="15fc1a45c18dbc577066fcf7-text/javascript"></script>
+    <script type="15fc1a45c18dbc577066fcf7-text/javascript">function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-4641190-1");</script>
+    {% endif %}
   </body>
 </html>
