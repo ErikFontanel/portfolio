@@ -124,8 +124,8 @@ export default class Nav {
     this.unsetActiveLink(event);
   }
 
-  ['onmodal:disabled'](event) {
-    event.destroy();
+  ['onmodal:disabled'](modal) {
+    modal.destroy();
   }
 
   registerListeners() {
@@ -138,13 +138,13 @@ export default class Nav {
         );
 
         if (newItems.length)
-          this.projectItems = [...this.projectItems, newItems];
+          this.projectItems = [...this.projectItems, ...newItems];
       } else {
         this.projectItems = [...items];
       }
 
       this.projectItems.forEach((item) =>
-        item?.addEventListener('click', this.onclickProjectItem.bind(this))
+        item.addEventListener('click', this.onclickProjectItem.bind(this))
       );
     }
   }
