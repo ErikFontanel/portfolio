@@ -9,6 +9,13 @@
     [main-end] var(--gutter)
     [wide-end] 0
     [full-end];
+  // prettier-ignore
+  grid-template-columns:
+    [full-start] 0
+    [wide-start main-start] 1fr
+    [center] 1fr
+    [main-end wide-end] 0
+    [full-end];
   grid-auto-columns: auto;
   grid-auto-rows: auto;
   gap: 0 var(--gutter);

@@ -1,5 +1,5 @@
 import EventBus from './EventBus';
-
+import Carousel from './Carousel.js';
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
@@ -54,12 +54,18 @@ export default class Modal {
       frag.innerHTML;
 
     this.pageDetails = { ...dataset, bodyclass: dataset.bodyclass.split(' ') };
+
+    this.carousels = frag.content.querySelectorAll('.carousel');
   }
 
   show() {
     this.el = this.template.content.firstElementChild;
     this.el.dataset.slug = this.pageDetails.slug;
     this.el.classList.add(...this.pageDetails.bodyclass);
+
+    if (this.carousels) {
+      [...this.carousels].map((el) => new Carousel({ el: el }));
+    }
 
     if (this.animateParent)
       wrapper.classList.add('animating', 'animation:scaleInDown');
@@ -84,7 +90,7 @@ export default class Modal {
       () => {
         this.el.classList.remove('animating', 'animation:slideInUp');
 
-        EventBus.emit('modal:beforeShow', { ...this.pageDetails });
+        EventBus.emit('modal:show', { ...this.pageDetails });
       },
       {
         passive: true,

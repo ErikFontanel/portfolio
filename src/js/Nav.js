@@ -27,6 +27,11 @@ export default class Nav {
     );
 
     this.el.addEventListener('mousedown', (event) => event.preventDefault());
+
+    EventBus.on('modal:beforeShow', this['onmodal:beforeShow'].bind(this));
+    EventBus.on('modal:show', this['onmodal:show'].bind(this));
+    EventBus.on('modal:hide', this['onmodal:hide'].bind(this));
+    EventBus.on('modal:disabled', this['onmodal:disabled'].bind(this));
   }
 
   toggle() {
@@ -99,11 +104,6 @@ export default class Nav {
       .then((modal) => {
         this.hide();
         modal.show();
-
-        EventBus.on('modal:beforeShow', this['onmodal:beforeShow'].bind(this));
-        EventBus.on('modal:show', this['onmodal:show'].bind(this));
-        EventBus.on('modal:hide', this['onmodal:hide'].bind(this));
-        EventBus.on('modal:disabled', this['onmodal:disabled'].bind(this));
       })
       .catch((err) => console.error(err));
   }
@@ -124,15 +124,31 @@ export default class Nav {
     this.unsetActiveLink(event);
   }
 
-  ['onmodal:disabled'](event) {
-    event.destroy();
+  ['onmodal:disabled'](modal) {
+    modal.destroy();
   }
+
   registerListeners() {
-    this.projectItems = document.querySelectorAll('.project-item a');
-    [...this.projectItems].map((link) => {
-      link.addEventListener('click', this.onclickProjectItem.bind(this));
-    });
+    const items = document.querySelectorAll('.project-item a');
+
+    if (items) {
+      if (this.projectItems?.length) {
+        const newItems = [...items].filter(
+          (item) => !this.projectItems.includes(item)
+        );
+
+        if (newItems.length)
+          this.projectItems = [...this.projectItems, ...newItems];
+      } else {
+        this.projectItems = [...items];
+      }
+
+      this.projectItems.forEach((item) =>
+        item.addEventListener('click', this.onclickProjectItem.bind(this))
+      );
+    }
   }
+
   unsetActiveLink(detail) {
     const buttons = [...this.el.querySelectorAll('.button')];
     const btnToggle = this.btnToggle;

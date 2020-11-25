@@ -40,7 +40,6 @@
   position: relative;
   margin-top: calc(var(--spacing-block) * 2);
   margin-bottom: calc(var(--spacing-block) * 2);
-  // background-color: var(--color-background);
 
   @media (--tablet-up) {
     margin-top: var(--spacing-block);
@@ -66,10 +65,9 @@
 }
 
 .block-embed {
-  margin-left: calc(var(--gutter) * -1);
-  margin-right: calc(var(--gutter) * -1);
-
   @media (--tablet-up) {
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
     grid-column: 3 / 13;
   }
 
@@ -78,11 +76,16 @@
   }
 
   + .inline-caption {
-    margin-top: calc(var(--spacing-block) * -1 + 1em);
-    margin-left: calc(var(--gutter) * -1);
-    margin-right: calc(var(--gutter) * -1);
-    grid-column-end: 13;
-    grid-column-start: 10;
+    margin-top: calc(var(--spacing-block) * -2 + 1em);
+    margin-bottom: calc(var(--spacing-block) * -2);
+
+    @media (--tablet-up) {
+      margin-top: calc(var(--spacing-block) * -1 + 1em);
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
+      grid-column-end: 13;
+      grid-column-start: 10;
+    }
 
     p {
       @include text-style-caption;
@@ -94,5 +97,11 @@
   [data-slug='hbo'] & {
     padding-bottom: 0;
     margin-bottom: 0;
+  }
+
+  [data-slug='close'] & {
+    .gallery.grid\:3 .content-image {
+      background-color: transparent;
+    }
   }
 }

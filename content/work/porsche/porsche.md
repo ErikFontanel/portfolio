@@ -18,15 +18,14 @@ But not enough cash (yet)? Maybe some friends share the same dream. Together you
 To make sure the shared ownership is easy and convienent, the plan comes with an app. The friends can reserve the car through a shared calendar, view it's availability, fuel level, maintenance status and details about the lease. I was responsible for the UX design of the mobile app the marketing website.
 
 {% gallery {
-  caption: "The mobile app for the event visitors is powered by a web app (SPA), used by the event organizer. The web app is the beating heart for the customers of Close. It's the place where they can manage their ticket sales, attendees, upsells, and of course a flow editor to build the interactive flows in a user friendly way.",
-  css: 'device'
+  css: 'devices full-width'
 } %}
 {% image 'porsche1.png'  %}
 {% image 'porsche2.png'  %}
 {% endgallery %}
 
 {% gallery {
-  css: 'grid:3 device'
+  css: 'grid:wide'
 } %}
 {% image 'porsche3.png'  %}
 {% endgallery %}
@@ -34,7 +33,7 @@ To make sure the shared ownership is easy and convienent, the plan comes with an
 @[youtube](https://www.youtube.com/watch?v=z2bgVpe5oI8)
 
 {% gallery {
-  css: 'grid:3 device'
+  css: 'device'
 } %}
 {% image 'porsche4.png'  %}
 {% endgallery %}

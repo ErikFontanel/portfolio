@@ -1,15 +1,20 @@
 @use 'config' as *;
 
 $z-index: (body, canvas);
+
 .page-item {
   --opacity: 1;
 
   z-index: z-index(blobs);
   background-color: var(--color-background-inverted);
-  height: 133vh;
   align-content: center;
   align-items: center;
   opacity: var(--opacity);
+  height: 133vh;
+
+  @media (orientation: portrait) {
+    height: 100vh;
+  }
 
   canvas {
     grid-row: 1 / 1;
