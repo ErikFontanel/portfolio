@@ -37,8 +37,9 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 // orb geometry
-const twistGeometry = new THREE.IcosahedronGeometry(4, 4);
-const geometry = new THREE.IcosahedronGeometry(2, 4);
+const twistGeometry = new THREE.IcosahedronBufferGeometry(4, 4);
+const geometry = new THREE.IcosahedronBufferGeometry(2, 4);
+const geometry2 = new THREE.IcosahedronBufferGeometry(1, 4);
 
 function buildTwistMaterial(amount) {
   const material = new THREE.MeshNormalMaterial();
@@ -74,7 +75,7 @@ function buildTwistMaterial(amount) {
 // create orb
 const orb = new THREE.Mesh(geometry, buildTwistMaterial(4.0));
 const orb2 = new THREE.Mesh(twistGeometry, buildTwistMaterial(5.0));
-const orb3 = new THREE.Mesh(geometry, buildTwistMaterial(2.4));
+const orb3 = new THREE.Mesh(geometry2, buildTwistMaterial(2.4));
 
 orb.name = 'top';
 orb2.name = 'twist';
