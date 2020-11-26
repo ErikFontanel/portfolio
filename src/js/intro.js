@@ -35,14 +35,13 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 // orb geometry
-const geometry = new THREE.IcosahedronGeometry(2, 6);
+const geometry = new THREE.IcosahedronBufferGeometry(2, 6);
 
 // create orb
 const orb = new THREE.Mesh(geometry, material);
 
 orb.scale.set(3, 3, 3);
 orb.position.set(8, -2, -10);
-
 scene.add(orb);
 
 let speed = 0.003;
@@ -51,9 +50,7 @@ let directionx = -1;
 let directiony = 1;
 let directionz = -1;
 
-const animate = () => {
-  animation = requestAnimationFrame(animate);
-
+const render = () => {
   orb.rotation.x -= rotationSpeed;
   orb.rotation.y -= rotationSpeed;
 
@@ -75,6 +72,11 @@ const animate = () => {
   renderer.render(scene, camera);
   geometry.dispose();
   material.dispose();
+};
+
+const animate = () => {
+  animation = requestAnimationFrame(animate);
+  render();
 };
 
 function onWindowResize() {
