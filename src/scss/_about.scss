@@ -97,10 +97,15 @@
     margin-top: 0;
   }
 
+  .colophon p > a:not(:hover),
+  .friends li > a:not(:hover) {
+    border-color: $color-sky-darker;
+  }
+
   .side-projects {
     margin-top: 0;
     background-color: var(--color-background-inverted);
-    z-index: z-index(navigation);
+    z-index: z-index(navigation) - 1;
 
     .section--text {
       grid-column: wide;

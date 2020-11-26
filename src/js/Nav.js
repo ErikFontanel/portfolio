@@ -1,6 +1,7 @@
 import Modal from './Modal';
 import EventBus from './EventBus';
 import fitvids from 'fitvids';
+import throttle from 'lodash-es/throttle';
 
 export default class Nav {
   constructor(el) {
@@ -25,8 +26,20 @@ export default class Nav {
       (event) => event.preventDefault(),
       false
     );
-
     this.el.addEventListener('mousedown', (event) => event.preventDefault());
+
+    // fix for hiding address bar
+    const setNavPosition = (event) => {
+      document.documentElement.style.setProperty(
+        '--app-height',
+        `${window.innerHeight}px`
+      );
+    };
+    setNavPosition();
+
+    window.addEventListener('resize', throttle(setNavPosition, 16), {
+      passive: true,
+    });
 
     EventBus.on('modal:beforeShow', this['onmodal:beforeShow'].bind(this));
     EventBus.on('modal:show', this['onmodal:show'].bind(this));
