@@ -100,7 +100,7 @@
   .side-projects {
     margin-top: 0;
     background-color: var(--color-background-inverted);
-    z-index: z-index(navigation);
+    z-index: z-index(navigation) - 1;
 
     .section--text {
       grid-column: wide;
