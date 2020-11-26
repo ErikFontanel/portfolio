@@ -217,8 +217,8 @@ $gallery-index: (caption, images);
     img:first-of-type,
     img:last-of-type {
       grid-column-end: span 1;
-      width: auto;
-      height: 80%;
+      width: 45%;
+      min-width: 0;
     }
 
     img:nth-of-type(3) {
