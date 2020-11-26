@@ -233,6 +233,19 @@ $gallery-index: (caption, images);
     }
   }
 
+  &.grid\:ls {
+    justify-items: center;
+
+    > * {
+      grid-column: 1;
+      width: 100%;
+    }
+
+    > video {
+      width: auto;
+    }
+  }
+
   @media (--tablet-up) {
     &.grid\:ls {
       display: grid;
