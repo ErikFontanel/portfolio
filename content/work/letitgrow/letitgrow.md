@@ -24,7 +24,7 @@ Let It Grow is an an ambitious, internationally oriented innovation platform wit
 
 
 {% gallery {
-  css: 'devices full-width'
+  css: 'devices full-width grid:lig'
 } %}
 {% image 'lig2a.png' %}
 {% image 'lig2b.png' %}

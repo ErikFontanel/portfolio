@@ -207,6 +207,13 @@ $gallery-index: (caption, images);
     }
   }
 
+  &.grid\:lig,
+  &.grid\:porsche {
+    img {
+      max-width: rem(320px);
+    }
+  }
+
   &.grid\:rotterdam {
     margin-bottom: calc(var(--spacing-block) * -1) !important;
 

@@ -18,7 +18,7 @@ But not enough cash (yet)? Maybe some friends share the same dream. Together you
 To make sure the shared ownership is easy and convienent, the plan comes with an app. The friends can reserve the car through a shared calendar, view it's availability, fuel level, maintenance status and details about the lease. I was responsible for the UX design of the mobile app the marketing website.
 
 {% gallery {
-  css: 'devices full-width'
+  css: 'devices full-width grid:porsche'
 } %}
 {% image 'porsche1.png'  %}
 {% image 'porsche2.png'  %}
