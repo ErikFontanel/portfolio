@@ -23,6 +23,8 @@
 
     font-size: font-size(small);
     margin-left: auto;
+    box-shadow: 0px 0 0 1px #fff; // safari fix…
+    border: 0;
 
     &:hover {
       --button-color: #{color.invert(color.invert($color-text))};
