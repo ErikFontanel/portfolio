@@ -97,6 +97,11 @@
     margin-top: 0;
   }
 
+  .colophon p > a:not(:hover),
+  .friends li > a:not(:hover) {
+    border-color: $color-sky-darker;
+  }
+
   .side-projects {
     margin-top: 0;
     background-color: var(--color-background-inverted);
