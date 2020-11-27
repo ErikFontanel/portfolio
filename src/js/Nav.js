@@ -101,6 +101,18 @@ export default class Nav {
     this.loadUrl(event.currentTarget);
   }
 
+  onmouseenterProjectItem(event) {
+    this.projectItems
+      .filter((i) => i !== event.target)
+      .map((i) => i.classList.add('is-blurred'));
+  }
+
+  onmouseleaveProjectItem(event) {
+    this.projectItems
+      .filter((i) => i !== event.target)
+      .map((i) => i.classList.remove('is-blurred'));
+  }
+
   loadUrl(btn) {
     const url = btn.getAttribute('href');
 
@@ -142,7 +154,7 @@ export default class Nav {
   }
 
   registerListeners() {
-    const items = document.querySelectorAll('.project-item a');
+    const items = document.querySelectorAll('.project-item');
 
     if (items) {
       if (this.projectItems?.length) {
@@ -156,9 +168,21 @@ export default class Nav {
         this.projectItems = [...items];
       }
 
-      this.projectItems.forEach((item) =>
-        item.addEventListener('click', this.onclickProjectItem.bind(this))
-      );
+      this.projectItems.forEach((item) => {
+        item
+          .querySelector('a')
+          .addEventListener('click', this.onclickProjectItem.bind(this));
+        item.addEventListener(
+          'mouseenter',
+          this.onmouseenterProjectItem.bind(this),
+          { passive: true }
+        );
+        item.addEventListener(
+          'mouseleave',
+          this.onmouseleaveProjectItem.bind(this),
+          { passive: true }
+        );
+      });
     }
   }
 
