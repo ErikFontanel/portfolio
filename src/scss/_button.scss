@@ -36,6 +36,10 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
   box-shadow: $button-border-hover, $button-border-active, $button-border-focus,
     $button-border-color;
 
+  &:visited {
+    color: var(--button-color);
+  }
+
   &:hover {
     --button-background-color: #{$color-sky};
     --button-hover-border-color: #{$color-sky};
@@ -117,16 +121,18 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
   }
 
   &[data-selected='true'] {
-    --button-color: #{invert($color-text)};
+    --button-color: var(--color-text-inverted);
     --button-background-color: #{$color-primary};
     --button-sub-color: #{color.adjust(
         invert($color-ink-lighter),
         $saturation: -100%,
         $lightness: +17%
       )};
+
     .button--sub-label {
       mix-blend-mode: screen;
     }
+
     &:hover {
       --button-background-color: #{color.scale($color-primary, $lightness: -5%)};
     }
