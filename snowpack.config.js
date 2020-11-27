@@ -30,7 +30,7 @@ module.exports = {
     port: 8080,
     open: 'none',
     secure: true,
-    // hmrDelay: 300,
+    hmrDelay: 300,
     hostname: 'portfolio.test',
   },
 };
