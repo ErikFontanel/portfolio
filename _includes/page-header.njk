@@ -7,8 +7,13 @@
 
   <div class="page-header--text">
     {% if intro %}
-      <h1 class="page-header--title h-l">{{ title }}</h1>
-      <h2 class="page-header--intro h-xl">{{ intro }}</h2>
+      {% block title %}
+        <h1 class="page-header--title h-l">{{ title }}</h1>
+      {% endblock %}
+
+      {% block intro %}
+        <h2 class="page-header--intro h-xl">{{ intro }}</h2>
+      {% endblock %}
     {% endif %}
   </div>
 </header>

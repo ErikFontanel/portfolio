@@ -45,7 +45,7 @@ body[data-showing-overlay='true'] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 
-    .modal:not([data-slug='expertise']) & {
+    .modal.single & {
       padding-bottom: var(--spacing-block);
     }
   }
