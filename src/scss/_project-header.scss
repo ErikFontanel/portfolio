@@ -14,6 +14,7 @@
   border-top-right-radius: var(--border-radius-large);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  overflow: hidden;
   height: 100vmin;
 
   @media (--mobile-up) {
@@ -32,6 +33,10 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 50vh 50vh;
       align-items: stretch;
+
+      .project-item--img {
+        border-radius: 0;
+      }
     }
 
     &.portrait\:2-3col {
