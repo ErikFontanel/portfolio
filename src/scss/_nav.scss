@@ -36,7 +36,7 @@ $nav-index: main, projects;
   transition: $transition-default $transition-timing;
   transition-property: background, backdrop-filter;
   backface-visibility: hidden;
-  backdrop-filter: saturate(100%) blur(0);
+  backdrop-filter: none;
   background-color: rgba(var(--color-background-overlay-rgb-inverted), 0);
 
   [data-showing-modal='true'] & {

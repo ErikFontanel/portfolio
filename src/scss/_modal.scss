@@ -21,8 +21,6 @@ body[data-showing-overlay='true'] {
   pointer-events: none;
   overflow-y: auto;
   scroll-behavior: smooth;
-  contain: layout;
-  will-change: transform;
   backface-visibility: hidden;
   padding: calc(var(--gutter) * 2) 0 0;
   contain: strict;
