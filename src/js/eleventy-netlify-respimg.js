@@ -79,6 +79,8 @@ const getSrcset = (url, preset = 'default', args) => {
     srcset += `${baseUrl}&w=${width} ${width}w,`;
   }
 
+  srcset.slice(0, -2); // remove trailing ', '
+
   const src = `${baseUrl}&w=${fallback_max_width}`;
 
   return {

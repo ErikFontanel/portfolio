@@ -54,14 +54,13 @@ export default class Modal {
       frag.innerHTML;
 
     this.pageDetails = { ...dataset, bodyclass: dataset.bodyclass.split(' ') };
-
-    this.carousels = frag.content.querySelectorAll('.carousel');
   }
 
   show() {
     this.el = this.template.content.firstElementChild;
     this.el.dataset.slug = this.pageDetails.slug;
     this.el.classList.add(...this.pageDetails.bodyclass);
+    this.carousels = this.el.querySelectorAll('.carousel');
 
     if (this.carousels) {
       [...this.carousels].map((el) => new Carousel({ el: el }));
@@ -107,7 +106,16 @@ export default class Modal {
         { passive: true, once: true }
       );
     }
+
     body.append(this.el);
+
+    // parse images again because safari sucks
+    // @see https://stackoverflow.com/a/48122384
+    const imgs = this.el.querySelectorAll('img');
+    if (imgs) {
+      [...imgs].forEach((img) => (img.outerHTML = img.outerHTML));
+    }
+
     body.dataset.showingModal = true;
   }
 
