@@ -18,6 +18,8 @@ My main focus is **digital product design**. I like to fulfil an architect like 
 
 I create concepts, architect user flows and design interfaces. I lead design teams, setup interdisciplinary workflows, scaled design systems, hold workshops, and coaching and training of your designers.
 
+As a front-end developer I am specialised in creating a responsive and performant experience using HTML, SCSS and Javascript. I'm specialised in CSS, in particular the architecture of css in design systems, browser quirks and performance.
+
 {# {% canvas name='blobs' %} #}
 
 :::
