@@ -338,6 +338,16 @@ $gallery-index: (caption, images);
         width: 100%;
         max-width: max-content;
       }
+
+      img:first-of-type,
+      img:last-of-type {
+        grid-column-end: span 1;
+        width: 100%;
+        min-width: 0;
+      }
+      img:nth-of-type(3) {
+        grid-column-start: auto;
+      }
     }
   }
 }
