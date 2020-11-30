@@ -26,6 +26,7 @@ $z-index: (body, canvas);
   }
 
   .section:nth-of-type(2) {
+    background-color: $color-sky;
     grid-template-columns: [title] 1fr repeat(3, [col] 1fr);
 
     > *:not(.col):not(h1):not(h2) {
