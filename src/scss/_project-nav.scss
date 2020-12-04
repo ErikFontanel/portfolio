@@ -30,6 +30,11 @@
       --button-color: #{color.invert(color.invert($color-text))};
       --button-background-color: #{$color-white};
     }
+
+    .button--label {
+      position: relative;
+      transform: translateY(-0.6px);
+    }
   }
 
   &--title {
