@@ -86,11 +86,11 @@
       grid-column-end: 13;
       grid-column-start: 10;
     }
-
-    p {
-      @include text-style-caption;
-    }
   }
+}
+
+.inline-caption p {
+  @include text-style-caption;
 }
 
 .single-body {
