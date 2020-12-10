@@ -190,6 +190,7 @@ export default class Nav {
     const buttons = [...this.el.querySelectorAll('.button')];
     const btnToggle = this.btnToggle;
     const toggleLabel = btnToggle.querySelector('.button--label');
+    const payoff = document.querySelector('meta[name=title]').content;
 
     buttons.forEach((btn) => {
       delete btn.dataset.selected;
@@ -200,6 +201,7 @@ export default class Nav {
 
     toggleLabel.textContent = btnToggle.getAttribute('aria-label');
     toggleLabel.nextElementSibling.textContent = '';
+    document.querySelector('title').innerText = payoff;
     history.pushState({}, '', '/');
   }
 
@@ -207,6 +209,8 @@ export default class Nav {
     const { slug, type, title } = detail;
     const toggleLabel = this.btnToggle.querySelector('.button--label');
     const activeButton = this.el.querySelector(`a[href$="${slug}/"]`);
+    const doctitle = document.querySelector('title');
+    const payoff = document.querySelector('meta[name=title]').content;
 
     this.unsetActiveLink();
 
@@ -232,5 +236,9 @@ export default class Nav {
       toggleLabel.textContent = toggleLabel.textContent.replace(':', '');
       toggleLabel.nextElementSibling.textContent = '';
     }
+
+    // update doc title
+
+    doctitle.innerText = `${title} | ${payoff}`;
   }
 }
