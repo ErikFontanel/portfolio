@@ -19,10 +19,7 @@ module.exports = {
       '@snowpack/plugin-run-script',
       { cmd: 'eleventy --quiet', watch: '$1 --watch' },
     ],
-    [
-      '@snowpack/plugin-sass',
-      { native: process.env.NODE_ENV !== 'production' },
-    ],
+    ['@snowpack/plugin-sass'],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
     ['@snowpack/plugin-optimize'],
   ],
