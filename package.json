@@ -72,7 +72,7 @@
     "rollup-plugin-node-polyfills": "^0.2.1",
     "sass": "^1.27.0",
     "snowpack": "^2.15.1",
-    "three": "^0.122.0"
+    "three": "^0.125.0"
   },
   "babel": {
     "presets": [
