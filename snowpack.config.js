@@ -1,6 +1,6 @@
 module.exports = {
   homepage: '/',
-  installOptions: {
+  packageOptions: {
     namedExports: ['lodash'],
     rollup: {
       plugins: [require('rollup-plugin-node-polyfills')()],
