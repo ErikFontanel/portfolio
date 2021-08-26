@@ -13,7 +13,7 @@
     "dev:eleventy": "eleventy --serve --quiet --config=.eleventy.js",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
     "build:snowpack": "snowpack build",
-    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run build:eleventy && build:snowpack",
+    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run build:eleventy && npm run build:snowpack",
     "start": "snowpack dev"
   },
   "repository": {
