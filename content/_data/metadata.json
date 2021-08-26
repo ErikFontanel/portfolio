@@ -1,11 +1,11 @@
 {
   "title": "Erik Gelderblom — Freelance Product Designer based in Rotterdam, The Netherlands",
   "url": "https://erikgelderblom.com/",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "description": "Freelance product designer and front-end developer with over 10 years of experience working on the internet.",
   "background_color": "#EDEDEF",
   "theme_color": "#0000FF",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "Freelance product designer and front-end developer with over 10 years of experience working on the internet.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://erikgelderblom.com/"
