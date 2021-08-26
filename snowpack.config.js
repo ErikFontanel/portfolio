@@ -24,7 +24,9 @@ module.exports = {
       { native: process.env.NODE_ENV !== 'production' },
     ],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
-    ['@snowpack/plugin-optimize'],
+    ['@snowpack/plugin-optimize',{
+      preloadCSS: true
+    }],
   ],
   devOptions: {
     port: 8080,
