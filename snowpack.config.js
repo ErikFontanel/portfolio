@@ -1,5 +1,6 @@
 module.exports = {
   homepage: '/',
+  mode: process.env.NODE_ENV,
   packageOptions: {
     namedExports: ['lodash'],
     rollup: {
@@ -24,15 +25,12 @@ module.exports = {
       { native: process.env.NODE_ENV !== 'production' },
     ],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
-    // ['@snowpack/plugin-optimize',{
-    //   preloadCSS: true
-    // }],
   ],
   devOptions: {
     port: 8080,
     open: 'none',
     secure: true,
-    // hmrDelay: 300,
+    hmrDelay: 300,
     hostname: 'portfolio.test',
   },
 };
