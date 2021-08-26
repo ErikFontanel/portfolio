@@ -19,7 +19,7 @@
     "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
     "build:snowpack": "snowpack build",
     "build:clean": "rm -rf ./dist/static/scss",
-    "compile": "npm run fonts && NODE_ENV=production ELEVENTY_ENV=production npm run build:snowpack",
+    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run build:snowpack",
     "start": "snowpack dev"
   },
   "repository": {
