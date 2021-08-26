@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use 'sass:color';
 @use 'config' as *;
 @use 'button';
@@ -9,7 +11,7 @@ form {
     @extend %button;
     --button-border-color: #{$color-sky-darker};
 
-    height: 32/14 * 1em;
+    height: math.div(32, 14) * 1em;
     font-size: font-size(extra-small);
     text-align: left;
 

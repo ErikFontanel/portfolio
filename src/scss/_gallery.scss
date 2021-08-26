@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use 'config' as *;
 
 $gallery-index: (caption, images);
@@ -111,8 +113,8 @@ $gallery-index: (caption, images);
 
   &.grid\:2 {
     display: grid;
-    grid-template-columns: minmax(auto, #{5 / 12 * 100%});
-    grid-auto-columns: minmax(auto, #{5 / 12 * 100%});
+    grid-template-columns: minmax(auto, #{math.div(5, 12) * 100%});
+    grid-auto-columns: minmax(auto, #{math.div(5, 12) * 100%});
     justify-content: space-between;
     align-items: start;
     grid-template-rows: 1fr auto 1fr;

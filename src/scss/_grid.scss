@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .grid {
   display: grid;
   // prettier-ignore
@@ -76,8 +78,8 @@
   }
 
   @media (--tablet-up) {
-    grid-template-columns: repeat(2, minmax(auto, #{5 / 12 * 100%}));
-    grid-auto-columns: minmax(auto, #{5 / 12 * 100%});
+    grid-template-columns: repeat(2, minmax(auto, #{math.div(5, 12) * 100%}));
+    grid-auto-columns: minmax(auto, #{math.div(5, 12) * 100%});
     justify-content: center;
     justify-items: center;
   }
