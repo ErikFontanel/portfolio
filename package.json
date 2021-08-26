@@ -9,7 +9,7 @@
   },
   "scripts": {
     "clean": "rm -rf ./dist",
-    "fonts": "cp ./node_modules/inter-ui/Inter\\ \\(web\\)/Inter.var.woff2 src/fonts/",
+    "fonts": "cp \"./node_modules/inter-ui/Inter\\ \\(web\\)/Inter.var.woff2\" src/fonts/",
     "dev:eleventy": "eleventy --serve --quiet",
     "dev:parcel": "parcel watch ./src/app.js",
     "dev": "npx run-p \"dev:*\"",
