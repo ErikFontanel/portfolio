@@ -3,6 +3,8 @@
   "short_name": "",
   "background_color": "#fff",
   "description": "",
+  "start_url": ".",
+  "display": "minimal-ui",
   "icons": [
     {
       "src": "/static/img/favicon.svg",
