@@ -9,17 +9,11 @@
   },
   "scripts": {
     "clean": "rm -rf ./dist",
-    "fonts": "cp ./node_modules/inter-ui/Inter\\ \\(web\\)/Inter.var.woff2 src/fonts/",
     "dev:eleventy": "eleventy --serve --quiet",
-    "dev:parcel": "parcel watch ./src/app.js",
-    "dev": "npx run-p \"dev:*\"",
-    "build:critical": "./node_modules/.bin/critical dist/index.html -c dist/static/scss/app.css --base / > src/scss/critical.css",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
-    "build:parcel": "parcel build ./src/app.js --no-content-hash",
-    "build:postcss": "mkdir ./src/css && postcss src/scss/**/*.css -d src/css",
     "build:snowpack": "snowpack build",
     "build:clean": "rm -rf ./dist/static/scss",
-    "build": "NODE_ENV=production ELEVENTY_ENV=production npm run build:snowpack",
+    "build": "ELEVENTY_ENV=production npm run build:snowpack",
     "start": "snowpack dev"
   },
   "repository": {
