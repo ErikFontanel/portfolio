@@ -29,7 +29,7 @@ module.exports = {
   devOptions: {
     port: 8080,
     open: 'none',
-    secure: true,
+    secure: process.env.NODE_ENV !== 'production',
     hmrDelay: 300,
     hostname: 'portfolio.test',
   },
