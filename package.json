@@ -11,10 +11,10 @@
     "clean": "rm -rf ./dist",
     "dev:eleventy": "eleventy --serve --quiet",
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
-    "build:snowpack": "snowpack build",
+    "build:snowpack": "npx snowpack build",
     "build:clean": "rm -rf ./dist/static/scss",
     "build": "ELEVENTY_ENV=production npm run build:snowpack",
-    "start": "snowpack dev"
+    "start": "npx snowpack dev"
   },
   "repository": {
     "type": "git",
