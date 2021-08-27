@@ -3,10 +3,6 @@
   "version": "2.0.0",
   "description": "Personal portfolio of Erik Gelderblom",
   "main": "app.js",
-  "config": {
-    "public_url": "/",
-    "asset_url": "/static/"
-  },
   "scripts": {
     "clean": "rm -rf ./dist",
     "fonts": "cp \"./node_modules/inter-ui/Inter\\ \\(web\\)/Inter.var.woff2\" src/fonts/",

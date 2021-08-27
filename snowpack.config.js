@@ -12,7 +12,7 @@ module.exports = {
     out: 'dist',
   },
   mount: {
-    dist: { url: '/', static: true },
+    dist: { url: '/', static: false },
     src: '/static',
   },
   plugins: [
