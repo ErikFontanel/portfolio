@@ -6,9 +6,6 @@ module.exports = {
       plugins: [require('rollup-plugin-node-polyfills')()],
     },
   },
-  alias: {
-    static: './dist/static',
-  },
   buildOptions: {
     clean: true,
     out: 'dist',
