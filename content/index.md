@@ -7,5 +7,5 @@ pagination:
   alias: projects
 bodyClass: index
 title: Freelance product designer and front-end developer with over 10 years of experience working on the internet
-subtitle: Soon available for new projects
+subtitle: Available for new projects starting October 2021
 ---

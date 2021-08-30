@@ -130,7 +130,10 @@ export default class Nav {
         this.hide();
         modal.show();
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        window.location.href = url;
+      });
   }
 
   handleEvent(event) {

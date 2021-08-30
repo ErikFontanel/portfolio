@@ -1,6 +1,6 @@
 module.exports = {
   homepage: '/',
-  installOptions: {
+  packageOptions: {
     namedExports: ['lodash'],
     rollup: {
       plugins: [require('rollup-plugin-node-polyfills')()],
@@ -11,7 +11,7 @@ module.exports = {
     out: 'dist',
   },
   mount: {
-    dist: { url: '/', static: true },
+    dist: { url: '/', static: false },
     src: '/static',
   },
   plugins: [
@@ -19,14 +19,13 @@ module.exports = {
       '@snowpack/plugin-run-script',
       { cmd: 'eleventy --quiet', watch: '$1 --watch' },
     ],
-    ['@snowpack/plugin-sass'],
+    ['@snowpack/plugin-sass', { native: !process.env.NETLIFY }],
     ['@snowpack/plugin-postcss', { input: ['.css'] }],
-    ['@snowpack/plugin-optimize'],
   ],
   devOptions: {
     port: 8080,
     open: 'none',
-    secure: true,
+    secure: !process.env.NETLIFY,
     hmrDelay: 300,
     hostname: 'portfolio.test',
   },

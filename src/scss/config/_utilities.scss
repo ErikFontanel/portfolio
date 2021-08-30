@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:string';
@@ -16,9 +18,9 @@
   } @else if $unit == 'rem' {
     @return $value;
   } @else if $unit == 'px' {
-    @return $value / $base-font-size * 1rem;
+    @return math.div($value, $base-font-size) * 1rem;
   } @else if $unit == 'em' {
-    @return $unit / 1em * 1rem;
+    @return math.div($unit, 1em) * 1rem;
   } @else {
     @error 'Value must be in px, em, or rem.';
   }
@@ -41,11 +43,11 @@ $shadows: (
   @if $value == 0 {
     @return 0;
   } @else if $unit == 'rem' {
-    @return ($value / 1rem);
+    @return math.div($value, 1rem);
   } @else if $unit == 'px' {
-    @return ($value / 1px);
+    @return math.div($value, 1px);
   } @else if $unit == 'em' {
-    @return ($value / 1em);
+    @return math.div($value, 1em);
   } @else {
     @error 'Value must be in px, em, or rem.';
   }
@@ -65,11 +67,11 @@ $shadows: (
     $base: strip-unit($base-font-size);
     $ref: strip-unit($reference);
 
-    @return (($value * $base) / $ref) * 100vmax;
+    @return math.div($value * $base, $ref) * 100vmax;
   } @else if $unit == 'px' {
-    @return ($value / $reference) * 100vmax;
+    @return math.div($value, $reference) * 100vmax;
   } @else if $unit == 'em' {
-    @return ($value / 1em) * 1vmax;
+    @return math.div($value, 1em) * 1vmax;
   } @else {
     @error 'Value must be in px, em, or rem.';
   }
@@ -85,11 +87,11 @@ $shadows: (
   @if $value == 0 {
     @return 0;
   } @else if $unit == 'rem' {
-    @return ($value / 1rem) * 1em;
+    @return math.div($value, 1rem) * 1em;
   } @else if $unit == 'px' {
-    @return ($value / 1px) * 1em;
+    @return math.div($value, 1px) * 1em;
   } @else if $unit == 'em' {
-    @return ($value / 1em) * 1em;
+    @return math.div($value, 1em) * 1em;
   } @else if $unit == '' {
     @return $value * 1em;
   } @else {
