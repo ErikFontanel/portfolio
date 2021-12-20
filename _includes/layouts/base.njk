@@ -16,16 +16,6 @@
     <link rel="preload" as="font" href="/static/fonts/iosevka-ss01-extended.woff2" crossorigin="anonymous">
 
     {% if env.environment === 'production' %}
-      {% set criticalcss %}
-        {% include "../../src/scss/critical.css" ignore missing %}
-      {% endset %}
-
-      {% if criticalcss|length %}
-        <style>
-          {{ criticalcss|safe }}
-        </style>
-      {% endif %}
-
       <link rel="preload" as="style" href="{{ cssPath }}">
       <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
     {% endif %}
