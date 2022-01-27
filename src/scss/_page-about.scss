@@ -1,27 +1,17 @@
 @use 'config' as *;
 
-$z-index: (title, pic);
-
-[data-slug='about'] {
-  > .page-content {
+.page-about {
+  .page-content {
     place-content: start;
     padding-top: var(--gutter);
     padding-bottom: calc(var(--spacing-block) * 2);
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
-
-    grid-template-areas:
-      'pic'
-      'main'
-      'aside';
-    grid-template-columns: 1fr;
 
     @media (--tablet-up) {
       grid-column: wide;
       grid-template-areas:
         'title . .'
         'main pic .'
-        'main aside aside';
+        'main . aside';
 
       grid-template-columns: 3fr 2fr 1fr;
       column-gap: calc(var(--gutter) * 2);
@@ -29,29 +19,24 @@ $z-index: (title, pic);
     }
 
     .page-content--text {
-      grid-area: main;
+      @media (--tablet-up) {
+        grid-area: main;
+      }
     }
 
     aside {
-      grid-area: aside;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-areas: 'friends' 'colophon';
-      align-content: start;
-      gap: var(--gutter);
-
-      @media (--mobile-up) {
-        grid-template-areas: 'colophon friends';
-        grid-template-columns: 2fr 1fr;
-        column-gap: calc(var(--gutter) * 2);
+      > div + div {
+        margin-top: 2em;
       }
 
-      .colophon {
-        grid-area: colophon;
-      }
+      @media (--tablet-up) {
+        grid-area: aside;
 
-      .friends {
-        @media (--mobile-up) {
+        &.colophon {
+          grid-area: colophon;
+        }
+
+        &.friends {
           grid-area: friends;
         }
       }
@@ -63,38 +48,40 @@ $z-index: (title, pic);
     object-fit: cover;
     border-top-left-radius: var(--border-radius-large);
     border-top-right-radius: var(--border-radius-large);
-    grid-row: 1;
-    margin-top: calc(var(--gutter) * -1);
-    margin-bottom: var(--spacing-block);
-    margin-left: calc(var(--gutter) * -1);
-    margin-right: calc(var(--gutter) * -1);
-    min-width: 100vw;
-    height: 100vh;
-    z-index: z-index(pic, $z-index);
-    grid-area: pic;
+
+    @media (--mobile) {
+      grid-row: 1;
+      margin-top: calc(var(--gutter) * -1);
+      margin-bottom: var(--spacing-block);
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
+      width: 100vw;
+      height: 100vh;
+    }
 
     @media (--tablet-up) {
       object-fit: cover;
       object-position: 50%;
       margin: 0;
+      grid-area: pic;
+      grid-row: pic;
       border-radius: 0;
-      min-width: auto;
-      height: auto;
     }
   }
 
   .page-header {
-    @media (--mobile-up) {
+    @media (--tablet-up) {
       grid-template-columns: [main] 2fr [pic] 1fr [aside] 1fr;
     }
   }
 
   .page-header--title {
-    grid-area: pic;
-    z-index: z-index(title, $z-index);
+    grid-area: title;
+    margin-bottom: 2em;
 
     @media (--mobile) {
       grid-row: 1;
+      grid-column: wide;
       z-index: z-index(body);
       position: sticky;
       top: var(--gutter);
@@ -102,13 +89,8 @@ $z-index: (title, pic);
       color: white;
       margin-bottom: 0;
       margin-top: 0.2em;
-      margin-bottom: 2em;
       left: 0;
       font-size: font-size(medium);
-    }
-
-    @media (--tablet-up) {
-      grid-area: title;
     }
   }
 
@@ -135,7 +117,7 @@ $z-index: (title, pic);
       }
     }
 
-    @media (--mobile-up) {
+    @media (--tablet-up) {
       grid-template-columns: repeat(4, 1fr);
 
       .section--text {
