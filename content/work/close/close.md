@@ -5,6 +5,7 @@ date: 2020-01-01
 title: A SaaS platform for an event marketing messaging start-up
 tags:
   - project
+  - product design
   - ux design
   - front-end development
   - design ops
