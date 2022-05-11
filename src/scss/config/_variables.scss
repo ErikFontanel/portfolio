@@ -1,10 +1,18 @@
-@use "sass:math";
+@use 'sass:math';
 
 @use 'sass:color';
 @use './colors' as *;
 @use 'utilities' as * with (
   $base-font-size: 10px,
-  $global-zindex: (navigation, modal, layer, body, blobs, intro, background)
+  $global-zindex: (
+    navigation,
+    modal,
+    layer,
+    body,
+    blobs,
+    intro,
+    background,
+  )
 );
 
 $color-primary: $color-blue;
@@ -32,7 +40,8 @@ $spacing-block: rem(64px);
 $gutter: $spacing-base * 2;
 
 $default-browser-font-size: 16px !default;
-$scaled-browser-font-size: math.div($base-font-size, $default-browser-font-size) * 100%;
+$scaled-browser-font-size: math.div($base-font-size, $default-browser-font-size) *
+  100%;
 $font-stack-base: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco',
   Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
 $font-stack-monospace: 'Iosevka Extended', 'SF Mono', Monaco, Consolas,

@@ -29,6 +29,8 @@ A replica of a BMW M3 DTM race car steering wheel I made. It can be used on my s
 
 {% image 'bmw4.jpg' %}
 
+</div>
+
 {% gallery {
   css: 'grid:3 original',
   caption: 'The original steering wheel on display at <a href="https://www.bmw-welt.com/">BMW Welt</a>'

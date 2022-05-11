@@ -26,6 +26,7 @@ A replica of a Porsche GT3R race car steering wheel I made. It can used on my si
 
 {% image 'porsche3.jpg' %}
 
+</div>
 
 {% gallery {
   css: 'grid:3 original',
