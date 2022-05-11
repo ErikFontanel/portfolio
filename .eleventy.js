@@ -53,6 +53,17 @@ const responsiveImagesConfig = {
         fit: 'smartcrop',
       },
     },
+    {
+      carousel: {
+        min_width: 320,
+        max_width: 1170,
+        fallback_max_width: 640,
+        steps: 3,
+        sizes: '(min-width: 64rem) 20vw, 85vw',
+        attributes: { class: 'img-carousel' },
+        fit: 'smartcrop',
+      },
+    },
   ],
 };
 

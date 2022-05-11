@@ -12,7 +12,7 @@ tags:
   - website
 list_layout: portrait:2-col
 role: Design Lead
-team: "Jordi van der Oord, Joram van den Boezem, Ace & Tate"
+team: 'Jordi van der Oord, Joram van den Boezem, Ace & Tate'
 ---
 
 For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition; Affordable and fashionable glasses to go with any outfit and occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
@@ -39,19 +39,19 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
   caption: 'Product Detail page',
   css: 'carousel device'
 } %}
-  {% image 'at-pdp1.png' %}
-  {% image 'at-pdp2.png' %}
-  {% image 'at-pdp3.png' %}
+  {% image 'at-pdp1.png', 'Ace & Tate Product Detail Page', 'carousel' %}
+  {% image 'at-pdp2.png', 'Ace & Tate Product Detail Page', 'carousel' %}
+  {% image 'at-pdp3.png', 'Ace & Tate Product Detail Page', 'carousel' %}
 {% endgallery %}
 
 {% gallery {
   caption: 'Product Category page',
   css: 'carousel device'
 } %}
-{% image 'at-pcp1.png' %}
-{% image 'at-pcp2.png' %}
-{% image 'at-pcp3.png' %}
-{% image 'at-pcp4.png' %}
+{% image 'at-pcp1.png', 'Ace & Tate Product Category Page', 'carousel' %}
+{% image 'at-pcp2.png', 'Ace & Tate Product Category Page', 'carousel' %}
+{% image 'at-pcp3.png', 'Ace & Tate Product Category Page', 'carousel' %}
+{% image 'at-pcp4.png', 'Ace & Tate Product Category Page', 'carousel' %}
 {% endgallery %}
 
 </div>
@@ -66,8 +66,8 @@ A smooth and easy configuration a newly designed product configurator.
   caption: 'The new photography shows the frames being worn on a wide variety of faces',
   css: 'full-width grid:2'
 } %}
-{% image 'at-main2.jpg' %}
-{% image 'at-main3.jpg' %}
+{% image 'at-main2.jpg', 'Ace & Tate Product Photography' %}
+{% image 'at-main3.jpg', 'Ace & Tate Product Photography' %}
 {% endgallery %}
 
 New high resolution pack shots to showcase the quality of the frames but are also recognisable as Ace & Tate when out of context, ie. shared on platforms like Instagram and Pinterest.
@@ -86,21 +86,20 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
   caption: 'Product Category page',
   css: 'carousel device'
 } %}
-  {% image 'at-co1.png' %}
-  {% image 'at-co2.png' %}
-  {% image 'at-co3.png' %}
-  {% image 'at-co4.png' %}
+{% image 'at-co1.png', 'Ace & Tate Product Category Page', 'carousel' %}
+{% image 'at-co2.png', 'Ace & Tate Product Category Page', 'carousel' %}
+{% image 'at-co3.png', 'Ace & Tate Product Category Page', 'carousel' %}
+{% image 'at-co4.png', 'Ace & Tate Product Category Page', 'carousel' %}
 {% endgallery %}
 
 </div>
-
 
 {% gallery {
   css: 'devices full-width',
   caption: 'Checkout and customer dashboard'
 } %}
-{% image 'at-checkout.png' %}
-{% image 'at-dashboard.png' %}
+{% image 'at-checkout.png', 'Ace & Tate Checkout' %}
+{% image 'at-dashboard.png', 'Ace & Tate Customer Dashboard' %}
 {% endgallery %}
 
 {% list "Results" %}

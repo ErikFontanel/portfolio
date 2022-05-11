@@ -58,14 +58,8 @@ const getSrcset = (url, preset = 'default', args) => {
 
   options = options[preset];
 
-  let {
-    min_width,
-    max_width,
-    fallback_max_width,
-    steps,
-    sizes,
-    resize,
-  } = options;
+  let { min_width, max_width, fallback_max_width, steps, sizes, resize } =
+    options;
 
   resize = resize || 'fit';
   sizes = sizes || '100vw';
@@ -90,7 +84,15 @@ const getSrcset = (url, preset = 'default', args) => {
   };
 };
 
-function image(context, file, cssClasses, preset, loading = 'lazy', alt) {
+function image(
+  context,
+  file,
+  cssClasses,
+  preset,
+  loading = 'lazy',
+  alt,
+  sizes
+) {
   let dimensions = { width: '100%', height: 'auto' };
   let width = '100%';
   let height = 'auto';
@@ -107,7 +109,8 @@ function image(context, file, cssClasses, preset, loading = 'lazy', alt) {
     dimensions = getDimensions(imgUrl, preset);
   }
 
-  const { src, srcset, sizes } = getSrcset(imgUrl, preset);
+  const { src, srcset } = getSrcset(imgUrl, preset);
+  const sizeAttr = config.presets.find((el) => el[preset])[preset].sizes;
   alt = alt ? `alt="${alt}"` : '';
 
   if (!dimensions) {
@@ -115,7 +118,7 @@ function image(context, file, cssClasses, preset, loading = 'lazy', alt) {
     height = 'auto';
   }
 
-  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt}>`;
+  return `<img src="${src}" srcset="${srcset}" sizes="${sizeAttr}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt}>`;
 }
 
 module.exports = {
@@ -158,6 +161,7 @@ module.exports = {
           preset = 'default',
           loading = 'lazy',
           alt = '',
+          sizes = '100vw',
           callback
         ) {
           if (typeof preset === 'function') {
@@ -180,8 +184,13 @@ module.exports = {
             alt = '';
           }
 
+          if (typeof sizes === 'function') {
+            callback = sizes;
+            sizes = '100vw';
+          }
+
           let ret = new nunjucksEngine.runtime.SafeString(
-            image(context, file, cssClasses, preset, loading, alt)
+            image(context, file, cssClasses, preset, loading, alt, sizes)
           );
 
           callback(null, ret);

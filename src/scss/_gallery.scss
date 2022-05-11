@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 @use 'config' as *;
 
@@ -57,6 +57,7 @@ $gallery-index: (caption, images);
     justify-items: center;
     justify-content: space-evenly;
     grid-auto-columns: minmax(auto, 1fr);
+    grid-template-columns: minmax(auto, 1fr);
     grid-template-rows: auto auto auto;
 
     img {
