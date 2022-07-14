@@ -7,9 +7,9 @@ tags:
   - page
 ---
 
-Ever since I used a computer at the age of four, I have been intrigued by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website in sixth grade.
+As a Digital Product Designer and Front-End Developer I help clients translate their vision and business goals into interactive digital products through an interdisciplinary understanding of design, development and strategy. I have over 10 years of experience working professionally for clients on projects varying from corporate websites, online campaigns, e-commerce platforms, social media campaigns, mobile apps and SaaS digital products.
 
-For over 10 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.
+Ever since I used a computer at the age of four, I have been intrigued by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website in sixth grade.
 
 Now I focus on product design, helping start-ups and scale-ups translate their business case in a digital product.
 
