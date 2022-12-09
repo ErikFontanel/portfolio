@@ -37,7 +37,7 @@
     "@swup/overlay-theme": "^1.1.1",
     "autoprefixer": "^10.3.3",
     "babel-plugin-lodash": "^3.3.4",
-    "critical": "^4.0.1",
+    "critical": "^5.0.3",
     "cssnano": "^5.0.1",
     "fitvids": "^2.1.1",
     "focus-visible": "^5.2.0",
