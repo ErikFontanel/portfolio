@@ -95,8 +95,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
 
-  eleventyConfig.addPassthroughCopy('content/work/matter/site');
-
   const mdOptions = {
     html: true,
     breaks: true,
@@ -131,7 +129,7 @@ module.exports = function (eleventyConfig) {
           }
 
           if (serviceName === 'vimeo') {
-            return `<iframe src="https://player.vimeo.com/video/${videoID}?color=ff3300&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+            return `<iframe src="https://player.vimeo.com/video/${videoID}?color=313fff&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
           }
 
           const ytOptions = {
