@@ -118,7 +118,7 @@ function image(
     height = 'auto';
   }
 
-  return `<img src="${src}" srcset="${srcset}" sizes="${sizeAttr}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt}>`;
+  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
 }
 
 module.exports = {
