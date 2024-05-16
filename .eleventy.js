@@ -97,8 +97,8 @@ module.exports = function (eleventyConfig) {
           },
           plugins: [
             rollupPluginCritical({
-              criticalUrl: './_site/',
-              criticalBase: './_site/',
+              criticalUrl: './dist/',
+              criticalBase: './dist/',
               criticalPages: [
                 { uri: 'index.html', template: 'index' },
                 { uri: '404.html', template: '404' },
@@ -285,7 +285,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: 'content',
-      output: '_site',
+      output: 'dist',
       includes: '../_includes',
     },
     markdownTemplateEngine: 'njk',
