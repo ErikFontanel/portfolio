@@ -1,6 +1,7 @@
 /.gtm/
 .cache
 .vscode
+_site
 dist
 
 .now_site
