@@ -1,5 +1,5 @@
-{%- set cssPath = '/static/scss/app.css' | url -%}
-{%- set jsPath = '/static/app.js' | url -%}
+{%- set cssPath = '/assets/scss/app.css' | url -%}
+{%- set jsPath = '/assets/app.js' | url -%}
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
-    <link rel="apple-touch-icon" href="{{ '/static/img/favicon.svg' | url }}">
-    <link rel="alternate icon" href="{{ '/static/img/favicon.ico' | url }}">
+    <link rel="apple-touch-icon" href="{{ '/src/img/favicon.svg' | url }}">
+    <link rel="alternate icon" href="{{ '/src/img/favicon.ico' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="preload" as="font" href="/static/fonts/Inter.var.woff2" crossorigin="anonymous">
-    <link rel="preload" as="font" href="/static/fonts/iosevka-ss01-extended.woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/src/fonts/Inter.var.woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/src/fonts/iosevka-ss01-extended.woff2" crossorigin="anonymous">
 
     {% if env.environment === 'production' %}
       <link rel="preload" as="style" href="{{ cssPath }}">
@@ -29,14 +29,14 @@
     <meta property="og:url" content="https://erikgelderblom.com/">
     <meta property="og:title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
     <meta property="og:description" content="For over 10 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
-    <meta property="og:image" content="https://erikgelderblom.com/static/ogimage.png">
+    <meta property="og:image" content="https://erikgelderblom.com/ogimage.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://twitter.com/erikgelderblom">
     <meta property="twitter:title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
     <meta property="twitter:description" content="For over 10 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
-    <meta property="twitter:image" content="https://erikgelderblom.com/static/ogimage.png">
+    <meta property="twitter:image" content="https://erikgelderblom.com/ogimage.png">
 
     <meta name="theme-color" content="{{ metadata.theme_color }}">
   </head>

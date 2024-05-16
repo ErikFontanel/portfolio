@@ -1,8 +1,11 @@
+const path = require('node:path');
 const componentsDir = `./_includes/components`;
 
 const pluginNav = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
-const pluginNetlifyRespImage = require('./src/js/eleventy-netlify-respimg');
+const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
+const rollupPluginCritical = require('rollup-plugin-critical').default;
+const pluginNetlifyRespImage = require('./src/assets/js/eleventy-netlify-respimg');
 
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
@@ -10,11 +13,11 @@ const markdownItLinkAttrs = require('markdown-it-link-attributes');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItBlockEmbed = require('markdown-it-block-embed');
 const markdownItImplicitFigures = require('markdown-it-implicit-figures');
-const markdownItBlockEmbedLocalService = require('./src/js/markdown-it-local-embed');
-const markdownItLazyImg = require('./src/js/markdown-it-lazy');
+const markdownItBlockEmbedLocalService = require('./src/assets/js/markdown-it-local-embed');
+const markdownItLazyImg = require('./src/assets/js/markdown-it-lazy');
 const markdownItContainer = require('markdown-it-container');
 
-const Gallery = require('./src/js/Gallery.js');
+const Gallery = require('./src/assets/js/Gallery.js');
 const List = require(`${componentsDir}/List.js`);
 const Canvas = require(`${componentsDir}/Canvas.js`);
 const Button = require(`${componentsDir}/Button.js`);
@@ -68,18 +71,80 @@ const responsiveImagesConfig = {
 };
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(EleventyVitePlugin, {
+    tempFolderName: '.11ty-vite', // Default name of the temp folder
+
+    // Vite options (equal to vite.config.js inside project root)
+    viteOptions: {
+      publicDir: 'public',
+      clearScreen: false,
+      server: {
+        mode: 'development',
+        middlewareMode: true,
+      },
+      appType: 'custom',
+      assetsInclude: ['**/*.xml', '**/*.txt'],
+      build: {
+        mode: 'production',
+        sourcemap: 'true',
+        manifest: true,
+        // This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
+        rollupOptions: {
+          output: {
+            assetFileNames: 'assets/css/app.[hash].css',
+            chunkFileNames: 'assets/js/[name].[hash].js',
+            entryFileNames: 'assets/js/[name].[hash].js',
+          },
+          plugins: [
+            rollupPluginCritical({
+              criticalUrl: './_site/',
+              criticalBase: './_site/',
+              criticalPages: [
+                { uri: 'index.html', template: 'index' },
+                { uri: '404.html', template: '404' },
+              ],
+              criticalConfig: {
+                inline: true,
+                dimensions: [
+                  {
+                    height: 900,
+                    width: 375,
+                  },
+                  {
+                    height: 720,
+                    width: 1280,
+                  },
+                  {
+                    height: 1080,
+                    width: 1920,
+                  },
+                ],
+                penthouse: {
+                  forceInclude: [
+                    '.fonts-loaded-1 body',
+                    '.fonts-loaded-2 body',
+                  ],
+                },
+              },
+            }),
+          ],
+        },
+      },
+    },
+  });
+
   eleventyConfig.dir = {
     input: 'content',
     includes: '../_includes',
     output: 'dist',
   };
+
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
 
   eleventyConfig.setTemplateFormats([
     // Templates:
-    'html',
     'njk',
     'md',
     '11ty.js',
@@ -214,12 +279,14 @@ module.exports = function (eleventyConfig) {
     return path.split('/')[0];
   });
 
+  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
+
   // You can return your Config object (optional).
   return {
     dir: {
       input: 'content',
+      output: '_site',
       includes: '../_includes',
-      output: 'dist',
     },
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true,

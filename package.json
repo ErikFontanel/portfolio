@@ -13,7 +13,7 @@
     "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
     "build:snowpack": "snowpack build",
     "build": "ELEVENTY_ENV=production npm run build:snowpack",
-    "start": "snowpack dev"
+    "start": "eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
     "@snowpack/plugin-postcss": "^1.0.5",
@@ -57,10 +58,13 @@
     "postcss-custom-media": "^10.0.6",
     "postcss-media-minmax": "^5.0.0",
     "postcss-preset-env": "^9.5.13",
+    "rollup-plugin-critical": "^1.0.13",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "sass": "^1.77.1",
     "snowpack": "^3.8.8",
-    "three": "^0.164.1"
+    "three": "^0.164.1",
+    "vite": "^5.2.11",
+    "vite-plugin-eleventy": "^0.3.1"
   },
   "babel": {
     "presets": [

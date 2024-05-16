@@ -1,9 +1,9 @@
-import './scss/app.scss';
+import './css/app.scss';
 
 import fitvids from 'fitvids';
 import 'focus-visible';
 
-import Nav from './js/Nav';
+import Nav from './js/Nav.js';
 
 document.documentElement.classList.remove('no-js');
 
@@ -19,13 +19,13 @@ fitvids();
 if (navMain) new Nav(navMain);
 
 if (carousels) {
-  import('./js/Carousel').then(({ default: Carousel }) => {
+  import('./js/Carousel.js').then(({ default: Carousel }) => {
     [...carousels].map((el) => new Carousel({ el: el }));
   });
 }
 
 if (projectNav) {
-  import('./js/ProjectNav').then(({ default: ProjectNav }) => {
+  import('./js/ProjectNav.js').then(({ default: ProjectNav }) => {
     new ProjectNav(projectNav);
   });
 }
