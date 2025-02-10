@@ -7,7 +7,7 @@ tags:
   - page
 ---
 
-As a Digital Product Designer and Front-End Developer I help clients translate their vision and business goals into interactive digital products through an interdisciplinary understanding of design, development and strategy. I have over 10 years of experience working professionally for clients on projects varying from corporate websites, online campaigns, e-commerce platforms, social media campaigns, mobile apps and SaaS digital products.
+As a Digital Product Designer and Front-End Developer I help clients translate their vision and business goals into interactive digital products through an interdisciplinary understanding of design, development and strategy. I have over 15 years of experience working professionally for clients on projects varying from corporate websites, online campaigns, e-commerce platforms, social media campaigns, mobile apps and SaaS digital products.
 
 Ever since I used a computer at the age of four, I have been intrigued by the possibilities. When we got an internet connection at home, it didn't take long to launch my first website in sixth grade.
 
