@@ -1,1 +1,1 @@
-module.exports = { environment: process.env.NODE_ENV };
+export const environment = process.env.NODE_ENV;

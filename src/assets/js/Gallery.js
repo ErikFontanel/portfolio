@@ -1,4 +1,4 @@
-module.exports = (context, args, body, nunjucksEngine) => {
+export default (context, args, body, nunjucksEngine) => {
   const { caption, css } = {
     caption: '',
     css: 'full-width',

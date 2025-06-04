@@ -1,27 +1,30 @@
-const path = require('node:path');
+import UpgradeHelper from '@11ty/eleventy-upgrade-help';
+
+import path from 'node:path';
+
+import pluginNav from '@11ty/eleventy-navigation';
+import pluginRss from '@11ty/eleventy-plugin-rss';
+import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
+import rollupPluginCritical from 'rollup-plugin-critical';
+import pluginNetlifyRespImage from './src/assets/js/eleventy-netlify-respimg.js';
+
+import markdownIt from 'markdown-it';
+import markdownItAttrs from 'markdown-it-attrs';
+import markdownItLinkAttrs from 'markdown-it-link-attributes';
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItBlockEmbed from 'markdown-it-block-embed';
+import markdownItImplicitFigures from 'markdown-it-implicit-figures';
+import markdownItBlockEmbedLocalService from './src/assets/js/markdown-it-local-embed.js';
+import markdownItLazyImg from './src/assets/js/markdown-it-lazy.js';
+import markdownItContainer from 'markdown-it-container';
+
 const componentsDir = `./_includes/components`;
 
-const pluginNav = require('@11ty/eleventy-navigation');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
-const rollupPluginCritical = require('rollup-plugin-critical').default;
-const pluginNetlifyRespImage = require('./src/assets/js/eleventy-netlify-respimg');
-
-const markdownIt = require('markdown-it');
-const markdownItAttrs = require('markdown-it-attrs');
-const markdownItLinkAttrs = require('markdown-it-link-attributes');
-const markdownItAnchor = require('markdown-it-anchor');
-const markdownItBlockEmbed = require('markdown-it-block-embed');
-const markdownItImplicitFigures = require('markdown-it-implicit-figures');
-const markdownItBlockEmbedLocalService = require('./src/assets/js/markdown-it-local-embed');
-const markdownItLazyImg = require('./src/assets/js/markdown-it-lazy');
-const markdownItContainer = require('markdown-it-container');
-
-const Gallery = require('./src/assets/js/Gallery.js');
-const List = require(`${componentsDir}/List.js`);
-const Canvas = require(`${componentsDir}/Canvas.js`);
-const Button = require(`${componentsDir}/Button.js`);
-const Label = require(`${componentsDir}/Label.js`);
+import Gallery from './src/assets/js/Gallery.js';
+import List from './_includes/components/List.js';
+import Canvas from './_includes/components/Canvas.js';
+import Button from './_includes/components/Button.js';
+import Label from './_includes/components/Label.js';
 
 const responsiveImagesConfig = {
   presets: [
@@ -70,7 +73,7 @@ const responsiveImagesConfig = {
   ],
 };
 
-module.exports = function (eleventyConfig) {
+export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     // tempFolderName: '.11ty-vite', // Default name of the temp folder
 
@@ -142,6 +145,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
+
+  eleventyConfig.addPlugin(UpgradeHelper);
 
   eleventyConfig.setTemplateFormats([
     // Templates:
@@ -291,4 +296,4 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true,
   };
-};
+}

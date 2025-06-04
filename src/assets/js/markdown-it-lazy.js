@@ -1,6 +1,6 @@
-const respimg = require('./eleventy-netlify-respimg');
+import { getSrcset, getDimensions } from './eleventy-netlify-respimg.js';
 
-module.exports = function (md, config) {
+export default function (md, config) {
   const defaultRender =
     md.renderer.rules.image ||
     function (tokens, idx, options, env, self) {
@@ -13,9 +13,9 @@ module.exports = function (md, config) {
     if (token.content !== '') {
       const loading = token.attrIndex('loading');
       const img = env.page.url + token.content;
-      const { src, srcset, sizes } = respimg.getSrcset(img, 'default', config);
+      const { src, srcset, sizes } = getSrcset(img, 'default', config);
 
-      const dimensions = respimg.getDimensions(img);
+      const dimensions = getDimensions(img);
 
       if (srcset) {
         token.attrPush(['src', src]);
@@ -36,4 +36,4 @@ module.exports = function (md, config) {
     // pass token to default renderer.
     return defaultRender(tokens, idx, options, env, self);
   };
-};
+}

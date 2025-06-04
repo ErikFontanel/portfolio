@@ -1,7 +1,7 @@
-const manifest = require('./site.webmanifest.json');
-const metadata = require('./_data/metadata.json');
+import manifest from './site.webmanifest.json' with { type: 'json' };
+import metadata from './_data/metadata.json' with { type: 'json' };
 
-module.exports = class {
+export default class {
   data() {
     return {
       eleventyExcludeFromCollections: true,
@@ -16,4 +16,4 @@ module.exports = class {
     manifest.background_color = metadata.background_color;
     return `${JSON.stringify(manifest, null, 2)}`;
   }
-};
+}

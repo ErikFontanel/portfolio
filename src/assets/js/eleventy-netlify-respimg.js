@@ -1,8 +1,9 @@
-const sizeOf = require('image-size');
-const url = require('url');
-const http = require('https');
-const path = require('path');
-const fs = require('fs');
+import { imageSize } from 'image-size';
+import { imageSizeFromFile } from 'image-size/fromFile';
+import url from 'url';
+import http from 'https';
+import path from 'path';
+import fs from 'fs';
 
 let config;
 
@@ -10,7 +11,7 @@ const getDimensions = (img) => {
   if (!process.env.NETLIFY) {
     if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
 
-    const { width, height } = sizeOf(img);
+    const { width, height } = imageSizeFromFile(img);
     return { width: width, height: height };
   }
 
@@ -29,7 +30,7 @@ const getDimensions = (img) => {
           const buffer = Buffer.concat(chunks);
 
           if (buffer !== undefined && buffer.length) {
-            const { width, height } = sizeOf(buffer);
+            const { width, height } = imageSize(buffer);
             if (width && height) return { width: width, height: height };
           }
         }
@@ -121,7 +122,7 @@ function image(
   return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
 }
 
-module.exports = {
+export default {
   configFunction: (eleventyConfig, options = {}) => {
     config = {
       presets: [
@@ -200,5 +201,4 @@ module.exports = {
   },
 };
 
-module.exports.getDimensions = getDimensions;
-module.exports.getSrcset = getSrcset;
+export { getDimensions, getSrcset };
