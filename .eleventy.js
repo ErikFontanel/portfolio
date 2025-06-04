@@ -104,7 +104,7 @@ export default async function (eleventyConfig) {
               criticalBase: './dist/',
               criticalPages: [
                 { uri: 'index.html', template: 'index' },
-                { uri: '404.html', template: '404' },
+                // { uri: '404.html', template: '404' },
               ],
               criticalConfig: {
                 inline: true,
