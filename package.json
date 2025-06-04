@@ -10,9 +10,8 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "dev:eleventy": "eleventy --serve --quiet",
-    "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
-    "build:snowpack": "snowpack build",
-    "build": "ELEVENTY_ENV=production npm run build:snowpack",
+    "build:vite": "eleventy --config=.eleventy.js",
+    "build": "ELEVENTY_ENV=production npm run build:vite",
     "start": "eleventy --serve"
   },
   "repository": {
