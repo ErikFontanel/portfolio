@@ -9,7 +9,7 @@ tags:
 
 For the past 15+ years, I’ve worked as a Digital Product Designer and Front-End Developer, helping clients bring ideas to life through a mix of design, development, and strategy. I’ve worked on everything from mobile apps and digital products for startups and corporates to e-commerce platforms and digital experiences. Today, I work freelance with a range of companies and agencies.
 
-I specialise in digital product design, translating vision, technical constraints, business goals, and user needs into clear, functional solutions. I lead design teams, develop design systems, shape user flows, run workshops, and mentor younger designers. I’m involved from first concept through final delivery.
+I specialise in digital product design, translating vision, technical constraints, business goals, and user needs into clear, functional solutions. I lead design teams, develop design systems, shape user flows, run design sprints, and mentor younger designers. I’m involved from first concept through final delivery.
 
 Though my focus is design, I have deep front-end experience, especially in crafting responsive, high-performance interfaces with HTML, CSS, and JavaScript. I’m well-versed in browser quirks, performance tuning, Linux environments, and version control.
 
