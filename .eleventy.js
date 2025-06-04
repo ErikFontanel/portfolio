@@ -1,5 +1,3 @@
-import UpgradeHelper from '@11ty/eleventy-upgrade-help';
-
 import path from 'node:path';
 
 import pluginNav from '@11ty/eleventy-navigation';
@@ -75,7 +73,7 @@ const responsiveImagesConfig = {
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin, {
-    // tempFolderName: '.11ty-vite', // Default name of the temp folder
+    tempFolderName: '.11ty-vite', // Default name of the temp folder
 
     // Vite options (equal to vite.config.js inside project root)
     viteOptions: {
@@ -145,8 +143,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
-
-  eleventyConfig.addPlugin(UpgradeHelper);
 
   eleventyConfig.setTemplateFormats([
     // Templates:
