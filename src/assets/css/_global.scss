@@ -30,6 +30,7 @@
 
   --animation-duration: #{$transition-default};
   --animation-duration-slow: calc(var(--animation-duration) * 2);
+  --animation-duration-extra-slow: calc(var(--animation-duration) * 2.5);
   --animation-duration-fast: calc(var(--animation-duration) * 0.5);
 
   --border-radius: #{$radius};

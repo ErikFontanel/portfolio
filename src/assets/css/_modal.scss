@@ -55,7 +55,7 @@ body[data-showing-overlay='true'] {
 
 [data-showing-modal='true'] {
   > .wrapper {
-    transform: scale(0.9);
+    transform: scale(0.98);
     filter: saturate(140%) blur(#{rem(3px)});
   }
 }
@@ -79,13 +79,13 @@ body[data-showing-overlay='true'] {
     filter: none;
   }
   to {
-    transform: scale(0.9);
+    transform: scale(0.98);
     filter: saturate(60%) blur(#{rem(3px)});
   }
 }
 
 .animation\:slideInUp {
-  animation-duration: calc(var(--animation-duration-slow) * 2) !important;
+  animation-duration: var(--animation-duration-extra-slow) !important;
   animation-name: slideInUp;
 }
 
