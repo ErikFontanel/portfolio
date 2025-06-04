@@ -172,6 +172,10 @@ figcaption {
   color: var(--color-text-sub, #{$color-ink-lighter});
 }
 
+.text-highlight {
+  color: var(--color-text-highlight, #{$color-green});
+}
+
 .label {
   @include text-style-caption();
 
