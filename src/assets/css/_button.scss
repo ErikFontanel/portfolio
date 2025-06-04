@@ -111,12 +111,12 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
   }
 
   &.inverted {
-    --button-color: #{invert($color-text)};
-    --button-background-color: #{invert($color-background-ui)};
+    --button-color: #{color.invert($color-text)};
+    --button-background-color: #{color.invert($color-background-ui)};
 
     &:focus {
       --button-focus-border-color: var(--button-color);
-      --button-focus-border-color: #{invert($color-sky-darker)};
+      --button-focus-border-color: #{color.invert($color-sky-darker)};
     }
   }
 
@@ -124,7 +124,7 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
     --button-color: var(--color-text-inverted);
     --button-background-color: #{$color-primary};
     --button-sub-color: #{color.adjust(
-        invert($color-ink-lighter),
+        color.invert($color-ink-lighter),
         $saturation: -100%,
         $lightness: +17%
       )};

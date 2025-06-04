@@ -9,36 +9,36 @@ $nav-index: main, projects;
   @media (--tablet-up) {
     --nav-offset: calc(var(--gutter) * 1);
   }
+  & {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--app-height);
+    padding: 0 0 var(--nav-offset);
+    pointer-events: none;
+    z-index: z-index(navigation);
+    contain: strict;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--gutter), 1fr)
+      minmax(auto, max-content)
+      minmax(var(--gutter), 1fr);
+    grid-template-rows: 1fr auto;
+    justify-content: start;
+    justify-items: center;
+    grid-auto-rows: auto;
+    align-content: end;
+    align-items: end;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: var(--app-height);
-  padding: 0 0 var(--nav-offset);
-  pointer-events: none;
-  z-index: z-index(navigation);
-  contain: strict;
-  display: grid;
-  grid-template-columns:
-    minmax(var(--gutter), 1fr)
-    minmax(auto, max-content)
-    minmax(var(--gutter), 1fr);
-  grid-template-rows: 1fr auto;
-  justify-content: start;
-  justify-items: center;
-  grid-auto-rows: auto;
-  align-content: end;
-  align-items: end;
-
-  transform: translate3d(0, 0, 0);
-  will-change: background-color, backdrop-filter;
-  transition: $transition-default $transition-timing;
-  transition-property: background, backdrop-filter;
-  backface-visibility: hidden;
-  backdrop-filter: none;
-  background-color: rgba(var(--color-background-overlay-rgb-inverted), 0);
-
+    transform: translate3d(0, 0, 0);
+    will-change: background-color, backdrop-filter;
+    transition: $transition-default $transition-timing;
+    transition-property: background, backdrop-filter;
+    backface-visibility: hidden;
+    backdrop-filter: none;
+    background-color: rgba(var(--color-background-overlay-rgb-inverted), 0);
+  }
   [data-showing-modal='true'] & {
     background-color: rgba(var(--color-background-overlay-rgb), 0);
   }

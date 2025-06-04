@@ -16,7 +16,7 @@
     )};
   --color-background-modal: #{$color-background-overlay};
   --color-background-ui: #{$color-background-ui};
-  --color-background-inverted: #{invert($color-background)};
+  --color-background-inverted: #{color.invert($color-background)};
 
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
