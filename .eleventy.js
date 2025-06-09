@@ -1,7 +1,6 @@
 const path = require('node:path');
 const componentsDir = `./_includes/components`;
 
-const pluginNav = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
 const rollupPluginCritical = require('rollup-plugin-critical').default;
@@ -139,7 +138,6 @@ module.exports = function (eleventyConfig) {
     output: 'dist',
   };
 
-  eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
 
