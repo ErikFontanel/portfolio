@@ -1,5 +1,5 @@
 <div class="projects {{ projectsClass }}">
-  {% for project in projects %}
+  {% for project in projects | reverse %}
     {% include "project-item.njk" %}
   {% endfor %}
 </div>

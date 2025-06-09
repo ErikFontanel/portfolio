@@ -1,7 +1,7 @@
 ---
 thumbnail: at-nike.jpg
 client: Nike
-date: 2024-06-01
+date: 2022-06-01
 title: Community Experiences Platform
 logo: logo-nike.svg
 tags:
