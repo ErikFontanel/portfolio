@@ -17,3 +17,4 @@ web_modules
 
 # Local Netlify folder
 .netlify
+.11ty-vite
