@@ -1,5 +1,5 @@
 import EventBus from './EventBus';
-import Carousel from './Carousel.js';
+
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
@@ -63,7 +63,9 @@ export default class Modal {
     this.carousels = this.el.querySelectorAll('.carousel');
 
     if (this.carousels) {
-      [...this.carousels].map((el) => new Carousel({ el: el }));
+      import('./js/Carousel.js').then(({ default: Carousel }) => {
+        [...carousels].map((el) => new Carousel({ el: el }));
+      });
     }
 
     if (this.animateParent)
