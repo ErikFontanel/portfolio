@@ -8,7 +8,7 @@
 {%- set active = "active" if page.url === project.url -%}
 <header class="site-header" >
   <nav class="nav-main">
-    <a href="{{ '/work/' | url }}" class="button button_nav"
+    <a href="{{ '/work/' }}" class="button button_nav"
     aria-expanded="false"
     aria-controls="#nav-projects"
     aria-label="work"
@@ -18,16 +18,16 @@
     </a>
 
     {%- button
-      url = '/expertise/' | url,
+      url = '/expertise/',
       label = 'Expertise',
       name = 'button_nav',
-      attr = ('data-selected="true"' if page.url === '/expertise/' | url) -%}
+      attr = ('data-selected="true"' if page.url === '/expertise/') -%}
 
     {%- button
-      url = '/about/' | url,
+      url = '/about/',
       label = 'About',
       name ='button_nav',
-      attr = ('data-selected="true"' if page.url === '/about/' | url) -%}
+      attr = ('data-selected="true"' if page.url === '/about/') -%}
   </nav>
 
   {%- if collections.project -%}

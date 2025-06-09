@@ -24,15 +24,11 @@ const getDimensions = (img) => {
         chunks.push(chunk);
       })
       .on('end', () => {
-        if (chunks.length) {
-          const buffer = Buffer.concat(chunks);
+        const buffer = Buffer.concat(chunks);
 
-          if (buffer && buffer.length) {
-            const { width, height } = sizeOf(buffer);
-            if (width && height) return { width: width, height: height };
-            else return { width: '100%', height: 'auto' };
-          }
-        }
+        const { width, height } = sizeOf(buffer);
+        if (width && height) return { width: width, height: height };
+        else return { width: '100%', height: 'auto' };
       })
       .on('error', () => {
         return { width: '100%', height: 'auto' };
