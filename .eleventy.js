@@ -72,7 +72,7 @@ const responsiveImagesConfig = {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin, {
-    // tempFolderName: '.11ty-vite', // Default name of the temp folder
+    tempFolderName: '.11ty-vite', // Default name of the temp folder
 
     // Vite options (equal to vite.config.js inside project root)
     viteOptions: {
@@ -101,7 +101,7 @@ module.exports = function (eleventyConfig) {
               criticalBase: './dist/',
               criticalPages: [
                 { uri: 'index.html', template: 'index' },
-                { uri: '404.html', template: '404' },
+                // { uri: '404.html', template: '404' },
               ],
               criticalConfig: {
                 inline: true,
