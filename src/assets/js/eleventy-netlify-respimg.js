@@ -1,5 +1,6 @@
 const sizeOf = require('image-size');
 
+const url = require('url');
 const http = require('https');
 const path = require('path');
 const fs = require('fs');
@@ -14,7 +15,7 @@ const getDimensions = (img) => {
     return { width: width, height: height };
   }
 
-  const imgurl = new URL(`${process.env.URL}${img}`);
+  const imgurl = url.parse(`${process.env.URL}${img}`);
 
   const req = http.get(imgurl, (response) => {
     const chunks = [];
@@ -25,7 +26,7 @@ const getDimensions = (img) => {
       .on('end', () => {
         if (chunks.length) {
           const buffer = Buffer.concat(chunks);
-          console.log(buffer);
+
           if (buffer && buffer.length) {
             const { width, height } = sizeOf(buffer);
             if (width && height) return { width: width, height: height };
