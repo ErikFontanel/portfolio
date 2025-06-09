@@ -26,14 +26,10 @@
   "homepage": "https://erikgelderblom.com/",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-vite": "^4.0.0",
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
-    "@snowpack/plugin-postcss": "^1.0.5",
-    "@snowpack/plugin-run-script": "^2.3.0",
-    "@snowpack/plugin-sass": "^1.0.1",
     "autoprefixer": "^10.4.19",
     "babel-plugin-lodash": "^3.3.4",
     "critical": "^7.1.2",
@@ -60,7 +56,6 @@
     "rollup-plugin-critical": "^1.0.13",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "sass": "^1.77.1",
-    "snowpack": "^3.8.8",
     "three": "^0.164.1",
     "vite": "^5.2.11"
   },
