@@ -78,6 +78,7 @@ export default async function (eleventyConfig) {
     serverOptions: {
       module: '@11ty/eleventy-dev-server',
       domDiff: false,
+      allowedHosts: ['localhost', 'portfolio.test'],
     },
 
     // Vite options (equal to vite.config.js inside project root)
@@ -151,7 +152,7 @@ export default async function (eleventyConfig) {
     baseHref:
       process.env.NODE_ENV === 'production'
         ? 'https://erikgelderblom.com/'
-        : 'https://portfolio.test/',
+        : 'http://localhost:8080/',
   });
 
   eleventyConfig.setTemplateFormats([
