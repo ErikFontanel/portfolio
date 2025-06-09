@@ -75,6 +75,11 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: '.11ty-vite', // Default name of the temp folder
 
+    serverOptions: {
+      module: '@11ty/eleventy-dev-server',
+      domDiff: false,
+    },
+
     // Vite options (equal to vite.config.js inside project root)
     viteOptions: {
       publicDir: 'public',
