@@ -1,7 +1,7 @@
 import { imageSize } from 'image-size';
 import { imageSizeFromFile } from 'image-size/fromFile';
-
-import http from 'https';
+import url from 'node:url';
+import http from 'node:https';
 import path from 'path';
 import fs from 'fs';
 
@@ -15,7 +15,7 @@ const getDimensions = (img) => {
     return { width: width, height: height };
   }
 
-  const imgurl = new URL(`${process.env.URL}${img}`);
+  const imgurl = url.parse(`${process.env.URL}${img}`);
 
   const req = http.get(imgurl, (response) => {
     const chunks = [];
@@ -28,8 +28,12 @@ const getDimensions = (img) => {
           const buffer = Buffer.concat(chunks);
 
           if (buffer !== undefined && buffer.length) {
-            const { width, height } = imageSize(buffer);
-            if (width && height) return { width: width, height: height };
+            try {
+              const { width, height } = imageSize(buffer);
+              if (width && height) return { width: width, height: height };
+            } catch (err) {
+              return { width: '100%', height: 'auto' };
+            }
           }
         }
       })
