@@ -1,6 +1,6 @@
 import path from 'node:path';
 
-import pluginNav from '@11ty/eleventy-navigation';
+import { HtmlBasePlugin } from '@11ty/eleventy';
 import pluginRss from '@11ty/eleventy-plugin-rss';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 import rollupPluginCritical from 'rollup-plugin-critical';
@@ -145,9 +145,14 @@ export default async function (eleventyConfig) {
     output: 'dist',
   };
 
-  eleventyConfig.addPlugin(pluginNav);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
+  eleventyConfig.addPlugin(HtmlBasePlugin, {
+    baseHref:
+      process.env.NODE_ENV === 'production'
+        ? 'https://erikgelderblom.com/'
+        : 'https://portfolio.test/',
+  });
 
   eleventyConfig.setTemplateFormats([
     // Templates:
