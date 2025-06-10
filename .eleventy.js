@@ -272,8 +272,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/css');
   eleventyConfig.addPassthroughCopy('src/assets/js');
   eleventyConfig.addPassthroughCopy('static');
-  eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
   eleventyConfig.addPassthroughCopy('public');
+  eleventyConfig.addPassthroughCopy('src/work/**/*.mp4');
 
   // You can return your Config object (optional).
   return {
