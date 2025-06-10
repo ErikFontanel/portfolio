@@ -17,10 +17,10 @@
     {% block head %}{% endblock %}
 
     {% if env.environment === 'production' %}
-      <link rel="preload" as="style" href="{{ cssPath | url }}">
-      <link rel="stylesheet" media="print" href="{{ cssPath| url  }}" onload="this.media='all';">
+      <link rel="preload" as="style" href="{{ cssPath }}">
+      <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
     {% else %}
-      <link rel="stylesheet" href="/assets/css/app.scss">
+      <link rel="stylesheet" href="{{ '/assets/css/app.scss' }}" crossorigin="">
     {% endif %}
 
     <!-- Primary Meta Tags -->

@@ -107,32 +107,32 @@ export default function (eleventyConfig) {
             entryFileNames: 'assets/js/[name].[hash].js',
           },
           plugins: [
-            rollupPluginCritical({
-              criticalUrl: './dist/',
-              criticalBase: './dist/',
-              criticalPages: [
-                { uri: 'index.html', template: 'index' },
-                { uri: 'about/index.html', template: 'about/index' },
-                // { uri: '404.html', template: '404' },
-              ],
-              criticalConfig: {
-                inline: true,
-                dimensions: [
-                  {
-                    height: 900,
-                    width: 375,
-                  },
-                  {
-                    height: 720,
-                    width: 1280,
-                  },
-                  {
-                    height: 1080,
-                    width: 1920,
-                  },
-                ],
-              },
-            }),
+            // rollupPluginCritical({
+            //   criticalUrl: './dist/',
+            //   criticalBase: './dist/',
+            //   criticalPages: [
+            //     { uri: 'index.html', template: 'index' },
+            //     // { uri: 'about/index.html', template: 'about/index' },
+            //     // { uri: '404.html', template: '404' },
+            //   ],
+            //   criticalConfig: {
+            //     inline: true,
+            //     dimensions: [
+            //       {
+            //         height: 900,
+            //         width: 375,
+            //       },
+            //       {
+            //         height: 720,
+            //         width: 1280,
+            //       },
+            //       {
+            //         height: 1080,
+            //         width: 1920,
+            //       },
+            //     ],
+            //   },
+            // }),
           ],
         },
       },
