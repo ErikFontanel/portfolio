@@ -79,7 +79,7 @@ export default async function (eleventyConfig) {
     baseHref:
       process.env.NODE_ENV === 'production'
         ? 'https://erikgelderblom.com/'
-        : 'http://localhost:8080/',
+        : '/',
   });
 
   eleventyConfig.addPlugin(EleventyVitePlugin, {
