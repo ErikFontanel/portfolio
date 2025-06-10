@@ -69,8 +69,9 @@ const responsiveImagesConfig = {
   ],
 };
 
-export default async function (eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.setServerPassthroughCopyBehavior('copy');
+  eleventyConfig.addPassthroughCopy({ public: 'public' });
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
@@ -260,8 +261,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/css');
   eleventyConfig.addPassthroughCopy('src/assets/js');
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'public/fonts' });
-  eleventyConfig.addPassthroughCopy('/static');
-  eleventyConfig.addPassthroughCopy('/public');
   eleventyConfig.addPassthroughCopy('src/work/**/*.mp4');
 
   // You can return your Config object (optional).
