@@ -1,4 +1,4 @@
-import '../css/app.scss';
+// import '../css/app.scss';
 
 import fitvids from 'fitvids';
 import 'focus-visible';

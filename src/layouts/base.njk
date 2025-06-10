@@ -1,4 +1,4 @@
-{%- set cssPath = '/assets/scss/app.css' | url -%}
+{%- set cssPath = '/assets/css/app.css' | url -%}
 {%- set jsPath = '/assets/js/app.js' | url -%}
 <!doctype html>
 <html class="no-js" lang="en">
@@ -18,6 +18,8 @@
     {% if env.environment === 'production' %}
       <link rel="preload" as="style" href="{{ cssPath }}">
       <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
+    {% else %}
+      <link rel="stylesheet" href="/assets/css/app.scss">
     {% endif %}
 
     <!-- Primary Meta Tags -->
