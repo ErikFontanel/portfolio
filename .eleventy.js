@@ -1,4 +1,3 @@
-import { HtmlBasePlugin } from '@11ty/eleventy';
 import pluginRss from '@11ty/eleventy-plugin-rss';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 import rollupPluginCritical from 'rollup-plugin-critical';
@@ -75,12 +74,6 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
-  eleventyConfig.addPlugin(HtmlBasePlugin, {
-    baseHref:
-      process.env.NODE_ENV === 'production'
-        ? 'https://erikgelderblom.com/'
-        : '/',
-  });
 
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: '.11ty-vite', // Default name of the temp folder
