@@ -9,16 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="{{ '/site.webmanifest' }}">
-    <link rel="apple-touch-icon" href="{{ '/static/favicon.svg' }}">
-    <link rel="alternate icon" href="{{ '/static/favicon.ico' }}">
+    <link rel="apple-touch-icon" href="{{ '/public/favicon.svg' }}">
+    <link rel="alternate icon" href="{{ '/public/favicon.ico' }}">
     <link rel="alternate" href="{{ metadata.feed.path }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="preload" as="font" href="/static/fonts/Inter.var.woff2" type="font/woff2" crossorigin="">
+    <link rel="preload" as="font" href="/public/fonts/Inter.var.woff2" type="font/woff2" crossorigin="">
     
     {% block head %}{% endblock %}
 
     {% if env.environment === 'production' %}
-      <link rel="preload" as="style" href="{{ cssPath }}">
-      <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
+      <link rel="preload" as="style" href="{{ cssPath | url }}">
+      <link rel="stylesheet" media="print" href="{{ cssPath| url  }}" onload="this.media='all';">
     {% else %}
       <link rel="stylesheet" href="/assets/css/app.scss">
     {% endif %}
@@ -32,14 +32,14 @@
     <meta property="og:url" content="https://erikgelderblom.com/">
     <meta property="og:title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
     <meta property="og:description" content="For over 15 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
-    <meta property="og:image" content="{{ "/static/ogimage.png" | url }}">
+    <meta property="og:image" content="{{ "/public/ogimage.png" | url }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://twitter.com/erikgelderblom">
     <meta property="twitter:title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
     <meta property="twitter:description" content="For over 15 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
-    <meta property="twitter:image" content="{{ "/static/ogimage.png" | url }}">}}">
+    <meta property="twitter:image" content="{{ "/public/ogimage.png" | url }}">}}">
 
     <meta name="theme-color" content="{{ metadata.theme_color }}">
   </head>
