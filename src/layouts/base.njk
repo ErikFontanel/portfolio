@@ -66,7 +66,7 @@
       </template>
     {% endblock %}
 
-    <script type="module" src="{{ jsPath }}"></script>
+    <script type="module" src="{{ jsPath }}" crossorigin=""></script>
     {% if env.environment === 'production' %}
       {% include "analytics.njk" %}
     {% endif %}
