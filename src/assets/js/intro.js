@@ -1,5 +1,5 @@
 /* global THREE */
-import debounce from 'lodash/debounce';
+import debounce from 'lodash-es/debounce';
 import EventBus from './EventBus';
 
 const canvas = document.querySelector('canvas.intro');

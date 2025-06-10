@@ -1,9 +1,8 @@
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { HtmlBasePlugin } from '@11ty/eleventy';
 import pluginRss from '@11ty/eleventy-plugin-rss';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 import rollupPluginCritical from 'rollup-plugin-critical';
+
 import pluginNetlifyRespImage from './src/assets/js/eleventy-netlify-respimg.js';
 
 import markdownIt from 'markdown-it';
@@ -12,19 +11,17 @@ import markdownItLinkAttrs from 'markdown-it-link-attributes';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItBlockEmbed from 'markdown-it-block-embed';
 import markdownItImplicitFigures from 'markdown-it-implicit-figures';
+import markdownItContainer from 'markdown-it-container';
 import markdownItBlockEmbedLocalService from './src/assets/js/markdown-it-local-embed.js';
 import markdownItLazyImg from './src/assets/js/markdown-it-lazy.js';
-import markdownItContainer from 'markdown-it-container';
 
-const componentsDir = `./_includes/components`;
+const componentsDir = './src/_includes/components';
 
 import Gallery from './src/assets/js/Gallery.js';
-import List from './_includes/components/List.js';
-import Canvas from './_includes/components/Canvas.js';
-import Button from './_includes/components/Button.js';
-import Label from './_includes/components/Label.js';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import List from './src/_includes/components/List.js';
+import Canvas from './src/_includes/components/Canvas.js';
+import Button from './src/_includes/components/Button.js';
+import Label from './src/_includes/components/Label.js';
 
 const responsiveImagesConfig = {
   presets: [
@@ -75,7 +72,15 @@ const responsiveImagesConfig = {
 
 export default async function (eleventyConfig) {
   eleventyConfig.setServerPassthroughCopyBehavior('copy');
-  eleventyConfig.addPassthroughCopy('public');
+
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
+  eleventyConfig.addPlugin(HtmlBasePlugin, {
+    baseHref:
+      process.env.NODE_ENV === 'production'
+        ? 'https://erikgelderblom.com/'
+        : 'http://localhost:8080/',
+  });
 
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: '.11ty-vite', // Default name of the temp folder
@@ -144,38 +149,6 @@ export default async function (eleventyConfig) {
       },
     },
   });
-
-  eleventyConfig.dir = {
-    input: 'content',
-    includes: '../_includes',
-    output: 'dist',
-  };
-
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
-  eleventyConfig.addPlugin(HtmlBasePlugin, {
-    baseHref:
-      process.env.NODE_ENV === 'production'
-        ? 'https://erikgelderblom.com/'
-        : 'http://localhost:8080/',
-  });
-
-  eleventyConfig.setTemplateFormats([
-    // Templates:
-    'njk',
-    'md',
-    '11ty.js',
-    // Static Assets:
-    'css',
-    'svg',
-    'png',
-    'jpg',
-    'jpeg',
-  ]);
-
-  eleventyConfig.addPassthroughCopy('static');
-
-  eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
 
   const mdOptions = {
     html: true,
@@ -296,18 +269,36 @@ export default async function (eleventyConfig) {
     return path.split('/')[0];
   });
 
-  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
   eleventyConfig.addPassthroughCopy('src/assets/css');
   eleventyConfig.addPassthroughCopy('src/assets/js');
+  eleventyConfig.addPassthroughCopy('static');
+  eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
+  eleventyConfig.addPassthroughCopy('public');
 
   // You can return your Config object (optional).
   return {
-    dir: {
-      input: 'content',
-      output: 'dist',
-      includes: '../_includes',
-    },
+    templateFormats: [
+      // Templates:
+      'njk',
+      'md',
+      '11ty.js',
+      // Static Assets:
+      'css',
+      'svg',
+      'png',
+      'jpg',
+      'jpeg',
+    ],
+    htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true,
+    dir: {
+      input: 'src',
+      // better not use "public" as the name of the output folder (see above...)
+      output: 'dist',
+      includes: '_includes',
+      layouts: 'layouts',
+      data: '_data',
+    },
   };
 }

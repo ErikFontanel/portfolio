@@ -1,19 +1,24 @@
 {
   "name": "portfolio",
-  "version": "2.0.0",
-  "description": "Personal portfolio of Erik Gelderblom",
-  "main": "app.js",
-  "config": {
-    "public_url": "/",
-    "asset_url": "/static/"
-  },
+  "version": "2.1.0",
   "type": "module",
+  "description": "Personal portfolio of Erik Gelderblom",
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "last 2 versions",
+    "> 1%",
+    "not IE <= 11",
+    "not IE_Mob <= 11"
+  ],
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "dev:eleventy": "eleventy --serve --quiet",
-    "build:vite": "eleventy --config=.eleventy.js",
-    "build": "ELEVENTY_ENV=production npm run build:vite",
-    "start": "eleventy --serve"
+    "start": "npx @11ty/eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy",
+    "clean": "del-cli dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -68,13 +73,5 @@
     "plugins": [
       "lodash"
     ]
-  },
-  "browserslist": [
-    "defaults",
-    "not dead",
-    "last 2 versions",
-    "> 1%",
-    "not IE <= 11",
-    "not IE_Mob <= 11"
-  ]
+  }
 }
