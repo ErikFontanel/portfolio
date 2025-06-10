@@ -12,8 +12,8 @@
     <link rel="apple-touch-icon" href="{{ '/src/img/favicon.svg' }}">
     <link rel="alternate icon" href="{{ '/src/img/favicon.ico' }}">
     <link rel="alternate" href="{{ metadata.feed.path }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="preload" as="font" href="/src/fonts/Inter.var.woff2" crossorigin="anonymous">
-    <link rel="preload" as="font" href="/src/fonts/iosevka-ss01-extended.woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/src/fonts/Inter.var.woff2" type="font/woff2" crossorigin="">
+    {% block head %}{% endblock %}
 
     {% if env.environment === 'production' %}
       <link rel="preload" as="style" href="{{ cssPath }}">
