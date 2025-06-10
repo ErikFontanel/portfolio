@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ErikFontanel/portfolio-temp.git"
+    "url": "git+https://github.com/ErikFontanel/portfolio.git"
   },
   "author": "Erik Gelderblom",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ErikFontanel/portfolio-temp/issues"
+    "url": "https://github.com/ErikFontanel/portfolio/issues"
   },
   "homepage": "https://erikgelderblom.com/",
   "dependencies": {
@@ -50,7 +50,6 @@
     "markdown-it-implicit-figures": "^0.12.0",
     "markdown-it-link-attributes": "^4.0.1",
     "nanobus": "^4.4.0",
-    "npm-run-all": "^4.1.5",
     "postcss": "^8.5.4",
     "postcss-cli": "^11.0.1",
     "postcss-custom-media": "^11.0.6",
