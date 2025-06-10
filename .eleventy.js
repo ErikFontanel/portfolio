@@ -1,5 +1,5 @@
-import path from 'node:path';
-
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { HtmlBasePlugin } from '@11ty/eleventy';
 import pluginRss from '@11ty/eleventy-plugin-rss';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
@@ -23,6 +23,8 @@ import List from './_includes/components/List.js';
 import Canvas from './_includes/components/Canvas.js';
 import Button from './_includes/components/Button.js';
 import Label from './_includes/components/Label.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const responsiveImagesConfig = {
   presets: [
@@ -72,6 +74,9 @@ const responsiveImagesConfig = {
 };
 
 export default async function (eleventyConfig) {
+  eleventyConfig.setServerPassthroughCopyBehavior('copy');
+  eleventyConfig.addPassthroughCopy('public');
+
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: '.11ty-vite', // Default name of the temp folder
 
@@ -292,6 +297,8 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
+  eleventyConfig.addPassthroughCopy('src/assets/css');
+  eleventyConfig.addPassthroughCopy('src/assets/js');
 
   // You can return your Config object (optional).
   return {
