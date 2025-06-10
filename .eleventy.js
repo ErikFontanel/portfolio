@@ -118,6 +118,7 @@ export default async function (eleventyConfig) {
               criticalBase: './dist/',
               criticalPages: [
                 { uri: 'index.html', template: 'index' },
+                { uri: 'about/index.html', template: 'about/index' },
                 // { uri: '404.html', template: '404' },
               ],
               criticalConfig: {
@@ -265,6 +266,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('src/assets/css');
   eleventyConfig.addPassthroughCopy('src/assets/js');
+  eleventyConfig.addPassthroughCopy({ 'src/fonts': 'static/fonts' });
   eleventyConfig.addPassthroughCopy('static');
   eleventyConfig.addPassthroughCopy('public');
   eleventyConfig.addPassthroughCopy('src/work/**/*.mp4');
