@@ -6,17 +6,16 @@ import autoprefixer from 'autoprefixer';
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
-  map: false,
   plugins: [
-    autoprefixer,
     postcssMediaMinmax,
     postcssCustomMedia,
     ...(isProduction
       ? [
+          autoprefixer,
           postcssPresetEnv,
-          cssnano({
-            preset: 'default',
-          }),
+          // cssnano({
+          //   preset: 'default',
+          // }),
         ]
       : []),
   ],
