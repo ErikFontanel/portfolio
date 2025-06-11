@@ -119,19 +119,19 @@ nav {
   z-index: z-index(projects, $nav-index);
   margin-bottom: font-size(extra-small);
   pointer-events: auto;
-  transition: $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.5);
-  transition-property: opacity, visibility, transform;
-  transform: scale(1) translate3d(0, 0, 0);
+  // transition: $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.5);
+  // transition-property: opacity, visibility, transform;
+  // transition-delay: 0.1s;
+  // transform: scale(1) translate3d(0, 0, 0);
   width: 100%;
   order: -1;
-  transition-delay: 0.1s;
   transform-origin: calc(var(--gutter) * 2) 100%;
 
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transform: scale(0.8) translate3d(0, 10%, 0);
+    // transform: scale(0.8) translate3d(0, 10%, 0);
   }
 
   &__dialog.card {
@@ -156,6 +156,7 @@ nav {
     padding: 0 calc(var(--gutter) * 0.5);
     display: flex;
     justify-content: stretch;
+    animation-delay: 0.25s;
 
     &:first-child {
       margin-top: calc(var(--gutter) * 0.5);
@@ -194,9 +195,52 @@ nav {
     }
   }
 
-  &[aria-hidden='true'] li {
+  &[aria-hidden='true'],
+  &.animating li {
     opacity: 0;
-    transform: translate3d(0, -10%, 0);
+    visibility: hidden;
+    transform: translate3d(0, -20%, 0);
+  }
+}
+
+.animation\:showDialog {
+  animation-name: showDialog;
+  animation-timing-function: cubic-bezier(0.5, -0.3, 0.5, 1.5);
+  animation-delay: 0.1s;
+}
+
+.animation\:hideDialog {
+  animation-name: showDialog;
+  animation-direction: reverse;
+}
+
+.animation\:fadeInDown {
+  animation-name: fadeInDown;
+}
+
+@keyframes showDialog {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.8) translate3d(0, 10%, 0);
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 

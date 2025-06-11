@@ -53,23 +53,56 @@ export default class Nav {
   }
 
   show() {
+    this.navProjects.classList.add('animating', 'animation:showDialog');
+
     this.navMain
       .querySelector('[aria-controls]')
       .setAttribute('aria-expanded', true);
     this.navMain.setAttribute('data-overlay', true);
     document.body.setAttribute('data-showing-overlay', true);
-    this.popover.setAttribute('aria-hidden', false);
-    this.visible = true;
+
+    this.navProjects.querySelectorAll('li').forEach((li, index) => {
+      li.classList.add('animating', 'animation:fadeInDown');
+
+      li.addEventListener(
+        'animationend',
+        () => {
+          li.classList.remove('animating', 'animation:fadeInDown');
+        },
+        { passive: true, once: true }
+      );
+    });
+
+    this.navProjects.addEventListener(
+      'animationend',
+      () => {
+        this.navProjects.classList.remove('animating', 'animation:showDialog');
+        this.popover.setAttribute('aria-hidden', false);
+        this.visible = true;
+      },
+      { passive: true, once: true }
+    );
   }
 
   hide() {
+    this.navProjects.classList.add('animating', 'animation:hideDialog');
+
     this.navMain
       .querySelector('[aria-controls]')
       .setAttribute('aria-expanded', false);
     this.navMain.setAttribute('data-overlay', false);
     document.body.setAttribute('data-showing-overlay', false);
-    this.popover.setAttribute('aria-hidden', true);
-    this.visible = false;
+
+    this.navProjects.addEventListener(
+      'animationend',
+      () => {
+        this.navProjects.classList.remove('animating', 'animation:hideDialog');
+
+        this.popover.setAttribute('aria-hidden', true);
+        this.visible = false;
+      },
+      { passive: true, once: true }
+    );
   }
 
   onclick(event) {
