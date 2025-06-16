@@ -19,6 +19,7 @@ $color-sky-darkest: color.scale($color-sky, $lightness: -37.5%);
 $color-yellow: #fff000;
 $color-blue: #313fff;
 $color-green: #38ff00;
+$color-red: #ff0000;
 
 $color-blue-lightest: color.scale($color-blue, $lightness: 80%);
 $color-blue-darker: color.scale($color-blue, $lightness: -40%);
