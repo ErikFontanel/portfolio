@@ -37,7 +37,7 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
     $button-border-color;
 
   &:visited {
-    color: var(--button-color);
+    color: var(--button-color, #{$color-text});
   }
 
   &:hover {
