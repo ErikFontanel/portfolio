@@ -96,8 +96,12 @@ export default function (eleventyConfig) {
       },
       appType: 'custom',
       assetsInclude: ['**/*.xml', '**/*.txt'],
+      css: {
+        devSourcemap: process.env.NODE_ENV === 'production' ? false : true,
+      },
       build: {
-        mode: 'production',
+        mode:
+          process.env.NODE_ENV === 'production' ? 'production' : 'development',
         sourcemap: 'true',
         manifest: true,
         // This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
