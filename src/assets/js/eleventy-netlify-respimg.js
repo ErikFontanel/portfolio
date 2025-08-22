@@ -167,6 +167,17 @@ export default {
           sizes = '100vw',
           callback
         ) {
+          let caption = '';
+          let css = '';
+
+          if (typeof file === 'object') {
+            caption = file.caption;
+            css = file.css;
+
+            callback = file;
+            file = file.file;
+          }
+
           if (typeof preset === 'function') {
             callback = preset;
             preset = 'default';
@@ -196,6 +207,11 @@ export default {
             image(context, file, cssClasses, preset, loading, alt, sizes)
           );
 
+          if (caption !== '') {
+            ret = new nunjucksEngine.runtime.SafeString(
+              `<figure class="image ${css}">${ret.val}<figcaption class="caption">${caption}</figcaption></figure>`
+            );
+          }
           callback(null, ret);
         };
       })();

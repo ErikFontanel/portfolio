@@ -41,7 +41,7 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
   }
 
   &:hover {
-    --button-background-color: #{$color-sky};
+    --button-background-color: var(--color-button-background-hover);
     --button-hover-border-color: #{$color-sky};
   }
 

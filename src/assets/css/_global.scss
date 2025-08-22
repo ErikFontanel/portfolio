@@ -18,6 +18,10 @@
   --color-background-ui: #{$color-background-ui};
   --color-background-inverted: #{color.invert($color-background)};
 
+  --color-button-background: #{$color-button-background};
+  --color-button-background-hover: #{$color-button-background-hover};
+  --color-button-label: #{$color-button-label};
+
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
   --color-text-sub: #{$color-text-sub};

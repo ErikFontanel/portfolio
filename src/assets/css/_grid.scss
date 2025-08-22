@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 .grid {
   display: grid;
@@ -67,10 +67,11 @@
       grid-auto-flow: column;
       overflow: auto;
       grid-template-columns: var(--gutter) calc(80vmin - var(--gutter));
+      grid-auto-columns: minmax(max-content, calc(80vmin - var(--gutter)));
       justify-content: start;
+      padding: 0 var(--gutter);
 
-      &::after,
-      &::before {
+      &::after {
         content: '';
         width: var(--gutter);
       }
