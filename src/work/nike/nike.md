@@ -1,8 +1,8 @@
 ---
-thumbnail: at-nike.jpg
+thumbnail: nike-thumb.jpg
 client: Nike
 date: 2018-06-01
-title: Community Experiences Platform
+title: Fostering stronger connections with a global community
 logo: logo-nike.svg
 tags:
   - project
@@ -14,107 +14,93 @@ tags:
   - website
 list_layout: portrait:2-col.njk
 role: Senior Product Designer
-team: 'Eric Burman, Kas Eelman, Jacqueline Hong, Aaron Braun'
+team: 'Aaron Braun, Eric Burman, Jacqueline Hong, Kas Eelman'
 ---
 
-For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition: Affordable and fashionable glasses for any outfit and any occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
+The Nike Community Experiences platform empowers members to discover and participate in exclusive events, such as athlete meet-and-greets, workshops, and flagship gatherings. I designed the new platform that simplifies event discovery for consumers and event management and ticketing for Nike employees.
 
-{% gallery {css: 'full-width'} %}
-{% image 'at-main1.png' %}
+{% gallery {
+  css: 'full-width grid:wide grid:3c'
+} %}
+
+{% image file='nike-cxp1.png', css='device', sizes='full', caption="Experiences Overview" %}
+{% image file='nike-cxp2.png', css='device', sizes='full', caption="Experience Detail" %}
+{% image file='nike-cxp3.png', css='device', sizes='full', caption="Ticket" %}
+
 {% endgallery %}
 
-At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https://aceandtate.com). Within just three years after founding the company, they opened two stores in Amsterdam, one in Utrecht and a pop-up in Rotterdam. But as a direct-to-consumer brand, e-commerce plays a vital role in the business model. Their current website couldn't keep up anymore with the chaning company and rapid growth.
+Leading product design for the new platform across web, iOS, and Android, I collaborated with an international team spanning three continents. My responsibilities included designing the product, conducting user testing, and architecting vendor integrations to ensure a seamless experience for Nike editors and members worldwide. I worked closely with stakeholders throughout the organization to align on delivering the best possible consumer experience.
 
 {% list "Objectives" %}
 
-- New design to fit the brand and replace the old generic design
-- Easier to use product configuration
-- Higher conversion, lower friction during checkout
-- Inspire customers through look books and (seasonal) campaigns
-- Store finder for all the new stores to be opened
-- Increasing the brand value of Ace & Tate
+- New design according to the Nike design system.
+- Global audience, support for many languages and locales.
+- Focus on accessibility according to ADA Accessibility Standards.
+- Frictionless on-site experience members and Nike employees
+- Improve event discovery and registration for Nike members
 
 {% endlist %}
 
-<div class="block grid:full grid:2 bg-sky pv">
+After joining an event, each member receives a digital ticket for admission. Previously, connectivity issues at many locations made ticket scanning slow and unreliable, often forcing employees to manually check in members and causing long queues. To solve this, we developed a dedicated scanning app that caches the attendee list offline, enabling fast and seamless check-ins regardless of network reception.
+
 {% gallery {
-  caption: 'Product Detail page',
-  css: 'carousel device'
+ css: 'full-width',
+ caption: "Various UI elements designed for the Nike Community Experiences"
 } %}
-  {% image 'at-pdp1.png', 'Ace & Tate Product Detail Page', 'carousel' %}
-  {% image 'at-pdp2.png', 'Ace & Tate Product Detail Page', 'carousel' %}
-  {% image 'at-pdp3.png', 'Ace & Tate Product Detail Page', 'carousel' %}
+
+{% image 'nike-cxp4.png', 'Nike Community Experiences Platform', 'full' %}
+
 {% endgallery %}
 
+For major Nike moments such as the Nike Well Festival and the Centre Pompidou takeover during the Paris 2024 Olympics, I designed dedicated event pages integrated with the new Community Experiences Platform. These pages showcased event details, schedules, and ticket registration. This new capabilty empowers Nike Marketing teams to create custom event experiences in-house, eliminating the need to hire external agencies for bespoke development.
+
 {% gallery {
-  caption: 'Product Category page',
-  css: 'carousel device'
+  css: 'full-width',
+  caption: "Various UI elements designed for the Nike Well Festival"
 } %}
-{% image 'at-pcp1.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% image 'at-pcp2.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% image 'at-pcp3.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% image 'at-pcp4.png', 'Ace & Tate Product Category Page', 'carousel' %}
+
+{% image 'nike-wf1.png', 'Nike Well Festival', 'full' %}
+
 {% endgallery %}
 
-</div>
-
-A mobile first driven experience, that not only inspires but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
-
-Non-hierarchical way of browsing the collection by not only filtering on properties (gender, color, material) but also tags or taxonomy (style, release, occasion etc). No more 'white wall' filled with every frame in every color, telling the user 'this is all we offer, good luck'.
-
-A smooth and easy configuration a newly designed product configurator.
+Another major push has been the user generated content, unlocking ratings & reviews on the PDP.
 
 {% gallery {
-  caption: 'The new photography shows the frames being worn on a wide variety of faces',
-  css: 'full-width grid:2'
+ css: 'full-width grid:wide grid:3c'
 } %}
-{% image 'at-main2.jpg', 'Ace & Tate Product Photography' %}
-{% image 'at-main3.jpg', 'Ace & Tate Product Photography' %}
+
+{% image file='nike-wf2.png', alt='Nike Well Festival', css='device', caption="Landing" %}
+{% image file='nike-wf3.png', alt='Nike Well Festival', css='device', caption="Event Detail" %}
+{% image file='nike-wf4.png', alt='Nike Well Festival', css='device', caption="Schedule" %}
+
 {% endgallery %}
 
-New high resolution pack shots to showcase the quality of the frames but are also recognisable as Ace & Tate when out of context, ie. shared on platforms like Instagram and Pinterest.
+My work helped transform how Nike members discover and engage with events, strengthening the brand's community-first approach and elevating the digital experience of Nike's global events ecosystem.
 
 {% gallery {
-  css: 'grid:3'
+  css: 'full-width',
+  caption: "Various UI elements designed for the Art Of Victory"
 } %}
-{% image 'at-main4.jpg' %}
+
+{% image 'nike-aov1.png', 'Nike Art of Victory', 'full' %}
+
 {% endgallery %}
 
-A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
-
-<div class="block grid:main">
+My work helped transform how Nike members discover and engage with events, strengthening the brand's community-first approach and elevating the digital experience of Nike's global events ecosystem.
 
 {% gallery {
-  caption: 'Product Category page',
-  css: 'carousel device'
+  css: 'full-width',
+  caption: "Various UI elements designed for the Art Of Victory"
 } %}
-{% image 'at-co1.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% image 'at-co2.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% image 'at-co3.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% image 'at-co4.png', 'Ace & Tate Product Category Page', 'carousel' %}
-{% endgallery %}
 
-</div>
+{% image 'nike-aov2.png', 'Nike Art of Victory', 'full' %}
 
-{% gallery {
-  css: 'devices full-width',
-  caption: 'Checkout and customer dashboard'
-} %}
-{% image 'at-checkout.png', 'Ace & Tate Checkout' %}
-{% image 'at-dashboard.png', 'Ace & Tate Customer Dashboard' %}
 {% endgallery %}
 
 {% list "Results" %}
 
-- grew the team from 1 designer and 2 developers to 3 designers and 6 developers
-- set-up a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com)
-- designed the overall concept and UI of the new online customer experience
-- designed the information architecture of the Ace & Tate e-commerce platform and product taxonomies
-- designed the UX of the website, including check-out and customer (self-)service environment
-- new concepts for the product photography and head shots
-- designed seasonal campaigns, won a Awwward for the Lernert & Sander campaign (of which I also did a part of the front-end)
-- increased conversion and thus revenue (I'm not allowed to share any numbers)
+- Increased member sign-ups
+- Frictionless check-ins
+- Enable on-platform support for custom pages for big Nike moments.
 
 {% endlist %}
-
-&rarr; https://aceandtate.com/
