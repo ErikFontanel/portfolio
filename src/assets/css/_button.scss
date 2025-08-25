@@ -248,6 +248,7 @@ button {
 
     &:hover {
       --button-hover-border-color: transparent;
+      --button-background-color: var(--color-button-background-hover-light);
     }
   }
 
