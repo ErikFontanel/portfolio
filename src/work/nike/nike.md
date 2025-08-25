@@ -44,8 +44,8 @@ Leading product design for the new platform across web, iOS, and Android, I coll
 After joining an event, each member receives a digital ticket for admission. Previously, connectivity issues at many locations made ticket scanning slow and unreliable, often forcing employees to manually check in members and causing long queues. To solve this, we developed a dedicated scanning app that caches the attendee list offline, enabling fast and seamless check-ins regardless of network reception.
 
 {% gallery {
- css: 'full-width',
- caption: "Various UI elements designed for the Nike Community Experiences"
+ css: 'full-width grid:scroll',
+ caption: "Various UI elements designed for Nike Community Experiences"
 } %}
 
 {% image 'nike-cxp4.png', 'Nike Community Experiences Platform', 'full' %}
@@ -55,8 +55,8 @@ After joining an event, each member receives a digital ticket for admission. Pre
 For major Nike moments such as the Nike Well Festival and the Centre Pompidou takeover during the Paris 2024 Olympics, I designed dedicated event pages integrated with the new Community Experiences Platform. These pages showcased event details, schedules, and ticket registration. This new capabilty empowers Nike Marketing teams to create custom event experiences in-house, eliminating the need to hire external agencies for bespoke development.
 
 {% gallery {
-  css: 'full-width',
-  caption: "Various UI elements designed for the Nike Well Festival"
+  css: 'full-width grid:scroll',
+  caption: "Various UI elements designed for Nike Well Festival"
 } %}
 
 {% image 'nike-wf1.png', 'Nike Well Festival', 'full' %}
@@ -70,16 +70,16 @@ Another major push has been the user generated content, unlocking ratings & revi
 } %}
 
 {% image file='nike-wf2.png', alt='Nike Well Festival', css='device', caption="Landing" %}
-{% image file='nike-wf3.png', alt='Nike Well Festival', css='device', caption="Event Detail" %}
-{% image file='nike-wf4.png', alt='Nike Well Festival', css='device', caption="Schedule" %}
+{% image file='nike-wf3.png', alt='Nike Well Festival', css='device', caption="Schedule" %}
+{% image file='nike-wf4.png', alt='Nike Well Festival', css='device', caption="Event Detail" %}
 
 {% endgallery %}
 
 My work helped transform how Nike members discover and engage with events, strengthening the brand's community-first approach and elevating the digital experience of Nike's global events ecosystem.
 
 {% gallery {
-  css: 'full-width',
-  caption: "Various UI elements designed for the Art Of Victory"
+  css: 'full-width grid:scroll',
+  caption: "Various UI elements designed for Art Of Victory"
 } %}
 
 {% image 'nike-aov1.png', 'Nike Art of Victory', 'full' %}
@@ -89,8 +89,8 @@ My work helped transform how Nike members discover and engage with events, stren
 My work helped transform how Nike members discover and engage with events, strengthening the brand's community-first approach and elevating the digital experience of Nike's global events ecosystem.
 
 {% gallery {
-  css: 'full-width',
-  caption: "Various UI elements designed for the Art Of Victory"
+  css: 'full-width grid:scroll',
+  caption: "Various UI elements designed for Art Of Victory"
 } %}
 
 {% image 'nike-aov2.png', 'Nike Art of Victory', 'full' %}

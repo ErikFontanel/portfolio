@@ -35,7 +35,7 @@ The mobile app for the event visitors is powered by a web app (SPA), used by the
 At the end of 2018 the super ambitious but then still small Close team just raised their first round of funding with their MVP and they were looking for reinforcements of the team to grow the company. They reached out to me for the UX design for the Close web app.
 
 {% gallery {
-  css: 'full-width'
+  css: 'full-width grid:scroll'
 } %}
 {% image 'close7.png', '', 'full' %}
 {% endgallery %}
@@ -55,7 +55,7 @@ In the period of a year I did many things:
 
 &rarr; https://thecloseapp.com/
 
-<div class="block gallery grid:close grid:wide">
+<div class="block gallery grid:close grid:wide grid:scroll">
 
 {% image 'close4.png' %}
 {% image 'close5.png' %}
