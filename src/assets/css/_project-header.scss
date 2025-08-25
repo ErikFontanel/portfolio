@@ -1,4 +1,5 @@
 @use 'config' as *;
+@use 'sass:color';
 
 .project-header {
   grid-template-columns: 1fr;
@@ -149,6 +150,24 @@
 
     &::before {
       content: unset;
+    }
+
+    &::after {
+      @media (--mobile) {
+        content: '';
+        display: block;
+        background: linear-gradient(
+          0deg,
+          color.adjust($color-ink, $alpha: 20%),
+          transparent
+        );
+        mix-blend-mode: multiply;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+      }
     }
   }
 
