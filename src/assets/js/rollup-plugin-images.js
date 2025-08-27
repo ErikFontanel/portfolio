@@ -21,10 +21,11 @@ export default function htmlImgDimensions() {
             const src = img.getAttribute('src');
             if (!src) continue;
 
-            if (img.hasAttribute('width') && img.hasAttribute('height'))
-              continue;
+            // if (img.hasAttribute('width') && img.hasAttribute('height'))
+            //   continue;
 
-            const imgPath = path.join(outDir, src);
+            let imgPath = path.join(outDir, src);
+            imgPath = imgPath.split('?')[0]; // Remove query params
             if (!fs.existsSync(imgPath)) {
               this.warn(`Image ${src} not found at ${imgPath}`);
               continue;
