@@ -3,9 +3,8 @@ import imageSize from 'image-size';
 import url from 'node:url';
 import http from 'node:https';
 import path from 'path';
-import fs from 'fs';
-import { readFileSync } from 'node:fs';
 
+disableTypes(['tiff', 'svg', 'ico']);
 export default function htmlImgDimensions() {
   return {
     name: 'html-img-dimensions',
@@ -25,6 +24,9 @@ export default function htmlImgDimensions() {
             if (!src) continue;
 
             const { name, ext } = path.parse(src.split('?')[0]);
+
+            if (ext === '.svg' || ext === '.ico') continue; // skip svg and ico files
+
             const imgurl = url.parse(`${baseUrl}/assets/img/${name}${ext}`);
 
             const req = http.get(imgurl, (response) => {
@@ -36,6 +38,8 @@ export default function htmlImgDimensions() {
                 .on('end', () => {
                   const buffer = Buffer.concat(chunks);
                   if (buffer !== undefined && buffer.length) {
+                    this.log(`Setting dimensions for image: ${src}`);
+
                     const { width, height } = imageSize(buffer);
                     if (width && height) {
                       img.setAttribute('width', width);
