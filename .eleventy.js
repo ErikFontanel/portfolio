@@ -119,7 +119,7 @@ export default function (eleventyConfig) {
               } else if (/woff2?|ttf|otf|eot/i.test(extType)) {
                 extType = 'fonts';
               }
-              return `assets/${extType}/[name].[hash][extname]`;
+              return `assets/${extType}/[name].[extname]`;
             },
           },
           plugins: [

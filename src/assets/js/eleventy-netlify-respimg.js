@@ -8,14 +8,15 @@ import { readFileSync } from 'node:fs';
 let config;
 
 const getDimensions = (img) => {
-  // if (!process.env.NETLIFY) {
-  if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
-  const buffer = readFileSync(img);
-  const { width, height } = imageSize(buffer);
-  return { width: width, height: height };
-  // }
+  if (!process.env.NETLIFY) {
+    if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
+    const buffer = readFileSync(img);
+    const { width, height } = imageSize(buffer);
+    return { width: width, height: height };
+  }
 
-  const imgurl = url.parse(`${process.env.URL}${img}`);
+  const { name, ext } = path.parse(img);
+  const imgurl = url.parse(`${process.env.URL}assets/img/${name}${ext}`);
 
   const req = http.get(imgurl, (response) => {
     const chunks = [];
