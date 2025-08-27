@@ -97,8 +97,8 @@ function image(
   alt,
   sizes
 ) {
-  // let dimensions = { width: '100%', height: 'auto' };
-  let dimensions, width, height;
+  let dimensions = { width: '100%', height: 'auto' };
+  // let dimensions, width, height;
 
   const imgUrl = file.startsWith('/') ? file : `${context.ctx.page.url}${file}`;
 
