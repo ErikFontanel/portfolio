@@ -1,4 +1,4 @@
-@use "config/colors";
+@use 'config/colors';
 
 @use 'sass:color';
 @use 'config' as *;
@@ -132,7 +132,7 @@ ol {
         position: absolute;
         content: '→';
         left: 0.5ch;
-        color: var(--color-text-sub);
+        color: var(--color-primary);
       }
 
       + li {
