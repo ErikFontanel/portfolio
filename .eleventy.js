@@ -110,6 +110,17 @@ export default function (eleventyConfig) {
             assetFileNames: 'assets/css/app.[hash].css',
             chunkFileNames: 'assets/js/[name].[hash].js',
             entryFileNames: 'assets/js/[name].[hash].js',
+            assetFileNames: (assetInfo) => {
+              let extType = assetInfo.name.split('.').at(1);
+              if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+                extType = 'img';
+              } else if (/mp4|webm|ogg|mp3|wav|flac|aac/i.test(extType)) {
+                extType = 'media';
+              } else if (/woff2?|ttf|otf|eot/i.test(extType)) {
+                extType = 'fonts';
+              }
+              return `assets/${extType}/[name].[hash][extname]`;
+            },
           },
           plugins: [
             rollupPluginCritical({
@@ -121,7 +132,8 @@ export default function (eleventyConfig) {
                 // { uri: '404.html', template: '404' },
               ],
               criticalConfig: {
-                inline: true,
+                inlineImages: false,
+                maxImageFileSize: 10240 * 1024, // 1024kb
                 dimensions: [
                   {
                     height: 900,
@@ -267,6 +279,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/js');
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'public/fonts' });
   eleventyConfig.addPassthroughCopy('src/work/**/*.mp4');
+  eleventyConfig.addPassthroughCopy('src/work/**/*.png');
+  eleventyConfig.addPassthroughCopy('src/work/**/*.jpg');
+  eleventyConfig.addPassthroughCopy('src/work/**/*.jpeg');
 
   // You can return your Config object (optional).
   return {
