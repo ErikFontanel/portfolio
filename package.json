@@ -1,76 +1,8 @@
 {
   "name": "portfolio",
-  "version": "2.0.0",
+  "version": "2.1.0",
+  "type": "module",
   "description": "Personal portfolio of Erik Gelderblom",
-  "main": "app.js",
-  "config": {
-    "public_url": "/",
-    "asset_url": "/static/"
-  },
-  "scripts": {
-    "clean": "rm -rf ./dist",
-    "dev:eleventy": "eleventy --serve --quiet",
-    "build:eleventy": "npx @11ty/eleventy --config=.eleventy.js",
-    "build:snowpack": "snowpack build",
-    "build": "ELEVENTY_ENV=production npm run build:snowpack",
-    "start": "snowpack dev"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ErikFontanel/portfolio-temp.git"
-  },
-  "author": "Erik Gelderblom",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ErikFontanel/portfolio-temp/issues"
-  },
-  "homepage": "https://erikgelderblom.com/",
-  "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
-    "@11ty/eleventy-navigation": "^0.3.2",
-    "@11ty/eleventy-plugin-rss": "^1.0.9",
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@snowpack/plugin-postcss": "^1.0.5",
-    "@snowpack/plugin-run-script": "^2.3.0",
-    "@snowpack/plugin-sass": "^1.0.1",
-    "@swup/overlay-theme": "^1.1.1",
-    "autoprefixer": "^10.3.3",
-    "babel-plugin-lodash": "^3.3.4",
-    "critical": "^5.0.3",
-    "cssnano": "^5.0.1",
-    "fitvids": "^2.1.1",
-    "focus-visible": "^5.2.0",
-    "image-size": "^1.0.0",
-    "inter-ui": "^3.15.0",
-    "load-bmfont": "^1.4.1",
-    "lodash-es": "^4.17.15",
-    "markdown-it-anchor": "^8.3.0",
-    "markdown-it-attrs": "^4.0.0",
-    "markdown-it-block-embed": "0.0.3",
-    "markdown-it-container": "^3.0.0",
-    "markdown-it-implicit-figures": "^0.10.0",
-    "markdown-it-link-attributes": "^3.0.0",
-    "nanobus": "^4.4.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.1.2",
-    "postcss-cli": "^8.2.0",
-    "postcss-custom-media": "^8.0.0",
-    "postcss-media-minmax": "^5.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "rollup-plugin-node-polyfills": "^0.2.1",
-    "sass": "^1.38.2",
-    "snowpack": "^3.8.8",
-    "three": "^0.137.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "lodash"
-    ]
-  },
   "browserslist": [
     "defaults",
     "not dead",
@@ -78,5 +10,54 @@
     "> 1%",
     "not IE <= 11",
     "not IE_Mob <= 11"
-  ]
+  ],
+  "scripts": {
+    "start": "npx @11ty/eleventy --watch --serve --incremental",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy",
+    "clean": "del-cli dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikFontanel/portfolio.git"
+  },
+  "author": "Erik Gelderblom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikFontanel/portfolio/issues"
+  },
+  "homepage": "https://erikgelderblom.com/",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
+    "autoprefixer": "^10.4.21",
+    "critical": "^7.2.1",
+    "cssnano": "7.1",
+    "fitvids": "^2.1.1",
+    "focus-visible": "^5.2.1",
+    "image-size": "^2.0.2",
+    "inter-ui": "^4.1.1",
+    "load-bmfont": "^1.4.2",
+    "lodash-es": "^4.17.15",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-block-embed": "0.0.3",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-implicit-figures": "^0.12.0",
+    "markdown-it-link-attributes": "^4.0.1",
+    "nanobus": "^4.4.0",
+    "postcss": "^8.5.4",
+    "postcss-cli": "^11.0.1",
+    "postcss-custom-media": "^11.0.6",
+    "postcss-media-minmax": "^5.0.0",
+    "postcss-preset-env": "^10.3.0",
+    "rollup-plugin-critical": "^1.0.15",
+    "sass": "^1.90.0",
+    "three": "^0.179.1",
+    "vite": "^7.1.3"
+  }
 }

@@ -1,0 +1,171 @@
+@use 'sass:color';
+@use 'config' as *;
+
+:root {
+  --gutter: #{$gutter};
+  --spacing-base: #{$spacing-base};
+  --spacing-loose: #{$spacing-loose};
+  --spacing-block: #{$spacing-block * 2};
+
+  --color-background: #{$color-background};
+  --color-background-overlay: #{$color-background-overlay};
+  --color-background-overlay-rgb: #{hexToRGB($color-background-overlay)};
+  --color-background-overlay-inverted: #{$color-background-overlay-inverted};
+  --color-background-overlay-rgb-inverted: #{hexToRGB(
+      $color-background-overlay-inverted
+    )};
+  --color-background-modal: #{$color-background-overlay};
+  --color-background-ui: #{$color-background-ui};
+  --color-background-inverted: #{color.invert($color-background)};
+
+  --color-button-background: #{$color-button-background};
+  --color-button-background-hover: #{$color-button-background-hover};
+  --color-button-background-hover-light: #{$color-sky-lightest};
+  --color-button-label: #{$color-button-label};
+
+  --color-primary: #{$color-primary};
+  --color-text: #{$color-text};
+  --color-text-sub: #{$color-text-sub};
+  --color-text-inverted: #{$color-text-inverted};
+  --color-text-sub-inverted: #{$color-text-sub-inverted};
+  --color-link: #{$color-link};
+  --color-text-hightlight: #{$color-text-highlight};
+
+  --color-label-background: #{$color-sky};
+
+  --animation-duration: #{$transition-default};
+  --animation-duration-slow: calc(var(--animation-duration) * 2);
+  --animation-duration-extra-slow: calc(var(--animation-duration) * 2.5);
+  --animation-duration-fast: calc(var(--animation-duration) * 0.5);
+
+  --border-radius: #{$radius};
+  --border-radius-large: #{$radius-large};
+
+  --inter-font-weight: 260;
+  --inter-font-slant: 0;
+
+  @media (--mobile) {
+    --gutter: #{$gutter * 0.5};
+    --spacing-block: #{$spacing-block};
+  }
+}
+
+@media print, (prefers-reduced-motion: reduce) {
+  :root {
+    --animation-duration: 1ms !important;
+  }
+  * {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+button {
+  @include text-style-medium;
+
+  color: var(--color-text);
+  letter-spacing: -0.04em;
+}
+
+html {
+  position: relative;
+  font-size: $scaled-browser-font-size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background-inverted, #{$color-background});
+  transition: background-color $transition-default;
+  &[data-loading] {
+    // opacity: 0;
+  }
+
+  &.archive,
+  &.home {
+    background-color: var(--color-background-inverted);
+    color: var(--color-text-inverted);
+  }
+
+  &.single,
+  &.page {
+    --color-background-wrapper: var(--color-background);
+
+    .wrapper {
+      margin-top: var(--gutter);
+      border-radius: var(--border-radius-large);
+
+      box-shadow: rgba($color-black, 12%) 0 rem(-18px) rem(18px) rem(-18px);
+    }
+  }
+}
+
+.wrapper {
+  background-color: var(--color-background-wrapper);
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bg-inverted {
+  --color-background: var(--color-background-inverted);
+  --color-text-sub: var(--color-text-sub-inverted);
+
+  color: var(--color-text-inverted);
+  background-color: var(--color-background-inverted);
+}
+
+.bg-sky {
+  --color-background: #f6f7f8;
+}
+
+.pv {
+  padding-top: var(--spacing-block);
+  padding-bottom: var(--spacing-block);
+}
+
+.svg-filters {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+.animating {
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: forwards;
+  animation-timing-function: $transition-timing;
+}
+
+.animation\:fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.animation\:fadeOut {
+  animation-name: fadeInUp;
+  animation-direction: reverse;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

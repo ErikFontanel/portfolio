@@ -1,0 +1,80 @@
+@use 'sass:math';
+
+@use 'sass:color';
+@use './colors' as *;
+@use 'utilities' as * with (
+  $base-font-size: 10px,
+  $global-zindex: (
+    navigation,
+    modal,
+    layer,
+    body,
+    blobs,
+    intro,
+    background,
+  )
+);
+
+$color-primary: $color-blue;
+$color-background: $color-white;
+$color-background-inverted: color.invert($color-white);
+$color-background-overlay: $color-sky;
+$color-background-overlay-inverted: color.invert($color-sky);
+$color-background-modal: $color-blue-lightest;
+$color-background-ui: $color-white;
+
+$color-button-background: $color-white;
+$color-button-background-hover: $color-sky-darkest;
+$color-button-label: $color-ink;
+
+$color-text: $color-ink;
+$color-text-inverted: $color-white;
+$color-text-sub: $color-ink-lightest;
+$color-text-sub-inverted: $color-ink-lightest;
+$color-link: $color-blue;
+$color-text-highlight: $color-green;
+
+$spacing-extra-tight: rem(4px);
+$spacing-tight: rem(8px);
+$spacing-base-tight: rem(12px);
+$spacing-base: rem(16px);
+$spacing-loose: rem(24px);
+$spacing-extra-loose: rem(48px);
+$spacing-block: rem(64px);
+$gutter: $spacing-base * 2;
+
+$default-browser-font-size: 16px !default;
+$scaled-browser-font-size: math.div($base-font-size, $default-browser-font-size) *
+  100%;
+$font-stack-base: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco',
+  Roboto, 'Segoe UI', 'Helvetica Neue', sans-serif;
+$font-stack-monospace: 'Iosevka Extended', 'SF Mono', Monaco, Consolas,
+  'Lucida Console', monospace;
+
+$font-sizes: (
+  'extra-extra-large': rem(56px),
+  'extra-large': rem(42px),
+  'large': rem(32px),
+  'medium': rem(24px),
+  'small': rem(18px),
+  'extra-small': rem(14px),
+  'tiny': rem(11px),
+);
+
+$line-heights: (
+  'extra-extra-large': 1.1,
+  'extra-large': 1.2,
+  'large': 1.2,
+  'medium': 1.6,
+  'small': 1.6,
+  'extra-small': 1.2,
+);
+
+$transition-timing: cubic-bezier(0.64, 0, 0.35, 1);
+$transition-default: 0.2s;
+$transition-slow: 0.4s;
+$transition-fast: 0.1s;
+
+$radius: vw(12px);
+$radius-small: vw(4px);
+$radius-large: vw(32px);

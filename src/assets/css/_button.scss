@@ -1,0 +1,288 @@
+@use 'sass:color';
+@use 'config' as *;
+
+$button-border-focus: 0 0 0 1px var(--button-focus-border-color);
+$button-border-color: inset 0 0 0 1px var(--button-border-color);
+$button-border-hover: inset 0 0 0 1px var(--button-hover-border-color);
+$button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
+  inset 0 1px 5px 0 var(--button-active-border-color);
+
+%button {
+  --button-border-color: transparent;
+  --button-focus-border-color: transparent;
+  --button-hover-border-color: transparent;
+  --button-active-border-color: transparent;
+  --button-sub-color: #{$color-blue};
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--button-color, #{$color-text});
+  border: none;
+  border-radius: 9999em;
+  font-family: $font-stack-base;
+  font-size: font-size(small);
+  line-height: 1;
+  height: 2.2em;
+  padding: 0.25em 1em;
+  text-align: center;
+  background-color: var(--button-background-color, #{$color-background-ui});
+  width: max-content;
+  user-select: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: $transition-default $transition-timing;
+  transition-property: background, border, color, box-shadow;
+  box-shadow: $button-border-hover, $button-border-active, $button-border-focus,
+    $button-border-color;
+
+  &:visited {
+    color: var(--button-color, #{$color-text});
+  }
+
+  &:hover {
+    --button-background-color: var(--color-button-background-hover);
+    --button-hover-border-color: #{$color-sky};
+  }
+
+  &:focus {
+    --button-focus-border-color: #{$color-primary};
+    --button-border-color: #{$color-primary};
+    outline: none;
+    z-index: 1;
+  }
+
+  .js-focus-visible &:focus:not(:focus-visible) {
+    --button-focus-border-color: transparent;
+    --button-border-color: transparent;
+    outline: none;
+    z-index: 1;
+  }
+
+  &:focus:hover {
+    --button-hover-border-color: #{$color-primary};
+  }
+
+  &:focus:active {
+    --button-focus-outline-color: transparent;
+    --button-focus-border-color: transparent;
+    --button-border-color: transparent;
+    outline: none;
+    z-index: 1;
+  }
+
+  &:active,
+  &.active {
+    --button-active-border-color: rgba(#{hexToRGB($color-ink-lighter)}, 0.1);
+    --button-background-color: #{color.scale($color-background, $lightness: -2%)};
+
+    &:hover {
+      --button-hover-border-color: rgba(#{hexToRGB($color-ink-lighter)}, 0.1);
+      --button-background-color: #{color.scale(
+          $color-background,
+          $lightness: -4%
+        )};
+    }
+  }
+
+  &[aria-expanded='true'] {
+    --button-active-border-color: rgba(#{hexToRGB($color-ink)}, 0.1);
+    --button-background-color: #{color.scale($color-background, $lightness: -4%)};
+
+    &:hover {
+      --button-hover-border-color: transparent;
+      --button-background-color: #{color.scale(
+          $color-background,
+          $lightness: -8%
+        )};
+    }
+
+    &:active {
+      --button-active-border-color: rgba(#{hexToRGB($color-ink)}, 0.2);
+      --button-background-color: #{color.scale(
+          $color-background,
+          $lightness: -6%
+        )};
+    }
+  }
+
+  &:disabled {
+    background-color: $color-sky;
+  }
+
+  &.inverted {
+    --button-color: #{color.invert($color-text)};
+    --button-background-color: #{color.invert($color-background-ui)};
+
+    &:focus {
+      --button-focus-border-color: var(--button-color);
+      --button-focus-border-color: #{color.invert($color-sky-darker)};
+    }
+  }
+
+  &[data-selected='true'] {
+    --button-color: var(--color-text-inverted);
+    --button-background-color: #{$color-primary};
+    --button-sub-color: #{color.adjust(
+        color.invert($color-ink-lighter),
+        $saturation: -100%,
+        $lightness: +17%
+      )};
+
+    .button--sub-label {
+      mix-blend-mode: screen;
+    }
+
+    &:hover {
+      --button-background-color: #{color.scale($color-primary, $lightness: -5%)};
+    }
+  }
+}
+
+.button,
+button {
+  @extend %button;
+
+  &_large {
+    font-size: font-size(medium);
+  }
+
+  &_outline {
+    --button-border-color: currentColor;
+    border-radius: 9999em;
+  }
+
+  &_plain {
+    --button-background-color: transparent;
+    --button-color: #{rgba($color-white, 0.3)};
+
+    font-family: $font-stack-monospace;
+    padding: 0 0.5em;
+    border-radius: $radius-small;
+    height: line-height(medium) * 1em;
+    text-decoration-color: rgba($color-white, 0.5);
+    font-size: font-size(extra-small);
+
+    &:hover {
+      --button-hover-border-color: transparent;
+      --button-background-color: #{rgba($color-white, 0.08)};
+      --button-color: currentColor;
+
+      .button--label {
+        text-decoration-style: underline;
+      }
+    }
+
+    &:active {
+      --button-background-color: #{rgba($color-white, 0.1)};
+      --button-active-border-color: transparent;
+
+      .button--label {
+        border-bottom-color: currentColor;
+      }
+    }
+
+    &:active:focus {
+      --button-background-color: #{rgba($color-white, 0.1)};
+    }
+
+    &:first-of-type {
+      margin-left: -0.25em;
+    }
+  }
+
+  &_text {
+    --button-background-color: transparent !important;
+    --button-border-color: transparent !important;
+    --button-active-border-color: transparent !important;
+    --button-hover-border-color: transparent !important;
+    --button-focus-border-color: transparent;
+
+    color: inherit;
+    font-size: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 1.5em;
+    position: relative;
+
+    .button--label {
+      border-bottom: 1px solid currentColor;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        background: transparent url('/public/hand.svg') no-repeat 0 0.5em;
+        background-size: 1em;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 1em;
+        filter: saturate(0%);
+        transition: transform $transition-default $transition-timing,
+          filter $transition-fast $transition-timing;
+      }
+    }
+
+    &:hover {
+      color: $color-primary;
+
+      .button--label {
+        border-bottom-color: currentColor;
+
+        &::before {
+          transform: rotate(15deg);
+          filter: saturate(150%) invert(1);
+        }
+      }
+    }
+
+    &:focus {
+      --button-focus-border-color: currentColor;
+    }
+  }
+
+  &_nav {
+    --button-color: #{$color-text};
+
+    &:hover {
+      --button-hover-border-color: transparent;
+      --button-background-color: var(--color-button-background-hover-light);
+    }
+  }
+
+  &.span,
+  &:not([href]) {
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &--label {
+    color: currentColor;
+    user-select: none;
+    transition: text-decoration $transition-default $transition-timing;
+  }
+
+  &--sub-label {
+    font-size: 0.9em;
+    color: var(--button-sub-color, --button-color);
+    line-height: #{1 + (1 - 0.9)};
+    position: relative;
+    padding-left: 0.25em;
+    top: -0.045em;
+
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+.button.label {
+  --button-color: #{$color-ink-lighter};
+  height: 2em;
+  background-color: var(--color-label-background);
+  font-size: font-size(tiny);
+  border-radius: 9999em;
+}
