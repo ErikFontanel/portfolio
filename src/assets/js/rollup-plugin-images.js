@@ -44,6 +44,7 @@ export default function htmlImgDimensions() {
 
                     const { width, height } = imageSize(buffer);
                     this.warn(` - width: ${width}, height: ${height}`);
+
                     if (width) {
                       img.setAttribute('width', width);
                     }
@@ -58,6 +59,9 @@ export default function htmlImgDimensions() {
               this.warn(`Could not fetch image ${src}: ${e.message}`);
             });
           }
+
+          // Update bundle with modified HTML
+          file.source = dom.serialize();
         }
       }
     },
