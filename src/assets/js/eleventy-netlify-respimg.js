@@ -1,17 +1,17 @@
 import { imageSize } from 'image-size';
-import { imageSizeFromFile } from 'image-size/fromFile';
 import url from 'node:url';
 import http from 'node:https';
 import path from 'path';
 import fs from 'fs';
+import { readFileSync } from 'node:fs';
 
 let config;
 
 const getDimensions = (img) => {
   if (!process.env.NETLIFY) {
     if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
-
-    const { width, height } = imageSizeFromFile(img);
+    const buffer = readFileSync(img);
+    const { width, height } = imageSize(buffer);
     return { width: width, height: height };
   }
 
@@ -96,9 +96,8 @@ function image(
   alt,
   sizes
 ) {
-  let dimensions = { width: '100%', height: 'auto' };
-  let width = '100%';
-  let height = 'auto';
+  // let dimensions = { width: '100%', height: 'auto' };
+  let dimensions, width, height;
 
   const imgUrl = file.startsWith('/') ? file : `${context.ctx.page.url}${file}`;
 
@@ -107,19 +106,23 @@ function image(
     const { dir } = path.parse(context.ctx.page.inputPath);
     const imgFile = path.resolve(`${dir}/${file}`);
     dimensions = getDimensions(imgFile, preset);
+    width = dimensions.width;
+    height = dimensions.height;
   } else {
     // if file starts with / it's a valid path from site root, otherwise add the page path so it can be downloaded from Netlify LFS.
     dimensions = getDimensions(imgUrl, preset);
+    width = dimensions.width;
+    height = dimensions.height;
   }
+
+  // if (!dimensions) {
+  //   width = '100%';
+  //   height = 'auto';
+  // }
 
   const { src, srcset } = getSrcset(imgUrl, preset);
   const sizeAttr = config.presets.find((el) => el[preset])[preset].sizes;
   alt = alt ? `alt="${alt}"` : '';
-
-  if (!dimensions) {
-    width = '100%';
-    height = 'auto';
-  }
 
   return `<img src="${src}" srcset="${srcset}" sizes="${sizeAttr}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
 }
