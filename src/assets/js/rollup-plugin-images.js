@@ -62,6 +62,8 @@ export default function htmlImgDimensions() {
 
           // Update bundle with modified HTML
           file.source = dom.serialize();
+
+          this.emitFile({ type: 'asset', fileName, source: file.source });
         }
       }
     },
