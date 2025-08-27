@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import imageSize from 'image-size';
+import { imageSize, disableTypes } from 'image-size';
 import url from 'node:url';
 import http from 'node:https';
 import path from 'path';
