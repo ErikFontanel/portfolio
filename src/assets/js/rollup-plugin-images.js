@@ -28,7 +28,7 @@ export default function htmlImgDimensions() {
             // Skip remote URLs
             if (/^(https?:)?\/\//.test(src)) continue;
 
-            // Extract the original file name before query string or hash
+            // Strip query strings and hashes
             const cleanSrc = src.split('?')[0].split('#')[0];
             const imgPath = path.join(outDir, cleanSrc);
 
@@ -41,7 +41,10 @@ export default function htmlImgDimensions() {
             if (cleanSrc.endsWith('.svg')) continue;
 
             try {
-              const { width, height } = imageSize(imgPath);
+              // Read image as buffer
+              const buffer = fs.readFileSync(imgPath);
+              const { width, height } = imageSize(buffer);
+
               if (width && height) {
                 img.setAttribute('width', width);
                 img.setAttribute('height', height);
