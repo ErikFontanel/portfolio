@@ -13,21 +13,32 @@ export default function htmlImgDimensions() {
       for (const [fileName, file] of Object.entries(bundle)) {
         if (file.type === 'asset' && fileName.endsWith('.html')) {
           const htmlPath = path.join(outDir, fileName);
-          let html = fs.readFileSync(htmlPath, 'utf-8');
+          const html = fs.readFileSync(htmlPath, 'utf-8');
           const dom = new JSDOM(html);
           const document = dom.window.document;
 
           for (const img of document.querySelectorAll('img')) {
-            const src = img.getAttribute('src');
+            let src = img.getAttribute('src');
             if (!src) continue;
 
-            const cleanSrc = src.split('?')[0];
+            // Skip if width/height already set
+            // if (img.hasAttribute('width') && img.hasAttribute('height'))
+            // continue;
+
+            // Skip remote URLs
+            if (/^(https?:)?\/\//.test(src)) continue;
+
+            // Extract the original file name before query string or hash
+            const cleanSrc = src.split('?')[0].split('#')[0];
             const imgPath = path.join(outDir, cleanSrc);
 
             if (!fs.existsSync(imgPath)) {
-              this.warn(`Image ${src} not found at ${imgPath}`);
+              this.warn(`Image ${cleanSrc} not found on disk, skipping`);
               continue;
             }
+
+            // Skip SVGs
+            if (cleanSrc.endsWith('.svg')) continue;
 
             try {
               const { width, height } = imageSize(imgPath);
@@ -36,7 +47,7 @@ export default function htmlImgDimensions() {
                 img.setAttribute('height', height);
               }
             } catch (e) {
-              this.warn(`Could not process image ${src}: ${e.message}`);
+              this.warn(`Could not process image ${cleanSrc}: ${e.message}`);
             }
           }
 
