@@ -151,7 +151,7 @@ export default function (eleventyConfig) {
                 ],
               },
             }),
-            rollupPluginImages(),
+            process.env.NETLIFY ? rollupPluginImages() : '',
           ],
         },
       },

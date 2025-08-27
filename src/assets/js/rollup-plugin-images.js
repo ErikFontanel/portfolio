@@ -17,7 +17,7 @@ export default function htmlImgDimensions() {
           const dom = new JSDOM(html);
           const document = dom.window.document;
           const imgs = [...document.querySelectorAll('img')];
-          const baseUrl = process.env.URL || '/';
+          const baseUrl = process.env.DEPLOY_URL || '/';
 
           for (const img of imgs) {
             const src = img.getAttribute('src');
