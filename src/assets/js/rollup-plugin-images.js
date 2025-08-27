@@ -38,7 +38,7 @@ export default function htmlImgDimensions() {
                 .on('end', () => {
                   const buffer = Buffer.concat(chunks);
                   if (buffer !== undefined && buffer.length) {
-                    this.log(`Setting dimensions for image: ${src}`);
+                    this.warn(`Setting dimensions for image: ${src}`);
 
                     const { width, height } = imageSize(buffer);
                     if (width && height) {
