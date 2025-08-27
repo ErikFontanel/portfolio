@@ -38,14 +38,14 @@ export default function () {
               let buffer;
 
               if (typeof asset.source === 'string') {
-                // Might be base64 encoded string — try to decode
                 if (/^data:/.test(asset.source)) {
-                  // data URI
+                  // base64 data URI
                   const base64 = asset.source.split(',')[1];
                   buffer = Buffer.from(base64, 'base64');
                 } else {
-                  // plain string (unlikely for an image, but fallback)
-                  buffer = Buffer.from(asset.source);
+                  // raw string (e.g. inline SVG) → skip
+                  this.warn(`Skipping non-binary image ${src}`);
+                  continue;
                 }
               } else if (asset.source instanceof Uint8Array) {
                 buffer = Buffer.from(asset.source);
