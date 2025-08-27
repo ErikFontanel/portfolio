@@ -121,7 +121,7 @@ function image(
     height = 'auto';
   }
 
-  return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
+  return `<img src="${src}" srcset="${srcset}" sizes="${sizeAttr}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
 }
 
 export default {
@@ -164,7 +164,6 @@ export default {
           preset = 'default',
           loading = 'lazy',
           alt = '',
-          sizes = '100vw',
           callback
         ) {
           let caption = '';
@@ -173,6 +172,7 @@ export default {
           if (typeof file === 'object') {
             caption = file.caption;
             css = file.css;
+            preset = file.preset || 'default';
 
             callback = file;
             file = file.file;
@@ -198,13 +198,8 @@ export default {
             alt = '';
           }
 
-          if (typeof sizes === 'function') {
-            callback = sizes;
-            sizes = '100vw';
-          }
-
           let ret = new nunjucksEngine.runtime.SafeString(
-            image(context, file, cssClasses, preset, loading, alt, sizes)
+            image(context, file, cssClasses, preset, loading, alt)
           );
 
           if (caption !== '') {

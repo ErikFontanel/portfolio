@@ -23,9 +23,9 @@ The Nike Community Experiences platform empowers members to discover and partici
   css: 'full-width grid:wide grid:3c'
 } %}
 
-{% image file='nike-cxp1.png', css='device', sizes='full', caption="Experiences Overview" %}
-{% image file='nike-cxp2.png', css='device', sizes='full', caption="Experience Detail" %}
-{% image file='nike-cxp3.png', css='device', sizes='full', caption="Ticket" %}
+{% image file='nike-cxp1.png', css='device', preset='carousel', caption="Experiences Overview" %}
+{% image file='nike-cxp2.png', css='device', preset='carousel', caption="Experience Detail" %}
+{% image file='nike-cxp3.png', css='device', preset='carousel', caption="Ticket" %}
 
 {% endgallery %}
 
@@ -69,9 +69,9 @@ The Nike Well Festival is a one-of-a-kind, live experience that unites the mind 
  css: 'full-width grid:wide grid:3c'
 } %}
 
-{% image file='nike-wf2.png', alt='Nike Well Festival', css='device', caption="Landing" %}
-{% image file='nike-wf3.png', alt='Nike Well Festival', css='device', caption="Schedule" %}
-{% image file='nike-wf4.png', alt='Nike Well Festival', css='device', caption="Event Detail" %}
+{% image file='nike-wf2.png', alt='Nike Well Festival', css='device', preset='carousel', caption="Landing" %}
+{% image file='nike-wf3.png', alt='Nike Well Festival', css='device', preset='carousel', caption="Schedule" %}
+{% image file='nike-wf4.png', alt='Nike Well Festival', css='device', preset='carousel', caption="Event Detail" %}
 
 {% endgallery %}
 
