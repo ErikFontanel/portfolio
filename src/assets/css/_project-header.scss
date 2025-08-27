@@ -158,7 +158,7 @@
         display: block;
         background: linear-gradient(
           0deg,
-          color.adjust($color-ink, $alpha: 20%),
+          color.adjust($color-ink, $alpha: 0.2),
           transparent
         );
         mix-blend-mode: multiply;
@@ -220,6 +220,9 @@
   }
 
   dt {
+    --inter-font-weight: 360;
+    font-variation-settings: 'wght' var(--inter-font-weight),
+      'slnt' var(--inter-font-slant);
     color: var(--color-text-sub);
   }
 

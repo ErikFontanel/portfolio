@@ -38,7 +38,7 @@
   }
 
   &--title {
-    font-size: font-size(small);
+    font-size: font-size(medium);
     transition: opacity var(--animation-duration);
 
     @media (--mobile-up) {
