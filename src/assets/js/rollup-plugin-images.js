@@ -34,10 +34,10 @@ export default function htmlImgDimensions() {
               continue;
             }
 
-            // Skip if already has dimensions
-            if (img.hasAttribute('width') && img.hasAttribute('height')) {
-              continue;
-            }
+            // // Skip if already has dimensions
+            // if (img.hasAttribute('width') && img.hasAttribute('height')) {
+            //   continue;
+            // }
 
             try {
               let buffer;
