@@ -61,8 +61,7 @@ export default function htmlImgDimensions() {
           }
 
           // Update bundle with modified HTML
-          // file.source = dom.serialize();
-          fs.writeFileSync(htmlPath, dom.serialize(), 'utf-8');
+          file.source = dom.serialize();
         }
       }
     },
