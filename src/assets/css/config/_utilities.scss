@@ -11,7 +11,7 @@
 /// @return {Number} The converted value in rem.
 
 @function rem($value) {
-  $unit: unit($value);
+  $unit: math.unit($value);
 
   @if $value == 0 {
     @return 0;
@@ -38,7 +38,7 @@ $shadows: (
 /// @param {Number} $value - The value to be converted.
 /// @return {Number} The converted value in px.
 @function strip-unit($value) {
-  $unit: unit($value);
+  $unit: math.unit($value);
 
   @if $value == 0 {
     @return 0;
@@ -58,7 +58,7 @@ $shadows: (
 /// @return {Number} The converted value in rem.
 
 @function vw($value, $reference: 1440px) {
-  $unit: unit($value);
+  $unit: math.unit($value);
 
   @if $value == 0 {
     @return 0;
@@ -82,7 +82,7 @@ $shadows: (
 /// @return {Number} The converted value in em.
 
 @function em($value) {
-  $unit: unit($value);
+  $unit: math.unit($value);
 
   @if $value == 0 {
     @return 0;
@@ -106,7 +106,7 @@ $global-zindex: (modal, navigation, body, background) !default;
 
 @function z-index($element, $list: $global-zindex) {
   $list: reverse($list);
-  $z-index: index($list, $element) * 10;
+  $z-index: list.index($list, $element) * 10;
 
   @if $z-index {
     @return $z-index;
@@ -123,11 +123,11 @@ $global-zindex: (modal, navigation, body, background) !default;
 @function reverse($list, $recursive: false) {
   $result: ();
 
-  @for $i from length($list) * -1 through -1 {
-    @if type-of(nth($list, abs($i))) == list and $recursive {
-      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+  @for $i from list.length($list) * -1 through -1 {
+    @if meta.type-of(list.nth($list, math.abs($i))) == list and $recursive {
+      $result: list.append($result, reverse(list.nth($list, math.abs($i)), $recursive));
     } @else {
-      $result: append($result, nth($list, abs($i)));
+      $result: list.append($result, list.nth($list, math.abs($i)));
     }
   }
 
@@ -135,14 +135,14 @@ $global-zindex: (modal, navigation, body, background) !default;
 }
 
 @mixin effect-exclusion($color: #121212) {
-  color: invert($color);
+  color: color.invert($color);
   mix-blend-mode: difference;
 }
 //
 // Helper function to convert hex to comma separated rgb values to use in css custom properties
 //
 @function hexToRGB($hex) {
-  @return color.red($hex), color.green($hex), color.blue($hex);
+  @return color.channel($hex, 'red', $space: rgb), color.channel($hex, 'green', $space: rgb), color.channel($hex, 'blue', $space: rgb);
 }
 //
 // Helper function to create a box-shadow based on the elevation level

@@ -63,8 +63,8 @@ export default class Modal {
     this.carousels = this.el.querySelectorAll('.carousel');
 
     if (this.carousels) {
-      import('./js/Carousel.js').then(({ default: Carousel }) => {
-        [...carousels].map((el) => new Carousel({ el: el }));
+      import('./Carousel.js').then(({ default: Carousel }) => {
+        [...this.carousels].map((el) => new Carousel({ el: el }));
       });
     }
 

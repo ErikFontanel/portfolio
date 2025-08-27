@@ -1,9 +1,9 @@
-const sizeOf = require('image-size');
-
-const url = require('url');
-const http = require('https');
-const path = require('path');
-const fs = require('fs');
+import { imageSize } from 'image-size';
+import { imageSizeFromFile } from 'image-size/fromFile';
+import url from 'node:url';
+import http from 'node:https';
+import path from 'path';
+import fs from 'fs';
 
 let config;
 
@@ -11,7 +11,7 @@ const getDimensions = (img) => {
   if (!process.env.NETLIFY) {
     if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
 
-    const { width, height } = sizeOf(img);
+    const { width, height } = imageSizeFromFile(img);
     return { width: width, height: height };
   }
 
@@ -26,9 +26,15 @@ const getDimensions = (img) => {
       .on('end', () => {
         const buffer = Buffer.concat(chunks);
 
-        const { width, height } = sizeOf(buffer);
-        if (width && height) return { width: width, height: height };
-        else return { width: '100%', height: 'auto' };
+          if (buffer !== undefined && buffer.length) {
+            try {
+              const { width, height } = imageSize(buffer);
+              if (width && height) return { width: width, height: height };
+            } catch (err) {
+              return { width: '100%', height: 'auto' };
+            }
+          }
+        }
       })
       .on('error', () => {
         return { width: '100%', height: 'auto' };
@@ -117,7 +123,7 @@ function image(
   return `<img src="${src}" srcset="${srcset}" sizes="${sizes}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
 }
 
-module.exports = {
+export default {
   configFunction: (eleventyConfig, options = {}) => {
     config = {
       presets: [
@@ -160,6 +166,17 @@ module.exports = {
           sizes = '100vw',
           callback
         ) {
+          let caption = '';
+          let css = '';
+
+          if (typeof file === 'object') {
+            caption = file.caption;
+            css = file.css;
+
+            callback = file;
+            file = file.file;
+          }
+
           if (typeof preset === 'function') {
             callback = preset;
             preset = 'default';
@@ -189,6 +206,11 @@ module.exports = {
             image(context, file, cssClasses, preset, loading, alt, sizes)
           );
 
+          if (caption !== '') {
+            ret = new nunjucksEngine.runtime.SafeString(
+              `<figure class="image ${css}">${ret.val}<figcaption class="caption">${caption}</figcaption></figure>`
+            );
+          }
           callback(null, ret);
         };
       })();
@@ -196,5 +218,4 @@ module.exports = {
   },
 };
 
-module.exports.getDimensions = getDimensions;
-module.exports.getSrcset = getSrcset;
+export { getDimensions, getSrcset };

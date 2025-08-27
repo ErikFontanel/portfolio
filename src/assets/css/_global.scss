@@ -16,7 +16,12 @@
     )};
   --color-background-modal: #{$color-background-overlay};
   --color-background-ui: #{$color-background-ui};
-  --color-background-inverted: #{invert($color-background)};
+  --color-background-inverted: #{color.invert($color-background)};
+
+  --color-button-background: #{$color-button-background};
+  --color-button-background-hover: #{$color-button-background-hover};
+  --color-button-background-hover-light: #{$color-sky-lightest};
+  --color-button-label: #{$color-button-label};
 
   --color-primary: #{$color-primary};
   --color-text: #{$color-text};
@@ -30,6 +35,7 @@
 
   --animation-duration: #{$transition-default};
   --animation-duration-slow: calc(var(--animation-duration) * 2);
+  --animation-duration-extra-slow: calc(var(--animation-duration) * 2.5);
   --animation-duration-fast: calc(var(--animation-duration) * 0.5);
 
   --border-radius: #{$radius};

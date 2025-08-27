@@ -1,4 +1,4 @@
-const VideoServiceBase = require('markdown-it-block-embed/lib/services/VideoServiceBase');
+import VideoServiceBase from 'markdown-it-block-embed/lib/services/VideoServiceBase.js';
 
 class LocalService extends VideoServiceBase {
   getEmbedCode(videoID) {
@@ -7,4 +7,4 @@ class LocalService extends VideoServiceBase {
   }
 }
 
-module.exports = LocalService;
+export default LocalService;

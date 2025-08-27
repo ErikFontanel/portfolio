@@ -1,4 +1,5 @@
 @use 'config' as *;
+@use 'sass:color';
 
 .project-header {
   grid-template-columns: 1fr;
@@ -14,10 +15,11 @@
   border-top-right-radius: var(--border-radius-large);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  overflow: hidden;
-  height: 100vmin;
 
   @media (--mobile-up) {
+    overflow: hidden;
+    height: 100vmin;
+
     &.portrait\:2-col {
       grid-template-areas:
         'text img'
@@ -130,9 +132,10 @@
     border-radius: 0;
     border-top-left-radius: var(--border-radius-large);
     border-top-right-radius: var(--border-radius-large);
-    height: 100vmin;
+    height: 100%;
 
     @media (--tablet-up) {
+      height: 100vmin;
       border-radius: 0;
       border-top-right-radius: var(--border-radius-large);
       border-top-left-radius: 0;
@@ -147,6 +150,24 @@
 
     &::before {
       content: unset;
+    }
+
+    &::after {
+      @media (--mobile) {
+        content: '';
+        display: block;
+        background: linear-gradient(
+          0deg,
+          color.adjust($color-ink, $alpha: 20%),
+          transparent
+        );
+        mix-blend-mode: multiply;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+      }
     }
   }
 

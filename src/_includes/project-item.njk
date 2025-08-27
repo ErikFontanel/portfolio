@@ -1,0 +1,29 @@
+{%- set hasLink = true -%}
+{%- set thumbnail = project.data.thumbnail -%}
+{%- set tags =  project.data.tags | except('project') if project.data.tags -%}
+{%- set list_layout = project.data.list_layout -%}
+{%- set title = project.data.title -%}
+
+<article class="project-item {{ project.data.list_layout }}" data-slug="{{ project.fileSlug }}">
+  {% if thumbnail %}
+    <a href="{{ project.url }}" class="project-item--img">
+      {% image project.url + thumbnail, '', 'thumb', 'auto', project.data.title %}
+    </a>
+  {% endif %}
+
+  <div href="{{ project.url }}" class="project-item--text">
+    {% if project.data.client %}
+      <h3 class="project-item--client text-sub text-s">
+        <a href="{{ project.url }}">{{ project.data.client }}</a>
+      </h3>
+    {% endif %}
+
+    {% if project.data.title %}
+      <h2 class="project-item--title h-m">
+        <a href="{{ project.url }}">{{ project.data.title }}</a>
+      </h2>
+    {% endif %}
+
+    {# {% include "project-tags.njk" %} #}
+  </div>
+</article>

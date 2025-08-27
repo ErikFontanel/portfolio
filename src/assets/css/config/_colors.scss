@@ -6,7 +6,7 @@ $color-white: #fff;
 $color-ink: #121212;
 $color-ink-light: #454f5b;
 $color-ink-lighter: #637381;
-$color-ink-lightest: #919eab;
+$color-ink-lightest: #909398;
 $color-ink-darker: color.scale($color-ink, $lightness: -29%);
 $color-ink-darkest: color.scale($color-ink, $lightness: -58%);
 
@@ -20,6 +20,8 @@ $color-yellow: #fff000;
 $color-green: #38ff00;
 
 $color-blue: #313fff;
+$color-red: #ff0000;
+
 $color-blue-lightest: color.scale($color-blue, $lightness: 80%);
 $color-blue-darker: color.scale($color-blue, $lightness: -40%);
 $color-blue-darkest: color.scale($color-blue, $lightness: -85%);

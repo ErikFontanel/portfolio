@@ -1,27 +1,26 @@
-const path = require('node:path');
-const componentsDir = `./_includes/components`;
+import pluginRss from '@11ty/eleventy-plugin-rss';
+import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
+import rollupPluginCritical from 'rollup-plugin-critical';
 
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
-const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
-const rollupPluginCritical = require('rollup-plugin-critical').default;
-const pluginNetlifyRespImage = require('./src/assets/js/eleventy-netlify-respimg');
+import pluginNetlifyRespImage from './src/assets/js/eleventy-netlify-respimg.js';
 
-const markdownIt = require('markdown-it');
-const markdownItAttrs = require('markdown-it-attrs');
-const markdownItLinkAttrs = require('markdown-it-link-attributes');
-const markdownItAnchor = require('markdown-it-anchor');
-const markdownItBlockEmbed = require('markdown-it-block-embed');
-const markdownItImplicitFigures = require('markdown-it-implicit-figures');
-const markdownItBlockEmbedLocalService = require('./src/assets/js/markdown-it-local-embed');
-const markdownItLazyImg = require('./src/assets/js/markdown-it-lazy');
-const markdownItContainer = require('markdown-it-container');
+import markdownIt from 'markdown-it';
+import markdownItAttrs from 'markdown-it-attrs';
+import markdownItLinkAttrs from 'markdown-it-link-attributes';
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItBlockEmbed from 'markdown-it-block-embed';
+import markdownItImplicitFigures from 'markdown-it-implicit-figures';
+import markdownItContainer from 'markdown-it-container';
+import markdownItBlockEmbedLocalService from './src/assets/js/markdown-it-local-embed.js';
+import markdownItLazyImg from './src/assets/js/markdown-it-lazy.js';
 
-const Gallery = require('./src/assets/js/Gallery.js');
-const List = require(`${componentsDir}/List.js`);
-const Canvas = require(`${componentsDir}/Canvas.js`);
-const Button = require(`${componentsDir}/Button.js`);
-const Label = require(`${componentsDir}/Label.js`);
+const componentsDir = './src/_includes/components';
+
+import Gallery from './src/assets/js/Gallery.js';
+import List from './src/_includes/components/List.js';
+import Canvas from './src/_includes/components/Canvas.js';
+import Button from './src/_includes/components/Button.js';
+import Label from './src/_includes/components/Label.js';
 
 const responsiveImagesConfig = {
   presets: [
@@ -70,9 +69,22 @@ const responsiveImagesConfig = {
   ],
 };
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
+  eleventyConfig.setServerPassthroughCopyBehavior('copy');
+  eleventyConfig.addPassthroughCopy({ public: 'public' });
+
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
+
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: '.11ty-vite', // Default name of the temp folder
+
+    serverOptions: {
+      module: '@11ty/eleventy-dev-server',
+      domDiff: false,
+      allowedHosts: ['localhost', 'portfolio.test'],
+      watch: ['dist/**/*.css'],
+    },
 
     // Vite options (equal to vite.config.js inside project root)
     viteOptions: {
@@ -84,8 +96,12 @@ module.exports = function (eleventyConfig) {
       },
       appType: 'custom',
       assetsInclude: ['**/*.xml', '**/*.txt'],
+      css: {
+        devSourcemap: process.env.NODE_ENV === 'production' ? false : true,
+      },
       build: {
-        mode: 'production',
+        mode:
+          process.env.NODE_ENV === 'production' ? 'production' : 'development',
         sourcemap: 'true',
         manifest: true,
         // This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
@@ -101,6 +117,7 @@ module.exports = function (eleventyConfig) {
               criticalBase: './dist/',
               criticalPages: [
                 { uri: 'index.html', template: 'index' },
+                // { uri: 'about/index.html', template: 'about/index' },
                 // { uri: '404.html', template: '404' },
               ],
               criticalConfig: {
@@ -119,12 +136,6 @@ module.exports = function (eleventyConfig) {
                     width: 1920,
                   },
                 ],
-                penthouse: {
-                  forceInclude: [
-                    '.fonts-loaded-1 body',
-                    '.fonts-loaded-2 body',
-                  ],
-                },
               },
             }),
           ],
@@ -132,38 +143,6 @@ module.exports = function (eleventyConfig) {
       },
     },
   });
-
-  eleventyConfig.dir = {
-    input: 'content',
-    includes: '../_includes',
-    output: 'dist',
-  };
-
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    baseHref:
-      process.env.NODE_ENV === 'production'
-        ? 'https://erikgelderblom.com/'
-        : 'https://portfolio.test/',
-  });
-  eleventyConfig.addPlugin(pluginNetlifyRespImage, responsiveImagesConfig);
-
-  eleventyConfig.setTemplateFormats([
-    // Templates:
-    'njk',
-    'md',
-    '11ty.js',
-    // Static Assets:
-    'css',
-    'svg',
-    'png',
-    'jpg',
-    'jpeg',
-  ]);
-
-  eleventyConfig.addPassthroughCopy('static');
-
-  eleventyConfig.addPassthroughCopy('content/work/**/*.mp4');
 
   const mdOptions = {
     html: true,
@@ -284,16 +263,35 @@ module.exports = function (eleventyConfig) {
     return path.split('/')[0];
   });
 
-  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
+  eleventyConfig.addPassthroughCopy('src/assets/css');
+  eleventyConfig.addPassthroughCopy('src/assets/js');
+  eleventyConfig.addPassthroughCopy({ 'src/fonts': 'public/fonts' });
+  eleventyConfig.addPassthroughCopy('src/work/**/*.mp4');
 
   // You can return your Config object (optional).
   return {
-    dir: {
-      input: 'content',
-      output: 'dist',
-      includes: '../_includes',
-    },
+    templateFormats: [
+      // Templates:
+      'njk',
+      'md',
+      '11ty.js',
+      // Static Assets:
+      'css',
+      'svg',
+      'png',
+      'jpg',
+      'jpeg',
+    ],
+    htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true,
+    dir: {
+      input: 'src',
+      // better not use "public" as the name of the output folder (see above...)
+      output: 'dist',
+      includes: '_includes',
+      layouts: 'layouts',
+      data: '_data',
+    },
   };
-};
+}

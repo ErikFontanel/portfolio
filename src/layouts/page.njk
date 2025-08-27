@@ -1,0 +1,24 @@
+{%- extends "./base.njk" -%}
+{% import "page-item.njk" as pageitem %}
+
+{%- block bodyClass -%}page page-expertise{%- endblock -%}
+{%- block mainClass -%}page page-expertise{%- endblock -%}
+
+
+{% block main %}
+
+  {% block projectNav %}
+    {% include "project-nav.njk" %}
+  {% endblock %}
+
+  {% block pageHeader %}
+    {% include "page-header.njk" %}
+  {% endblock %}
+
+  {% block pageContent %}
+    <article class="page-content grid grid:full">
+      {{ content | safe }}
+    </article>
+  {% endblock %}
+
+{% endblock %}

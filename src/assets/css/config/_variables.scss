@@ -23,13 +23,17 @@ $color-background-overlay-inverted: color.invert($color-sky);
 $color-background-modal: $color-blue-lightest;
 $color-background-ui: $color-white;
 
+$color-button-background: $color-white;
+$color-button-background-hover: $color-sky-darkest;
+$color-button-label: $color-ink;
+
 $color-text: $color-ink;
 $color-text-inverted: $color-white;
 $color-text-highlight: $color-green;
 $color-text-sub: $color-ink-lighter;
 $color-text-sub-inverted: $color-ink-lightest;
-$color-text-sub-inverted: #909398;
 $color-link: $color-blue;
+$color-text-highlight: $color-green;
 
 $spacing-extra-tight: rem(4px);
 $spacing-tight: rem(8px);
