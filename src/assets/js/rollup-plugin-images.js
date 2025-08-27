@@ -25,7 +25,7 @@ export default function htmlImgDimensions() {
             if (!src) continue;
 
             const { name, ext } = path.parse(src.split('?')[0]);
-            const imgurl = url.parse(`${baseUrl}assets/img/${name}${ext}`);
+            const imgurl = url.parse(`${baseUrl}/assets/img/${name}${ext}`);
 
             const req = http.get(imgurl, (response) => {
               const chunks = [];
