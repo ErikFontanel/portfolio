@@ -17,9 +17,12 @@ export default function htmlImgDimensions() {
           for (const img of imgs) {
             const src = img.getAttribute('src');
             if (!src) continue;
-
+            let cleanSrc = src;
             // Find the asset in the bundle
-            let asset = bundle[src];
+            cleanSrc = src.replace(/^\//, '').split('?')[0]; // Remove leading slash if present
+            // cleanSrc = cleanSrc.split('?')[0]; // Remove query parameters
+
+            let asset = bundle[cleanSrc];
             if (!asset) {
               asset = Object.values(bundle).find(
                 (item) => item.type === 'asset' && item.fileName === src
@@ -59,12 +62,8 @@ export default function htmlImgDimensions() {
               const { width, height } = imageSize(buffer);
 
               if (width && height) {
-                if (!img.hasAttribute('width')) {
-                  img.setAttribute('width', width);
-                }
-                if (!img.hasAttribute('height')) {
-                  img.setAttribute('height', height);
-                }
+                img.setAttribute('width', width);
+                img.setAttribute('height', height);
               }
             } catch (e) {
               this.warn(`Could not process image ${src}: ${e.message}`);
