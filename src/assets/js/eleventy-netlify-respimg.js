@@ -98,7 +98,6 @@ function image(
   sizes
 ) {
   let dimensions = { width: '100%', height: 'auto' };
-  // let dimensions, width, height;
 
   const imgUrl = file.startsWith('/') ? file : `${context.ctx.page.url}${file}`;
 
@@ -107,19 +106,16 @@ function image(
     const { dir } = path.parse(context.ctx.page.inputPath);
     const imgFile = path.resolve(`${dir}/${file}`);
     dimensions = getDimensions(imgFile, preset);
-    width = dimensions.width;
-    height = dimensions.height;
   } else {
     // if file starts with / it's a valid path from site root, otherwise add the page path so it can be downloaded from Netlify LFS.
     dimensions = getDimensions(imgUrl, preset);
-    width = dimensions.width;
-    height = dimensions.height;
   }
+  let { width, height } = dimensions;
 
-  // if (!dimensions) {
-  //   width = '100%';
-  //   height = 'auto';
-  // }
+  if (!dimensions) {
+    width = '100%';
+    height = 'auto';
+  }
 
   const { src, srcset } = getSrcset(imgUrl, preset);
   const sizeAttr = config.presets.find((el) => el[preset])[preset].sizes;
