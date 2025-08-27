@@ -35,10 +35,24 @@ export default function () {
             }
 
             try {
-              const buffer =
-                typeof asset.source === 'string'
-                  ? Buffer.from(asset.source)
-                  : Buffer.from(asset.source);
+              let buffer;
+
+              if (typeof asset.source === 'string') {
+                // Might be base64 encoded string — try to decode
+                if (/^data:/.test(asset.source)) {
+                  // data URI
+                  const base64 = asset.source.split(',')[1];
+                  buffer = Buffer.from(base64, 'base64');
+                } else {
+                  // plain string (unlikely for an image, but fallback)
+                  buffer = Buffer.from(asset.source);
+                }
+              } else if (asset.source instanceof Uint8Array) {
+                buffer = Buffer.from(asset.source);
+              } else {
+                this.warn(`Unsupported source type for ${src}`);
+                continue;
+              }
 
               const { width, height } = imageSize(buffer);
               if (width && height) {
