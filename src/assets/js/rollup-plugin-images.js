@@ -29,41 +29,46 @@ export default function htmlImgDimensions() {
 
             const imgurl = url.parse(`${baseUrl}/assets/img/${name}${ext}`);
 
-            const req = http.get(imgurl, (response) => {
-              const chunks = [];
-              response
-                .on('data', (chunk) => {
-                  chunks.push(chunk);
-                })
-                .on('end', () => {
-                  const buffer = Buffer.concat(chunks);
-                  if (buffer !== undefined && buffer.length) {
-                    this.warn(
-                      `Setting dimensions for image: ${imgurl.href}, ${buffer.length} bytes`
-                    );
+            try {
+              const req = http.get(imgurl, (response) => {
+                const chunks = [];
+                response
+                  .on('data', (chunk) => {
+                    chunks.push(chunk);
+                  })
+                  .on('end', () => {
+                    const buffer = Buffer.concat(chunks);
+                    if (buffer !== undefined && buffer.length) {
+                      this.warn(
+                        `Setting dimensions for image: ${imgurl.href}, ${buffer.length} bytes`
+                      );
 
-                    const { width, height } = imageSize(buffer);
-                    this.warn(` - width: ${width}, height: ${height}`);
+                      const { width, height } = imageSize(buffer);
+                      this.warn(` - width: ${width}, height: ${height}`);
 
-                    if (width) {
-                      img.setAttribute('width', width);
+                      if (width) {
+                        img.setAttribute('width', width);
+                      }
+                      if (height) {
+                        img.setAttribute('height', height);
+                      }
                     }
-                    if (height) {
-                      img.setAttribute('height', height);
-                    }
-                  }
-                });
-            });
+                  });
+              });
 
-            req.on('error', (e) => {
+              req.on('error', (e) => {
+                this.warn(`Could not fetch image ${src}: ${e.message}`);
+              });
+            } catch (error) {
               this.warn(`Could not fetch image ${src}: ${e.message}`);
-            });
+              continue;
+            }
+
+            // Update bundle with modified HTML
+            file.source = dom.serialize();
+
+            this.emitFile({ type: 'asset', fileName, source: file.source });
           }
-
-          // Update bundle with modified HTML
-          file.source = dom.serialize();
-
-          this.emitFile({ type: 'asset', fileName, source: file.source });
         }
       }
     },
