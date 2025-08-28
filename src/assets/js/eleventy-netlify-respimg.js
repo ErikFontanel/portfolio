@@ -1,50 +1,21 @@
 import { imageSize } from 'image-size';
-import { imageSizeFromFile } from 'image-size/fromFile';
 import url from 'node:url';
 import http from 'node:https';
 import path from 'path';
 import fs from 'fs';
+import { readFileSync } from 'node:fs';
 
 let config;
 
 const getDimensions = (img) => {
   if (!process.env.NETLIFY) {
     if (!fs.existsSync(img)) return { width: '100%', height: 'auto' };
-
-    const { width, height } = imageSizeFromFile(img);
+    const buffer = readFileSync(img);
+    const { width, height } = imageSize(buffer);
     return { width: width, height: height };
   }
 
-  const imgurl = url.parse(`${process.env.URL}${img}`);
-
-  const req = http.get(imgurl, (response) => {
-    const chunks = [];
-    response
-      .on('data', (chunk) => {
-        chunks.push(chunk);
-      })
-      .on('end', () => {
-        if (chunks.length) {
-          const buffer = Buffer.concat(chunks);
-
-          if (buffer !== undefined && buffer.length) {
-            try {
-              const { width, height } = imageSize(buffer);
-              if (width && height) return { width: width, height: height };
-            } catch (err) {
-              return { width: '100%', height: 'auto' };
-            }
-          }
-        }
-      })
-      .on('error', () => {
-        return { width: '100%', height: 'auto' };
-      });
-  });
-
-  req.on('error', (e) => {
-    return { width: '100%', height: 'auto' };
-  });
+  return { width: '100%', height: 'auto' };
 };
 
 const getSrcset = (url, preset = 'default', args) => {
@@ -112,14 +83,14 @@ function image(
     dimensions = getDimensions(imgUrl, preset);
   }
 
+  if (dimensions) {
+    width = dimensions.width;
+    height = dimensions.height;
+  }
+
   const { src, srcset } = getSrcset(imgUrl, preset);
   const sizeAttr = config.presets.find((el) => el[preset])[preset].sizes;
   alt = alt ? `alt="${alt}"` : '';
-
-  if (!dimensions) {
-    width = '100%';
-    height = 'auto';
-  }
 
   return `<img src="${src}" srcset="${srcset}" sizes="${sizeAttr}" width="${width}" height="${height}" class="content-image ${cssClasses}" loading="${loading}" ${alt} decoding="async">`;
 }

@@ -1,6 +1,7 @@
 import pluginRss from '@11ty/eleventy-plugin-rss';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 import rollupPluginCritical from 'rollup-plugin-critical';
+import rollupPluginImages from './src/assets/js/rollup-plugin-images.js';
 
 import pluginNetlifyRespImage from './src/assets/js/eleventy-netlify-respimg.js';
 
@@ -119,7 +120,7 @@ export default function (eleventyConfig) {
               } else if (/woff2?|ttf|otf|eot/i.test(extType)) {
                 extType = 'fonts';
               }
-              return `assets/${extType}/[name].[hash][extname]`;
+              return `assets/${extType}/[name][extname]`;
             },
           },
           plugins: [
@@ -150,6 +151,7 @@ export default function (eleventyConfig) {
                 ],
               },
             }),
+            process.env.NETLIFY ? rollupPluginImages() : '',
           ],
         },
       },
