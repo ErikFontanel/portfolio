@@ -278,6 +278,7 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy('src/assets/css');
+  eleventyConfig.addPassthroughCopy('public/robots.txt');
   eleventyConfig.addPassthroughCopy('src/assets/js');
   eleventyConfig.addPassthroughCopy({ 'src/fonts': 'public/fonts' });
   eleventyConfig.addPassthroughCopy('src/work/**/*.mp4');

@@ -37,4 +37,7 @@ Disallow: /
 
 # END Cloudflare Managed Content
 
-Sitemap: https://erikgelderblom.com/sitemap.xml
+User-agent: Googlebot-Image
+Disallow: /
+
+# Sitemap: https://erikgelderblom.com/sitemap.xml
