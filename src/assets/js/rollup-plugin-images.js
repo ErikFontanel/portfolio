@@ -63,12 +63,10 @@ export default function htmlImgDimensions() {
               this.warn(`Could not fetch image ${src}: ${e.message}`);
               continue;
             }
-
-            // Update bundle with modified HTML
-            file.source = dom.serialize();
-
-            this.emitFile({ type: 'asset', fileName, source: file.source });
           }
+          // Update bundle with modified HTML
+          file.source = dom.serialize();
+          this.emitFile({ type: 'asset', fileName, source: file.source });
         }
       }
     },
