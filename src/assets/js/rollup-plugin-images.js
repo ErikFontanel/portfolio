@@ -9,7 +9,7 @@ export default function htmlImgDimensions() {
   return {
     name: 'html-img-dimensions',
 
-    generateBundle(_, bundle) {
+    writeBundle(_, bundle) {
       for (const [fileName, file] of Object.entries(bundle)) {
         if (file.type === 'asset' && fileName.endsWith('.html')) {
           let html = file.source.toString();
