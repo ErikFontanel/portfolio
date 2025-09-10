@@ -75,7 +75,7 @@ The Nike Well Festival is a one-of-a-kind, live experience that unites the mind 
 
 {% endgallery %}
 
-We were approached by the marketing team to see if we could help them out with the event and registration right after we launched the 1.0 release of the CXP platform. As a pilot, to learn where we could take the new platform, I designed a dedicated micro-site through which people could buy tickets for the festival, see the schedule, learn more about the performing artists and participating Nike athletes.
+The marketing team reached out to see if we could help them out with the event and registration, right after we launched the 1.0 release of the CXP platform. As a pilot, to learn where we could take the new platform, I designed a dedicated micro-site through which people could buy tickets for the festival, see the schedule, learn more about the performing artists and participating Nike athletes.
 
 {% gallery {
   css: 'full-width grid:scroll',
