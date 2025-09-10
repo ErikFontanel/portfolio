@@ -1,15 +1,17 @@
 import { JSDOM } from 'jsdom';
 import { imageSize, disableTypes } from 'image-size';
+
 import url from 'node:url';
 import http from 'node:https';
-import path from 'path';
+import path from 'node:path';
 
 disableTypes(['tiff', 'svg', 'ico']);
+
 export default function htmlImgDimensions() {
   return {
     name: 'html-img-dimensions',
 
-    writeBundle(_, bundle) {
+    generateBundle(_, bundle) {
       for (const [fileName, file] of Object.entries(bundle)) {
         if (file.type === 'asset' && fileName.endsWith('.html')) {
           let html = file.source.toString();
@@ -65,9 +67,8 @@ export default function htmlImgDimensions() {
             }
           }
           // Update bundle with modified HTML
-          fs.writeFileSync(htmlPath, dom.serialize(), 'utf-8');
-          // file.source = dom.serialize();
-          // this.emitFile({ type: 'asset', fileName, source: file.source });
+          file.source = dom.serialize();
+          this.emitFile({ type: 'asset', fileName, source: file.source });
         }
       }
     },
