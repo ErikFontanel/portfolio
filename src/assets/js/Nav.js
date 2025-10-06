@@ -53,25 +53,21 @@ export default class Nav {
   }
 
   show() {
-    this.navProjects.classList.add('animating', 'animation:showDialog');
-
     this.navMain
       .querySelector('[aria-controls]')
       .setAttribute('aria-expanded', true);
     this.navMain.setAttribute('data-overlay', true);
     document.body.setAttribute('data-showing-overlay', true);
 
-    this.navProjects.querySelectorAll('li').forEach((li, index) => {
-      li.classList.add('animating', 'animation:fadeInDown');
+    this.navProjects.classList.add('animating', 'animation:showDialog');
 
-      li.addEventListener(
-        'animationend',
-        () => {
-          li.classList.remove('animating', 'animation:fadeInDown');
-        },
-        { passive: true, once: true }
-      );
-    });
+    this.navProjects.addEventListener(
+      'animationstart',
+      () => {
+        this.popover.setAttribute('aria-hidden', false);
+      },
+      { passive: true, once: true }
+    );
 
     this.navProjects.addEventListener(
       'animationend',
@@ -142,6 +138,7 @@ export default class Nav {
   }
 
   onclickProjectItem(event) {
+    event.stopImmediatePropagation();
     event.preventDefault();
 
     this.loadUrl(event.currentTarget);
@@ -173,7 +170,7 @@ export default class Nav {
         return this.modal;
       })
       .then((modal) => {
-        this.hide();
+        if (this.visible) this.hide();
         modal.show();
       })
       .catch((err) => {
@@ -188,7 +185,6 @@ export default class Nav {
 
   ['onmodal:beforeShow'](event) {
     this.updateActiveLink(event);
-    this.registerListeners();
     fitvids();
   }
 
@@ -219,8 +215,10 @@ export default class Nav {
 
       this.projectItems.forEach((item) => {
         item
-          .querySelector('a')
-          .addEventListener('click', this.onclickProjectItem.bind(this));
+          .querySelectorAll('a')
+          .forEach((el) =>
+            el.addEventListener('click', this.onclickProjectItem.bind(this))
+          );
         item.addEventListener(
           'mouseenter',
           this.onmouseenterProjectItem.bind(this),
