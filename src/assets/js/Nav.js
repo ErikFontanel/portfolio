@@ -249,7 +249,7 @@ export default class Nav {
     toggleLabel.textContent = btnToggle.getAttribute('aria-label');
     toggleLabel.nextElementSibling.textContent = '';
     document.querySelector('title').innerText = payoff;
-    history.pushState({}, '', '/');
+    history.pushState({}, '', window.location.origin);
   }
 
   updateActiveLink(detail) {
