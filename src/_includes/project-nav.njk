@@ -1,8 +1,9 @@
 {% set title = client if client else title %}
 
+<a href="{{ '/' | url }}" data-close-modal class="button" aria-hidden="true"></a>
 <nav class="project-nav">
   <h3 class="project-nav--title">{{ title }}</h3>
   <a href="{{ '/' | url }}" class="button button_close button_outline inverted" aria-label="close" data-close-modal>
     <span class="button--label">close</span>
-  </a>
+  </a>  
 </nav>

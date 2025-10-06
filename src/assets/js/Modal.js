@@ -75,9 +75,8 @@ export default class Modal {
     this.el.dataset.visible = true;
     body.dataset.showingModal = true;
 
-    this.el
-      .querySelector('.button[data-close-modal]')
-      ?.addEventListener('click', this.close.bind(this), {
+    this.el.querySelectorAll('.button[data-close-modal]')?.forEach((el) =>
+      el.addEventListener('click', this.close.bind(this), {
         passive: false,
         once: true,
       });
