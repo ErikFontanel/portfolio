@@ -1,5 +1,5 @@
 import EventBus from './EventBus';
-import Carousel from './Carousel.js';
+
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
@@ -54,6 +54,17 @@ export default class Modal {
       frag.innerHTML;
 
     this.pageDetails = { ...dataset, bodyclass: dataset.bodyclass.split(' ') };
+
+    // when the back button is pressed, close the modal
+    window.addEventListener(
+      'popstate',
+      (event) => {
+        if (this.el && this.el.dataset.visible === 'true') {
+          this.close(event);
+        }
+      },
+      { passive: true }
+    );
   }
 
   show() {
@@ -95,8 +106,12 @@ export default class Modal {
       { passive: false, once: true }
     );
 
-    this.el.addEventListener('animationstart', () =>
-      EventBus.emit('modal:beforeShow', { ...this.pageDetails })
+    this.el.addEventListener(
+      'animationstart',
+      () => {
+        EventBus.emit('modal:beforeShow', { ...this.pageDetails });
+      },
+      { passive: true, once: true }
     );
 
     this.el.addEventListener(
