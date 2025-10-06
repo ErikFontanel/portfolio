@@ -4,7 +4,6 @@
 .project-nav {
   @include effect-exclusion;
   mix-blend-mode: exclusion;
-
   position: sticky;
   top: 0;
   padding-top: var(--gutter);
@@ -52,5 +51,22 @@
 
   .modal & {
     top: calc(-2 * var(--gutter));
+  }
+}
+
+.button[data-close-modal][aria-hidden='true'] {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(var(--spacing-block) * 0.25);
+  z-index: 0;
+  opacity: 0;
+  border-radius: 0;
+  cursor: default;
+
+  .modal & {
+    height: calc(var(--spacing-block) * 0.5);
   }
 }

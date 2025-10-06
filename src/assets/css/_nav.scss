@@ -48,13 +48,15 @@ $nav-index: main, projects;
   }
 
   [data-showing-overlay='true'] & {
+    contain-intrinsic-size: auto 100vh;
     pointer-events: auto;
-    background-color: rgba(var(--color-background-overlay-rgb-inverted), 0.5);
-    backdrop-filter: saturate(140%) blur(#{rem(3px)});
+    background-color: rgba(var(--color-background-overlay-rgb-inverted), 0.15);
+    backdrop-filter: saturate(120%) blur(#{rem(4px)});
   }
 
   [data-showing-modal='true'][data-showing-overlay='true'] & {
-    background-color: rgba(var(--color-background-overlay-rgb), 0.5);
+    background-color: rgba(var(--color-background-overlay-rgb), 0.15);
+    backdrop-filter: saturate(140%) blur(#{rem(4px)});
   }
 }
 
@@ -119,19 +121,15 @@ nav {
   z-index: z-index(projects, $nav-index);
   margin-bottom: font-size(extra-small);
   pointer-events: auto;
-  // transition: $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.5);
-  // transition-property: opacity, visibility, transform;
-  // transition-delay: 0.1s;
-  // transform: scale(1) translate3d(0, 0, 0);
   width: 100%;
   order: -1;
   transform-origin: calc(var(--gutter) * 2) 100%;
+  contain: layout paint style;
 
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    // transform: scale(0.8) translate3d(0, 10%, 0);
   }
 
   &__dialog.card {
@@ -147,16 +145,11 @@ nav {
 
   li {
     width: 100%;
-    transform: translate3d(0, 0, 0);
-    transition: background-color $transition-fast, color $transition-fast,
-      opacity $transition-default linear 0.1s,
-      transform $transition-default cubic-bezier(0.5, -0.3, 0.5, 1.33) 0.2s;
     color: $color-ink;
     position: relative;
     padding: 0 calc(var(--gutter) * 0.5);
     display: flex;
     justify-content: stretch;
-    animation-delay: 0.25s;
 
     &:first-child {
       margin-top: calc(var(--gutter) * 0.5);
@@ -216,6 +209,9 @@ nav {
 
 .animation\:fadeInDown {
   animation-name: fadeInDown;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-duration: var(--animation-duration);
 }
 
 @keyframes showDialog {
@@ -235,12 +231,12 @@ nav {
   from {
     visibility: hidden;
     opacity: 0;
-    transform: translate3d(0, -20%, 0);
+    transform: translateY(-10%);
   }
   to {
     visibility: visible;
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 

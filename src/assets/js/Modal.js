@@ -1,5 +1,5 @@
 import EventBus from './EventBus';
-import Carousel from './Carousel.js';
+
 const body = document.body;
 const wrapper = document.querySelector('main.wrapper');
 
@@ -54,6 +54,17 @@ export default class Modal {
       frag.innerHTML;
 
     this.pageDetails = { ...dataset, bodyclass: dataset.bodyclass.split(' ') };
+
+    // when the back button is pressed, close the modal
+    window.addEventListener(
+      'popstate',
+      (event) => {
+        if (this.el && this.el.dataset.visible === 'true') {
+          this.close(event);
+        }
+      },
+      { passive: true }
+    );
   }
 
   show() {
@@ -75,15 +86,32 @@ export default class Modal {
     this.el.dataset.visible = true;
     body.dataset.showingModal = true;
 
-    this.el
-      .querySelector('.button[data-close-modal]')
-      ?.addEventListener('click', this.close.bind(this), {
+    this.el.querySelectorAll('.button[data-close-modal]')?.forEach((el) =>
+      el.addEventListener('click', this.close.bind(this), {
         passive: false,
         once: true,
-      });
+      })
+    );
 
-    this.el.addEventListener('animationstart', () =>
-      EventBus.emit('modal:beforeShow', { ...this.pageDetails })
+    document.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+          if (this.el && this.el.dataset.visible === 'true') {
+            event.stopImmediatePropagation();
+            this.close(event);
+          }
+        }
+      },
+      { passive: false, once: true }
+    );
+
+    this.el.addEventListener(
+      'animationstart',
+      () => {
+        EventBus.emit('modal:beforeShow', { ...this.pageDetails });
+      },
+      { passive: true, once: true }
     );
 
     this.el.addEventListener(
@@ -141,7 +169,7 @@ export default class Modal {
 
         this.destroy();
       },
-      { passive: true, once: true }
+      { passive: false, once: true }
     );
 
     wrapper.addEventListener(

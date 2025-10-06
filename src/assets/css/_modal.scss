@@ -56,7 +56,7 @@ body[data-showing-overlay='true'] {
 [data-showing-modal='true'] {
   > .wrapper {
     transform: scale(0.98);
-    filter: saturate(140%) blur(#{rem(3px)});
+    filter: saturate(140%) blur(#{rem(6px)});
   }
 }
 
@@ -80,7 +80,7 @@ body[data-showing-overlay='true'] {
   }
   to {
     transform: scale(0.98);
-    filter: saturate(60%) blur(#{rem(3px)});
+    filter: saturate(140%) blur(#{rem(6px)});
   }
 }
 
@@ -96,7 +96,7 @@ body[data-showing-overlay='true'] {
 
 @keyframes slideInUp {
   from {
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100vh, 0);
   }
   to {
     transform: none;
