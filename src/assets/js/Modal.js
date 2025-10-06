@@ -79,7 +79,21 @@ export default class Modal {
       el.addEventListener('click', this.close.bind(this), {
         passive: false,
         once: true,
-      });
+      })
+    );
+
+    document.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+          if (this.el && this.el.dataset.visible === 'true') {
+            event.stopImmediatePropagation();
+            this.close(event);
+          }
+        }
+      },
+      { passive: false, once: true }
+    );
 
     this.el.addEventListener('animationstart', () =>
       EventBus.emit('modal:beforeShow', { ...this.pageDetails })
@@ -140,7 +154,7 @@ export default class Modal {
 
         this.destroy();
       },
-      { passive: true, once: true }
+      { passive: false, once: true }
     );
 
     wrapper.addEventListener(

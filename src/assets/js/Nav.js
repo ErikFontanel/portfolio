@@ -82,6 +82,19 @@ export default class Nav {
       },
       { passive: true, once: true }
     );
+
+    document.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+          if (this.el && this.visible === true) {
+            event.stopImmediatePropagation();
+            this.hide(event);
+          }
+        }
+      },
+      { passive: true, once: true }
+    );
   }
 
   hide() {
