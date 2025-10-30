@@ -6,19 +6,22 @@ tags:
   - page
 ---
 
-As a **Digital Product Designer** and **Front-End Developer** I help clients translate their vision and business goals into interactive digital products through an interdisciplinary understanding of design, development and strategy.
+As a **Digital Product Designer** and **Design Engineer**, I help organisations translate their vision and business goals into interactive, scalable digital products.  
+I work at the intersection of **design, technology, and strategy**, ensuring that ideas not only look great but can also be built, shipped, and maintained efficiently.
 
-In everything I do, I'm interested in how design and technology can intersect to create the best possible outcome for the user and the business.
+In everything I do, I'm driven by how design and technology intersect to create the best possible outcomes for users and the business.
 
 ::: section
 
 ## What I Do
 
-My main focus is **digital product design**. I like to fulfil an architect like role, being the translator between the designers intent, the developer's technical implementation, the user's experience and the business' goals.
+My main focus is **digital product design**. I often act as a bridge between **design and engineering**, translating user needs, design intent, and technical realities into scalable interfaces and component libraries to meet the business' goals and deliver the best user experience.
 
-I create concepts, architect user flows and design interfaces. I lead design teams, setup interdisciplinary workflows, scaled design systems, hold workshops, and coaching and training of your designers.
+I create concepts, architect user flows, design interfaces and build the systems that support them. I lead design teams, establish cross-disciplinary workflows, scale design systems, and facilitate workshops, coaching and mentoring designers to work more effectively with engineering.
 
-Though my focus is design, I have deep front-end experience, especially in crafting responsive, high-performance interfaces with HTML, CSS, and JavaScript. I’m well-versed in browser quirks, performance tuning, Linux environments, and version control.
+While my focus is design, I’m hands-on in front-end implementation — building **responsive, accessible, high-performance interfaces** using **HTML, CSS, JavaScript, and Vue3**, often supported by **Storybook** for documentation and testing.
+
+This technical fluency allows me to prototype quickly, validate ideas early, and ensure a seamless handoff to engineering.
 
 {# {% canvas name='blobs' %} #}
 
@@ -27,47 +30,51 @@ Though my focus is design, I have deep front-end experience, especially in craft
 
 ## My capabilities
 
-I'm working at the intersection of the following disciplines:
+I operate at the intersection of the following disciplines:
 
 <div class="col">
 
 ### Digital Product Design
 
-- UX Design
-- Design Ops
+- End-to-end UX Design
+- UI Design (iOS, aOS & web)
 - Information Architecture
-- UI Design
+- Design System Architecture & Governance
+- Figma Libraries & Documentation
+- Component Workflows (Storybook, Vue3)
 
 </div>
 <div class="col">
 
-### Front-end Development
+### Front-End Development
 
-- Semantic HTML & responsive CSS
-- Javascript (vanilla & VueJS)
-- Prototyping
+- Semantic HTML & Responsive CSS
+- JavaScript (Vanilla & Vue3)
+- Prototyping & Rapid Validation
 
 </div>
 <div class="col">
 
 ### Strategy & Management
 
-- Concept Development
-- Consulting
+- Product & Concept Development
+- Cross-functional Process Design
 - Training & Workshops
+- Consulting on Design–Engineering Alignment
 
 </div>
 :::
 ::: section
 
-## We should work together if
+## We Should Work Together If
 
-- You are a start-up that just got funded and is ready to scale
+- You are a start-up ready to scale
 - You want more revenue
-- You want a better collaboration between your organisation's internal design and development teams
+- You want tighter collaboration between design and engineering teams.
+- You’re building a product that needs to move fast while maintaining quality.
 - You have an idea, a budget and a team but don't know where to start
-- You want to create a digital product with a great user experience
+- You value thoughtful, system-driven design that balances usability, scalability, and performance.
 
-{% button label = 'Let\'s collaborate', url = 'mailto:hello@erikgelderblom.com', size = 'large' %}
+{% button label = "Let\'s collaborate", url = "mailto:hello@erikgelderblom.com", size = "large" %}
 
 :::
