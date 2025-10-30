@@ -7,7 +7,6 @@
     <title>{{ renderData.title or title }} | {{ metadata.title }}</title>
     <meta name="description" content="{{ metadata.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="manifest" href="{{ '/site.webmanifest' }}">
     <link rel="apple-touch-icon" href="{{ '/favicon.svg' }}">
     <link rel="alternate icon" href="{{ '/favicon.ico' }}">
@@ -15,42 +14,41 @@
     <link rel="preload" as="font" href="/fonts/Inter.var.woff2" type="font/woff2" crossorigin="">
     
     {% block head %}{% endblock %}
-
+    
     {% if env.environment === 'production' %}
       <link rel="preload" as="style" href="{{ cssPath }}">
       <link rel="stylesheet" media="print" href="{{ cssPath }}" onload="this.media='all';">
     {% else %}
       <link rel="stylesheet" href="{{ '/assets/css/app.scss' }}" crossorigin="">
     {% endif %}
-
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
-    <meta name="description" content="For over 15 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
-
+    <meta name="title" content="Erik Gelderblom - Freelance Product Designer and Design Engineer based in Rotterdam, The Netherlands">
+    <meta name="description" content="For over 15 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products."> 
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.url | url }}">
     <meta property="og:author" content="Erik Gelderblom">
-    <meta property="og:title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
+    <meta property="og:title" content="Erik Gelderblom - Freelance Product Designer and Design Engineer based in Rotterdam, The Netherlands">
     <meta property="og:description" content="For over 15 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
     <meta property="og:image" name="image" content="{{ "https://erikgelderblom.com/ogimage.png" | url }}">
-
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ page.url | url }}">
-    <meta property="twitter:title" content="Erik Gelderblom - Freelance Product Designer and front-end developer based in Rotterdam, The Netherlands">
+    <meta property="twitter:title"
+      content="Erik Gelderblom - Freelance Product Designer and Design Engineer based in Rotterdam, The Netherlands">
     <meta property="twitter:description" content="For over 15 years I've been working professionally for clients on projects varying from corporate websites, campaign websites, e-commerce platforms, social campaigns, mobile apps and digital products.">
     <meta property="twitter:image" name="image" content="{{ "https://erikgelderblom.com/ogimage.png" | url }}">
-
     <meta name="theme-color" content="{{ metadata.theme_color }}">
   </head>
-  <body class="{%- block bodyClass -%}{%- endblock %} {{- page.data.tags[0] -}} {{- page.data.page_layout -}}">
 
+  <body class="{%- block bodyClass -%}{%- endblock %} {{- page.data.tags[0] -}} {{- page.data.page_layout -}}">
     {% block nav %}
       {% include "nav.njk" %}
     {% endblock %}
-    <main class="wrapper grid" data-slug="{{ page.fileSlug }}" data-url="{{ page.url }}" data-title="{{ client if client else title }}" data-type="{{ page.filePathStem|taxonomy }}" data-bodyclass="{% block mainClass -%}{%- endblock -%}">
 
+    <main class="wrapper grid" data-slug="{{ page.fileSlug }}" data-url="{{ page.url }}" data-title="{{ client if client else title }}" data-type="{{ page.filePathStem|taxonomy }}" data-bodyclass="{% block mainClass -%}{%- endblock -%}">
       {% block main %}
         {{ content | safe }}
       {% endblock %}
