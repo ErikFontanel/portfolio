@@ -136,6 +136,13 @@ $button-border-active: inset 0 0px 6px 0 var(--button-active-border-color),
     &:hover {
       --button-background-color: #{color.scale($color-primary, $lightness: -5%)};
     }
+
+    &:active {
+      --button-background-color: #{color.scale(
+        $color-primary,
+        $lightness: 20%)
+      }
+    }
   }
 }
 

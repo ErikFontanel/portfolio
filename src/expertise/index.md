@@ -75,6 +75,6 @@ I operate at the intersection of the following disciplines:
 - You have an idea, a budget and a team but don't know where to start
 - You value thoughtful, system-driven design that balances usability, scalability, and performance.
 
-{% button label = "Let\'s collaborate", url = "mailto:hello@erikgelderblom.com", size = "large" %}
+{% button label = "Let\'s collaborate", url = "mailto:hello@erikgelderblom.com", size = "large", inverted = true %}
 
 :::
