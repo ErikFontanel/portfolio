@@ -6,7 +6,8 @@ tags:
   - page
 ---
 
-As a **Digital Product Designer** and **Design Engineer**, I help organisations translate their vision and business goals into interactive, scalable digital products.  
+As a **Digital Product Designer** and **Design Engineer**, I help organisations translate their vision and business goals into interactive, scalable digital products.
+
 I work at the intersection of **design, technology, and strategy**, ensuring that ideas not only look great but can also be built, shipped, and maintained efficiently.
 
 In everything I do, I'm driven by how design and technology intersect to create the best possible outcomes for users and the business.
@@ -69,7 +70,6 @@ I operate at the intersection of the following disciplines:
 ## We Should Work Together If
 
 - You are a start-up ready to scale
-- You want more revenue
 - You want tighter collaboration between design and engineering teams.
 - You’re building a product that needs to move fast while maintaining quality.
 - You have an idea, a budget and a team but don't know where to start
