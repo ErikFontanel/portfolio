@@ -7,7 +7,7 @@ logo: logo-aceandtate.svg
 tags:
   - project
   - e-commerce
-  - ux design
+  - product design
   - design ops
   - website
 list_layout: portrait:2-col
@@ -15,22 +15,21 @@ role: Design Lead
 team: 'Jordi van der Oord, Joram van den Boezem, Ace & Tate'
 ---
 
-For the rapidly growing direct-to-consumer eyewear company Ace & Tate I designed their new e-commerce platform. A mobile first user experience supporting the Ace & Tate brand proposition: Affordable and fashionable glasses for any outfit and any occassion. Helping people buy a product that is normally perceived as a medical device, expensive and cumbersome to buy especially online.
+For the fast-growing direct-to-consumer eyewear company Ace & Tate, I led the design of their new e-commerce platform. A mobile-first shopping experience that embodies the brand’s promise: affordable, fashionable eyewear for every style and any occasion. Helping peopple buy a product that is normally perceived as a medical device, expensive and cumbersome to buy–especially online.
 
 {% gallery {css: 'full-width'} %}
 {% image 'at-main1.png' %}
 {% endgallery %}
 
-At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https://aceandtate.com). Within just three years after founding the company, they opened two stores in Amsterdam, one in Utrecht and a pop-up in Rotterdam. But as a direct-to-consumer brand, e-commerce plays a vital role in the business model. Their current website couldn't keep up anymore with the chaning company and rapid growth.
+When I joined in 2016, Ace & Tate was about to expand from two to several retail stores across the Netherlands. As a D2C brand, e-commerce was a crucial growth channel, but their existing website couldn’t scale with the company’s ambitions. CEO Mark de Lange reached out to reimagine their digital experience, one that could support global growth while staying true to the brand’s clean, confident voice.
 
 {% list "Objectives" %}
 
-- New design to fit the brand and replace the old generic design
-- Easier to use product configuration
-- Higher conversion, lower friction during checkout
-- Inspire customers through look books and (seasonal) campaigns
-- Store finder for all the new stores to be opened
-- Increasing the brand value of Ace & Tate
+- Redesign the platform to reflect the Ace & Tate brand and replace the outdated UI.
+- Simplify product configuration and reduce friction at checkout.
+- Inspire customers through lookbooks, storytelling, and seasonal campaigns.
+- Integrate a store finder for new physical locations.
+- Strengthen brand recognition and improve conversion rates.
 
 {% endlist %}
 
@@ -56,11 +55,9 @@ At the end of 2016 I was approached by Mark de Lange, CEO of [Ace & Tate](https:
 
 </div>
 
-A mobile first driven experience, that not only inspires but also creates context around the product with high quality photography of the glasses being worn by people with all types of faces
+I led design for the complete platform redesign, shaping the concept, architecture, and user experience from end to end. The new site is mobile-first, blending inspiration and utility. Rather than the typical “grid of frames,” we designed context-driven browsing — allowing users to explore by style, release, or occasion instead of static categories. This approach mirrored the in-store experience, where customers discover eyewear that fits their personality, not just a filter set.
 
-Non-hierarchical way of browsing the collection by not only filtering on properties (gender, color, material) but also tags or taxonomy (style, release, occasion etc). No more 'white wall' filled with every frame in every color, telling the user 'this is all we offer, good luck'.
-
-A smooth and easy configuration a newly designed product configurator.
+We introduced a non-hierarchical way of browsing the collection by not only filtering on properties (gender, color, material) but also tags or taxonomy (style, release, occasion etc). No more 'white wall' filled with every frame in every color, telling the user 'this is all we offer, good luck'.
 
 {% gallery {
   caption: 'The new photography shows the frames being worn on a wide variety of faces',
@@ -70,7 +67,7 @@ A smooth and easy configuration a newly designed product configurator.
 {% image 'at-main3.jpg', 'Ace & Tate Product Photography' %}
 {% endgallery %}
 
-New high resolution pack shots to showcase the quality of the frames but are also recognisable as Ace & Tate when out of context, ie. shared on platforms like Instagram and Pinterest.
+An experience that not only inspires, but also creates context around the product by using high quality photography of the glasses being worn by people with all types of faces.
 
 {% gallery {
   css: 'grid:3'
@@ -78,7 +75,7 @@ New high resolution pack shots to showcase the quality of the frames but are als
 {% image 'at-main4.jpg' %}
 {% endgallery %}
 
-A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
+New high resolution pack shots to showcase the quality of the frames but are also recognisable as Ace & Tate when out of context, ie. shared on platforms like Instagram and Pinterest.
 
 <div class="block grid:main">
 
@@ -94,6 +91,8 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
 
 </div>
 
+A clear check-out optimised for conversion through a clear, stepped design. The steps are specifically ordered to ask only the absolute necessary information for a transaction as soon as possible so that a sale can be finalised with the help of customer service if necessary.
+
 {% gallery {
   css: 'devices full-width',
   caption: 'Checkout and customer dashboard'
@@ -101,6 +100,10 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
 {% image 'at-checkout.png', 'Ace & Tate Checkout' %}
 {% image 'at-dashboard.png', 'Ace & Tate Customer Dashboard' %}
 {% endgallery %}
+
+To support rapid scaling, I established a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com), connecting design and development seamlessly.
+
+We grew the team from one designer and two developers to three designers and six developers, embedding design ops practices that supported the brand’s ongoing digital expansion.
 
 {% list "Results" %}
 
@@ -115,4 +118,4 @@ A clear check-out optimised for conversion through a clear, stepped design. The 
 
 {% endlist %}
 
-&rarr; https://aceandtate.com/
+&rarr; [aceandtate.com](https://aceandtate.com/)
