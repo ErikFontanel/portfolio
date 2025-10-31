@@ -14,7 +14,7 @@ role: Product Design Lead
 team: Sanne Wijbenga, Nan Damhuis, Evan Kluin, Rick de Hoop, and the Cloom team
 ---
 
-Cloom is a start-up offering live group workouts with real trainers — from the comfort of home. I joined as Product Design Lead to design the online fitness experience, define the product’s UX foundations, and set up a scalable design workflow and design system.
+Cloom is a start-up offering live group workouts with real trainers, from the comfort of your home. I joined as Product Design Lead to design the online fitness experience, define the product’s UX foundations, and set up a scalable design workflow and design system.
 
 {% gallery {
   css: 'full-width',

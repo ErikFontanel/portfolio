@@ -17,7 +17,9 @@ single_layout: 'landscape:2-col'
 single_thumbnail: close1.png
 ---
 
-For event marketing automation start-up Close, I designed the user experience for the web app, established a collaborative design workflow and design system, and contributed directly to the front-end implementation.
+Close is the marketing automation and communication app for event organizers offering hyper-personalised mobile messaging journeys at scale, with the flexibility that event organizers deserve.
+
+I designed the user experience for the web app, established a collaborative design workflow and design system, and contributed directly to the front-end implementation.
 
 @[youtube](https://www.youtube.com/watch?v=254V6LXDePc)
 
@@ -45,7 +47,7 @@ I joined to lead product design for the Close web app, working closely with engi
 {% list "Results" %}
 During the year and a half-long collaboration, I was responsible for:
 
-- designing the event organizer experience — from concept to full UX
+- designing the event organizer experience, from concept to full UX
 - defining the information architecture for the Close ecosystem
 - setting up a collaborative design workflow with [Abstract](https://getabstract.com) and [Sketch](https://sketch.com).
 - overseeing front-end implementation with a team of five developers (3 back-end, 1 front-end, 1 tech lead).

@@ -31,7 +31,7 @@ As Senior Product Designer, I led design for the new platform across web, iOS, a
 
 {% endgallery %}
 
-Leading product design for the new platform across web, iOS, and Android, I collaborated with an international team spanning three continents. My responsibilities included designing the product, conducting user testing, and architecting vendor integrations to ensure a seamless experience for Nike editors and members worldwide. My role combined product design leadership, design engineering, and cross-functional coordination with engineering and marketing teams throughtout the organization to align on delivering the best possible consumer experience.
+Leading product design for the new platform across web, iOS, and Android, I collaborated with an international team spanning three continents. My responsibilities included designing the product, conducting user testing, and architecting vendor integrations to ensure a seamless experience for Nike editors and members worldwide. My role combined product design leadership, design engineering, and cross-functional coordination with engineering and marketing teams throughout the organization to align on delivering the best possible consumer experience.
 
 {% list "Objectives" %}
 
