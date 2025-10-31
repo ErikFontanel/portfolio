@@ -2,13 +2,13 @@
 thumbnail: close-thumb.png
 client: Close
 date: 2020-01-01
-title: A SaaS platform for an event marketing messaging start-up
+title: A SaaS platform for event marketing automation
 tags:
   - project
   - product design
   - ux design
   - front-end development
-  - design ops
+  - design engineering
   - app
   - website
 role: Product Design Lead
@@ -17,22 +17,24 @@ single_layout: 'landscape:2-col'
 single_thumbnail: close1.png
 ---
 
-For event marketing start-up Close I designed the UX for the Close web app, set up a design workflow and -system and worked on the implementation of the front-end.
+For event marketing automation start-up Close, I designed the user experience for the web app, established a collaborative design workflow and design system, and contributed directly to the front-end implementation.
 
 @[youtube](https://www.youtube.com/watch?v=254V6LXDePc)
 
-Close connects people with events in new and exciting ways; before, during and after the event. When someone goes to an event powered by Close, they receive ticket(s) in the Close app, enriched through messaging with exclusive content, personal offers and the latest updates from the event. These conversations are pre-built automated flows which sent messages by various triggers and conditions like days remaining until the event, group size, responses etc.
+Close connects people with events in new and exciting ways; before, during, and after the event. Event attendees receive tickets in the Close app, enhanced by automated, personalized messaging: exclusive content, offers, and live updates. These conversations are powered by automated message flows, triggered by dynamic conditions such as time to event, group size, or attendee responses. Think Instagram Broadcast channels „avant la lettre”.
 
-The mobile app for the event visitors is powered by a web app (SPA), used by the event organizer. The web app is the beating heart for the customers of Close. It's the place where they can manage their ticket sales, attendees, upsells, and of course a flow editor to build the interactive flows in a user friendly way.
+The web app is the core tool for event organizers. It’s where they manage ticket sales, attendees, upsells, and design their own message flows using an intuitive editor. This web app serves as the operational heart of the platform.
 
 {% gallery {
   css: 'full-width grid:3',
-  caption: "Event owners can customize the look of the mobile apps through the Close management dashboard"
+  caption: "Event owners can customize the look of their mobile apps through the Close management dashboard."
 } %}
 {% image 'close3.png' %}
 {% endgallery %}
 
-At the end of 2018 the super ambitious but then still small Close team just raised their first round of funding with their MVP and they were looking for reinforcements of the team to grow the company. They reached out to me for the UX design for the Close web app.
+In late 2018, Close had just raised its first funding round and was ready to evolve beyond its MVP. The small but ambitious team needed a product designer who could shape the UX, set up design operations, and bridge design and development to accelerate delivery.
+
+I joined to lead product design for the Close web app, working closely with engineering and product leadership.
 
 {% gallery {
   css: 'full-width grid:scroll'
@@ -41,24 +43,21 @@ At the end of 2018 the super ambitious but then still small Close team just rais
 {% endgallery %}
 
 {% list "Results" %}
-In the period of a year I did many things:
+During the year and a half-long collaboration, I was responsible for:
 
-- designed the concept for the event organiser experience
-- designed the information architecture of the Close ecosystem
-- designed the UX of the web app, using the excellent [Polaris Design System](https://polaris.shopify.com/) by [Shopify](https://shopify.com) to save resources and time
-- set-up a collaborative design workflow using [Abstract](https://getabstract.com) and [Sketch](https://sketch.com)
-- oversaw the front-end implementation with a team of (eventually) 5 developers: 3 back-end, 1 front-end and 1 tech lead.
-- made 338 commits myself to the front-end code
-- designed, implemented and tested components that make up the design system using [Sketch](https://sketch.com) and [Storybook](https://storybook.js.org/)
+- designing the event organizer experience — from concept to full UX
+- defining the information architecture for the Close ecosystem
+- setting up a collaborative design workflow with [Abstract](https://getabstract.com) and [Sketch](https://sketch.com).
+- overseeing front-end implementation with a team of five developers (3 back-end, 1 front-end, 1 tech lead).
+- making 338 direct commits to the front-end codebase.
+- designing, implementing, and testing component-based UI using [Sketch](https://sketch.com) and [Storybook](https://storybook.js.org/), and [VueJS](https://vuejs.org) establishing the foundation for a scalable design system.
+- helped Close mature from MVP to a scalable SaaS platform ready for growth.
+  {% endlist %}
 
-{% endlist %}
-
-&rarr; https://thecloseapp.com/
+&rarr; [thecloseapp.com](https://thecloseapp.com)
 
 <div class="block gallery grid:close grid:wide grid:scroll">
-
 {% image 'close4.png' %}
 {% image 'close5.png' %}
 {% image 'close6.png' %}
-
 </div>
