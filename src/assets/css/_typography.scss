@@ -107,11 +107,17 @@ p {
 }
 
 em {
-  --inter-font-slant: -5;
+  --inter-font-slant: -7;
+
+  font-variation-settings: 'wght' var(--inter-font-weight),
+      'slnt' var(--inter-font-slant);
 }
 
 strong {
   --inter-font-weight: 450;
+
+  font-variation-settings: 'wght' var(--inter-font-weight),
+      'slnt' var(--inter-font-slant);
 }
 
 ul,

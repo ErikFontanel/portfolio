@@ -93,7 +93,7 @@
 
 @mixin text-style-medium {
   font-family: $font-stack-base;
-  font-weight: 400;
+  font-weight: var(--inter-font-weight);
   font-style: normal;
   font-size: font-size(medium);
   line-height: line-height(medium);
