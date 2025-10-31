@@ -17,7 +17,9 @@ role: Senior Product Designer
 team: 'Aaron Braun, Eric Burman, Jacqueline Hong, Kas Eelman'
 ---
 
-The Nike Community Experiences platform empowers members to discover and participate in exclusive events, such as athlete meet-and-greets, workshops, and flagship gatherings. I designed the new platform that simplifies event discovery for consumers and event management and ticketing for Nike employees.
+The Nike Community Experiences Platform empowers Nike Members to discover and participate in exclusive events, from athlete meet-and-greets to workshops and flagship activations.
+
+As Senior Product Designer, I led design for the new platform across web, iOS, and Android, improving event discovery for members and streamlining event management and on-site event hosting for Nike employees.
 
 {% gallery {
   css: 'full-width grid:wide grid:3c'
@@ -29,19 +31,21 @@ The Nike Community Experiences platform empowers members to discover and partici
 
 {% endgallery %}
 
-Leading product design for the new platform across web, iOS, and Android, I collaborated with an international team spanning three continents. My responsibilities included designing the product, conducting user testing, and architecting vendor integrations to ensure a seamless experience for Nike editors and members worldwide. I worked closely with stakeholders throughout the organization to align on delivering the best possible consumer experience.
+Leading product design for the new platform across web, iOS, and Android, I collaborated with an international team spanning three continents. My responsibilities included designing the product, conducting user testing, and architecting vendor integrations to ensure a seamless experience for Nike editors and members worldwide. My role combined product design leadership, design engineering, and cross-functional coordination with engineering and marketing teams throughtout the organization to align on delivering the best possible consumer experience.
 
 {% list "Objectives" %}
 
-- New design according to the Nike design system.
-- Global audience, support for many languages and locales.
-- Focus on accessibility according to ADA Accessibility Standards.
-- Frictionless on-site experience members and Nike employees
-- Improve event discovery and registration for Nike members
+- Redesign event management and discovery within the Nike design system.
+- Support a global audience, covering multiple languages and locales.
+- Improve accessibility in line with ADA standards.
+- Enable frictionless check-ins and reliable on-site experiences.
+- Empower Nike marketing teams to create event pages without external developers.
 
 {% endlist %}
 
-After joining an event, each member receives a digital ticket for admission. Previously, connectivity issues at many locations made ticket scanning slow and unreliable, often forcing employees to manually check in members and causing long queues. To solve this, we developed a dedicated scanning app that caches the attendee list offline, enabling fast and seamless check-ins regardless of network reception.
+After joining an event, members received a digital ticket for entry. However, poor network connectivity at venues made ticket scanning unreliable, often causing long queues.
+
+To solve this, I worked with engineers to design a dedicated scanning app that cached attendee lists offline, ensuring instant, reliable check-ins, even without a network connection.
 
 {% gallery {
  css: 'full-width grid:scroll',
@@ -52,18 +56,19 @@ After joining an event, each member receives a digital ticket for admission. Pre
 
 {% endgallery %}
 
-For major Nike moments such as the Nike Well Festival and the Centre Pompidou takeover during the Paris 2024 Olympics, I designed dedicated event pages integrated with the new Community Experiences Platform. These pages showcased event details, schedules, and ticket registration. This new capabilty empowers Nike Marketing teams to create custom event experiences in-house, eliminating the need to hire external agencies for bespoke development.
+Following the successful launch of the CXP platform, Nike’s marketing team used it for large-scale brand moments like the Nike Well Festival and Art of Victory exhibition during the Paris 2024 Olympics.
+
+For these events, I designed dedicated microsites integrated with CXP.  
+These pages showcased schedules, ticketing, and artist information — empowering internal teams to create rich event experiences without external agencies.
 
 {% gallery {
   css: 'full-width grid:scroll',
   caption: "Various UI elements designed for Nike Well Festival"
 } %}
-
 {% image 'nike-wf1.png', 'Nike Well Festival', 'full' %}
-
 {% endgallery %}
 
-The Nike Well Festival is a one-of-a-kind, live experience that unites the mind and body through sport, fitness and wellness. Allowing members of the Nike community to experience the future of movement, mindfulness, nutrition, rest and connection with NWC Experts, Trainers, Instructors, and Coaches — IRL and all in one place. Connect with the collective through immersive opportunities that encourages them to reimagine movement and inspire them to pursue a life well lived.
+The Nike Well Festival is a one-of-a-kind, live experience that unites the mind and body through sport, fitness and wellness. Allowing members of the Nike community to experience the future of movement, mindfulness, nutrition, rest and connection with NWC Experts, Trainers, Instructors, and Coaches. IRL and all in one place. Connect with the collective through immersive opportunities that encourages them to reimagine movement and inspire them to pursue a life well lived.
 
 {% gallery {
  css: 'full-width grid:wide grid:3c'
@@ -75,7 +80,7 @@ The Nike Well Festival is a one-of-a-kind, live experience that unites the mind 
 
 {% endgallery %}
 
-The marketing team reached out to see if we could help them out with the event and registration, right after we launched the 1.0 release of the CXP platform. As a pilot, to learn where we could take the new platform, I designed a dedicated micro-site through which people could buy tickets for the festival, see the schedule, learn more about the performing artists and participating Nike athletes.
+The platform enabled ticketing, live scheduling, and engagement throughout the event.
 
 {% gallery {
   css: 'full-width grid:scroll',
@@ -99,15 +104,15 @@ During the Paris '24 Summer Olympics, Nike partnered with the city’s contempor
 
 The Centre Pompidou gave home to the ‘Art of Victory’ exhibition, showcasing the evolution of Air to look towards the future, telling the story of how Nike helps athletes win. I designed a dedicated micro-site through which people could sign-up for the Art of Victory exhibition and other special events which were announced on the platform.
 
-### Other work
+### Other Work
 
-Unfortunately I can't show all my work for Nike. I worked on multiple research projects and I created a Figma plugin that streamlines importing the latest Nike products directly in Figma, saving teams a lot of time.
+Beyond the CXP platform, I contributed to several Nike research projects and created a custom Figma plugin to import product data directly from Nike’s internal systems — significantly reducing design team workload and improving workflow efficiency.
 
 {% list "Results" %}
 
-- Increased member sign-ups
-- Increased event attendance
-- Frictionless check-ins
-- Enabled on-platform support for big Nike moments
+- Reducing costs with a platform that scales across global campaigns and flagship events.
+- Increased member sign-ups and event attendance.
+- Enabled frictionless check-ins with the offline scanning app.
+- Created internal tooling that reduced design team friction.
 
 {% endlist %}
