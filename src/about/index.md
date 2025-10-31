@@ -15,6 +15,6 @@ I specialise in digital product design, translating vision, technical constraint
 
 Though design is my primary focus, I’m also hands-on in **front-end development**, building responsive, accessible, and high-performance interfaces with **HTML, CSS, JavaScript, and Vue3**. This technical background allows me to prototype quickly, validate ideas early, and ensure the integrity of design systems as they move into production.
 
-My ideal role is one where I act as the **translator between design, technology, and business** — connecting vision to execution. I thrive in cross-functional teams where design and engineering collaborate closely to ship products that are both elegant and efficient.
+My ideal role is one where I act as the **translator between design, technology, and business**, connecting vision to execution. I thrive in cross-functional teams where design and engineering collaborate closely to ship products that are both elegant and efficient.
 
-I’ve been fascinated by digital possibilities since I first touched a computer when I was four. By sixth grade, I had built my first website shortly after getting internet acccess at home. Years later, I founded [Fontanel](/work/fontanel), a side project that grew into one of the Netherlands’ leading platforms for creative talent, events, and jobs.
+I’ve been fascinated by digital possibilities since I first touched a computer when I was four years old. By sixth grade, I had built my first website shortly after getting internet access at home. Years later, I founded [Fontanel](/work/fontanel), a side project that grew into one of the Netherlands’ leading platforms for creative talent, events, and jobs.
